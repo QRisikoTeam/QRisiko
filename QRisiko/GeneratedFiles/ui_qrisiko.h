@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'qrisiko.ui'
 **
-** Created: Thu 5. Apr 14:10:25 2012
+** Created: Fri 6. Apr 17:53:06 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
