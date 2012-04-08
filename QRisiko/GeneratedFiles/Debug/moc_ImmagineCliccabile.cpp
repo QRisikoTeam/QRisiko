@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ImmagineCliccabile.h'
 **
-** Created: Fri 6. Apr 17:55:36 2012
+** Created: Sun 8. Apr 21:17:03 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

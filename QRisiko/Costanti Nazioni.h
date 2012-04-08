@@ -1,7 +1,22 @@
 #ifndef COSTANTI_NAZIONI_H
 #define COSTANTI_NAZIONI_H
+#include <qpoint.h>
+#include <QSize>
+#include <QString>
+#include <QRect>
+
+class SizPos{
+	QSize sz;
+	QPoint pt;
+public:
+	SizPos(int w, int a, int x, int y): sz(w,a), pt(x,y){}
+	QSize dimensione() const {return sz;}
+	QPoint posizione() const {return pt;}
+	QRect rettangolo() const {return QRect(pt,sz);}
+};
 
 namespace ID_Stati{
+	const short num_stati=42;
 	const short nullo =-1;
 	//Asia
 	const short giappone=0;
@@ -52,66 +67,209 @@ namespace ID_Stati{
 	const short alaska=40;
 	const short territori_del_nord_ovest=41;
 	//Funzioni di Riconoscimento
-	bool isAsia(int stato){return (stato>=0 && stato<=11)}
-	bool isOceania(int stato){return (stato>=12 && stato<=15)}
-	bool isAfrica(int stato){return (stato>=16 && stato<=21)}
-	bool isEuropa(int stato){return (stato>=22 && stato<=28)}
-	bool isSudAmerica(int stato){return (stato>=29 && stato<=32)}
-	bool isNordAmerica(int stato){return (stato>=33 && stato<=41)}
+	/*bool isAsia(int stato){return (stato>=0 && stato<=11);}
+	bool isOceania(int stato){return (stato>=12 && stato<=15);}
+	bool isAfrica(int stato){return (stato>=16 && stato<=21);}
+	bool isEuropa(int stato){return (stato>=22 && stato<=28);}
+	bool isSudAmerica(int stato){return (stato>=29 && stato<=32);}
+	bool isNordAmerica(int stato){return (stato>=33 && stato<=41);}*/
+	const QString Nomi_Stati[ID_Stati::num_stati]={
+		//Asia
+		"giappone",
+		"afganistan",
+		"urali",
+		"siberia",
+		"jacuzia",
+		"kamchatka",
+		"cita",
+		"mongolia",
+		"cina",
+		"medio oriente",
+		"india",
+		"siam",
+		//Oceania
+		"australia orientale",
+		"australia occidentale",
+		"nuova guinea",
+		"indonesia",
+		//Africa
+		"egitto",
+		"africa del nord",
+		"africa del sud",
+		"africa orientale",
+		"congo",
+		"madagascar",
+		//Europa
+		"europa meridionale",
+		"europa settentrionale",
+		"europa occidentale",
+		"gran bretagna",
+		"scandinavia",
+		"islanda",
+		"ucraina",
+		//Sud America
+		"brasile",
+		"argentina",
+		"venezuela",
+		"peru.png",
+		//Nord America
+		"america centrale",
+		"stati uniti occidentali",
+		"stati uniti orientali",
+		"quebec",
+		"ontario",
+		"alberta",
+		"groenlandia",
+		"alaska",
+		"territori dell'ovest"
+	};
+	const SizPos PosData_Stati[ID_Stati::num_stati]={
+		//Asia
+		SizPos(41,92,899,107),
+		SizPos(114,103,618,79),
+		SizPos(89,104,648,41),
+		SizPos(118,110,664,25),
+		SizPos(157,62,760,37),
+		SizPos(117,103,866,50),
+		SizPos(168,52,725,81),
+		SizPos(157,76,746,109),
+		SizPos(177,124,713,126),
+		SizPos(131,118,558,153),
+		SizPos(130,132,674,168),
+		SizPos(65,110,789,207),
+		//Oceania
+		SizPos(78,110,920,364),
+		SizPos(107,120,855,377),
+		SizPos(77,42,931,323),
+		SizPos(112,116,806,248),
+		//Africa
+		SizPos(91,55,503,189),
+		SizPos(146,143,410,173),
+		SizPos(103,117,511,344),
+		SizPos(104,140,546,230),
+		SizPos(80,99,501,277),
+		SizPos(28,55,619,370),
+		//Europa
+		SizPos(76,58,492,124),
+		SizPos(67,41,482,94),//Europa Settentrionale
+		SizPos(59,60,441,119),
+		SizPos(37,33,444,90),
+		SizPos(74,60,491,46),
+		SizPos(39,20,409,71),
+		SizPos(126,119,537,50),
+		//Sud America
+		SizPos(138,156,211,300),
+		SizPos(68,149,226,392),
+		SizPos(98,67,191,272),
+		SizPos(103,117,183,316),
+		//Nord America
+		SizPos(121,102,78,191),
+		SizPos(116,86,68,121),
+		SizPos(133,94,129,128),
+		SizPos(78,74,232,75),
+		SizPos(61,72,174,83),
+		SizPos(88,44,87,83),
+		SizPos(255,75,203,10),
+		SizPos(117,60,5,45),
+		SizPos(143,55,82,35)
+	};
+	const QString img_Stati[ID_Stati::num_stati]={
+		//Asia
+		":/Stati/giappone.png",
+		":/Stati/afganistan.png",
+		":/Stati/urali.png",
+		":/Stati/siberia.png",
+		":/Stati/jacuzia.png",
+		":/Stati/kamchatka.png",
+		":/Stati/cita.png",
+		":/Stati/mongolia.png",
+		":/Stati/cina.png",
+		":/Stati/medio oriente.png",
+		":/Stati/india.png",
+		":/Stati/siam.png",
+		//Oceania
+		":/Stati/australia orientale.png",
+		":/Stati/australia occidentale.png",
+		":/Stati/nuova guinea.png",
+		":/Stati/indonesia.png",
+		//Africa
+		":/Stati/egitto.png",
+		":/Stati/africa del nord.png",
+		":/Stati/africa del sud.png",
+		":/Stati/africa orientale.png",
+		":/Stati/congo.png",
+		":/Stati/madagascar.png",
+		//Europa
+		":/Stati/europa meridionale.png",
+		":/Stati/europa settentrionale.png",
+		":/Stati/europa occidentale.png",
+		":/Stati/gran bretagna.png",
+		":/Stati/scandinavia.png",
+		":/Stati/islanda.png",
+		":/Stati/ucraina.png",
+		//Sud America
+		":/Stati/brasile.png",
+		":/Stati/argentina.png",
+		":/Stati/venezuela.png",
+		":/Stati/peru.png",
+		//Nord America
+		":/Stati/america centrale.png",
+		":/Stati/stati uniti occidentali.png",
+		":/Stati/stati uniti orientali.png",
+		":/Stati/quebec.png",
+		":/Stati/ontario.png",
+		":/Stati/alberta.png",
+		":/Stati/groenlandia.png",
+		":/Stati/alaska.png",
+		":/Stati/territori dell'ovest.png"
+	};
 }
 
-class SizPos{
-	public:
-		int larg;
-		int alt;
-		int x;
-		int y;
-		int ID;
-		SizPos(int w, int a, int px, int py, int iden): larg(w), alt(a), x(px), y(py), iden(ID){}
-};
-
-const SizPos sp_mappa(1024,574,0,0,ID_Stati::nullo);
-const SizPos sp_afganistan(114,103,618,79,ID_Stati::afganistan);
-const SizPos sp_africa_del_nord(146,143,418,173,ID_Stati::africa_del_nord);
-const SizPos sp_africa_del_sud(103,117,511,344,ID_Stati::africa_del_sud);
-const SizPos sp_africa_orientale(104,140,546,230,ID_Stati::africa_orientale);
-const SizPos sp_alaska(117,60,5,45,ID_Stati::alaska);
-const SizPos sp_alberta(88,44,87,83,ID_Stati::alberta);
-const SizPos sp_america_centrale(121,102,78,191,ID_Stati::america_centrale);
-const SizPos sp_argentina(68,149,226,392,ID_Stati::argentina);
-const SizPos sp_australia_occidentale(107,120,855,377,ID_Stati::australia_occidentale);
-const SizPos sp_australia_orientale(78,110,920,364,ID_Stati::australia_orientale);
-const SizPos sp_brasile(138,156,211,300,ID_Stati::brasile);
-const SizPos sp_cina(177,124,);
-const SizPos sp_cita(768,52,);
-const SizPos sp_congo(80,99,);
-const SizPos sp_egitto(91,55,);
-const SizPos sp_europa_meridionale(76,58,);
-const SizPos sp_europa_occidentale(59,60,);
-const SizPos sp_europa_settentrionale(67,41,);
-const SizPos sp_giappone(41,92,);
-const SizPos sp_gran_bretagna(37,33,);
-const SizPos sp_groenlandia(255,75,);
-const SizPos sp_india(130,132,);
-const SizPos sp_indonesia(112,116,);
-const SizPos sp_islanda(39,20,);
-const SizPos sp_jacuzia(157,62,);
-const SizPos sp_kamchatka(117,103,);
-const SizPos sp_madagascar(28,55,);
-const SizPos sp_medio_oriente(131,118,);
-const SizPos sp_mongolia(157,76,);
-const SizPos sp_nuova_guinea(77,42,);
-const SizPos sp_ontario(61,72,);
-const SizPos sp_peru(103,117,);
-const SizPos sp_quebec(78,74,);
-const SizPos sp_scandinavia(74,60,);
-const SizPos sp_siam(65,110,);
-const SizPos sp_siberia(118,110,);
-const SizPos sp_stati_uniti_occidentali(116,86,);
-const SizPos sp_stati_uniti_orientali(133,94,);
-const SizPos sp_territori_del_nord_ovest(143,55,);
-const SizPos sp_ucraina(126,119,);
-const SizPos sp_urali(89,104,);
-const SizPos sp_venezuela(98,67,);
+/*
+Elenco di posizioni e dimensioni degli stati in ordine alfabetico
+const SizPos sp_mappa(1024,574,0,0);
+const SizPos sp_afganistan(114,103,618,79);
+const SizPos sp_africa_del_nord(146,143,410,173);
+const SizPos sp_africa_del_sud(103,117,511,344);
+const SizPos sp_africa_orientale(104,140,546,230);
+const SizPos sp_alaska(117,60,5,45);
+const SizPos sp_alberta(88,44,87,83);
+const SizPos sp_america_centrale(121,102,78,191);
+const SizPos sp_argentina(68,149,226,392);
+const SizPos sp_australia_occidentale(107,120,855,377);
+const SizPos sp_australia_orientale(78,110,920,364);
+const SizPos sp_brasile(138,156,211,300);
+const SizPos sp_cina(177,124,713,126);
+const SizPos sp_cita(768,52,725,81);
+const SizPos sp_congo(80,99,501,277);
+const SizPos sp_egitto(91,55,503,189);
+const SizPos sp_europa_meridionale(76,58,492,124);
+const SizPos sp_europa_occidentale(59,60,441,119);
+const SizPos sp_europa_settentrionale(67,41,482,94);
+const SizPos sp_giappone(41,92,899,107);
+const SizPos sp_gran_bretagna(37,33,444,90);
+const SizPos sp_groenlandia(255,75,203,10);
+const SizPos sp_india(130,132,674,168);
+const SizPos sp_indonesia(112,116,806,248);
+const SizPos sp_islanda(39,20,409,71);
+const SizPos sp_jacuzia(157,62,760,37);
+const SizPos sp_kamchatka(117,103,866,50);
+const SizPos sp_madagascar(28,55,619,370);
+const SizPos sp_medio_oriente(131,118,558,153);
+const SizPos sp_mongolia(157,76,746,109);
+const SizPos sp_nuova_guinea(77,42,931,323);
+const SizPos sp_ontario(61,72,174,83);
+const SizPos sp_peru(103,117,183,316);
+const SizPos sp_quebec(78,74,232,75);
+const SizPos sp_scandinavia(74,60,491,46);
+const SizPos sp_siam(65,110,789,207);
+const SizPos sp_siberia(118,110,664,25);
+const SizPos sp_stati_uniti_occidentali(116,86,68,121);
+const SizPos sp_stati_uniti_orientali(133,94,129,128);
+const SizPos sp_territori_del_nord_ovest(143,55,82,35);
+const SizPos sp_ucraina(126,119,537,50);
+const SizPos sp_urali(89,104,648,41);
+const SizPos sp_venezuela(98,67,191,272);
+*/
 
 #endif

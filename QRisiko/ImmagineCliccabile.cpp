@@ -6,8 +6,10 @@ ImmagineCliccabile::ImmagineCliccabile(QWidget *parent,int ID)
 	
 }
 void ImmagineCliccabile::mousePressEvent(QMouseEvent* event){
-	QImage immagine=this->pixmap()->toImage();
-	QRgb colore_pixel=immagine.pixel(event->pos());
-	if (colore_pixel==QColor(0, 0, 0, 0).rgba()) return;
-	emit(clicked(Identita));
+	if (this->isEnabled() && event->button()==Qt::LeftButton){
+		QImage immagine=this->pixmap()->toImage();
+		QRgb colore_pixel=immagine.pixel(event->pos());
+		if (colore_pixel==QColor(0, 0, 0, 0).rgba()) return;
+		emit(clicked(Identita));
+	}
 }

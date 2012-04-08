@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qrisiko.h'
 **
-** Created: Fri 6. Apr 17:53:06 2012
+** Created: Sun 8. Apr 21:15:59 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,26 +23,33 @@ static const uint qt_meta_data_QRisiko[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: signature, parameters, type, tag, flags
+      18,    9,    8,    8, 0x08,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_QRisiko[] = {
-    "QRisiko\0"
+    "QRisiko\0\0identita\0funziona(int)\0"
 };
 
 void QRisiko::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        QRisiko *_t = static_cast<QRisiko *>(_o);
+        switch (_id) {
+        case 0: _t->funziona((*reinterpret_cast< int(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObjectExtraData QRisiko::staticMetaObjectExtraData = {
@@ -68,6 +75,8 @@ void *QRisiko::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_QRisiko))
         return static_cast<void*>(const_cast< QRisiko*>(this));
+    if (!strcmp(_clname, "Ui_MainWindow"))
+        return static_cast< Ui_MainWindow*>(const_cast< QRisiko*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
 
@@ -76,6 +85,11 @@ int QRisiko::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

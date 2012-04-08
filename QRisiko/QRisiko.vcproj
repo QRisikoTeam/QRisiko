@@ -1233,6 +1233,10 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath=".\Readme.txt"
+			>
+		</File>
 	</Files>
 	<Globals>
 		<Global

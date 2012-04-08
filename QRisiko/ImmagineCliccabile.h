@@ -1,7 +1,7 @@
 #ifndef IMMAGINECLICCABILE_H
 #define IMMAGINECLICCABILE_H
 #include <QLabel>
-class ImmagineCliccabile: QLabel
+class ImmagineCliccabile: public QLabel
 {
 	Q_OBJECT
 public:

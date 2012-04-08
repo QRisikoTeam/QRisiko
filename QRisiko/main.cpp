@@ -1,5 +1,6 @@
 #include "qrisiko.h"
 #include <QtGui/QApplication>
+#define QT_NO_TOOLTIP
 
 int main(int argc, char *argv[])
 {

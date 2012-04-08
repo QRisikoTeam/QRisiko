@@ -3,17 +3,19 @@
 
 #include <QtGui/QMainWindow>
 #include "ui_qrisiko.h"
+#include "ImmagineCliccabile.h"
+#include "Costanti Nazioni.h"
 
-class QRisiko : public QMainWindow
+class QRisiko : public QMainWindow, public Ui_MainWindow
 {
 	Q_OBJECT
+	private:
+		ImmagineCliccabile *Stati[ID_Stati::num_stati];
+	public:
+		QRisiko(QWidget *parent = 0);
+	private slots:
+		void funziona(int identita);
 
-public:
-	QRisiko(QWidget *parent = 0, Qt::WFlags flags = 0);
-	~QRisiko();
-
-private:
-	Ui::QRisikoClass ui;
 };
 
 #endif // QRISIKO_H
