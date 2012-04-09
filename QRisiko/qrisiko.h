@@ -13,8 +13,10 @@ private:
 	ImmagineCliccabile *Stati[ID_Stati::num_stati];
 protected:
 	void mousePressEvent(QMouseEvent *event);
+	void resizeEvent (QResizeEvent * event);
 signals:
 	void cliccato(int identita);
+	void resized(QSize new_size);
 public:
 	QRisiko(QWidget *parent = 0);
 private slots:

@@ -123,6 +123,7 @@ namespace ID_Stati{
 		"alaska",
 		"territori dell'ovest"
 	};
+	const SizPos sp_mappa(1024,574,0,0);
 	const SizPos PosData_Stati[ID_Stati::num_stati]={
 		//Asia
 		SizPos(41,92,899,107),
@@ -224,10 +225,8 @@ namespace ID_Stati{
 		":/Stati/territori dell'ovest.png"
 	};
 }
-
 /*
 Elenco di posizioni e dimensioni degli stati in ordine alfabetico
-const SizPos sp_mappa(1024,574,0,0);
 const SizPos sp_afganistan(114,103,618,79);
 const SizPos sp_africa_del_nord(146,143,410,173);
 const SizPos sp_africa_del_sud(103,117,511,344);

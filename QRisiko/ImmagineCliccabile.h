@@ -7,6 +7,8 @@ class ImmagineCliccabile: public QLabel
 public:
 	ImmagineCliccabile(QWidget *parent, int ID);
 	bool IsTransparent(const QPoint& pnt) const;
+public slots:
+	void Redimensiona(QSize nuova_dimensione);
 private:
 	int Identita;
 
