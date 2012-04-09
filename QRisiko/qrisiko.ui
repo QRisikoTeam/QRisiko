@@ -10,10 +10,16 @@
     <height>768</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
    <string>QRisiko</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>0</number>
@@ -34,6 +40,9 @@
         <width>800</width>
         <height>448</height>
        </size>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
       </property>
       <property name="contextMenuPolicy">
        <enum>Qt::NoContextMenu</enum>
@@ -68,6 +77,9 @@
         <width>1024</width>
         <height>194</height>
        </size>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
       </property>
       <property name="text">
        <string>Close</string>

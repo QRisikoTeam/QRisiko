@@ -9,12 +9,16 @@
 class QRisiko : public QMainWindow, public Ui_MainWindow
 {
 	Q_OBJECT
-	private:
-		ImmagineCliccabile *Stati[ID_Stati::num_stati];
-	public:
-		QRisiko(QWidget *parent = 0);
-	private slots:
-		void funziona(int identita);
+private:
+	ImmagineCliccabile *Stati[ID_Stati::num_stati];
+protected:
+	void mousePressEvent(QMouseEvent *event);
+signals:
+	void cliccato(int identita);
+public:
+	QRisiko(QWidget *parent = 0);
+private slots:
+	void funziona(int identita);
 
 };
 

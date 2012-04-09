@@ -2,7 +2,7 @@
 #include <QtGui>
 
 QRisiko::QRisiko(QWidget *parent)
-	: QMainWindow(parent)
+: QMainWindow(parent)
 {
 	setupUi(this);
 	QSizePolicy politica(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -18,10 +18,20 @@ QRisiko::QRisiko(QWidget *parent)
 		Stati[i]->setScaledContents(true);
 		Stati[i]->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 		Stati[i]->setGeometry(ID_Stati::PosData_Stati[i].rettangolo());
-		connect(Stati[i],SIGNAL(clicked(int)),this,SLOT(funziona(int)));
 	}
+	connect(this,SIGNAL(cliccato(int)),this,SLOT(funziona(int)));
 }
 
 void QRisiko::funziona(int identita){
 	QMessageBox::warning(this, tr("Funziona"),tr((QString("Hai cliccato ")+ID_Stati::Nomi_Stati[identita]).toUtf8()));
+}
+void QRisiko::mousePressEvent(QMouseEvent *event){
+	if (event->button()==Qt::LeftButton){
+		for (int i=0;i<ID_Stati::num_stati;i++){
+			if(Stati[i]->isEnabled() && Stati[i]->geometry().contains(event->pos(),true)){
+				if (!Stati[i]->IsTransparent(event->pos()-ID_Stati::PosData_Stati[i].posizione()))
+					emit cliccato(i);
+			}
+		}
+	}
 }

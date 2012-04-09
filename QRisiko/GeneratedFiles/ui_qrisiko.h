@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'qrisiko.ui'
 **
-** Created: Sun 8. Apr 21:28:37 2012
+** Created: Mon 9. Apr 21:36:36 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -36,8 +36,10 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(1024, 768);
+        MainWindow->setMouseTracking(false);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setMouseTracking(false);
         verticalLayout = new QVBoxLayout(centralWidget);
         verticalLayout->setSpacing(0);
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -50,6 +52,7 @@ public:
         sizePolicy.setHeightForWidth(MappaDiGioco->sizePolicy().hasHeightForWidth());
         MappaDiGioco->setSizePolicy(sizePolicy);
         MappaDiGioco->setMinimumSize(QSize(800, 448));
+        MappaDiGioco->setMouseTracking(false);
         MappaDiGioco->setContextMenuPolicy(Qt::NoContextMenu);
 #ifndef QT_NO_TOOLTIP
         MappaDiGioco->setToolTip(QString::fromUtf8(""));
@@ -68,6 +71,7 @@ public:
         sizePolicy1.setHeightForWidth(closeButton->sizePolicy().hasHeightForWidth());
         closeButton->setSizePolicy(sizePolicy1);
         closeButton->setMinimumSize(QSize(1024, 194));
+        closeButton->setMouseTracking(false);
 
         verticalLayout->addWidget(closeButton);
 

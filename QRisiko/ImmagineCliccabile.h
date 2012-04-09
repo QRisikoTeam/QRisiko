@@ -6,12 +6,9 @@ class ImmagineCliccabile: public QLabel
 	Q_OBJECT
 public:
 	ImmagineCliccabile(QWidget *parent, int ID);
-protected:
-	void mousePressEvent(QMouseEvent* event);
+	bool IsTransparent(const QPoint& pnt) const;
 private:
 	int Identita;
-signals:
-	void clicked(const int& ID);
 
 };
 #endif
