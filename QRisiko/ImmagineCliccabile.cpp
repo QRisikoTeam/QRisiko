@@ -4,15 +4,15 @@
 ImmagineCliccabile::ImmagineCliccabile(QWidget *parent,int ID)
 : QLabel(parent), Identita(ID)
 {
-
+	
 }
 
 
 bool ImmagineCliccabile::IsTransparent(const QPoint& pnt) const{
-	QImage immagine=this->pixmap()->toImage();
-	if (!immagine.valid(pnt)) return false;
+	QImage immagine=QPixmap::grabWidget((QWidget *)this).toImage();
+	if (!immagine.valid(pnt)) return true;
 	QRgb colore_pixel=immagine.pixel(pnt);
-	return(colore_pixel==QColor(0, 0, 0, 0).rgba());
+	return !(colore_pixel==ID_Stati::Colori_Nazioni[Identita].rgba());
 }
 
 void ImmagineCliccabile::Redimensiona(QSize nuova_dimensione){
@@ -28,5 +28,18 @@ void ImmagineCliccabile::Redimensiona(QSize nuova_dimensione){
 		double(ID_Stati::PosData_Stati[Identita].dimensione().height())
 		/
 		double(ID_Stati::sp_mappa.dimensione().height()));
+	int x=int(
+		double(nuova_dimensione.width())
+		*
+		double(ID_Stati::PosData_Stati[Identita].posizione().x())
+		/
+		double(ID_Stati::sp_mappa.dimensione().width()));
+	int y=int(
+		double(nuova_dimensione.height())
+		*
+		double(ID_Stati::PosData_Stati[Identita].posizione().y())
+		/
+		double(ID_Stati::sp_mappa.dimensione().height()));
 	resize(wid,hei);
+	move(x,y);
 }

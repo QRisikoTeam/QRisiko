@@ -137,7 +137,7 @@ namespace ID_Stati{
 		SizPos(177,124,713,126),
 		SizPos(131,118,558,153),
 		SizPos(130,132,674,168),
-		SizPos(65,110,789,207),
+		SizPos(65,110,790,207),
 		//Oceania
 		SizPos(78,110,920,364),
 		SizPos(107,120,855,377),
@@ -166,8 +166,8 @@ namespace ID_Stati{
 		//Nord America
 		SizPos(121,102,78,191),
 		SizPos(116,86,68,121),
-		SizPos(133,94,129,128),
-		SizPos(78,74,232,75),
+		SizPos(133,94,130,128),
+		SizPos(78,74,233,75),
 		SizPos(61,72,174,83),
 		SizPos(88,44,87,83),
 		SizPos(255,75,203,10),
@@ -223,6 +223,56 @@ namespace ID_Stati{
 		":/Stati/groenlandia.png",
 		":/Stati/alaska.png",
 		":/Stati/territori dell'ovest.png"
+	};
+	const QColor Colori_Nazioni[ID_Stati::num_stati]={
+		//Asia
+		QColor(0,166,81,255),
+		QColor(163,212,156,255),
+		QColor(0,88,38,255),
+		QColor(57,181,74,255),
+		QColor(172,212,115,255),
+		QColor(130,123,0,255),
+		QColor(0,255,0,255),
+		QColor(60,184,120,255),
+		QColor(0,88,38,255),
+		QColor(64,102,24,255),
+		QColor(0,166,81,255),
+		QColor(89,133,39,255),
+		//Oceania
+		QColor(238,20,91,255),
+		QColor(237,0,140,255),
+		QColor(241,110,170,255),
+		QColor(255,0,255,255),
+		//Africa
+		QColor(140,98,57,255),
+		QColor(198,156,109,255),
+		QColor(96,57,19,255),
+		QColor(166,124,82,255),
+		QColor(117,76,36,255),
+		QColor(198,156,109,255),
+		//Europa
+		QColor(55,95,247,255),
+		QColor(0,255,255,255),
+		QColor(0,74,128,255),
+		QColor(109,208,247,255),
+		QColor(0,91,127,255),
+		QColor(46,49,146,255),
+		QColor(0,84,166,255),
+		//Sud America
+		QColor(163,212,156,255),
+		QColor(89,133,39,255),
+		QColor(124,197,118,255),
+		QColor(0,114,54,255),
+		//Nord America
+		QColor(249,199,57,255),
+		QColor(248,148,29,255),
+		QColor(251,175,93,255),
+		QColor(249,212,130,255),
+		QColor(248,148,75,255),
+		QColor(249,199,57,255),
+		QColor(248,148,29,255),
+		QColor(249,184,57,255),
+		QColor(253,198,137,255),
 	};
 }
 /*

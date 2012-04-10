@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'qrisiko.ui'
 **
-** Created: Mon 9. Apr 21:36:36 2012
+** Created: Tue 10. Apr 09:06:26 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -57,7 +57,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         MappaDiGioco->setToolTip(QString::fromUtf8(""));
 #endif // QT_NO_TOOLTIP
-        MappaDiGioco->setPixmap(QPixmap(QString::fromUtf8(":/Mappe/Mappa.png")));
+        MappaDiGioco->setStyleSheet(QString::fromUtf8("background-color: #84B4E4;"));
         MappaDiGioco->setScaledContents(true);
         MappaDiGioco->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 

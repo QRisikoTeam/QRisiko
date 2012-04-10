@@ -50,11 +50,11 @@
       <property name="toolTip">
        <string notr="true"/>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #84B4E4;</string>
+      </property>
       <property name="text">
        <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="qrisiko.qrc">:/Mappe/Mappa.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
