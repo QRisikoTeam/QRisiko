@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qrisiko.h'
 **
-** Created: Mon 9. Apr 22:19:25 2012
+** Created: Wed 11. Apr 16:41:01 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -82,8 +82,8 @@ void *QRisiko::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_QRisiko))
         return static_cast<void*>(const_cast< QRisiko*>(this));
-    if (!strcmp(_clname, "Ui_MainWindow"))
-        return static_cast< Ui_MainWindow*>(const_cast< QRisiko*>(this));
+    if (!strcmp(_clname, "Ui::MainWindow"))
+        return static_cast< Ui::MainWindow*>(const_cast< QRisiko*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
 

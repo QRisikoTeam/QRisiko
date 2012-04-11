@@ -66,70 +66,65 @@ namespace ID_Stati{
 	const short groenlandia=39;
 	const short alaska=40;
 	const short territori_del_nord_ovest=41;
-	//Funzioni di Riconoscimento
-	/*bool isAsia(int stato){return (stato>=0 && stato<=11);}
-	bool isOceania(int stato){return (stato>=12 && stato<=15);}
-	bool isAfrica(int stato){return (stato>=16 && stato<=21);}
-	bool isEuropa(int stato){return (stato>=22 && stato<=28);}
-	bool isSudAmerica(int stato){return (stato>=29 && stato<=32);}
-	bool isNordAmerica(int stato){return (stato>=33 && stato<=41);}*/
+
 	const QString Nomi_Stati[ID_Stati::num_stati]={
 		//Asia
-		"giappone",
-		"afganistan",
-		"urali",
-		"siberia",
-		"jacuzia",
-		"kamchatka",
-		"cita",
-		"mongolia",
-		"cina",
-		"medio oriente",
-		"india",
-		"siam",
+		"Giappone",
+		"Afganistan",
+		"Urali",
+		"Siberia",
+		"Jacuzia",
+		"Kamchatka",
+		"Cita",
+		"Mongolia",
+		"Cina",
+		"Medio Oriente",
+		"India",
+		"Siam",
 		//Oceania
-		"australia orientale",
-		"australia occidentale",
-		"nuova guinea",
-		"indonesia",
+		"Australia orientale",
+		"Australia occidentale",
+		"Auova guinea",
+		"Indonesia",
 		//Africa
-		"egitto",
-		"africa del nord",
-		"africa del sud",
-		"africa orientale",
-		"congo",
-		"madagascar",
+		"Egitto",
+		"Africa del Nord",
+		"Africa del Sud",
+		"Africa Orientale",
+		"Congo",
+		"Madagascar",
 		//Europa
-		"europa meridionale",
-		"europa settentrionale",
-		"europa occidentale",
-		"gran bretagna",
-		"scandinavia",
-		"islanda",
-		"ucraina",
+		"Europa Meridionale",
+		"Europa Settentrionale",
+		"Europa Occidentale",
+		"Gran Bretagna",
+		"Scandinavia",
+		"Islanda",
+		"Ucraina",
 		//Sud America
-		"brasile",
-		"argentina",
-		"venezuela",
-		"peru.png",
+		"Brasile",
+		"Argentina",
+		"Venezuela",
+		"Peru",
 		//Nord America
-		"america centrale",
-		"stati uniti occidentali",
-		"stati uniti orientali",
-		"quebec",
-		"ontario",
-		"alberta",
-		"groenlandia",
-		"alaska",
-		"territori dell'ovest"
+		"America Centrale",
+		"Stati Uniti Occidentali",
+		"Stati Uniti Orientali",
+		"Quebec",
+		"Ontario",
+		"Alberta",
+		"Groenlandia",
+		"Alaska",
+		"Territori dell'Ovest"
 	};
+
 	const SizPos sp_mappa(1024,574,0,0);
 	const SizPos PosData_Stati[ID_Stati::num_stati]={
 		//Asia
 		SizPos(41,92,899,107),
 		SizPos(114,103,618,79),
 		SizPos(89,104,648,41),
-		SizPos(118,110,664,25),
+		SizPos(118,110,664,26),
 		SizPos(157,62,760,37),
 		SizPos(117,103,866,50),
 		SizPos(168,52,725,81),
@@ -174,6 +169,7 @@ namespace ID_Stati{
 		SizPos(117,60,5,45),
 		SizPos(143,55,82,35)
 	};
+
 	const QString img_Stati[ID_Stati::num_stati]={
 		//Asia
 		":/Stati/giappone.png",
@@ -224,6 +220,7 @@ namespace ID_Stati{
 		":/Stati/alaska.png",
 		":/Stati/territori dell'ovest.png"
 	};
+
 	const QColor Colori_Nazioni[ID_Stati::num_stati]={
 		//Asia
 		QColor(0,166,81,255),
@@ -275,8 +272,20 @@ namespace ID_Stati{
 		QColor(253,198,137,255),
 	};
 }
-/*
-Elenco di posizioni e dimensioni degli stati in ordine alfabetico
+
+class Continente{
+	public:
+		//Funzioni di Riconoscimento
+		static bool isAsia(int stato){return (stato>=0 && stato<=11);}
+		static bool isOceania(int stato){return (stato>=12 && stato<=15);}
+		static bool isAfrica(int stato){return (stato>=16 && stato<=21);}
+		static bool isEuropa(int stato){return (stato>=22 && stato<=28);}
+		static bool isSudAmerica(int stato){return (stato>=29 && stato<=32);}
+		static bool isNordAmerica(int stato){return (stato>=33 && stato<=41);}
+};
+
+/*Elenco di posizioni e dimensioni degli stati in ordine alfabetico
+
 const SizPos sp_afganistan(114,103,618,79);
 const SizPos sp_africa_del_nord(146,143,410,173);
 const SizPos sp_africa_del_sud(103,117,511,344);
@@ -318,7 +327,6 @@ const SizPos sp_stati_uniti_orientali(133,94,129,128);
 const SizPos sp_territori_del_nord_ovest(143,55,82,35);
 const SizPos sp_ucraina(126,119,537,50);
 const SizPos sp_urali(89,104,648,41);
-const SizPos sp_venezuela(98,67,191,272);
-*/
+const SizPos sp_venezuela(98,67,191,272);*/
 
 #endif

@@ -6,7 +6,7 @@
 #include "ImmagineCliccabile.h"
 #include "Costanti Nazioni.h"
 
-class QRisiko : public QMainWindow, public Ui_MainWindow
+class QRisiko : public QMainWindow, public Ui::MainWindow
 {
 	Q_OBJECT
 private:
