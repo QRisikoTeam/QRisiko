@@ -3,7 +3,6 @@
 SmilesSelector::SmilesSelector(QWidget* parent)
 	:QWidget(parent)
 {
-	//setStyleSheet("background-color: " +this->palette().background().color().name()+';');
 	QGridLayout *Lay= new QGridLayout;
 	QSizePolicy politica(QSizePolicy::Preferred, QSizePolicy::Preferred);
 	politica.setHorizontalStretch(0);
@@ -26,9 +25,15 @@ SmilesSelector::SmilesSelector(QWidget* parent)
 	setLayout(Lay);
 	hide();
 }
-void SmilesSelector::focusOutEvent ( QFocusEvent * event ){
-	hide();
-}
+
 void SmilesSelector::selezionato(int a){
 	emit selected(a);
 }
+
+void SmilesSelector::show_toggle(){
+	if (isVisible())
+		hide();
+	else
+		show();
+}
+

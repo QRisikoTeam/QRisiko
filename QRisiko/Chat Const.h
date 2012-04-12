@@ -1,5 +1,6 @@
 #ifndef CHATCONST_H
 #define CHATCONST_H
+#include <QColor>
 namespace Smiles{
 	const int Num_Smiles= 40; 
 	const QString smiles[Num_Smiles][2]={
@@ -23,7 +24,7 @@ namespace Smiles{
 		{"*)","<img src=\":/Smiles/eyeroll.png\" width=\"24\" height=\"24\" />"},
 		{"(V)","<img src=\":/Smiles/fingers-crossed.png\" width=\"24\" height=\"24\" />"},
 		{":!","<img src=\":/Smiles/foot-in-mouth.png\" width=\"24\" height=\"24\" />"},
-		{"(U)","<img src=\":/Smiles/freaked-out.png\" width=\"24\" height=\"24\" />"},
+		{"(G)","<img src=\":/Smiles/freaked-out.png\" width=\"24\" height=\"24\" />"},
 		{"8)","<img src=\":/Smiles/glasses-cool.png\" width=\"24\" height=\"24\" />"},
 		{":)","<img src=\":/Smiles/happy.png\" width=\"24\" height=\"24\" />"},
 		{"-.-\"","<img src=\":/Smiles/hot.png\" width=\"24\" height=\"24\" />"},
@@ -86,5 +87,8 @@ namespace Smiles{
 		":/Smiles/XD.png",
 		":/Smiles/wink.png"
 	};
+}
+namespace Colors{
+	const QColor ServerColor("#FF8000");
 }
 #endif

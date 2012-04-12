@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Smiles Selector.h'
 **
-** Created: Wed 11. Apr 16:44:35 2012
+** Created: Thu 12. Apr 09:13:44 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_SmilesSelector[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,13 +35,14 @@ static const uint qt_meta_data_SmilesSelector[] = {
 
  // slots: signature, parameters, type, tag, flags
       37,   35,   15,   15, 0x08,
+      54,   15,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_SmilesSelector[] = {
     "SmilesSelector\0\0iden\0selected(int)\0a\0"
-    "selezionato(int)\0"
+    "selezionato(int)\0show_toggle()\0"
 };
 
 void SmilesSelector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -52,6 +53,7 @@ void SmilesSelector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->selected((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->selezionato((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->show_toggle(); break;
         default: ;
         }
     }
@@ -89,9 +91,9 @@ int SmilesSelector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

@@ -14,7 +14,7 @@ class SmilesSelector : public QWidget
 		SmileButton* emotes[Smiles::Num_Smiles];
 	private slots:
 		void selezionato(int a);
-	protected:
-		void focusOutEvent ( QFocusEvent * event );
+	public slots:
+		void show_toggle();
 };
 #endif
