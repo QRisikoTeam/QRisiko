@@ -140,6 +140,7 @@ void ChatWidget::addSmile(int id){
 	MessageText->textCursor().insertText(
 		Smiles::smiles[id][0]
 		);
+	MessageText->setFocus();
 }
 
 void ChatWidget::sendMessage(){

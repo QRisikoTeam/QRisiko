@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qrisiko.h'
 **
-** Created: Sat 14. Apr 12:31:25 2012
+** Created: Sat 14. Apr 17:36:09 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -64,7 +64,7 @@ const QMetaObjectExtraData QRisiko::staticMetaObjectExtraData = {
 };
 
 const QMetaObject QRisiko::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_QRisiko,
+    { &QWidget::staticMetaObject, qt_meta_stringdata_QRisiko,
       qt_meta_data_QRisiko, &staticMetaObjectExtraData }
 };
 
@@ -82,14 +82,12 @@ void *QRisiko::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_QRisiko))
         return static_cast<void*>(const_cast< QRisiko*>(this));
-    if (!strcmp(_clname, "Ui::MainWindow"))
-        return static_cast< Ui::MainWindow*>(const_cast< QRisiko*>(this));
-    return QMainWindow::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int QRisiko::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

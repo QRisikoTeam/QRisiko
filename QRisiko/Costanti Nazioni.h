@@ -84,7 +84,7 @@ namespace ID_Stati{
 		//Oceania
 		"Australia orientale",
 		"Australia occidentale",
-		"Auova guinea",
+		"Nuova guinea",
 		"Indonesia",
 		//Africa
 		"Egitto",

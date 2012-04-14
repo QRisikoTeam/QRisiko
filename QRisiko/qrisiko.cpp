@@ -1,14 +1,23 @@
 #include "qrisiko.h"
 #include <QtGui>
-#define ParteSotto closeButton
 
 QRisiko::QRisiko(QWidget *parent)
-: QMainWindow(parent)
+: QWidget(parent)
 {
-	setupUi(this);
+	setObjectName(QString::fromUtf8("MappaDiGioco"));
 	QSizePolicy politica(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	politica.setHorizontalStretch(0);
 	politica.setVerticalStretch(0);
+	politica.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
+	setSizePolicy(politica);
+	setMinimumSize(QSize(800, 448));
+	setMouseTracking(false);
+	setContextMenuPolicy(Qt::NoContextMenu);
+	resize(1024, 574);
+	Sfondo=new QFrame(this);
+	Sfondo->setGeometry(0,0,1024,574);
+	Sfondo->setStyleSheet("background-color: #84B4E4;");
+	Sfondo->lower();
 	for (int i=0;i<ID_Stati::num_stati;i++){
 		Stati[i]= new ImmagineCliccabile(this,i);
 		Stati[i]->setObjectName("Stato_"+ID_Stati::Nomi_Stati[i]);
@@ -38,6 +47,10 @@ void QRisiko::mousePressEvent(QMouseEvent *event){
 	}
 }
 void QRisiko::resizeEvent (QResizeEvent * event){
-	QMainWindow::resizeEvent(event);
-	emit resized(event->size()-QSize(0,ParteSotto->size().height()));
+	QWidget::resizeEvent(event);
+	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());
+	emit resized(event->size());
+}
+void QRisiko::setStyleSheet(const QString& stsh){
+	Sfondo->setStyleSheet("background-color: #84B4E4;"+stsh);
 }
