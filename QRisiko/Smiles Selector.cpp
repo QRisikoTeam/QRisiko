@@ -3,6 +3,7 @@
 SmilesSelector::SmilesSelector(QWidget* parent)
 	:QWidget(parent)
 {
+	SmilesPerRow=8;
 	QGridLayout *Lay= new QGridLayout;
 	QSizePolicy politica(QSizePolicy::Preferred, QSizePolicy::Preferred);
 	politica.setHorizontalStretch(0);
@@ -20,9 +21,18 @@ SmilesSelector::SmilesSelector(QWidget* parent)
 		emotes[i]->setIcon(icona);
 		connect(emotes[i],SIGNAL(clicked(int)),this,SLOT(selezionato(int)));
 		connect(emotes[i],SIGNAL(clicked(int)),this,SLOT(hide())) ;
-		Lay->addWidget(emotes[i],i/8,i%8);
+		Lay->addWidget(emotes[i],i/SmilesPerRow,i%SmilesPerRow);
 	}
 	setLayout(Lay);
+	QFrame* Sfondo=new QFrame(this);
+	Sfondo->setGeometry(2,2,sizeHint().width()-4,sizeHint().height()-4);
+	Sfondo->setStyleSheet("background-color: rgb(229, 229, 229);"
+		"border-width: 1px;"
+		"border-color: rgb(0, 0, 0);"
+		"border-style: inset;"
+		"border-radius: 5px;"
+		);
+	Sfondo->lower();
 	hide();
 }
 

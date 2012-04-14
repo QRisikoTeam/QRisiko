@@ -1,2 +1,4 @@
 *.ncb
 *.pch
+QRisiko/Debug/*
+QRisiko/Release/*

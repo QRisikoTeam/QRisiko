@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Smiles Selector.h'
+** Meta object code from reading C++ file 'Client Socket.h'
 **
-** Created: Sat 14. Apr 15:51:26 2012
+** Created: Sat 14. Apr 12:30:35 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../Smiles Selector.h"
+#include "../../Client Socket.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Smiles Selector.h' doesn't include <QObject>."
+#error "The header file 'Client Socket.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_SmilesSelector[] = {
+static const uint qt_meta_data_ClientSocket[] = {
 
  // content:
        6,       // revision
@@ -31,63 +31,63 @@ static const uint qt_meta_data_SmilesSelector[] = {
        1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      21,   16,   15,   15, 0x05,
+      22,   14,   13,   13, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      37,   35,   15,   15, 0x08,
-      54,   15,   15,   15, 0x0a,
+      47,   13,   13,   13, 0x08,
+      64,   60,   13,   13, 0x08,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_SmilesSelector[] = {
-    "SmilesSelector\0\0iden\0selected(int)\0a\0"
-    "selezionato(int)\0show_toggle()\0"
+static const char qt_meta_stringdata_ClientSocket[] = {
+    "ClientSocket\0\0message\0incomingMessage(QString)\0"
+    "readClient()\0msg\0SendMessage(QString)\0"
 };
 
-void SmilesSelector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ClientSocket::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        SmilesSelector *_t = static_cast<SmilesSelector *>(_o);
+        ClientSocket *_t = static_cast<ClientSocket *>(_o);
         switch (_id) {
-        case 0: _t->selected((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->selezionato((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->show_toggle(); break;
+        case 0: _t->incomingMessage((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->readClient(); break;
+        case 2: _t->SendMessage((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
 }
 
-const QMetaObjectExtraData SmilesSelector::staticMetaObjectExtraData = {
+const QMetaObjectExtraData ClientSocket::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject SmilesSelector::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_SmilesSelector,
-      qt_meta_data_SmilesSelector, &staticMetaObjectExtraData }
+const QMetaObject ClientSocket::staticMetaObject = {
+    { &QTcpSocket::staticMetaObject, qt_meta_stringdata_ClientSocket,
+      qt_meta_data_ClientSocket, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &SmilesSelector::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &ClientSocket::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *SmilesSelector::metaObject() const
+const QMetaObject *ClientSocket::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *SmilesSelector::qt_metacast(const char *_clname)
+void *ClientSocket::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_SmilesSelector))
-        return static_cast<void*>(const_cast< SmilesSelector*>(this));
-    return QWidget::qt_metacast(_clname);
+    if (!strcmp(_clname, qt_meta_stringdata_ClientSocket))
+        return static_cast<void*>(const_cast< ClientSocket*>(this));
+    return QTcpSocket::qt_metacast(_clname);
 }
 
-int SmilesSelector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ClientSocket::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QWidget::qt_metacall(_c, _id, _a);
+    _id = QTcpSocket::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -99,7 +99,7 @@ int SmilesSelector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void SmilesSelector::selected(int _t1)
+void ClientSocket::incomingMessage(QString _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

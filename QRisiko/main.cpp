@@ -6,7 +6,8 @@
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	ChatWidget w(0,"Il Beldus",QColor("#0000FF"));
+	ChatWidget w(0,"Il Beldus",QColor("#0000FF"),true,true/*false,"192.168.1.3"*/);
+	w.Avvia();
 	w.show();
 	return a.exec();
 }

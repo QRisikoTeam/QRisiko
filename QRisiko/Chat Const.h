@@ -4,6 +4,8 @@
 namespace Smiles{
 	const int Num_Smiles= 40; 
 	const QString smiles[Num_Smiles][2]={
+		{"L:)","<img src=\":/Smiles/loser.png\" width=\"24\" height=\"24\" />"},
+		{"Z:)","<img src=\":/Smiles/sleeping.png\" width=\"24\" height=\"24\" />"},
 		{"(S)","<img src=\":/Smiles/afraid.png\" width=\"24\" height=\"24\" />"},
 		{"(L)","<img src=\":/Smiles/amorous.png\" width=\"24\" height=\"24\" />"},
 		{"(A)","<img src=\":/Smiles/angel.png\" width=\"24\" height=\"24\" />"},
@@ -30,7 +32,6 @@ namespace Smiles{
 		{"-.-\"","<img src=\":/Smiles/hot.png\" width=\"24\" height=\"24\" />"},
 		{"<3","<img src=\":/Smiles/in_love.png\" width=\"24\" height=\"24\" />"},
 		{":*","<img src=\":/Smiles/kiss.png\" width=\"24\" height=\"24\" />"},
-		{"L:)","<img src=\":/Smiles/loser.png\" width=\"24\" height=\"24\" />"},
 		{":|","<img src=\":/Smiles/neutral.png\" width=\"24\" height=\"24\" />"},
 		{":@","<img src=\":/Smiles/pissed-off.png\" width=\"24\" height=\"24\" />"},
 		{"?:(","<img src=\":/Smiles/question.png\" width=\"24\" height=\"24\" />"},
@@ -39,13 +40,14 @@ namespace Smiles{
 		{":O","<img src=\":/Smiles/shocked.png\" width=\"24\" height=\"24\" />"},
 		{":X","<img src=\":/Smiles/shut-mouth.png\" width=\"24\" height=\"24\" />"},
 		{"+o(","<img src=\":/Smiles/sick.png\" width=\"24\" height=\"24\" />"},
-		{"Z:)","<img src=\":/Smiles/sleeping.png\" width=\"24\" height=\"24\" />"},
 		{":P","<img src=\":/Smiles/tongue.png\" width=\"24\" height=\"24\" />"},
 		{":[","<img src=\":/Smiles/vampire.png\" width=\"24\" height=\"24\" />"},
 		{"XD","<img src=\":/Smiles/XD.png\" width=\"24\" height=\"24\" />"},
 		{";)","<img src=\":/Smiles/wink.png\" width=\"24\" height=\"24\" />"}
 	};
 	const QString smiles_paths[Num_Smiles]={
+		":/Smiles/loser.png",
+		":/Smiles/sleeping.png",
 		":/Smiles/afraid.png",
 		":/Smiles/amorous.png",
 		":/Smiles/angel.png" ,
@@ -72,7 +74,6 @@ namespace Smiles{
 		":/Smiles/hot.png",
 		":/Smiles/in_love.png",
 		":/Smiles/kiss.png",
-		":/Smiles/loser.png",
 		":/Smiles/neutral.png",
 		":/Smiles/pissed-off.png",
 		":/Smiles/question.png",
@@ -81,7 +82,6 @@ namespace Smiles{
 		":/Smiles/shocked.png",
 		":/Smiles/shut-mouth.png",
 		":/Smiles/sick.png",
-		":/Smiles/sleeping.png",
 		":/Smiles/tongue.png",
 		":/Smiles/vampire.png",
 		":/Smiles/XD.png",

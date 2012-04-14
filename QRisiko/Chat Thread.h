@@ -2,35 +2,25 @@
 #define CHATTHREAD_H
 #include <QThread>
 #include <QString>
-#include <QTcpSocket>
-#include <QMutex>
-#include <QQueue>
-class ChatThread: public QThread{
+#include "Client Socket.h"
+
+class ChatThread : public QThread
+{
 	Q_OBJECT
 	public:
-		ChatThread(QString Host, unsigned int por=2200, bool Server=false);
-		~ChatThread();
-	signals:
-		void MessageRecieved(QString Message, bool fromserver=false);
-	public slots:
-		void SendMessage(QString Message);
-	private slots:
-		void Connesso();
-		void ErroreConnessione();
-		void Inbox();
-		void connectionClosedByServer();
-	private:
-		QTcpSocket TCPsocket;
-		QString HostIP;
-		unsigned int port;
-		bool IsServer;
-		bool finito;
-		QMutex mutex;
-		QQueue<QString> sentMessageQueue;
-		QQueue<QString> recievedMessageQueue;
-		quint16 nextBlockSize;
-	protected:
+		ChatThread(int soketDescriptor, QObject *parent);
 		void run();
+		int GetSocketDescriptor() const {return socketDescriptor;}
+		void stop();
+	signals:
+		void incomingMessage(QString msg);
+		void SendMessage(QString msg);
+	private:
+		bool keepRunning;
+		int socketDescriptor;
+		QString text;
+		ClientSocket* socket;
 };
 
-#endif
+
+#endif*/

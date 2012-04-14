@@ -1,8 +1,10 @@
 #ifndef CHATWIDGET_H
 #define CHATWIDGET_H
 #include <QDialog>
+#include <QTcpSocket>
 #include "ui_Chat.h"
 #include "Smiles Selector.h"
+#include "Chat Server.h"
 class ChatWidget : public QWidget, public Ui::Chat
 {
 	Q_OBJECT
@@ -15,9 +17,16 @@ class ChatWidget : public QWidget, public Ui::Chat
 		unsigned int port;
 		QString ProcessaSmiles(const QString& str) const;
 		SmilesSelector* selector;
+		quint16 nextBlockSize;
+		QTcpSocket* TCPsocket;
+		ChatServer* TCPServer;
+		void ChatWidget::Disconnesso();
+		bool finito;
+		bool partito;
+		bool disconnectRecieved;
 	public:
 		ChatWidget(
-			QWidget *parent,
+			QWidget *parent=0,
 			QString name="",
 			QColor col=QColor(0,0,0,255),
 			bool timestamp=true,
@@ -35,11 +44,23 @@ class ChatWidget : public QWidget, public Ui::Chat
 		bool GetIsServer() const {return IsServer;}
 		QString GetHostIP() const {return Host;}
 		unsigned int GetPort() const {return port;}
+	public slots:
+		bool Avvia();
 	private slots:
 		void sendMessage();
 		void addSmile(int id);
+		void Connesso();
+		void ErroreConnessione();
+		void Inbox();
+		void connectionClosedByServer();
+		void PrintMessage(QString msg, bool fromserv=false);
+		void StampaMessaggioUtente(QString msg);
 	protected:
 		bool eventFilter(QObject *target, QEvent *event);
 		void resizeEvent(QResizeEvent *event);
+		void closeEvent(QCloseEvent *event);
+	signals:
+		void MessageRecieved(QString Message, bool fromserver=false);
+		void MessageFromServer(QString Message);
 };
 #endif

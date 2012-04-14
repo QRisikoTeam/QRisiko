@@ -10,10 +10,16 @@
     <height>194</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="minimumSize">
    <size>
-    <width>266</width>
-    <height>152</height>
+    <width>341</width>
+    <height>194</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -23,7 +29,7 @@
    <iconset resource="Chat.qrc">
     <normaloff>:/Images/Chat Icon.png</normaloff>:/Images/Chat Icon.png</iconset>
   </property>
-  <layout class="QGridLayout" name="mainLayout">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="3">
     <widget class="QTextEdit" name="ChatText">
      <property name="sizePolicy">
@@ -49,8 +55,11 @@
 border-color: rgb(0, 0, 0);
 border-style: inset;
 background-color: rgba(255, 255, 255, 255);
-border-radius: 12px;
+border-radius: 3px;
 selection-background-color: ltblue; </string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
      </property>
      <property name="documentTitle">
       <string>Chat History</string>
@@ -70,6 +79,13 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="textInteractionFlags">
       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QPushButton" name="reconnectButton">
+     <property name="text">
+      <string>Riconnetti</string>
      </property>
     </widget>
    </item>
@@ -93,7 +109,14 @@ border-color: rgb(0, 0, 0);
 border-style: inset;
 background-color: rgba(255, 255, 255, 255);
 border-radius: 12px;
-selection-background-color: ltblue; </string>
+selection-background-color: ltblue; 
+padding: 7px;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -101,6 +124,23 @@ selection-background-color: ltblue; </string>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="SmilesButton">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="Chat.qrc">
+       <normaloff>:/Smiles/happy.png</normaloff>:/Smiles/happy.png</iconset>
      </property>
     </widget>
    </item>
@@ -123,23 +163,6 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="flat">
       <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="SmilesButton">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>31</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="Chat.qrc">
-       <normaloff>:/Smiles/happy.png</normaloff>:/Smiles/happy.png</iconset>
      </property>
     </widget>
    </item>

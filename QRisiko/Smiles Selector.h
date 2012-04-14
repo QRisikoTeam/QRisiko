@@ -8,9 +8,11 @@ class SmilesSelector : public QWidget
 	Q_OBJECT
 	public:
 		SmilesSelector(QWidget* parent);
+		void SetSmilesPerRow(const int& spr){SmilesPerRow=spr;}
 	signals:
 		void selected(int iden);
 	private:
+		unsigned int SmilesPerRow;
 		SmileButton* emotes[Smiles::Num_Smiles];
 	private slots:
 		void selezionato(int a);
