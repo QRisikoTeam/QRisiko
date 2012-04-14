@@ -1,4 +1,5 @@
 #include "MainWindow.h"
+#include "Costanti Nazioni.h"
 #include <QtGui/QApplication>
 #define QT_NO_TOOLTIP
 

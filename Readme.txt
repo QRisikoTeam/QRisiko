@@ -1,4 +1,4 @@
-QRisiko è un progetto con lo scopo di creare una versione digitale del celebre gioco da tavolo Risiko nella sua versione Italiana.
+QRisiko è un progetto nato con lo scopo di creare una versione digitale del celebre gioco da tavolo Risiko nella sua versione Italiana.
 Il codice contenuto in questo progetto in forma sorgete o binaria è sottoposto a licenza GNU General Public License versione 3.0
 
 Descrizione Contenuti:
@@ -24,5 +24,5 @@ Chat Widget:
 Widget Mappa:
 	Descrizione Sorgenti:
 		Immagine Cliccabile -> classe che eredita da QLabel usata per mostrare gli stati, registra anche quale stato rappresenta
-		qrisiko -> widget che rappresenta la mappa principale, è composto dallo sfondo e da 41 stati cliccabili
+		qrisiko -> widget che rappresenta la mappa principale, è composto dallo sfondo e da 42 stati cliccabili
 	Molto rimane ancora da implementare in questa sezione

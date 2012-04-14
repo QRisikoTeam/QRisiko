@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Chat.ui'
 **
-** Created: Sat 14. Apr 16:02:12 2012
+** Created: Sat 14. Apr 20:24:51 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

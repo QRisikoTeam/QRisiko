@@ -856,6 +856,46 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Carte\Cannone.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Carte\Cavaliere.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Chat Icon.png"
 				>
 				<FileConfiguration
@@ -1182,6 +1222,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\europa settentrionale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\excited.png"
 				>
 				<FileConfiguration
@@ -1203,6 +1263,26 @@
 			</File>
 			<File
 				RelativePath=".\Resources\Smiles\eyeroll.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Carte\Fante.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1751,7 +1831,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Resources\Mappa Completa Colorata tratteggi.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png"
+						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -1762,7 +1842,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Resources\Mappa Completa Colorata tratteggi.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png"
+						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -1789,6 +1869,26 @@
 			</File>
 			<File
 				RelativePath=".\Resources\Smiles\question.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Regole.txt"
 				>
 				<FileConfiguration
 					Name="Release|Win32"

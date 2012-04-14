@@ -4,6 +4,8 @@
 #include <QSize>
 #include <QString>
 #include <QRect>
+#include <QTextStream>
+#include <QFile>
 
 class SizPos{
 	QSize sz;
@@ -67,7 +69,7 @@ namespace ID_Stati{
 	const short alaska=40;
 	const short territori_del_nord_ovest=41;
 
-	const QString Nomi_Stati[ID_Stati::num_stati]={
+	const QString Nomi_Stati[num_stati]={
 		//Asia
 		"Giappone",
 		"Afganistan",
@@ -119,7 +121,7 @@ namespace ID_Stati{
 	};
 
 	const SizPos sp_mappa(1024,574,0,0);
-	const SizPos PosData_Stati[ID_Stati::num_stati]={
+	const SizPos PosData_Stati[num_stati]={
 		//Asia
 		SizPos(41,92,899,107),
 		SizPos(114,103,618,79),
@@ -170,7 +172,7 @@ namespace ID_Stati{
 		SizPos(143,55,82,35)
 	};
 
-	const QString img_Stati[ID_Stati::num_stati]={
+	const QString img_Stati[num_stati]={
 		//Asia
 		":/Stati/giappone.png",
 		":/Stati/afganistan.png",
@@ -221,7 +223,7 @@ namespace ID_Stati{
 		":/Stati/territori dell'ovest.png"
 	};
 
-	const QColor Colori_Nazioni[ID_Stati::num_stati]={
+	const QColor Colori_Nazioni[num_stati]={
 		//Asia
 		QColor(0,166,81,255),
 		QColor(163,212,156,255),
@@ -271,17 +273,118 @@ namespace ID_Stati{
 		QColor(249,184,57,255),
 		QColor(253,198,137,255),
 	};
+	const int Numero_Obbiettivi=13;
+	const QString TestoObbiettivi[Numero_Obbiettivi]={
+		"Devi conquistare 18 territori ed occupare ciascuno di essi con almeno due armate",
+		"Conquista Nord America e Oceania",
+		"Conquista Nord America e Africa",
+		"Conquista Asia e Africa",
+		"Conquista Asia e Sud America",
+		"Conquista Europa, Sud America più un terzo continente di tua scelta",
+		"Conquista Europa Oceania più un terzo continente di tua scelta",
+		"Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"
+	};
+	const int Cannone=0;
+	const int Fante=1;
+	const int Cavaliere=2;
+	const int Compagini [num_stati]={
+		//Asia
+		Fante,
+		Fante,
+		Cavaliere,
+		Cannone,
+		Cavaliere,
+		Cavaliere,
+		Fante,
+		Cannone,
+		Cavaliere,
+		Cannone,
+		Fante,
+		Cannone,
+		//Oceania
+		Fante,
+		Cannone,
+		Cavaliere,
+		Cavaliere,
+		//Africa
+		Fante,
+		Fante,
+		Cannone,
+		Cannone,
+		Cavaliere,
+		Fante,
+		//Europa
+		Cavaliere,
+		Cavaliere,
+		Fante,
+		Cavaliere,
+		Cannone,
+		Fante,
+		Cannone,
+		//Sud America
+		Cannone,
+		Fante,
+		Cannone,
+		Cavaliere,
+		//Nord America
+		Cavaliere,
+		Fante,
+		Cannone,
+		Cannone,
+		Cavaliere,
+		Fante,
+		Cavaliere,
+		Fante,
+		Cannone
+	};
+	
 }
+
+namespace Giocatori{
+	const int Max_Giocatori=6;
+	const int Giallo=0;
+	const int Blu=1;
+	const int Rosso=2;
+	const int Nero=3;
+	const int Viola=4;
+	const int Verde=5;
+	const QColor Colori[Max_Giocatori]={
+		QColor(255,242,0,255), //Giallo
+		QColor(0,84,166,255), //Blu
+		QColor(237,28,36), //Rosso
+		QColor(0,0,0,255), //Nero
+		QColor(236,0,140), //Viola
+		QColor(0,166,81,255) //Verde
+	};
+}
+
 
 class Continente{
 	public:
 		//Funzioni di Riconoscimento
-		static bool isAsia(int stato){return (stato>=0 && stato<=11);}
-		static bool isOceania(int stato){return (stato>=12 && stato<=15);}
-		static bool isAfrica(int stato){return (stato>=16 && stato<=21);}
-		static bool isEuropa(int stato){return (stato>=22 && stato<=28);}
-		static bool isSudAmerica(int stato){return (stato>=29 && stato<=32);}
-		static bool isNordAmerica(int stato){return (stato>=33 && stato<=41);}
+		static bool isAsia(const int& stato){return (stato>=0 && stato<=11);}
+		static bool isOceania(const int& stato){return (stato>=12 && stato<=15);}
+		static bool isAfrica(const int& stato){return (stato>=16 && stato<=21);}
+		static bool isEuropa(const int& stato){return (stato>=22 && stato<=28);}
+		static bool isSudAmerica(const int& stato){return (stato>=29 && stato<=32);}
+		static bool isNordAmerica(const int& stato){return (stato>=33 && stato<=41);}
+		static QString Regole(){
+			QFile file(":/Generale/Regole.txt");
+			QString regole("");
+			if(file.open(QIODevice::ReadOnly)) {
+				QTextStream in(&file);
+				while(!in.atEnd()) {
+					regole.append(in.readLine());        	
+				}
+			}
+			file.close();
+			return regole;
+		}
 };
 
 /*Elenco di posizioni e dimensioni degli stati in ordine alfabetico
