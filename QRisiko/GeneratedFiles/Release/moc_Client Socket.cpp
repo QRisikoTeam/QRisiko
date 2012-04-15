@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Client Socket.h'
 **
-** Created: Sat 14. Apr 12:30:35 2012
+** Created: Sun 15. Apr 15:49:01 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

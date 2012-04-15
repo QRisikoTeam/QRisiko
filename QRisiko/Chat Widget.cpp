@@ -2,7 +2,6 @@
 #include "Chat Const.h"
 #include <QtGui>
 #include <QtNetwork>
-#include <QTest>
 
 ChatWidget::ChatWidget(QWidget *parent, QString name, QColor col, bool timestamp, bool server, QString hostIP, unsigned int por)
 :QWidget(parent),
@@ -13,6 +12,7 @@ IsServer(server),
 Host(hostIP),
 port(por)
 {
+	fistTime=true;
 	setupUi(this);
 	TCPServer=NULL;
 	TCPsocket=NULL;
@@ -31,47 +31,56 @@ port(por)
 }
 
 bool ChatWidget::Avvia(){
-	reconnectButton->setVisible(false);
-	if(!IsServer){
-		TCPsocket=new QTcpSocket(this);
-		connect(TCPsocket, SIGNAL(connected()), this, SLOT(Connesso()));
-		connect(TCPsocket, SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(ErroreConnessione()));
-		connect(TCPsocket, SIGNAL(disconnected()),this, SLOT(connectionClosedByServer()));
-		connect(TCPsocket, SIGNAL(readyRead()),this, SLOT(Inbox()));
-		connect(this, SIGNAL(MessageRecieved(QString,bool)), this, SLOT(PrintMessage(QString,bool)));
-		PrintMessage(tr("Connessione in corso..."),true);
-		TCPsocket->connectToHost(Host,port);
-		nextBlockSize=0;
-		finito=false;
-	}
-	else{
-		TCPServer=new ChatServer(this);
-		if (!TCPServer->listen(QHostAddress::Any, port)) {
-			PrintMessage(tr("Failed to bind to port"),true);
-			return false;
-		}
-		else {
-			QString ipAddress("");
-			QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
-			// use the first non-localhost IPv4 address
-			for (int i = 0; i < ipAddressesList.size(); ++i) {
-				if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
-					ipAddressesList.at(i).toIPv4Address()) {
-						ipAddress = ipAddressesList.at(i).toString();
-						break;
-				}
+	if(!partito){
+		reconnectButton->setVisible(false);
+		if(!IsServer){
+			TCPsocket=new QTcpSocket(this);
+			
+			connect(TCPsocket, SIGNAL(connected()), this, SLOT(Connesso()));
+			connect(TCPsocket, SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(ErroreConnessione()));
+			connect(TCPsocket, SIGNAL(disconnected()),this, SLOT(connectionClosedByServer()));
+			connect(TCPsocket, SIGNAL(readyRead()),this, SLOT(Inbox()));
+			if (fistTime){
+				connect(this, SIGNAL(MessageRecieved(QString,bool)), this, SLOT(PrintMessage(QString,bool)));
 			}
-			// if we did not find one, use IPv4 localhost
-			if (ipAddress.isEmpty())
-				ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
-			PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(ipAddress).arg(TCPServer->serverPort()),true);
+			PrintMessage(tr("Connessione in corso..."),true);
+			TCPsocket->connectToHost(Host,port);
+			nextBlockSize=0;
+			finito=false;
 		}
-		connect(TCPServer,SIGNAL(SendMessage(QString)),this, SLOT(StampaMessaggioUtente(QString)));
-		connect(this,SIGNAL(MessageFromServer(QString)),TCPServer,SIGNAL(SendMessage(QString)));
+		else{
+			TCPServer=new ChatServer(this);
+			if (!TCPServer->listen(QHostAddress::Any, port)) {
+				PrintMessage(tr("Failed to bind to port"),true);
+				return false;
+			}
+			else {
+				QString ipAddress("");
+				QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
+				// use the first non-localhost IPv4 address
+				for (int i = 0; i < ipAddressesList.size(); ++i) {
+					if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
+						ipAddressesList.at(i).toIPv4Address()) {
+							ipAddress = ipAddressesList.at(i).toString();
+							break;
+					}
+				}
+				// if we did not find one, use IPv4 localhost
+				if (ipAddress.isEmpty())
+					ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+				PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(ipAddress).arg(TCPServer->serverPort()),true);
+			}
+			connect(TCPServer,SIGNAL(SendMessage(QString)),this, SLOT(StampaMessaggioUtente(QString)));
+			if (fistTime){
+				connect(this,SIGNAL(MessageFromServer(QString)),TCPServer,SIGNAL(SendMessage(QString)));
+			}
+		}
+		partito=true;
+		disconnectRecieved=false;
+		fistTime=false;
+		return true;
 	}
-	partito=true;
-	disconnectRecieved=false;
-	return true;
+	else return false;
 }
 void ChatWidget::StampaMessaggioUtente(QString msg){
 		PrintMessage(msg,false);
@@ -103,12 +112,18 @@ void ChatWidget::Disconnesso(){
 		emit MessageFromServer(tr("<b>%1 ha abbandonato la conversazione</b>").arg(UserName));
 	}
 	reconnectButton->setVisible(true);
+	partito=false;
+	TCPServer=NULL;
+	TCPsocket=NULL;
 }
 void ChatWidget::ErroreConnessione(){
 	PrintMessage(tr("ERRORE!!!<br/>")+TCPsocket->errorString().toUtf8(),true);
 	if(TCPsocket->isOpen())
 		TCPsocket->close();
 	reconnectButton->setVisible(true);
+	partito=false;
+	TCPServer=NULL;
+	TCPsocket=NULL;
 }
 
 void ChatWidget::Inbox(){
@@ -225,7 +240,7 @@ void ChatWidget::resizeEvent(QResizeEvent *event){
 void ChatWidget::closeEvent(QCloseEvent *event)
 {
 	Disconnesso();
-	QTest::qWait(250);
+	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 	if(!IsServer){
 		if(TCPsocket){
 			if(TCPsocket->isOpen())
@@ -246,10 +261,14 @@ void ChatWidget::connectionClosedByServer()
 		emit MessageRecieved(tr("<font color=\"red\">ERRORE!!!</font><br/><font color=\"red\">Connessione Chiusa dal Server</font>"),true);
 	}
 	reconnectButton->setVisible(true);
+	partito=false;
+	TCPServer=NULL;
+	TCPsocket=NULL;
 }
 void ChatWidget::PrintMessage(QString msg, bool fromserv){
 	if (fromserv){
 		ChatText->append("<font color=\""+Colors::ServerColor.name()+"\">Server: " +msg +"</font>");
 	}
 	else ChatText->append(msg);
+	
 }

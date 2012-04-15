@@ -10,6 +10,8 @@ class MainWindow : public QMainWindow{
 	private:
 		QRisiko* mappa;
 		ChatWidget* chat;
+	protected:
+		void closeEvent(QCloseEvent *event);
 };
 
 #endif

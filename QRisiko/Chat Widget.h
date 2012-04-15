@@ -1,6 +1,6 @@
 #ifndef CHATWIDGET_H
 #define CHATWIDGET_H
-#include <QDialog>
+#include <QWidget>
 #include <QTcpSocket>
 #include "ui_Chat.h"
 #include "Smiles Selector.h"
@@ -20,10 +20,11 @@ class ChatWidget : public QWidget, public Ui::Chat
 		quint16 nextBlockSize;
 		QTcpSocket* TCPsocket;
 		ChatServer* TCPServer;
-		void ChatWidget::Disconnesso();
+		void Disconnesso();
 		bool finito;
 		bool partito;
 		bool disconnectRecieved;
+		bool fistTime;
 	public:
 		ChatWidget(
 			QWidget *parent=0,

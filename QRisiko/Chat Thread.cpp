@@ -15,7 +15,6 @@ void ChatThread::run()
 {
 	while(keepRunning){}
 	socket->disconnectFromHost();
-	socket->waitForDisconnected();
 }
 
 void  ChatThread::stop(){

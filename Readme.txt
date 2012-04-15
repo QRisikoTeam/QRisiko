@@ -18,8 +18,6 @@ Chat Widget:
 		Client Soket -> Interfaccia implementata in ogni ChatThread per comunicare con i rispettivi client
 		Chat.ui -> Interfaccia grafica di base per il widget chat
 		ChatWidget -> Implementazione delle funzioni dell'interfaccia grafica
-	Patches Welcome:
-		Chat Widget.cpp -> ChatWidget::closeEvent rimozione di QTest::qwait(250); e sostituzione con sistema di comunicazione tra server e client che si assicuri che il messaggio di abbandono della conversazione sia stato ricevuto per intero dal server prima di chiudere la connessione
 
 Widget Mappa:
 	Descrizione Sorgenti:
