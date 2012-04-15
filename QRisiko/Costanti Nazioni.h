@@ -1,11 +1,12 @@
 #ifndef COSTANTI_NAZIONI_H
 #define COSTANTI_NAZIONI_H
-#include <qpoint.h>
+#include <QPoint>
 #include <QSize>
 #include <QString>
 #include <QRect>
 #include <QTextStream>
 #include <QFile>
+#include <QColor>
 
 class SizPos{
 	QSize sz;
@@ -361,8 +362,9 @@ namespace Giocatori{
 		QColor(236,0,140), //Viola
 		QColor(0,166,81,255) //Verde
 	};
-}
 
+	const QString PathToHttpServer("http://oratoriomomo.org/Risiqo");
+}
 
 class Continente{
 	public:

@@ -5,6 +5,7 @@
 #include <QFrame>
 #include "ImmagineCliccabile.h"
 #include "Costanti Nazioni.h"
+#include "Gestore Servers.h"
 
 class QRisiko : public QWidget
 {
@@ -12,6 +13,7 @@ class QRisiko : public QWidget
 	private:
 		ImmagineCliccabile *Stati[ID_Stati::num_stati];
 		QFrame* Sfondo;
+		GestoreServers* gestoreServer;
 	protected:
 		void mousePressEvent(QMouseEvent *event);
 		void resizeEvent (QResizeEvent * event);

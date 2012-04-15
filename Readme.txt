@@ -22,5 +22,9 @@ Chat Widget:
 Widget Mappa:
 	Descrizione Sorgenti:
 		Immagine Cliccabile -> classe che eredita da QLabel usata per mostrare gli stati, registra anche quale stato rappresenta
+		Gestore Servers -> gestisce la registazione, la lettura e la deregistrazione dei server creati
 		qrisiko -> widget che rappresenta la mappa principale, è composto dallo sfondo e da 42 stati cliccabili
 	Molto rimane ancora da implementare in questa sezione
+	
+Server Side Scripts
+	Script da caricare sul server indicato in Giocatori::PathToHttpServer (definito in CostantiNazioni.h) per far si che Gestore Servers funzioni

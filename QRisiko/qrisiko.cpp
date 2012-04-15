@@ -4,6 +4,7 @@
 QRisiko::QRisiko(QWidget *parent)
 : QWidget(parent)
 {
+	gestoreServer= new GestoreServers(this);
 	setObjectName(QString::fromUtf8("MappaDiGioco"));
 	QSizePolicy politica(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	politica.setHorizontalStretch(0);
