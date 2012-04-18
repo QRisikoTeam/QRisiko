@@ -118,59 +118,59 @@ namespace ID_Stati{
 		"Alberta",
 		"Groenlandia",
 		"Alaska",
-		"Territori dell'Ovest"
+		"Territori dell\'Ovest"
 	};
 
 	const SizPos sp_mappa(1024,574,0,0);
 	const SizPos PosData_Stati[num_stati]={
 		//Asia
-		SizPos(41,92,899,107),
-		SizPos(114,103,618,79),
-		SizPos(89,104,648,41),
-		SizPos(118,110,664,26),
-		SizPos(157,62,760,37),
-		SizPos(117,103,866,50),
-		SizPos(168,52,725,81),
-		SizPos(157,76,746,109),
-		SizPos(177,124,713,126),
-		SizPos(131,118,558,153),
-		SizPos(130,132,674,168),
-		SizPos(65,110,790,207),
+		SizPos(41,92,899,107),		//Giappone
+		SizPos(114,103,617,79),		//Afganistan
+		SizPos(89,104,647,41),		//Urali
+		SizPos(118,110,663,26),		//Siberia
+		SizPos(157,62,760,38),		//Jacuzia
+		SizPos(117,103,866,50),		//Kamchatka
+		SizPos(168,52,725,81),		//Cita
+		SizPos(157,76,746,109),		//Mongolia
+		SizPos(177,124,713,125),	//Cina
+		SizPos(131,118,558,154),	//Medio Oriente
+		SizPos(130,132,674,168),	//India
+		SizPos(65,110,789,208),		//Siam
 		//Oceania
-		SizPos(78,110,920,364),
-		SizPos(107,120,855,377),
-		SizPos(77,42,931,323),
-		SizPos(112,116,806,248),
+		SizPos(78,110,920,364),		//Australia Orientale
+		SizPos(107,120,856,377),	//Australia Occidentale
+		SizPos(77,42,931,323),		//Nuova Guinea
+		SizPos(112,116,806,248),	//Indonesia
 		//Africa
-		SizPos(91,55,503,189),
-		SizPos(146,143,410,173),
-		SizPos(103,117,511,344),
-		SizPos(104,140,546,230),
-		SizPos(80,99,501,277),
-		SizPos(28,55,619,370),
+		SizPos(91,55,503,189),		//Egitto
+		SizPos(146,143,410,173),	//Africa del Nord
+		SizPos(103,117,511,345),	//Africa del Sud
+		SizPos(104,140,547,230),	//Africa Orientale
+		SizPos(80,99,501,278),		//Congo
+		SizPos(28,55,620,370),		//Madagascar
 		//Europa
-		SizPos(76,58,492,124),
-		SizPos(67,41,482,94),//Europa Settentrionale
-		SizPos(59,60,441,119),
-		SizPos(37,33,444,90),
-		SizPos(74,60,491,46),
-		SizPos(39,20,409,71),
-		SizPos(126,119,537,50),
+		SizPos(76,58,492,125),		//Europa Meridionale
+		SizPos(67,41,482,94),		//Europa Settentrionale
+		SizPos(59,60,441,119),		//Europa Occidentale
+		SizPos(37,33,444,90),		//Gran Bretagna
+		SizPos(74,60,491,47),		//Scandinavia
+		SizPos(39,20,409,71),		//Islanda
+		SizPos(126,119,537,51),		//Ucraina
 		//Sud America
-		SizPos(138,156,211,300),
-		SizPos(68,149,226,392),
-		SizPos(98,67,191,272),
-		SizPos(103,117,183,316),
+		SizPos(138,156,210,300),	//Brasile
+		SizPos(68,149,226,392),		//Argentina
+		SizPos(98,67,191,272),		//Venezuela
+		SizPos(103,117,183,316),	//Peru
 		//Nord America
-		SizPos(121,102,78,191),
-		SizPos(116,86,68,121),
-		SizPos(133,94,130,128),
-		SizPos(78,74,233,75),
-		SizPos(61,72,174,83),
-		SizPos(88,44,87,83),
-		SizPos(255,75,203,10),
-		SizPos(117,60,5,45),
-		SizPos(143,55,82,35)
+		SizPos(121,102,78,191),		//America Centrale
+		SizPos(116,86,68,121),		//Stati Uniti Occidentali
+		SizPos(133,94,129,128),		//Stati Uniti Orientali
+		SizPos(78,74,233,75),		//Quebec
+		SizPos(61,72,174,84),		//Ontario
+		SizPos(88,44,87,84),		//Alberta
+		SizPos(255,75,203,10),		//Groenlandia
+		SizPos(117,60,5,45),		//Alaska
+		SizPos(143,55,82,35)		//Territori dell'Ovest
 	};
 
 	const QString img_Stati[num_stati]={
@@ -221,14 +221,64 @@ namespace ID_Stati{
 		":/Stati/alberta.png",
 		":/Stati/groenlandia.png",
 		":/Stati/alaska.png",
-		":/Stati/territori dell'ovest.png"
+		":/Stati/territori ovest.png"
+	};
+	const QString img_Stati_select[num_stati]={
+		//Asia
+		":/Stati/giappone select.png",
+		":/Stati/afganistan select.png",
+		":/Stati/urali select.png",
+		":/Stati/siberia select.png",
+		":/Stati/jacuzia select.png",
+		":/Stati/kamchatka select.png",
+		":/Stati/cita select.png",
+		":/Stati/mongolia select.png",
+		":/Stati/cina select.png",
+		":/Stati/medio oriente select.png",
+		":/Stati/india select.png",
+		":/Stati/siam select.png",
+		//Oceania
+		":/Stati/australia orientale select.png",
+		":/Stati/australia occidentale select.png",
+		":/Stati/nuova guinea select.png",
+		":/Stati/indonesia select.png",
+		//Africa
+		":/Stati/egitto select.png",
+		":/Stati/africa del nord select.png",
+		":/Stati/africa del sud select.png",
+		":/Stati/africa orientale select.png",
+		":/Stati/congo select.png",
+		":/Stati/madagascar select.png",
+		//Europa
+		":/Stati/europa meridionale select.png",
+		":/Stati/europa settentrionale select.png",
+		":/Stati/europa occidentale select.png",
+		":/Stati/gran bretagna select.png",
+		":/Stati/scandinavia select.png",
+		":/Stati/islanda select.png",
+		":/Stati/ucraina select.png",
+		//Sud America
+		":/Stati/brasile select.png",
+		":/Stati/argentina select.png",
+		":/Stati/venezuela select.png",
+		":/Stati/peru select.png",
+		//Nord America
+		":/Stati/america centrale select.png",
+		":/Stati/stati uniti occidentali select.png",
+		":/Stati/stati uniti orientali select.png",
+		":/Stati/quebec select.png",
+		":/Stati/ontario select.png",
+		":/Stati/alberta select.png",
+		":/Stati/groenlandia select.png",
+		":/Stati/alaska select.png",
+		":/Stati/territori ovest select.png"
 	};
 
 	const QColor Colori_Nazioni[num_stati]={
 		//Asia
 		QColor(0,166,81,255),
 		QColor(163,212,156,255),
-		QColor(0,88,38,255),
+		QColor(79,200,94,255),
 		QColor(57,181,74,255),
 		QColor(172,212,115,255),
 		QColor(130,123,0,255),

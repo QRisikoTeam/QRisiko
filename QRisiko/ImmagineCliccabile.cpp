@@ -1,45 +1,41 @@
-#include <QtGui>
 #include "ImmagineCliccabile.h"
 #include "Costanti Nazioni.h"
-ImmagineCliccabile::ImmagineCliccabile(QWidget *parent,int ID)
-: QLabel(parent), Identita(ID)
+#include <QSize>
+#include <QResizeEvent>
+ImmagineCliccabile::ImmagineCliccabile(int ID,QWidget *parent)
+: QPushButton(parent), Identita(ID)
 {
-	
+	immagineOriginale=NULL;
+	immagineRidimensionata=NULL;
+	setImage();
+	connect(this,SIGNAL(clicked()),this,SLOT(clickID()));
 }
 
-
-bool ImmagineCliccabile::IsTransparent(const QPoint& pnt) const{
-	QImage immagine=QPixmap::grabWidget((QWidget *)this).toImage();
-	if (!immagine.valid(pnt)) return true;
-	QRgb colore_pixel=immagine.pixel(pnt);
-	return !(colore_pixel==ID_Stati::Colori_Nazioni[Identita].rgba());
+void ImmagineCliccabile::setImage(){
+	if (immagineOriginale)
+		delete immagineOriginale;
+	if(Identita<0) immagineOriginale=NULL;
+	else{
+		immagineOriginale=new QPixmap(ID_Stati::img_Stati[Identita]);
+		setMask(immagineOriginale->mask());
+	}
 }
 
-void ImmagineCliccabile::Redimensiona(QSize nuova_dimensione){
-	int wid=int(
-		double(nuova_dimensione.width())
-		*
-		double(ID_Stati::PosData_Stati[Identita].dimensione().width())
-		/
-		double(ID_Stati::sp_mappa.dimensione().width()));
-	int hei=int(
-		double(nuova_dimensione.height())
-		*
-		double(ID_Stati::PosData_Stati[Identita].dimensione().height())
-		/
-		double(ID_Stati::sp_mappa.dimensione().height()));
-	int x=int(
-		double(nuova_dimensione.width())
-		*
-		double(ID_Stati::PosData_Stati[Identita].posizione().x())
-		/
-		double(ID_Stati::sp_mappa.dimensione().width()));
-	int y=int(
-		double(nuova_dimensione.height())
-		*
-		double(ID_Stati::PosData_Stati[Identita].posizione().y())
-		/
-		double(ID_Stati::sp_mappa.dimensione().height()));
-	resize(wid,hei);
-	move(x,y);
+void ImmagineCliccabile::resizeEvent (QResizeEvent * event){
+	if(immagineOriginale){
+		if(immagineRidimensionata)
+			delete immagineRidimensionata;
+		immagineRidimensionata=new QPixmap(immagineOriginale->scaled(event->size(),Qt::IgnoreAspectRatio));
+		setMask(immagineRidimensionata->mask());
+	}
+}
+
+void ImmagineCliccabile::MostraImmagine(){
+	setStyleSheet(
+		"ImmagineCliccabile{border-image: url("+ID_Stati::img_Stati[Identita]+");"
+		"border-style: none;}"
+		"ImmagineCliccabile:hover {"
+		"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
+		"}"
+	);
 }

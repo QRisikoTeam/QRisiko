@@ -1,5 +1,6 @@
 #include "Chat Widget.h"
 #include "Chat Const.h"
+#include "Gestore Servers.h"
 #include <QtGui>
 #include <QtNetwork>
 
@@ -50,25 +51,14 @@ bool ChatWidget::Avvia(){
 		}
 		else{
 			TCPServer=new ChatServer(this);
+			GestoreServers* IPgetter=new GestoreServers(this);
+			connect (IPgetter,SIGNAL(IPOttenuto(QString)),this,SLOT(StampaBenvenutoServer(QString)));
 			if (!TCPServer->listen(QHostAddress::Any, port)) {
 				PrintMessage(tr("Failed to bind to port"),true);
 				return false;
 			}
 			else {
-				QString ipAddress("");
-				QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
-				// use the first non-localhost IPv4 address
-				for (int i = 0; i < ipAddressesList.size(); ++i) {
-					if (ipAddressesList.at(i) != QHostAddress::LocalHost &&
-						ipAddressesList.at(i).toIPv4Address()) {
-							ipAddress = ipAddressesList.at(i).toString();
-							break;
-					}
-				}
-				// if we did not find one, use IPv4 localhost
-				if (ipAddress.isEmpty())
-					ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
-				PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(ipAddress).arg(TCPServer->serverPort()),true);
+				IPgetter->OttieniIP();
 			}
 			connect(TCPServer,SIGNAL(SendMessage(QString)),this, SLOT(StampaMessaggioUtente(QString)));
 			if (fistTime){
@@ -81,6 +71,10 @@ bool ChatWidget::Avvia(){
 		return true;
 	}
 	else return false;
+}
+void ChatWidget::StampaBenvenutoServer(QString msg){
+	//PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(msg).arg(TCPServer->serverPort()),true); //Visualizza anche la Porta
+	PrintMessage(tr("Server Avviato<br/>IP: %1").arg(msg),true);
 }
 void ChatWidget::StampaMessaggioUtente(QString msg){
 		PrintMessage(msg,false);

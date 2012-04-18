@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ImmagineCliccabile.h'
 **
-** Created: Sun 15. Apr 19:27:09 2012
+** Created: Wed 18. Apr 18:42:01 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,22 +23,25 @@ static const uint qt_meta_data_ImmagineCliccabile[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      20,   19,   19,   19, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      37,   20,   19,   19, 0x0a,
+      34,   19,   19,   19, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_ImmagineCliccabile[] = {
-    "ImmagineCliccabile\0\0nuova_dimensione\0"
-    "Redimensiona(QSize)\0"
+    "ImmagineCliccabile\0\0Cliccato(int)\0"
+    "clickID()\0"
 };
 
 void ImmagineCliccabile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,7 +50,8 @@ void ImmagineCliccabile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         Q_ASSERT(staticMetaObject.cast(_o));
         ImmagineCliccabile *_t = static_cast<ImmagineCliccabile *>(_o);
         switch (_id) {
-        case 0: _t->Redimensiona((*reinterpret_cast< QSize(*)>(_a[1]))); break;
+        case 0: _t->Cliccato((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->clickID(); break;
         default: ;
         }
     }
@@ -58,7 +62,7 @@ const QMetaObjectExtraData ImmagineCliccabile::staticMetaObjectExtraData = {
 };
 
 const QMetaObject ImmagineCliccabile::staticMetaObject = {
-    { &QLabel::staticMetaObject, qt_meta_stringdata_ImmagineCliccabile,
+    { &QPushButton::staticMetaObject, qt_meta_stringdata_ImmagineCliccabile,
       qt_meta_data_ImmagineCliccabile, &staticMetaObjectExtraData }
 };
 
@@ -76,19 +80,26 @@ void *ImmagineCliccabile::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_ImmagineCliccabile))
         return static_cast<void*>(const_cast< ImmagineCliccabile*>(this));
-    return QLabel::qt_metacast(_clname);
+    return QPushButton::qt_metacast(_clname);
 }
 
 int ImmagineCliccabile::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QLabel::qt_metacall(_c, _id, _a);
+    _id = QPushButton::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
+}
+
+// SIGNAL 0
+void ImmagineCliccabile::Cliccato(int _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

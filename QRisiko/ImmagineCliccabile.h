@@ -1,16 +1,24 @@
 #ifndef IMMAGINECLICCABILE_H
 #define IMMAGINECLICCABILE_H
-#include <QLabel>
-class ImmagineCliccabile: public QLabel
+#include <QPushButton>
+#include <QBitmap>
+class ImmagineCliccabile: public QPushButton
 {
 	Q_OBJECT
 public:
-	ImmagineCliccabile(QWidget *parent, int ID);
-	bool IsTransparent(const QPoint& pnt) const;
-public slots:
-	void Redimensiona(QSize nuova_dimensione);
+	ImmagineCliccabile(int ID=-1,QWidget *parent=0);
+	void setImage();
+	void MostraImmagine();
 private:
+	void ImpostaMask();
 	int Identita;
-
+	QPixmap* immagineOriginale;
+	QPixmap* immagineRidimensionata;
+signals:
+	void Cliccato(int);
+protected:
+	void resizeEvent (QResizeEvent * event);
+private slots:
+	void clickID(){emit Cliccato(Identita);}
 };
 #endif

@@ -506,6 +506,46 @@
 			ParseFiles="false"
 			>
 			<File
+				RelativePath=".\Resources\Select\afganistan select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\afganistan.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\afganistan.png"
 				>
 				<FileConfiguration
@@ -546,7 +586,87 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\africa del nord select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\africa del nord.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\africa del nord.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\africa del sud select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -586,7 +706,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\africa orientale select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\africa orientale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\africa orientale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\alaska select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -626,6 +806,46 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\alaska.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\alberta select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\alberta.png"
 				>
 				<FileConfiguration
@@ -646,7 +866,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\alberta.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\america centrale select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\america centrale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -726,7 +1006,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\argentina select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\argentina.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -766,7 +1086,87 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\australia occidentale select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\australia occidentale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\australia occidentale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\australia orientale select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\australia orientale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -826,7 +1226,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\BlueBox.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\bomb.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\brasile select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -866,7 +1306,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\brasile.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\bulgy-eyes.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Camo.jpg"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -972,6 +1452,46 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\cina select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\cina.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\cina.png"
 				>
 				<FileConfiguration
@@ -992,7 +1512,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\cita select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\cita.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\cita.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1052,7 +1612,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\congo select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\congo.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\congo.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1172,7 +1772,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\egitto select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\egitto.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1212,7 +1852,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\europa meridionale select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\europa meridionale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\europa meridionale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\europa occidentale select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1252,7 +1952,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\europa occidentale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\europa settentrionale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\europa settentrionale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1392,7 +2132,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\giappone select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\giappone.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\giappone.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1432,6 +2212,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\gran bretagna select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\gran bretagna.png"
 				>
 				<FileConfiguration
@@ -1452,7 +2252,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\gran bretagna.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\groenlandia select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\groenlandia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1532,7 +2392,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\india select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\india.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\india.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\indonesia select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1572,7 +2492,87 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\indonesia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\islanda select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\islanda.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\islanda.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\jacuzia select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1612,7 +2612,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\jacuzia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\kamchatka select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\kamchatka.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1672,7 +2732,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\madagascar select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\madagascar.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1712,7 +2812,87 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Mappa Sfondo tratteggi.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\medio oriente select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\medio oriente.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\medio oriente.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\mongolia select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1752,7 +2932,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\mongolia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\neutral.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\nuova guinea select.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1792,7 +3012,127 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\nuova guinea.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\ontario select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\ontario.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\ontario.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Pattern-Green.jpg"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\peru select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1861,7 +3201,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png"
+						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -1872,13 +3212,53 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png"
+						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\quebec select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\quebec.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1978,7 +3358,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\scandinavia select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\scandinavia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\scandinavia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2038,6 +3458,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\siam select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\siam.png"
 				>
 				<FileConfiguration
@@ -2058,7 +3498,67 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Bordi\siam.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\siberia select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\siberia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\siberia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2118,7 +3618,87 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\stati uniti occidentali select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\stati uniti occidentali.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\stati uniti occidentali.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\stati uniti orientali select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2178,6 +3758,46 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\territori dell&apos;ovest select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\territori dell&apos;ovest.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\territori dell&apos;ovest.png"
 				>
 				<FileConfiguration
@@ -2218,7 +3838,87 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\ucraina select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\ucraina.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\ucraina.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\urali select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2278,7 +3978,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\venezuela select.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\venezuela.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Bordi\venezuela.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2622,6 +4362,10 @@
 			>
 			<File
 				RelativePath=".\AggiungiIP.php"
+				>
+			</File>
+			<File
+				RelativePath=".\GetIP.php"
 				>
 			</File>
 			<File

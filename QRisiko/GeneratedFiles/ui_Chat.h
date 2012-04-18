@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Chat.ui'
 **
-** Created: Sun 15. Apr 19:27:09 2012
+** Created: Wed 18. Apr 17:56:43 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -52,16 +52,16 @@ public:
         ChatText->setObjectName(QString::fromUtf8("ChatText"));
         sizePolicy.setHeightForWidth(ChatText->sizePolicy().hasHeightForWidth());
         ChatText->setSizePolicy(sizePolicy);
-        ChatText->setMinimumSize(QSize(0, 0));
+        ChatText->setMinimumSize(QSize(323, 110));
         ChatText->viewport()->setProperty("cursor", QVariant(QCursor(Qt::IBeamCursor)));
         ChatText->setAcceptDrops(false);
-        ChatText->setStyleSheet(QString::fromUtf8("border-width: 1px;\n"
+        ChatText->setStyleSheet(QString::fromUtf8("#ChatText{border-width: 1px;\n"
+"border-style: solid;\n"
 "border-color: rgb(0, 0, 0);\n"
-"border-style: inset;\n"
 "background-color: rgba(255, 255, 255, 255);\n"
 "border-radius: 3px;\n"
-"selection-background-color: ltblue; "));
-        ChatText->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+"selection-background-color: ltblue;}"));
+        ChatText->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         ChatText->setUndoRedoEnabled(false);
         ChatText->setReadOnly(true);
         ChatText->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse);
@@ -70,6 +70,8 @@ public:
 
         reconnectButton = new QPushButton(Chat);
         reconnectButton->setObjectName(QString::fromUtf8("reconnectButton"));
+        reconnectButton->setMinimumSize(QSize(323, 23));
+        reconnectButton->setMaximumSize(QSize(16777215, 31));
 
         gridLayout->addWidget(reconnectButton, 1, 0, 1, 3);
 
@@ -95,6 +97,7 @@ public:
 
         SmilesButton = new QPushButton(Chat);
         SmilesButton->setObjectName(QString::fromUtf8("SmilesButton"));
+        SmilesButton->setMinimumSize(QSize(31, 31));
         SmilesButton->setMaximumSize(QSize(16777215, 31));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/Smiles/happy.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -104,6 +107,7 @@ public:
 
         SendButton = new QPushButton(Chat);
         SendButton->setObjectName(QString::fromUtf8("SendButton"));
+        SendButton->setMinimumSize(QSize(75, 31));
         SendButton->setMaximumSize(QSize(16777215, 31));
         SendButton->setCursor(QCursor(Qt::PointingHandCursor));
         SendButton->setDefault(true);

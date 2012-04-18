@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/Generale">
         <file alias="Regole.txt">Regole.txt</file>
+        <file alias="Sfondo.jpg">Resources/Pattern-Green.jpg</file>
     </qresource>
     <qresource prefix="/Stati">
         <file alias="europa settentrionale.png">Resources/europa settentrionale.png</file>
@@ -41,14 +42,98 @@
         <file alias="siberia.png">Resources/siberia.png</file>
         <file alias="stati uniti occidentali.png">Resources/stati uniti occidentali.png</file>
         <file alias="stati uniti orientali.png">Resources/stati uniti orientali.png</file>
-        <file alias="territori dell'ovest.png">Resources/territori dell'ovest.png</file>
+        <file alias="territori ovest.png">Resources/territori dell'ovest.png</file>
         <file alias="ucraina.png">Resources/ucraina.png</file>
         <file alias="urali.png">Resources/urali.png</file>
         <file alias="venezuela.png">Resources/venezuela.png</file>
+        <file alias="Sfondo.png">Resources/Mappa Sfondo tratteggi.png</file>
+        <file alias="afganistan select.png">Resources/Select/afganistan select.png</file>
+        <file alias="africa del nord select.png">Resources/Select/africa del nord select.png</file>
+        <file alias="africa del sud select.png">Resources/Select/africa del sud select.png</file>
+        <file alias="africa orientale select.png">Resources/Select/africa orientale select.png</file>
+        <file alias="alaska select.png">Resources/Select/alaska select.png</file>
+        <file alias="alberta select.png">Resources/Select/alberta select.png</file>
+        <file alias="america centrale select.png">Resources/Select/america centrale select.png</file>
+        <file alias="argentina select.png">Resources/Select/argentina select.png</file>
+        <file alias="australia occidentale select.png">Resources/Select/australia occidentale select.png</file>
+        <file alias="australia orientale select.png">Resources/Select/australia orientale select.png</file>
+        <file alias="brasile select.png">Resources/Select/brasile select.png</file>
+        <file alias="cina select.png">Resources/Select/cina select.png</file>
+        <file alias="cita select.png">Resources/Select/cita select.png</file>
+        <file alias="congo select.png">Resources/Select/congo select.png</file>
+        <file alias="egitto select.png">Resources/Select/egitto select.png</file>
+        <file alias="europa meridionale select.png">Resources/Select/europa meridionale select.png</file>
+        <file alias="europa occidentale select.png">Resources/Select/europa occidentale select.png</file>
+        <file alias="giappone select.png">Resources/Select/giappone select.png</file>
+        <file alias="gran bretagna select.png">Resources/Select/gran bretagna select.png</file>
+        <file alias="groenlandia select.png">Resources/Select/groenlandia select.png</file>
+        <file alias="india select.png">Resources/Select/india select.png</file>
+        <file alias="indonesia select.png">Resources/Select/indonesia select.png</file>
+        <file alias="islanda select.png">Resources/Select/islanda select.png</file>
+        <file alias="jacuzia select.png">Resources/Select/jacuzia select.png</file>
+        <file alias="kamchatka select.png">Resources/Select/kamchatka select.png</file>
+        <file alias="madagascar select.png">Resources/Select/madagascar select.png</file>
+        <file alias="medio oriente select.png">Resources/Select/medio oriente select.png</file>
+        <file alias="mongolia select.png">Resources/Select/mongolia select.png</file>
+        <file alias="nuova guinea select.png">Resources/Select/nuova guinea select.png</file>
+        <file alias="ontario select.png">Resources/Select/ontario select.png</file>
+        <file alias="peru select.png">Resources/Select/peru select.png</file>
+        <file alias="quebec select.png">Resources/Select/quebec select.png</file>
+        <file alias="scandinavia select.png">Resources/Select/scandinavia select.png</file>
+        <file alias="siam select.png">Resources/Select/siam select.png</file>
+        <file alias="siberia select.png">Resources/Select/siberia select.png</file>
+        <file alias="stati uniti occidentali select.png">Resources/Select/stati uniti occidentali select.png</file>
+        <file alias="stati uniti orientali select.png">Resources/Select/stati uniti orientali select.png</file>
+        <file alias="territori ovest select.png">Resources/Select/territori dell'ovest select.png</file>
+        <file alias="ucraina select.png">Resources/Select/ucraina select.png</file>
+        <file alias="urali select.png">Resources/Select/urali select.png</file>
+        <file alias="venezuela select.png">Resources/Select/venezuela select.png</file>
+        <file alias="europa settentrionale select.png">Resources/Select/europa settentrionale.png</file>
     </qresource>
     <qresource prefix="/Carte">
         <file>Resources/Carte/Cannone.png</file>
         <file>Resources/Carte/Cavaliere.png</file>
         <file>Resources/Carte/Fante.png</file>
+        <file alias="afganistan.png">Resources/Bordi/afganistan.png</file>
+        <file alias="africa del nord.png">Resources/Bordi/africa del nord.png</file>
+        <file alias="africa del sud.png">Resources/Bordi/africa del sud.png</file>
+        <file alias="africa orientale.png">Resources/Bordi/africa orientale.png</file>
+        <file alias="alaska.png">Resources/Bordi/alaska.png</file>
+        <file alias="alberta.png">Resources/Bordi/alberta.png</file>
+        <file alias="america centrale.png">Resources/Bordi/america centrale.png</file>
+        <file alias="argentina.png">Resources/Bordi/argentina.png</file>
+        <file alias="australia occidentale.png">Resources/Bordi/australia occidentale.png</file>
+        <file alias="australia orientale.png">Resources/Bordi/australia orientale.png</file>
+        <file alias="brasile.png">Resources/Bordi/brasile.png</file>
+        <file alias="cina.png">Resources/Bordi/cina.png</file>
+        <file alias="cita.png">Resources/Bordi/cita.png</file>
+        <file alias="congo.png">Resources/Bordi/congo.png</file>
+        <file alias="egitto.png">Resources/Bordi/egitto.png</file>
+        <file alias="europa meridionale.png">Resources/Bordi/europa meridionale.png</file>
+        <file alias="europa occidentale.png">Resources/Bordi/europa occidentale.png</file>
+        <file alias="giappone.png">Resources/Bordi/giappone.png</file>
+        <file alias="gran bretagna.png">Resources/Bordi/gran bretagna.png</file>
+        <file alias="groenlandia.png">Resources/Bordi/groenlandia.png</file>
+        <file alias="india.png">Resources/Bordi/india.png</file>
+        <file alias="indonesia.png">Resources/Bordi/indonesia.png</file>
+        <file alias="islanda.png">Resources/Bordi/islanda.png</file>
+        <file alias="jacuzia.png">Resources/Bordi/jacuzia.png</file>
+        <file alias="kamchatka.png">Resources/Bordi/kamchatka.png</file>
+        <file alias="madagascar.png">Resources/Bordi/madagascar.png</file>
+        <file alias="medio oriente.png">Resources/Bordi/medio oriente.png</file>
+        <file alias="mongolia.png">Resources/Bordi/mongolia.png</file>
+        <file alias="nuova guinea.png">Resources/Bordi/nuova guinea.png</file>
+        <file alias="ontario.png">Resources/Bordi/ontario.png</file>
+        <file alias="peru.png">Resources/Bordi/peru.png</file>
+        <file alias="quebec.png">Resources/Bordi/quebec.png</file>
+        <file alias="scandinavia.png">Resources/Bordi/scandinavia.png</file>
+        <file alias="siam.png">Resources/Bordi/siam.png</file>
+        <file alias="siberia.png">Resources/Bordi/siberia.png</file>
+        <file alias="stati uniti occidentali.png">Resources/Bordi/stati uniti occidentali.png</file>
+        <file alias="stati uniti orientali.png">Resources/Bordi/stati uniti orientali.png</file>
+        <file alias="territori ovest.png">Resources/Bordi/territori dell'ovest.png</file>
+        <file alias="ucraina.png">Resources/Bordi/ucraina.png</file>
+        <file alias="urali.png">Resources/Bordi/urali.png</file>
+        <file alias="venezuela.png">Resources/Bordi/venezuela.png</file>
     </qresource>
 </RCC>

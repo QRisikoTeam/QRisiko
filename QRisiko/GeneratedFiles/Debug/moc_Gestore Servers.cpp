@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Gestore Servers.h'
 **
-** Created: Sun 15. Apr 19:27:08 2012
+** Created: Mon 16. Apr 10:18:32 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,27 +23,31 @@ static const uint qt_meta_data_GestoreServers[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x05,
-      23,   15,   15,   15, 0x05,
+      27,   23,   15,   15, 0x05,
+      53,   50,   15,   15, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      52,   46,   15,   15, 0x08,
-      67,   15,   15,   15, 0x08,
+      79,   73,   15,   15, 0x08,
+      94,   15,   15,   15, 0x08,
+     111,   15,   15,   15, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_GestoreServers[] = {
-    "GestoreServers\0\0done()\0ListaOttenuta(QString)\0"
+    "GestoreServers\0\0done()\0lis\0"
+    "ListaOttenuta(QString)\0IP\0IPOttenuto(QString)\0"
     "error\0httpDone(bool)\0FormServerList()\0"
+    "FormIP()\0"
 };
 
 void GestoreServers::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -54,8 +58,10 @@ void GestoreServers::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->done(); break;
         case 1: _t->ListaOttenuta((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->httpDone((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 3: _t->FormServerList(); break;
+        case 2: _t->IPOttenuto((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->httpDone((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 4: _t->FormServerList(); break;
+        case 5: _t->FormIP(); break;
         default: ;
         }
     }
@@ -93,9 +99,9 @@ int GestoreServers::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }
@@ -111,5 +117,12 @@ void GestoreServers::ListaOttenuta(QString _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void GestoreServers::IPOttenuto(QString _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_END_MOC_NAMESPACE

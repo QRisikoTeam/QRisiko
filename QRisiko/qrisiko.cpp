@@ -15,43 +15,56 @@ QRisiko::QRisiko(QWidget *parent)
 	setMouseTracking(false);
 	setContextMenuPolicy(Qt::NoContextMenu);
 	resize(1024, 574);
-	Sfondo=new QFrame(this);
+	Sfondo=new QLabel(this);
+	Sfondo->setScaledContents(true);
+	Sfondo->setPixmap(QPixmap(":/Stati/Sfondo.png"));
 	Sfondo->setGeometry(0,0,1024,574);
-	Sfondo->setStyleSheet("background-color: #84B4E4;");
 	Sfondo->lower();
+	Sfondo->setStyleSheet("border-image: url(:/Generale/Sfondo.jpg);");
 	for (int i=0;i<ID_Stati::num_stati;i++){
-		Stati[i]= new ImmagineCliccabile(this,i);
+		Stati[i]= new ImmagineCliccabile(i,this);
 		Stati[i]->setObjectName("Stato_"+ID_Stati::Nomi_Stati[i]);
 		Stati[i]->setContextMenuPolicy(Qt::NoContextMenu);
 		politica.setHeightForWidth(Stati[i]->sizePolicy().hasHeightForWidth());
 		Stati[i]->setSizePolicy(politica);
-		Stati[i]->setPixmap(QPixmap(ID_Stati::img_Stati[i]));
-		Stati[i]->setScaledContents(true);
-		Stati[i]->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 		Stati[i]->setGeometry(ID_Stati::PosData_Stati[i].rettangolo());
-		connect(this,SIGNAL(resized(QSize)),Stati[i],SLOT(Redimensiona(QSize)));
+		Stati[i]->MostraImmagine();
+		connect(Stati[i],SIGNAL(Cliccato(int)),this,SLOT(funziona(int)));
 	}
-	connect(this,SIGNAL(cliccato(int)),this,SLOT(funziona(int)));
 }
 
 void QRisiko::funziona(int identita){
 	QMessageBox::warning(this, tr("Funziona"),tr((QString("Hai cliccato ")+ID_Stati::Nomi_Stati[identita]).toUtf8()));
 }
-void QRisiko::mousePressEvent(QMouseEvent *event){
-	if (event->button()==Qt::LeftButton){
-		for (int i=0;i<ID_Stati::num_stati;i++){
-			if(Stati[i]->isEnabled() && Stati[i]->geometry().contains(event->pos(),true)){
-				if (!Stati[i]->IsTransparent(event->pos()-Stati[i]->pos()))
-					emit cliccato(i);
-			}
-		}
-	}
-}
+
 void QRisiko::resizeEvent (QResizeEvent * event){
 	QWidget::resizeEvent(event);
 	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());
-	emit resized(event->size());
-}
-void QRisiko::setStyleSheet(const QString& stsh){
-	Sfondo->setStyleSheet("background-color: #84B4E4;"+stsh);
+	for (int i=0;i<ID_Stati::num_stati;i++){
+	int wid=int(
+		double(event->size().width())
+		*
+		double(ID_Stati::PosData_Stati[i].dimensione().width())
+		/
+		double(ID_Stati::sp_mappa.dimensione().width()));
+	int hei=int(
+		double(event->size().height())
+		*
+		double(ID_Stati::PosData_Stati[i].dimensione().height())
+		/
+		double(ID_Stati::sp_mappa.dimensione().height()));
+	double x=int(
+		double(event->size().width())
+		*
+		double(ID_Stati::PosData_Stati[i].posizione().x())
+		/
+		double(ID_Stati::sp_mappa.dimensione().width()));
+	double y=int(
+		double(event->size().height())
+		*
+		double(ID_Stati::PosData_Stati[i].posizione().y())
+		/
+		double(ID_Stati::sp_mappa.dimensione().height()));
+	Stati[i]->setGeometry(x,y,wid,hei);
+	}
 }

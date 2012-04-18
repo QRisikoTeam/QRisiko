@@ -12,13 +12,17 @@ class GestoreServers : public QObject
 		void AddIP();
 		void RemoveIP();
 		void OttieniLista();
+		void OttieniIP();
 	signals:
 		void done();
-		void ListaOttenuta(QString);
+		void ListaOttenuta(QString lis);
+		void IPOttenuto(QString IP);
 	private slots:
 		void httpDone(bool error);
 		void FormServerList();
+		void FormIP();
 	private:
+		bool ToDelete;
 		void getFile(const QUrl &url);
 		QHttp http;
 		QFile file;

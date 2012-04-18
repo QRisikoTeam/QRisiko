@@ -56,6 +56,7 @@ class ChatWidget : public QWidget, public Ui::Chat
 		void connectionClosedByServer();
 		void PrintMessage(QString msg, bool fromserv=false);
 		void StampaMessaggioUtente(QString msg);
+		void StampaBenvenutoServer(QString msg);
 	protected:
 		bool eventFilter(QObject *target, QEvent *event);
 		void resizeEvent(QResizeEvent *event);
