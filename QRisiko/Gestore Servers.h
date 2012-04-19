@@ -13,6 +13,7 @@ class GestoreServers : public QObject
 		void RemoveIP();
 		void OttieniLista();
 		void OttieniIP();
+		void NotResponding(QString ipnr);
 	signals:
 		void done();
 		void ListaOttenuta(QString lis);
@@ -22,6 +23,7 @@ class GestoreServers : public QObject
 		void FormServerList();
 		void FormIP();
 	private:
+		bool errore;
 		bool ToDelete;
 		void getFile(const QUrl &url);
 		QHttp http;

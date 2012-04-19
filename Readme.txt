@@ -21,9 +21,9 @@ Chat Widget:
 
 Widget Mappa:
 	Descrizione Sorgenti:
-		Immagine Cliccabile -> classe che eredita da QLabel usata per mostrare gli stati, registra anche quale stato rappresenta
+		Immagine Cliccabile -> classe che eredita da QPushButton usata per mostrare gli stati, registra anche quale stato rappresenta
 		Gestore Servers -> gestisce la registazione, la lettura e la deregistrazione dei server creati
-		qrisiko -> widget che rappresenta la mappa principale, è composto dallo sfondo e da 42 stati cliccabili
+		qrisiko -> widget che rappresenta la mappa principale, è composto dallo sfondo e da 42 stati cliccabili. Classe di base utilizzata poi dal widget server e da quello client
 	Molto rimane ancora da implementare in questa sezione
 	
 Server Side Scripts

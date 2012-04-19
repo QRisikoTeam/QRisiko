@@ -3,10 +3,13 @@
 #include <QSize>
 #include <QResizeEvent>
 ImmagineCliccabile::ImmagineCliccabile(int ID,QWidget *parent)
-: QPushButton(parent), Identita(ID)
+: QPushButton(parent), Identita(ID), DelayTimer(this)
 {
 	immagineOriginale=NULL;
 	immagineRidimensionata=NULL;
+	DelayTimer.setSingleShot(true);
+	DelayTimer.setInterval(50);
+	connect(&DelayTimer,SIGNAL(timeout()),this,SLOT(ImpostaMaschera()));
 	setImage();
 	connect(this,SIGNAL(clicked()),this,SLOT(clickID()));
 }
@@ -14,19 +17,21 @@ ImmagineCliccabile::ImmagineCliccabile(int ID,QWidget *parent)
 void ImmagineCliccabile::setImage(){
 	if (immagineOriginale)
 		delete immagineOriginale;
-	if(Identita<0) immagineOriginale=NULL;
+	if(Identita<0 || Identita>=ID_Stati::num_stati) immagineOriginale=NULL;
 	else{
 		immagineOriginale=new QPixmap(ID_Stati::img_Stati[Identita]);
 		setMask(immagineOriginale->mask());
 	}
 }
 
+void ImmagineCliccabile::ImpostaMaschera(){
+	setMask(immagineRidimensionata.mask());
+}
+
 void ImmagineCliccabile::resizeEvent (QResizeEvent * event){
 	if(immagineOriginale){
-		if(immagineRidimensionata)
-			delete immagineRidimensionata;
-		immagineRidimensionata=new QPixmap(immagineOriginale->scaled(event->size(),Qt::IgnoreAspectRatio));
-		setMask(immagineRidimensionata->mask());
+		immagineRidimensionata=immagineOriginale->scaled(event->size(),Qt::IgnoreAspectRatio);
+		DelayTimer.start();
 	}
 }
 

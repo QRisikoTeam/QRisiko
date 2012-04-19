@@ -88,7 +88,7 @@
         <file alias="ucraina select.png">Resources/Select/ucraina select.png</file>
         <file alias="urali select.png">Resources/Select/urali select.png</file>
         <file alias="venezuela select.png">Resources/Select/venezuela select.png</file>
-        <file alias="europa settentrionale select.png">Resources/Select/europa settentrionale.png</file>
+        <file alias="europa settentrionale select.png">Resources/Select/europa settentrionale select.png</file>
     </qresource>
     <qresource prefix="/Carte">
         <file>Resources/Carte/Cannone.png</file>
@@ -135,5 +135,6 @@
         <file alias="ucraina.png">Resources/Bordi/ucraina.png</file>
         <file alias="urali.png">Resources/Bordi/urali.png</file>
         <file alias="venezuela.png">Resources/Bordi/venezuela.png</file>
+        <file alias="europa settentrionale.png">Resources/Bordi/europa settentrionale.png</file>
     </qresource>
 </RCC>

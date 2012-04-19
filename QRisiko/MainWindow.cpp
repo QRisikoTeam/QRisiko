@@ -5,7 +5,6 @@ MainWindow::MainWindow(QWidget* parent/* =0 */)
 {
 	QWidget* centralWidget = new QWidget(this);
 	setObjectName("FinestraPrincipale");
-	//setStyleSheet("#FinestraPrincipale{border-image: url(:/Generale/SfondoComandi.png);}");
 	centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
 	centralWidget->setMouseTracking(false);
 	mappa=new QRisiko(this);

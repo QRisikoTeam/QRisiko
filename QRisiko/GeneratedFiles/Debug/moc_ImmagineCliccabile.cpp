@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ImmagineCliccabile.h'
 **
-** Created: Wed 18. Apr 18:42:01 2012
+** Created: Thu 19. Apr 09:24:06 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ImmagineCliccabile[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,13 +35,14 @@ static const uint qt_meta_data_ImmagineCliccabile[] = {
 
  // slots: signature, parameters, type, tag, flags
       34,   19,   19,   19, 0x08,
+      52,   19,   19,   19, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_ImmagineCliccabile[] = {
     "ImmagineCliccabile\0\0Cliccato(int)\0"
-    "clickID()\0"
+    "ImpostaMaschera()\0clickID()\0"
 };
 
 void ImmagineCliccabile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,7 +52,8 @@ void ImmagineCliccabile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         ImmagineCliccabile *_t = static_cast<ImmagineCliccabile *>(_o);
         switch (_id) {
         case 0: _t->Cliccato((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->clickID(); break;
+        case 1: _t->ImpostaMaschera(); break;
+        case 2: _t->clickID(); break;
         default: ;
         }
     }
@@ -89,9 +91,9 @@ int ImmagineCliccabile::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

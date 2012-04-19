@@ -278,11 +278,11 @@ namespace ID_Stati{
 		//Asia
 		QColor(0,166,81,255),
 		QColor(163,212,156,255),
-		QColor(79,200,94,255),
+		QColor(171,160,0,255),
 		QColor(57,181,74,255),
 		QColor(172,212,115,255),
 		QColor(130,123,0,255),
-		QColor(0,255,0,255),
+		QColor(0,89,82,255),
 		QColor(60,184,120,255),
 		QColor(0,88,38,255),
 		QColor(64,102,24,255),
@@ -292,7 +292,7 @@ namespace ID_Stati{
 		QColor(238,20,91,255),
 		QColor(237,0,140,255),
 		QColor(241,110,170,255),
-		QColor(255,0,255,255),
+		QColor(229,72,123,255),
 		//Africa
 		QColor(140,98,57,255),
 		QColor(198,156,109,255),
@@ -302,7 +302,7 @@ namespace ID_Stati{
 		QColor(198,156,109,255),
 		//Europa
 		QColor(55,95,247,255),
-		QColor(0,255,255,255),
+		QColor(125,167,217,255),
 		QColor(0,74,128,255),
 		QColor(109,208,247,255),
 		QColor(0,91,127,255),
