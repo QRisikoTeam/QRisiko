@@ -47,6 +47,7 @@ class ChatWidget : public QWidget, public Ui::Chat
 		unsigned int GetPort() const {return port;}
 	public slots:
 		bool Avvia();
+		void Ferma();
 	private slots:
 		void sendMessage();
 		void addSmile(int id);

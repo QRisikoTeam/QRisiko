@@ -23,4 +23,4 @@ class ChatThread : public QThread
 };
 
 
-#endif*/
+#endif

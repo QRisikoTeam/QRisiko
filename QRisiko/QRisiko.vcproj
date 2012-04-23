@@ -167,19 +167,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ImmagineCliccabile.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\main.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\MainWindow.cpp"
+				RelativePath=".\MainMenu.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\qrisiko.cpp"
+				RelativePath=".\MainWindow.cpp"
 				>
 			</File>
 			<Filter
@@ -207,6 +203,38 @@
 				</File>
 				<File
 					RelativePath=".\Smiles Selector.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Non Usati"
+				>
+				<File
+					RelativePath=".\Animator.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Gioco"
+				>
+				<File
+					RelativePath=".\ImmagineCliccabile.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\qrisiko.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Selettore Server"
+				>
+				<File
+					RelativePath=".\ServerSelector Thread.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\ServerSelector.cpp"
 					>
 				</File>
 			</Filter>
@@ -247,15 +275,15 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\ImmagineCliccabile.h"
+				RelativePath=".\MainMenu.h"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing ImmagineCliccabile.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+						Description="Moc&apos;ing MainMenu.h..."
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -265,8 +293,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing ImmagineCliccabile.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+						Description="Moc&apos;ing MainMenu.h..."
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -275,17 +303,13 @@
 			<File
 				RelativePath=".\MainWindow.h"
 				>
-			</File>
-			<File
-				RelativePath=".\qrisiko.h"
-				>
 				<FileConfiguration
 					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing qrisiko.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+						Description="Moc&apos;ing MainWindow.h..."
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -295,8 +319,8 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing qrisiko.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+						Description="Moc&apos;ing MainWindow.h..."
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -466,6 +490,148 @@
 					</FileConfiguration>
 				</File>
 			</Filter>
+			<Filter
+				Name="Non Usati"
+				>
+				<File
+					RelativePath=".\Animator.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing Animator.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing Animator.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
+			<Filter
+				Name="Gioco"
+				>
+				<File
+					RelativePath=".\ImmagineCliccabile.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing ImmagineCliccabile.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing ImmagineCliccabile.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\qrisiko.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing qrisiko.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing qrisiko.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
+			<Filter
+				Name="Selettore Server"
+				>
+				<File
+					RelativePath=".\ServerSelector Thread.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing ServerSelector Thread.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing ServerSelector Thread.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\ServerSelector.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing ServerSelector.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing ServerSelector.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Form Files"
@@ -474,6 +640,32 @@
 			>
 			<File
 				RelativePath=".\Chat.ui"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Uic&apos;ing $(InputFileName)..."
+						CommandLine="&quot;$(QTDIR)\bin\uic.exe&quot; -o &quot;.\GeneratedFiles\ui_$(InputName).h&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						Outputs="&quot;.\GeneratedFiles\ui_$(InputName).h&quot;"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Uic&apos;ing $(InputFileName)..."
+						CommandLine="&quot;$(QTDIR)\bin\uic.exe&quot; -o &quot;.\GeneratedFiles\ui_$(InputName).h&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						Outputs="&quot;.\GeneratedFiles\ui_$(InputName).h&quot;"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\ServerLister.ui"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -526,7 +718,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\afganistan.png"
+				RelativePath=".\Resources\Bordi\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -546,7 +738,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\afganistan.png"
+				RelativePath=".\Resources\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -666,7 +858,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\africa del sud.png"
+				RelativePath=".\Resources\Bordi\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -686,7 +878,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\africa del sud.png"
+				RelativePath=".\Resources\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -786,7 +978,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\alaska.png"
+				RelativePath=".\Resources\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -806,7 +998,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\alaska.png"
+				RelativePath=".\Resources\Bordi\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -906,7 +1098,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\america centrale.png"
+				RelativePath=".\Resources\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -926,7 +1118,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\america centrale.png"
+				RelativePath=".\Resources\Bordi\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1026,7 +1218,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\argentina.png"
+				RelativePath=".\Resources\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1046,7 +1238,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\argentina.png"
+				RelativePath=".\Resources\Bordi\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1106,7 +1298,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\australia occidentale.png"
+				RelativePath=".\Resources\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1126,7 +1318,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\australia occidentale.png"
+				RelativePath=".\Resources\Bordi\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1472,7 +1664,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\cina.png"
+				RelativePath=".\Resources\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1492,7 +1684,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\cina.png"
+				RelativePath=".\Resources\Bordi\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1792,7 +1984,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\egitto.png"
+				RelativePath=".\Resources\Bordi\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1812,7 +2004,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\egitto.png"
+				RelativePath=".\Resources\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1932,7 +2124,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\europa occidentale.png"
+				RelativePath=".\Resources\europa occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1952,7 +2144,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\europa occidentale.png"
+				RelativePath=".\Resources\Bordi\europa occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2272,7 +2464,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\gran bretagna.png"
+				RelativePath=".\Resources\Bordi\gran bretagna.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2292,7 +2484,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\gran bretagna.png"
+				RelativePath=".\Resources\gran bretagna.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2332,7 +2524,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\groenlandia.png"
+				RelativePath=".\Resources\Bordi\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2352,7 +2544,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\groenlandia.png"
+				RelativePath=".\Resources\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2452,7 +2644,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\india.png"
+				RelativePath=".\Resources\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2472,7 +2664,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\india.png"
+				RelativePath=".\Resources\Bordi\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2512,7 +2704,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\indonesia.png"
+				RelativePath=".\Resources\Bordi\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2532,7 +2724,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\indonesia.png"
+				RelativePath=".\Resources\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2572,7 +2764,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\islanda.png"
+				RelativePath=".\Resources\Bordi\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2592,7 +2784,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\islanda.png"
+				RelativePath=".\Resources\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2632,7 +2824,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\jacuzia.png"
+				RelativePath=".\Resources\Bordi\jacuzia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2652,7 +2844,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\jacuzia.png"
+				RelativePath=".\Resources\jacuzia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2692,7 +2884,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\kamchatka.png"
+				RelativePath=".\Resources\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2712,7 +2904,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\kamchatka.png"
+				RelativePath=".\Resources\Bordi\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2792,7 +2984,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\madagascar.png"
+				RelativePath=".\Resources\Bordi\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2812,7 +3004,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\madagascar.png"
+				RelativePath=".\Resources\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2952,7 +3144,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\mongolia.png"
+				RelativePath=".\Resources\mongolia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2972,7 +3164,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\mongolia.png"
+				RelativePath=".\Resources\Bordi\mongolia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3032,7 +3224,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\nuova guinea.png"
+				RelativePath=".\Resources\Bordi\nuova guinea.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3052,7 +3244,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\nuova guinea.png"
+				RelativePath=".\Resources\nuova guinea.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3172,7 +3364,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\peru.png"
+				RelativePath=".\Resources\Bordi\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3192,7 +3384,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\peru.png"
+				RelativePath=".\Resources\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3278,7 +3470,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\quebec.png"
+				RelativePath=".\Resources\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3298,7 +3490,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\quebec.png"
+				RelativePath=".\Resources\Bordi\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3418,7 +3610,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\scandinavia.png"
+				RelativePath=".\Resources\Bordi\scandinavia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3438,7 +3630,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\scandinavia.png"
+				RelativePath=".\Resources\scandinavia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3518,7 +3710,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\siam.png"
+				RelativePath=".\Resources\Bordi\siam.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3538,7 +3730,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\siam.png"
+				RelativePath=".\Resources\siam.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3738,7 +3930,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\stati uniti orientali.png"
+				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3758,7 +3950,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
+				RelativePath=".\Resources\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3818,7 +4010,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\territori dell&apos;ovest.png"
+				RelativePath=".\Resources\territori dell&apos;ovest.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3838,7 +4030,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\territori dell&apos;ovest.png"
+				RelativePath=".\Resources\Bordi\territori dell&apos;ovest.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3958,7 +4150,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\urali.png"
+				RelativePath=".\Resources\Bordi\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3978,7 +4170,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\urali.png"
+				RelativePath=".\Resources\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4038,7 +4230,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\venezuela.png"
+				RelativePath=".\Resources\Bordi\venezuela.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4058,7 +4250,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\venezuela.png"
+				RelativePath=".\Resources\venezuela.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4168,11 +4360,27 @@
 				RelativePath=".\GeneratedFiles\ui_Chat.h"
 				>
 			</File>
+			<File
+				RelativePath=".\GeneratedFiles\ui_ServerLister.h"
+				>
+			</File>
 			<Filter
 				Name="Release"
 				Filter="cpp;moc"
 				SourceControlFiles="false"
 				>
+				<File
+					RelativePath=".\GeneratedFiles\Release\moc_Animator.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
 				<File
 					RelativePath=".\GeneratedFiles\Release\moc_Chat Server.cpp"
 					>
@@ -4246,7 +4454,55 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\GeneratedFiles\Release\moc_MainMenu.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Release\moc_MainWindow.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\GeneratedFiles\Release\moc_qrisiko.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Release\moc_ServerSelector Thread.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Release\moc_ServerSelector.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -4287,6 +4543,18 @@
 				Filter="cpp;moc"
 				SourceControlFiles="false"
 				>
+				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_Animator.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
 				<File
 					RelativePath=".\GeneratedFiles\Debug\moc_Chat Server.cpp"
 					>
@@ -4360,7 +4628,55 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_MainMenu.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_MainWindow.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\GeneratedFiles\Debug\moc_qrisiko.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_ServerSelector Thread.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_ServerSelector.cpp"
 					>
 					<FileConfiguration
 						Name="Release|Win32"

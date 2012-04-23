@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Chat Widget.h'
 **
-** Created: Wed 18. Apr 19:29:40 2012
+** Created: Mon 23. Apr 08:44:15 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ChatWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,16 +37,17 @@ static const uint qt_meta_data_ChatWidget[] = {
 
  // slots: signature, parameters, type, tag, flags
      126,   11,  121,   11, 0x0a,
-     134,   11,   11,   11, 0x08,
-     151,  148,   11,   11, 0x08,
-     165,   11,   11,   11, 0x08,
-     176,   11,   11,   11, 0x08,
-     196,   11,   11,   11, 0x08,
+     134,   11,   11,   11, 0x0a,
+     142,   11,   11,   11, 0x08,
+     159,  156,   11,   11, 0x08,
+     173,   11,   11,   11, 0x08,
+     184,   11,   11,   11, 0x08,
      204,   11,   11,   11, 0x08,
-     244,  231,   11,   11, 0x08,
-     275,  271,   11,   11, 0x28,
-     297,  271,   11,   11, 0x08,
-     328,  271,   11,   11, 0x08,
+     212,   11,   11,   11, 0x08,
+     252,  239,   11,   11, 0x08,
+     283,  279,   11,   11, 0x28,
+     305,  279,   11,   11, 0x08,
+     336,  279,   11,   11, 0x08,
 
        0        // eod
 };
@@ -56,7 +57,7 @@ static const char qt_meta_stringdata_ChatWidget[] = {
     "MessageRecieved(QString,bool)\0Message\0"
     "MessageRecieved(QString)\0"
     "MessageFromServer(QString)\0bool\0Avvia()\0"
-    "sendMessage()\0id\0addSmile(int)\0"
+    "Ferma()\0sendMessage()\0id\0addSmile(int)\0"
     "Connesso()\0ErroreConnessione()\0Inbox()\0"
     "connectionClosedByServer()\0msg,fromserv\0"
     "PrintMessage(QString,bool)\0msg\0"
@@ -76,16 +77,17 @@ void ChatWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->MessageFromServer((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: { bool _r = _t->Avvia();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 4: _t->sendMessage(); break;
-        case 5: _t->addSmile((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 6: _t->Connesso(); break;
-        case 7: _t->ErroreConnessione(); break;
-        case 8: _t->Inbox(); break;
-        case 9: _t->connectionClosedByServer(); break;
-        case 10: _t->PrintMessage((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
-        case 11: _t->PrintMessage((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 12: _t->StampaMessaggioUtente((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 13: _t->StampaBenvenutoServer((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: _t->Ferma(); break;
+        case 5: _t->sendMessage(); break;
+        case 6: _t->addSmile((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->Connesso(); break;
+        case 8: _t->ErroreConnessione(); break;
+        case 9: _t->Inbox(); break;
+        case 10: _t->connectionClosedByServer(); break;
+        case 11: _t->PrintMessage((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
+        case 12: _t->PrintMessage((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->StampaMessaggioUtente((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 14: _t->StampaBenvenutoServer((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -125,9 +127,9 @@ int ChatWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

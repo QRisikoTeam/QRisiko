@@ -16,11 +16,11 @@ QRisiko::QRisiko(QWidget *parent)
 	setContextMenuPolicy(Qt::NoContextMenu);
 	resize(1024, 574);
 	Sfondo=new QLabel(this);
+	Sfondo->setObjectName("Sfondo");
 	Sfondo->setScaledContents(true);
 	Sfondo->setPixmap(QPixmap(":/Stati/Sfondo.png"));
 	Sfondo->setGeometry(0,0,1024,574);
 	Sfondo->lower();
-	Sfondo->setStyleSheet("border-image: url(:/Generale/Sfondo.jpg);");
 	for (int i=0;i<ID_Stati::num_stati;i++){
 		Stati[i]= new ImmagineCliccabile(i,this);
 		Stati[i]->setObjectName("Stato_"+ID_Stati::Nomi_Stati[i]);

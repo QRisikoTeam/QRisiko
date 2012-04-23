@@ -118,7 +118,7 @@ namespace ID_Stati{
 		"Alberta",
 		"Groenlandia",
 		"Alaska",
-		"Territori dell\'Ovest"
+		"Territori dell'Ovest"
 	};
 
 	const SizPos sp_mappa(1024,574,0,0);
@@ -414,6 +414,7 @@ namespace Giocatori{
 	};
 
 	const QString PathToHttpServer("http://oratoriomomo.org/Risiqo");
+	const int MinButtonWidth(170);
 }
 
 class Continente{
@@ -438,6 +439,166 @@ class Continente{
 			return regole;
 		}
 };
+
+namespace CSS{
+	const QString MainWindow_CentralCSS(
+		"#centralWidget{"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+	);
+
+	const QString MainWindow_BottomFrameCSS(
+		"#BottomFrameCover{"
+			"background-color: rgb(187,171,123);"
+			"font: bold;"
+			"font-size: 60px;"
+			"color: black;"
+			"border: 3px inset #333;"
+			"border-top-left-radius: 12px;"
+			"border-top-right-radius: 12px;"
+		"}"
+
+		"#BottomFrame {"
+			"border: 3px inset #333;"
+			"border-top-left-radius: 12px;"
+			"border-top-right-radius: 12px;"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+
+		"#BottomFrame QPushButton {"
+			"color: #333;"
+			"border: 2px solid #555;"
+			"border-radius: 11px;"
+			"padding: 5px;"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+		"}"
+
+		"#BottomFrame QPushButton:hover {"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+		"}"
+
+		"#BottomFrame QPushButton:pressed {"
+			"background: qradialgradient(cx: 0.4, cy: -0.1,"
+			"fx: 0.4, fy: -0.1,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
+		"}"
+
+		"#Log{"
+			"border-width: 1px;"
+			"border-color: rgb(0, 0, 0);"
+			"border-style: inset;"
+			"background-color: rgba(255, 255, 255, 255);"
+			"border-radius: 12px;"
+			"selection-background-color: ltblue; "
+			"padding: 7px;"
+		"}"
+	);
+	const QString MainWindow_TopFrame(
+		"QRisiko #Sfondo{"
+			"border: 3px inset #333;"
+			"border-bottom-left-radius: 12px;"
+			"border-bottom-right-radius: 12px;"
+		"}"
+
+		"MenuPrincipale #Sfondo{"
+			"border: 3px inset #333;"
+			"border-radius: 12px;"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+
+		"#MenuPrincipale QPushButton {"
+			"color: #222;"
+			"font: bold;"
+			"border: 2px solid #555;"
+			"border-radius: 11px;"
+			"padding: 5px;"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+		"}"
+
+		"#MenuPrincipale QPushButton:hover {"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+		"}"
+
+		"#MenuPrincipale QPushButton:pressed {"
+			"background:"
+			" qradialgradient(cx: 0.4, cy: -0.1,"
+			"fx: 0.4, fy: -0.1,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
+		"}"
+
+		
+
+		"ServerSelector #Sfondo {"
+			"border: 3px inset #333;"
+			"border-radius: 12px;"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+		"ServerSelector #label{"
+			"font: bold;"
+		"}"
+
+		"ServerSelector #TabellaServer{"
+			"border-width: 1px;"
+			"border-color: rgb(0, 0, 0);"
+			"border-style: inset;"
+			"border-radius: 12px;"
+			"selection-background-color: ltblue;"
+			"padding: 7px;"
+		"}"
+
+		"ServerSelector QPushButton {"
+		"color: #222;"
+		"font: bold;"
+		"border: 2px solid #555;"
+		"border-radius: 11px;"
+		"padding: 5px;"
+		"background: qradialgradient(cx: 0.3, cy: -0.4,"
+		"fx: 0.3, fy: -0.4,"
+		"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+		"}"
+
+		"ServerSelector QPushButton:hover {"
+		"background: qradialgradient(cx: 0.3, cy: -0.4,"
+		"fx: 0.3, fy: -0.4,"
+		"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+		"}"
+
+		"ServerSelector QPushButton:pressed {"
+		"background:"
+		" qradialgradient(cx: 0.4, cy: -0.1,"
+		"fx: 0.4, fy: -0.1,"
+		"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
+		"}"
+
+	);
+}
+
+namespace Comunicazioni{
+	const unsigned int DefaultTCPPort=7676;
+	enum{
+		RichiediInfo=0
+	};
+}
 
 /*Elenco di posizioni e dimensioni degli stati in ordine alfabetico
 

@@ -11,12 +11,12 @@ UserColor(col),
 ShowTimeStamp(timestamp),
 IsServer(server),
 Host(hostIP),
-port(por)
+port(por),
+TCPServer(NULL),
+TCPsocket(NULL)
 {
 	fistTime=true;
 	setupUi(this);
-	TCPServer=NULL;
-	TCPsocket=NULL;
 	connect(reconnectButton,SIGNAL(clicked()),this,SLOT(Avvia()));
 	MessageText->installEventFilter(this);
 	connect(SendButton,SIGNAL(clicked()),this,SLOT(sendMessage()));
@@ -71,6 +71,13 @@ bool ChatWidget::Avvia(){
 		return true;
 	}
 	else return false;
+}
+void ChatWidget::Ferma(){
+	if(TCPServer)delete TCPServer;
+	if(TCPsocket){
+		if(TCPsocket->isOpen()) TCPsocket->close();
+		delete TCPsocket;
+	}
 }
 void ChatWidget::StampaBenvenutoServer(QString msg){
 	//PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(msg).arg(TCPServer->serverPort()),true); //Visualizza anche la Porta

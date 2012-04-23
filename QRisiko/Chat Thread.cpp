@@ -1,7 +1,5 @@
 #include "Chat Thread.h"
 #include "Chat Const.h"
-#include <QDebug>
-/*DEBUG*/ #include <QMessageBox>
 ChatThread::ChatThread(int soketDescriptor, QObject *parent)
 : QThread(parent), socketDescriptor(soketDescriptor)
 {

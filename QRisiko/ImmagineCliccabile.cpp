@@ -37,10 +37,11 @@ void ImmagineCliccabile::resizeEvent (QResizeEvent * event){
 
 void ImmagineCliccabile::MostraImmagine(){
 	setStyleSheet(
-		"ImmagineCliccabile{border-image: url("+ID_Stati::img_Stati[Identita]+");"
-		"border-style: none;}"
-		"ImmagineCliccabile:hover {"
-		"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
+		"ImmagineCliccabile{"
+			"border-image: url("+ID_Stati::img_Stati[Identita]+");"
+			"border-style: none;}"
+			"ImmagineCliccabile:hover {"
+			"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
 		"}"
 	);
 }
