@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Chat Widget.h'
 **
-** Created: Mon 23. Apr 08:44:15 2012
+** Created: Tue 24. Apr 13:44:27 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

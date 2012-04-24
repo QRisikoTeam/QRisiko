@@ -1,6 +1,6 @@
 #ifndef GETIP_H
 #define GETIP_H
-#include <QHttp>
+#include <QNetworkAccessManager>
 #include <QUrl>
 #include <QFile>
 
@@ -15,18 +15,19 @@ class GestoreServers : public QObject
 		void OttieniIP();
 		void NotResponding(QString ipnr);
 	signals:
-		void done();
+		void done(QString fet);
 		void ListaOttenuta(QString lis);
 		void IPOttenuto(QString IP);
+		void erroreConnessione();
 	private slots:
-		void httpDone(bool error);
-		void FormServerList();
-		void FormIP();
+		void httpDone(QNetworkReply* reply);
+		void FormServerList(QString fet);
+		void FormIP(QString fet);
 	private:
 		bool errore;
 		bool ToDelete;
 		void getFile(const QUrl &url);
-		QHttp http;
+		QNetworkAccessManager http;
 		QFile file;
 };
 #endif

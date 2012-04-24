@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MainWindow.h'
 **
-** Created: Mon 23. Apr 09:12:14 2012
+** Created: Tue 24. Apr 18:43:22 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,10 @@ static const uint qt_meta_data_MainWindow[] = {
       26,   11,   11,   11, 0x08,
       41,   11,   11,   11, 0x08,
       65,   11,   11,   11, 0x08,
+      82,   11,   11,   11, 0x08,
+      98,   11,   11,   11, 0x08,
+     116,   11,   11,   11, 0x08,
+     136,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -42,6 +46,8 @@ static const uint qt_meta_data_MainWindow[] = {
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0MostraMappa()\0NascondiPrev()\0"
     "MostraSelettoreServer()\0MostraMainMenu()\0"
+    "MostraTopMenu()\0NascondiTopMenu()\0"
+    "MostraRegolamento()\0NascondiRegolamento()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -54,6 +60,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->NascondiPrev(); break;
         case 2: _t->MostraSelettoreServer(); break;
         case 3: _t->MostraMainMenu(); break;
+        case 4: _t->MostraTopMenu(); break;
+        case 5: _t->NascondiTopMenu(); break;
+        case 6: _t->MostraRegolamento(); break;
+        case 7: _t->NascondiRegolamento(); break;
         default: ;
         }
     }
@@ -92,9 +102,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 8;
     }
     return _id;
 }

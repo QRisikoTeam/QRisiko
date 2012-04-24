@@ -1,9 +1,11 @@
 #include "ServerSelector Thread.h"
 #include "Gestore Servers.h"
+#include <QtGui>
 ServerSelectorThread::ServerSelectorThread(const QStringList& Lista, unsigned int Port, QObject *parent)
 : QThread(parent),
 ListaIPs(Lista),
-Porta(Port)
+Porta(Port),
+TimeoutTime(2000)
 {
 	keepRunning=true;
 }
@@ -21,7 +23,10 @@ void ServerSelectorThread::run()
 		Prossimo=false;
 		currentIP=ListaIPs.at(i);
 		socket->connectToHost(currentIP,Porta);
-		while(!Prossimo) {if(!keepRunning) return;}
+		while(!Prossimo) {
+			if(!keepRunning) return;
+			if (!socket->waitForConnected(TimeoutTime)) ErroreConnessione();
+		}
 	}
 	emit finito();
 }

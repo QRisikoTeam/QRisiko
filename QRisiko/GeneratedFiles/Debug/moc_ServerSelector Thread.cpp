@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ServerSelector Thread.h'
 **
-** Created: Sat 21. Apr 16:59:35 2012
+** Created: Tue 24. Apr 14:25:58 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ServerSelectorThread[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,8 +37,9 @@ static const uint qt_meta_data_ServerSelectorThread[] = {
  // slots: signature, parameters, type, tag, flags
       91,   21,   21,   21, 0x0a,
       98,   21,   21,   21, 0x08,
-     109,   21,   21,   21, 0x08,
-     129,   21,   21,   21, 0x08,
+     105,   21,   21,   21, 0x08,
+     116,   21,   21,   21, 0x08,
+     136,   21,   21,   21, 0x08,
 
        0        // eod
 };
@@ -46,7 +47,7 @@ static const uint qt_meta_data_ServerSelectorThread[] = {
 static const char qt_meta_stringdata_ServerSelectorThread[] = {
     "ServerSelectorThread\0\0N,GioOnline,MaxGio,IP\0"
     "InfoRicevute(QString,int,int,QString)\0"
-    "finito()\0stop()\0Connesso()\0"
+    "finito()\0stop()\0Skip()\0Connesso()\0"
     "ErroreConnessione()\0OttieniInfo()\0"
 };
 
@@ -59,9 +60,10 @@ void ServerSelectorThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 0: _t->InfoRicevute((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4]))); break;
         case 1: _t->finito(); break;
         case 2: _t->stop(); break;
-        case 3: _t->Connesso(); break;
-        case 4: _t->ErroreConnessione(); break;
-        case 5: _t->OttieniInfo(); break;
+        case 3: _t->Skip(); break;
+        case 4: _t->Connesso(); break;
+        case 5: _t->ErroreConnessione(); break;
+        case 6: _t->OttieniInfo(); break;
         default: ;
         }
     }
@@ -99,9 +101,9 @@ int ServerSelectorThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

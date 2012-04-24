@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget* parent/* =0 */)
 :QMainWindow(parent),
 PrevWidget(NULL),
 SelettoreServer(NULL),
+Topmenu(NULL),
 DurataAnimazioniMenu(1000)
 {
 	setObjectName("FinestraPrincipale");
@@ -30,7 +31,36 @@ DurataAnimazioniMenu(1000)
 	connect(MainMenu,SIGNAL(Join()),this,SLOT(MostraSelettoreServer()));
 	connect(MainMenu,SIGNAL(HostNew()),this,SLOT(MostraMappa()));
 	connect(MainMenu,SIGNAL(Exit()),this,SLOT(close()));
+	connect(MainMenu,SIGNAL(Rules()),this,SLOT(MostraRegolamento()));
 	CurrWidget=MainMenu;
+
+	regolamento=new Regolamento(TopFrame);
+	regolamento->setObjectName("Regolamento");
+	regolamento->hide();
+	connect(regolamento,SIGNAL(Indietro()),this,SLOT(NascondiRegolamento()));
+
+	Topmenu=new TopMenu(TopFrame);
+	Topmenu->setObjectName("TopMenu");
+	Topmenu->hide();
+	Topmenu->resize(
+		TopFrame->size().width()/2>Topmenu->sizeHint().width() ?
+			TopFrame->size().width()/2
+		:
+			Topmenu->sizeHint().width()
+		,Topmenu->sizeHint().height()
+	);
+	connect(Topmenu,SIGNAL(Riprendi()),this,SLOT(NascondiTopMenu()));
+	connect(Topmenu,SIGNAL(Regolamento()),this,SLOT(MostraRegolamento()));
+
+	//TODO: Connetti
+
+	SelettoreServer=new ServerSelector(TopFrame);
+	SelettoreServer->setObjectName("SelettoreServer");
+	SelettoreServer->hide();
+	connect(MainMenu,SIGNAL(Join()),SelettoreServer,SLOT(Avvia()));
+	connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
+	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraMappa())); //DA MODIFICARE
+
 	
 	BottomFrame=new QFrame(this);
 	BottomFrame->setObjectName("BottomFrame");
@@ -91,9 +121,20 @@ void MainWindow::closeEvent(QCloseEvent *event){
 }
 void MainWindow::resizeEvent(QResizeEvent *event){
 	QMainWindow::resizeEvent(event);
-	if(mappa) mappa->setGeometry(0,0,TopFrame->size().width(),TopFrame->size().height());
+	mappa->setGeometry(0,0,TopFrame->size().width(),TopFrame->size().height());
 	MainMenu->move((TopFrame->size().width()-MainMenu->width())/2.0,(TopFrame->size().height()-MainMenu->height())/2.0);
-	if(SelettoreServer) SelettoreServer->move((TopFrame->size().width()-SelettoreServer->width())/2.0,(TopFrame->size().height()-SelettoreServer->height())/2.0);
+	regolamento->setGeometry(
+		(TopFrame->size().width()-SelettoreServer->width())/2.0,
+		(TopFrame->size().height()-SelettoreServer->height())/2.0,
+		TopFrame->size().width()/2,
+		(TopFrame->size().height()*2)/3
+	);
+	SelettoreServer->setGeometry(
+		(TopFrame->size().width()-SelettoreServer->width())/2.0,
+		(TopFrame->size().height()-SelettoreServer->height())/2.0,
+		TopFrame->size().width()/2,
+		TopFrame->size().height()/2
+	);
 	BottomFrameCover->setGeometry(QRect(QPoint(0,0),BottomFrame->size()));
 }
 
@@ -133,12 +174,6 @@ void MainWindow::MostraMappa(){
 }
 
 void MainWindow::MostraSelettoreServer(){
-	if(!SelettoreServer){
-		SelettoreServer=new ServerSelector(TopFrame);
-		SelettoreServer->setObjectName("SelettoreServer");
-		connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
-		connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraMappa())); //DA MODIFICARE
-	}
 	SelettoreServer->show();
 
 	QPropertyAnimation* animOut= new QPropertyAnimation(CurrWidget,"pos",TopFrame);
@@ -188,4 +223,89 @@ void MainWindow::MostraMainMenu(){
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
 	PrevWidget=CurrWidget;
 	CurrWidget=MainMenu;
+}
+void MainWindow::NascondiRegolamento(){
+	PrevWidget->show();
+
+	QPropertyAnimation* animOut= new QPropertyAnimation(regolamento,"pos",TopFrame);
+	animOut->setDuration((DurataAnimazioniMenu*(regolamento->pos().x()+regolamento->width()))/(TopFrame->width()+PrevWidgetSizPos.dimensione().width()));
+	animOut->setEasingCurve(QEasingCurve::Linear);
+	animOut->setKeyValueAt(1.0,QPoint(-regolamento->width()-40,regolamento->pos().y()));
+	animOut->setKeyValueAt(0.0,regolamento->pos());
+
+	QPropertyAnimation* animIn= new QPropertyAnimation(PrevWidget,"pos",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::Linear);
+	animIn->setKeyValueAt(1.0,QPoint((TopFrame->size().width()-PrevWidgetSizPos.dimensione().width())/2.0,(TopFrame->size().height()-PrevWidgetSizPos.dimensione().height())/2.0));
+	animIn->setKeyValueAt(0.0,QPoint(TopFrame->width()+40,(TopFrame->size().height()-PrevWidgetSizPos.dimensione().height())/2.0));
+
+	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
+	Animazioni->addAnimation(animIn);
+	Animazioni->addAnimation(animOut);
+	connect(Animazioni,SIGNAL(finished()),this,SLOT(NascondiPrev()));
+
+	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
+	CurrWidget=PrevWidget;
+	PrevWidget=regolamento;
+}
+void MainWindow::MostraRegolamento(){
+	regolamento->show();
+	QPropertyAnimation* animOut= new QPropertyAnimation(CurrWidget,"pos",TopFrame);
+	animOut->setDuration((DurataAnimazioniMenu*(CurrWidget->pos().x()+CurrWidget->width()))/(TopFrame->width()+regolamento->width()));
+	animOut->setEasingCurve(QEasingCurve::Linear);
+	animOut->setKeyValueAt(1.0,QPoint(-CurrWidget->width()-40,CurrWidget->pos().y()));
+	animOut->setKeyValueAt(0.0,CurrWidget->pos());
+
+	QPropertyAnimation* animIn= new QPropertyAnimation(regolamento,"pos",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::Linear);
+	animIn->setKeyValueAt(1.0,QPoint((TopFrame->size().width()-regolamento->width())/2.0,(TopFrame->size().height()-regolamento->height())/2.0));
+	animIn->setKeyValueAt(0.0,QPoint(TopFrame->width()+40,(TopFrame->size().height()-regolamento->height())/2.0));
+
+	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
+	Animazioni->addAnimation(animIn);
+	Animazioni->addAnimation(animOut);
+	connect(Animazioni,SIGNAL(finished()),this,SLOT(NascondiPrev()));
+
+	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
+	PrevWidget=CurrWidget;
+	PrevWidgetSizPos.setDimensione(CurrWidget->size());
+	PrevWidgetSizPos.setPosizione(CurrWidget->pos());
+	CurrWidget=regolamento;
+}
+
+void MainWindow::NascondiTopMenu(){
+	mappa->setEnabled(true);
+	BottomFrame->setEnabled(true);
+	QPropertyAnimation* animIn= new QPropertyAnimation(Topmenu,"pos",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::InBack);
+	animIn->setKeyValueAt(1.0,QPoint((TopFrame->width()-Topmenu->width())/2,-Topmenu->height()));
+	animIn->setKeyValueAt(0.0,Topmenu->pos());
+
+	PrevWidget=Topmenu;
+	connect(animIn,SIGNAL(finished()),this,SLOT(NascondiPrev()));
+	animIn->start(QAbstractAnimation::DeleteWhenStopped);
+}
+void MainWindow::MostraTopMenu(){
+	Topmenu->show();
+	mappa->setEnabled(false);
+	BottomFrame->setEnabled(false);
+
+	QPropertyAnimation* animIn= new QPropertyAnimation(Topmenu,"pos",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::OutBack);
+	animIn->setKeyValueAt(1.0,QPoint((TopFrame->width()-Topmenu->width())/2,-20));
+	animIn->setKeyValueAt(0.0,QPoint((TopFrame->width()-Topmenu->width())/2,-Topmenu->height()));
+	animIn->start(QAbstractAnimation::DeleteWhenStopped);
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *keyev){
+	if(keyev->key()==Qt::Key_Escape){
+		if(mappa->isVisible()){
+			if(!Topmenu->isVisible()) MostraTopMenu();
+			else NascondiTopMenu();
+		}
+	}
+	else QMainWindow::keyPressEvent(keyev);
 }

@@ -15,10 +15,13 @@ class ServerSelector : public QWidget, public Ui::ServerLister{
 		QFrame* Sfondo;
 		GestoreServers* ListGetter;
 		ServerSelectorThread* Parallelo;
+	public slots:
+		void Avvia();
 	private slots:
 		void AvviaScansione(QString IPs);
 		void Popola(QString N, int GioOnline, int MaxGio, QString IP);
 		void OttieniIpSelezionato();
+		void NoConnection();
 	protected:
 		void resizeEvent(QResizeEvent * event);
 	signals:

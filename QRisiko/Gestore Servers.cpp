@@ -1,86 +1,63 @@
 #include "Gestore Servers.h"
 #include "Costanti Nazioni.h"
-#include <QMessageBox>
+#include <QNetworkRequest>
+#include <QNetworkReply>
 
 GestoreServers::GestoreServers(QObject *parent)
 : QObject(parent)
 {
-	connect(&http, SIGNAL(done(bool)), this, SLOT(httpDone(bool)));
-	ToDelete=false;
+	connect(&http, SIGNAL(finished(QNetworkReply*)), this, SLOT(httpDone(QNetworkReply*)));
 }
 
 void GestoreServers::getFile(const QUrl &url)
 {
 	errore=false;
-	file.setFileName("TempServerList.txt");
-	http.setHost(url.host(), url.port(80));
-	http.get(url.path(), &file);
-	http.close();
+	QNetworkRequest indirizzo(url);
+	http.get(indirizzo);
 }
-void GestoreServers::httpDone(bool error)
+void GestoreServers::httpDone(QNetworkReply* reply)
 {
-	if (error) {
-		QMessageBox::critical(0,tr("Errore"),tr("Errore durante la comunicazione con il server"));
+	QString fetched("");
+	if (reply->error() != QNetworkReply::NoError) {
+		emit erroreConnessione();
 		errore=true;
 	}
 	else{
-		file.close();
-		if (ToDelete) file.remove();
+		QTextStream in(reply);
+		while(!in.atEnd()) {
+			fetched.append(in.readLine());   
+			fetched.append('\n');
+		}
 	}
-	emit done();
+	emit done(fetched);
 }
 void GestoreServers::AddIP(){
-	ToDelete=true;
 	getFile(QUrl(Giocatori::PathToHttpServer+"/AggiungiIP.php"));
 }
 void GestoreServers::RemoveIP(){
-	ToDelete=true;
 	getFile(QUrl(Giocatori::PathToHttpServer+"/RimuoviIP.php"));
 }
 void GestoreServers::OttieniLista(){
-	ToDelete=false;
 	getFile(QUrl(Giocatori::PathToHttpServer+"/ElencoServers.txt"));
-	connect (this,SIGNAL(done()),this,SLOT(FormServerList()));
+	connect (this,SIGNAL(done(QString)),this,SLOT(FormServerList(QString)));
 }
 
-void GestoreServers::FormServerList(){
-	if(!errore){
-		QString ServerList("");
-		if(file.open(QIODevice::ReadOnly)) {
-			QTextStream in(&file);
-			while(!in.atEnd()) {
-				ServerList.append(in.readLine());        	
-			}
-		}
-		file.close();
-		emit ListaOttenuta(ServerList);
-		file.remove();
-	}
-	disconnect(this,SIGNAL(done()),this,SLOT(FormServerList()));
+void GestoreServers::FormServerList(QString fet){
+	if (!errore) emit ListaOttenuta(fet);
+	disconnect(this,SIGNAL(done(QString)),this,SLOT(FormServerList(QString)));
 }
 void GestoreServers::OttieniIP(){
-	ToDelete=false;
 	getFile(QUrl(Giocatori::PathToHttpServer+"/GetIP.php"));
-	connect (this,SIGNAL(done()),this,SLOT(FormIP()));
+	connect (this,SIGNAL(done(QString)),this,SLOT(FormIP(QString)));
 }
-void GestoreServers::FormIP(){
-	if (!errore)
-	{
-		QString ServerList("");
-		if(file.open(QIODevice::ReadOnly)) {
-			QTextStream in(&file);
-			while(!in.atEnd()) {
-				ServerList.append(in.readLine());        	
-			}
-		}
-		file.close();
-		emit IPOttenuto(ServerList);
-		file.remove();
-	}
-	disconnect(this,SIGNAL(done()),this,SLOT(FormIP()));
+void GestoreServers::FormIP(QString fet){
+	if (!errore) emit IPOttenuto(fet);
+	disconnect(this,SIGNAL(done(QString)),this,SLOT(FormIP(QString)));
 }
 
 void GestoreServers::NotResponding(QString ipnr){
-	ToDelete=true;
-	getFile(QUrl(Giocatori::PathToHttpServer+"/NotResponding.php?IPNotResponding="+ipnr));
+	QUrl url(Giocatori::PathToHttpServer+"/NotResponding.php");
+	url.addQueryItem("IPNotResponding",ipnr);
+	QString test1=url.toString();
+	getFile(url);
 }

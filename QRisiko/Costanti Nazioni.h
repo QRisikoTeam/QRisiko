@@ -12,7 +12,10 @@ class SizPos{
 	QSize sz;
 	QPoint pt;
 public:
+	SizPos():sz(0,0),pt(0,0){}
 	SizPos(int w, int a, int x, int y): sz(w,a), pt(x,y){}
+	void setDimensione(const QSize& dim){sz=dim;}
+	void setPosizione(const QPoint& posi){pt=posi;}
 	QSize dimensione() const {return sz;}
 	QPoint posizione() const {return pt;}
 	QRect rettangolo() const {return QRect(pt,sz);}
@@ -510,6 +513,15 @@ namespace CSS{
 			"border-bottom-right-radius: 12px;"
 		"}"
 
+		"TopMenu #Sfondo{"
+			"border: 3px inset #333;"
+			"border-radius: 12px;"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+
 		"MenuPrincipale #Sfondo{"
 			"border: 3px inset #333;"
 			"border-radius: 12px;"
@@ -588,6 +600,64 @@ namespace CSS{
 		" qradialgradient(cx: 0.4, cy: -0.1,"
 		"fx: 0.4, fy: -0.1,"
 		"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
+		"}"
+
+		"TopMenu QPushButton {"
+			"color: #222;"
+			"font: bold;"
+			"border: 2px solid #555;"
+			"border-radius: 11px;"
+			"padding: 5px;"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+		"}"
+
+		"TopMenu QPushButton:hover {"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+		"}"
+
+		"TopMenu QPushButton:pressed {"
+			"background:"
+			" qradialgradient(cx: 0.4, cy: -0.1,"
+			"fx: 0.4, fy: -0.1,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
+		"}"
+
+		"#Regolamento QTextBrowser {"
+			"border-width: 1px;"
+			"border-color: rgb(0, 0, 0);"
+			"border-style: inset;"
+			"background-color: rgba(255, 255, 255, 255);"
+			"border-radius: 12px;"
+			"selection-background-color: ltblue; "
+			"padding: 7px;"
+		"}"
+
+		"#Regolamento QPushButton {"
+			"color: #222;"
+			"font: bold;"
+			"border: 2px solid #555;"
+			"border-radius: 11px;"
+			"padding: 5px;"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+		"}"
+
+		"#Regolamento QPushButton:hover {"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+		"}"
+
+		"#Regolamento QPushButton:pressed {"
+			"background:"
+			" qradialgradient(cx: 0.4, cy: -0.1,"
+			"fx: 0.4, fy: -0.1,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
 		"}"
 
 	);

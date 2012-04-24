@@ -1,7 +1,6 @@
 #include "ServerSelector.h"
 #include "Costanti Nazioni.h"
-
-#include <QMessageBox>
+#include <QRegExp>
 
 ServerSelector::ServerSelector(QWidget* parent)
 :QWidget(parent),
@@ -18,20 +17,30 @@ Parallelo(NULL)
 	connect(cancelButton,SIGNAL(clicked()),this,SIGNAL(Annullato()));
 
 	QStringList Etichette;
-	Etichette.append("Nome"); Etichette.append("Giocatori"); Etichette.append("IP");
+	Etichette.append(tr("Nome")); Etichette.append(tr("Giocatori")); Etichette.append("IP");
 	TabellaServer->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
 	TabellaServer->setHorizontalHeaderLabels(Etichette);
 
+	QRegExp validatore("^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$");
+	ManualInput->setValidator(new QRegExpValidator(validatore, this));
+
+}
+void ServerSelector::Avvia(){
 	ListGetter=new GestoreServers(this);
 	connect(ListGetter,SIGNAL(ListaOttenuta(QString)),this,SLOT(AvviaScansione(QString)));
+	connect(ListGetter,SIGNAL(erroreConnessione()),this,SLOT(NoConnection()));
 	ListGetter->OttieniLista();
+}
+void ServerSelector::NoConnection(){
+	AggiornamentoLabel->setText(tr("Errore! Impossibile connettersi con il server."));
+	AggiornamentoLabel->show();
 }
 void ServerSelector::resizeEvent(QResizeEvent * event){
 	Sfondo->resize(event->size());
 }
 
 void ServerSelector::AvviaScansione(QString IPs){
-	QStringList ListaIP=IPs.split('\n',QString::SkipEmptyParts);
+	QStringList ListaIP=IPs.split("\n",QString::SkipEmptyParts);
 	if (ListaIP.isEmpty()) {
 		AggiornamentoLabel->hide();
 		return;
