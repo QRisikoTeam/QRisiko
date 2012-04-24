@@ -334,14 +334,14 @@ namespace ID_Stati{
 		"Conquista Nord America e Africa",
 		"Conquista Asia e Africa",
 		"Conquista Asia e Sud America",
-		"Conquista Europa, Sud America più un terzo continente di tua scelta",
-		"Conquista Europa Oceania più un terzo continente di tua scelta",
-		"Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"
+		"Conquista Europa, Sud America piï¿½ un terzo continente di tua scelta",
+		"Conquista Europa Oceania piï¿½ un terzo continente di tua scelta",
+		"Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario ï¿½ eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario ï¿½ eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario ï¿½ eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario ï¿½ eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario ï¿½ eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario ï¿½ eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"
 	};
 	const int Cannone=0;
 	const int Fante=1;
