@@ -18,6 +18,7 @@ class GestoreServers : public QObject
 		void done();
 		void ListaOttenuta(QString lis);
 		void IPOttenuto(QString IP);
+		void erroreConnessione();
 	private slots:
 		void httpDone(bool error);
 		void FormServerList();

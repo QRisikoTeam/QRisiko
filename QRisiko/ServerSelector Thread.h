@@ -3,6 +3,7 @@
 #include <QThread>
 #include <QStringList>
 #include <QTcpSocket>
+#include <QTimer>
 #include "Costanti Nazioni.h"
 
 class ServerSelectorThread : public QThread
@@ -11,6 +12,10 @@ class ServerSelectorThread : public QThread
 	public:
 		ServerSelectorThread(const QStringList& Lista, unsigned int Port=Comunicazioni::DefaultTCPPort, QObject *parent=0);
 		void run();
+		void SetTimeout(const int& to){TimeoutTime=to;}
+		int GetTimeout() const {return TimeoutTime;}
+		void SetPorta(const unsigned int& por){Porta=por;}
+		unsigned int GetPorta() const {return Porta;}
 	public slots:
 		void stop();
 	signals:
@@ -23,7 +28,10 @@ class ServerSelectorThread : public QThread
 		QTcpSocket* socket;
 		QStringList ListaIPs;
 		QString currentIP;
+		QTimer* TimeoutTimer;
+		int TimeoutTime;
 	private slots:
+		void Skip(){Prossimo=true;}
 		void Connesso();
 		void ErroreConnessione();
 		void OttieniInfo();

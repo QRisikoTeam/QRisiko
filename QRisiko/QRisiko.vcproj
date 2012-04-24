@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(QTDIR)\include\QtMultimedia&quot;;&quot;$(QTDIR)\include\QtNetwork&quot;;&quot;.\&quot;"
-				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB"
+				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_DLL"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
 				DebugInformationFormat="0"
@@ -109,7 +109,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(QTDIR)\include\QtMultimedia&quot;;&quot;$(QTDIR)\include\QtNetwork&quot;;&quot;.\&quot;"
-				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB"
+				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_DLL"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
 				DebugInformationFormat="3"
@@ -171,10 +171,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\MainMenu.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\MainWindow.cpp"
 				>
 			</File>
@@ -227,16 +223,28 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Selettore Server"
+				Name="Menu"
 				>
 				<File
-					RelativePath=".\ServerSelector Thread.cpp"
+					RelativePath=".\MainMenu.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\ServerSelector.cpp"
+					RelativePath=".\TopMenu.cpp"
 					>
 				</File>
+				<Filter
+					Name="Selettore Server"
+					>
+					<File
+						RelativePath=".\ServerSelector Thread.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\ServerSelector.cpp"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -257,7 +265,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Moc&apos;ing Gestore Servers.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -268,33 +276,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Moc&apos;ing Gestore Servers.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
-						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\MainMenu.h"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing MainMenu.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
-						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing MainMenu.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -309,7 +291,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Moc&apos;ing MainWindow.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -320,7 +302,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Moc&apos;ing MainWindow.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -342,7 +324,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Chat Server.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -353,7 +335,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Chat Server.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -368,7 +350,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Chat Thread.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -379,7 +361,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Chat Thread.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -394,7 +376,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Chat Widget.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -405,7 +387,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Chat Widget.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -420,7 +402,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Client Socket.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -431,7 +413,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Client Socket.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -446,7 +428,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing SmileButton.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -457,7 +439,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing SmileButton.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -472,7 +454,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Smiles Selector.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -483,7 +465,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Smiles Selector.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -502,7 +484,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Animator.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -513,7 +495,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing Animator.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -532,7 +514,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing ImmagineCliccabile.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -543,7 +525,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing ImmagineCliccabile.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -558,7 +540,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing qrisiko.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -569,7 +551,7 @@
 						<Tool
 							Name="VCCustomBuildTool"
 							Description="Moc&apos;ing qrisiko.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -577,18 +559,18 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Selettore Server"
+				Name="Menu"
 				>
 				<File
-					RelativePath=".\ServerSelector Thread.h"
+					RelativePath=".\MainMenu.h"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
-							Description="Moc&apos;ing ServerSelector Thread.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							Description="Moc&apos;ing MainMenu.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -598,23 +580,23 @@
 						>
 						<Tool
 							Name="VCCustomBuildTool"
-							Description="Moc&apos;ing ServerSelector Thread.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							Description="Moc&apos;ing MainMenu.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\ServerSelector.h"
+					RelativePath=".\TopMenu.h"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
-							Description="Moc&apos;ing ServerSelector.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							Description="Moc&apos;ing TopMenu.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
@@ -624,13 +606,69 @@
 						>
 						<Tool
 							Name="VCCustomBuildTool"
-							Description="Moc&apos;ing ServerSelector.h..."
-							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							Description="Moc&apos;ing TopMenu.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
 							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 						/>
 					</FileConfiguration>
 				</File>
+				<Filter
+					Name="Selettore Server"
+					>
+					<File
+						RelativePath=".\ServerSelector Thread.h"
+						>
+						<FileConfiguration
+							Name="Release|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+								Description="Moc&apos;ing ServerSelector Thread.h..."
+								CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+								AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+								Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+								Description="Moc&apos;ing ServerSelector Thread.h..."
+								CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+								AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+								Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+							/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath=".\ServerSelector.h"
+						>
+						<FileConfiguration
+							Name="Release|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+								Description="Moc&apos;ing ServerSelector.h..."
+								CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+								AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+								Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+								Description="Moc&apos;ing ServerSelector.h..."
+								CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL  &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
+								AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+								Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+							/>
+						</FileConfiguration>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -718,7 +756,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\afganistan.png"
+				RelativePath=".\Resources\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -738,7 +776,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\afganistan.png"
+				RelativePath=".\Resources\Bordi\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -858,7 +896,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\africa del sud.png"
+				RelativePath=".\Resources\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -878,7 +916,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\africa del sud.png"
+				RelativePath=".\Resources\Bordi\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -978,7 +1016,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\alaska.png"
+				RelativePath=".\Resources\Bordi\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -998,7 +1036,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\alaska.png"
+				RelativePath=".\Resources\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1098,7 +1136,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\america centrale.png"
+				RelativePath=".\Resources\Bordi\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1118,7 +1156,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\america centrale.png"
+				RelativePath=".\Resources\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1218,7 +1256,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\argentina.png"
+				RelativePath=".\Resources\Bordi\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1238,7 +1276,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\argentina.png"
+				RelativePath=".\Resources\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1298,7 +1336,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\australia occidentale.png"
+				RelativePath=".\Resources\Bordi\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1318,7 +1356,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\australia occidentale.png"
+				RelativePath=".\Resources\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1664,7 +1702,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\cina.png"
+				RelativePath=".\Resources\Bordi\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1684,7 +1722,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\cina.png"
+				RelativePath=".\Resources\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1984,7 +2022,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\egitto.png"
+				RelativePath=".\Resources\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2004,7 +2042,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\egitto.png"
+				RelativePath=".\Resources\Bordi\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2124,7 +2162,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\europa occidentale.png"
+				RelativePath=".\Resources\Bordi\europa occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2144,7 +2182,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\europa occidentale.png"
+				RelativePath=".\Resources\europa occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2464,7 +2502,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\gran bretagna.png"
+				RelativePath=".\Resources\gran bretagna.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2484,7 +2522,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\gran bretagna.png"
+				RelativePath=".\Resources\Bordi\gran bretagna.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2524,7 +2562,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\groenlandia.png"
+				RelativePath=".\Resources\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2544,7 +2582,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\groenlandia.png"
+				RelativePath=".\Resources\Bordi\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2644,7 +2682,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\india.png"
+				RelativePath=".\Resources\Bordi\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2664,7 +2702,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\india.png"
+				RelativePath=".\Resources\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2704,7 +2742,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\indonesia.png"
+				RelativePath=".\Resources\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2724,7 +2762,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\indonesia.png"
+				RelativePath=".\Resources\Bordi\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2764,7 +2802,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\islanda.png"
+				RelativePath=".\Resources\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2784,7 +2822,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\islanda.png"
+				RelativePath=".\Resources\Bordi\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2824,7 +2862,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\jacuzia.png"
+				RelativePath=".\Resources\jacuzia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2844,7 +2882,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\jacuzia.png"
+				RelativePath=".\Resources\Bordi\jacuzia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2884,7 +2922,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\kamchatka.png"
+				RelativePath=".\Resources\Bordi\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2904,7 +2942,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\kamchatka.png"
+				RelativePath=".\Resources\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2984,7 +3022,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\madagascar.png"
+				RelativePath=".\Resources\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3004,7 +3042,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\madagascar.png"
+				RelativePath=".\Resources\Bordi\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3144,7 +3182,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\mongolia.png"
+				RelativePath=".\Resources\Bordi\mongolia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3164,7 +3202,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\mongolia.png"
+				RelativePath=".\Resources\mongolia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3224,7 +3262,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\nuova guinea.png"
+				RelativePath=".\Resources\nuova guinea.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3244,7 +3282,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\nuova guinea.png"
+				RelativePath=".\Resources\Bordi\nuova guinea.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3284,7 +3322,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\ontario.png"
+				RelativePath=".\Resources\Bordi\ontario.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3304,7 +3342,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\ontario.png"
+				RelativePath=".\Resources\ontario.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3364,7 +3402,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\peru.png"
+				RelativePath=".\Resources\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3384,7 +3422,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\peru.png"
+				RelativePath=".\Resources\Bordi\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3433,7 +3471,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png"
+						AdditionalDependencies="$(InputPath);.\Resources\Simbolo.png;.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -3444,7 +3482,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png"
+						AdditionalDependencies="$(InputPath);.\Resources\Simbolo.png;.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -3470,7 +3508,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\quebec.png"
+				RelativePath=".\Resources\Bordi\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3490,7 +3528,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\quebec.png"
+				RelativePath=".\Resources\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3770,26 +3808,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\siberia.png"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath=".\Resources\Bordi\siberia.png"
 				>
 				<FileConfiguration
@@ -3810,7 +3828,47 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\siberia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\sick.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Simbolo.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3930,7 +3988,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
+				RelativePath=".\Resources\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3950,7 +4008,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\stati uniti orientali.png"
+				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4090,7 +4148,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\ucraina.png"
+				RelativePath=".\Resources\ucraina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4110,7 +4168,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\ucraina.png"
+				RelativePath=".\Resources\Bordi\ucraina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4150,7 +4208,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\urali.png"
+				RelativePath=".\Resources\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4170,7 +4228,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\urali.png"
+				RelativePath=".\Resources\Bordi\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4537,6 +4595,18 @@
 						/>
 					</FileConfiguration>
 				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Release\moc_TopMenu.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
 			</Filter>
 			<Filter
 				Name="Debug"
@@ -4711,6 +4781,18 @@
 						/>
 					</FileConfiguration>
 				</File>
+				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_TopMenu.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -4761,7 +4843,7 @@
 		/>
 		<Global
 			Name="QtVersion Win32"
-			Value="4.8.0"
+			Value="Qt 4.7.4"
 		/>
 		<Global
 			Name="RccDir"

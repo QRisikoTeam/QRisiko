@@ -3,9 +3,13 @@
 ServerSelectorThread::ServerSelectorThread(const QStringList& Lista, unsigned int Port, QObject *parent)
 : QThread(parent),
 ListaIPs(Lista),
-Porta(Port)
+Porta(Port),
+TimeoutTime(10000)
 {
 	keepRunning=true;
+	TimeoutTimer=new QTimer(this);
+	TimeoutTimer->setSingleShot(true);
+	connect(TimeoutTimer,SIGNAL(finished()),this,SLOT(Skip()));
 }
 
 void ServerSelectorThread::run()
@@ -21,7 +25,9 @@ void ServerSelectorThread::run()
 		Prossimo=false;
 		currentIP=ListaIPs.at(i);
 		socket->connectToHost(currentIP,Porta);
+		TimeoutTimer->start(TimeoutTime);
 		while(!Prossimo) {if(!keepRunning) return;}
+		TimeoutTimer->stop();
 	}
 	emit finito();
 }

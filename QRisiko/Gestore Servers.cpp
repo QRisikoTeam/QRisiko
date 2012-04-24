@@ -1,6 +1,5 @@
 #include "Gestore Servers.h"
 #include "Costanti Nazioni.h"
-#include <QMessageBox>
 
 GestoreServers::GestoreServers(QObject *parent)
 : QObject(parent)
@@ -20,7 +19,7 @@ void GestoreServers::getFile(const QUrl &url)
 void GestoreServers::httpDone(bool error)
 {
 	if (error) {
-		QMessageBox::critical(0,tr("Errore"),tr("Errore durante la comunicazione con il server"));
+		emit erroreConnessione();
 		errore=true;
 	}
 	else{

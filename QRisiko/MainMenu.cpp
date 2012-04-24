@@ -15,7 +15,7 @@ MenuPrincipale::MenuPrincipale(QWidget *parent)
 	Simbolo->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 	Simbolo->setMinimumSize(QSize(400, 160));
 	Simbolo->setMaximumSize(QSize(400, 160));
-	Simbolo->setPixmap(QPixmap(":/Generale/Resources/Simbolo.png"));
+	Simbolo->setPixmap(QPixmap(":/Generale/Simbolo.png"));
 	Simbolo->setScaledContents(true);
 
 	HostLoadButton = new QPushButton(this);
