@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ServerSelector.h'
 **
-** Created: Tue 24. Apr 19:28:05 2012
+** Created: Thu 26. Apr 19:11:07 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ServerSelector[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -41,6 +41,8 @@ static const uint qt_meta_data_ServerSelector[] = {
      118,   96,   15,   15, 0x08,
      150,   15,   15,   15, 0x08,
      173,   15,   15,   15, 0x08,
+     188,   15,   15,   15, 0x08,
+     200,   15,   15,   15, 0x08,
 
        0        // eod
 };
@@ -52,6 +54,7 @@ static const char qt_meta_stringdata_ServerSelector[] = {
     "N,GioOnline,MaxGio,IP\0"
     "Popola(QString,int,int,QString)\0"
     "OttieniIpSelezionato()\0NoConnection()\0"
+    "DaTabella()\0DaManuale()\0"
 };
 
 void ServerSelector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -68,6 +71,8 @@ void ServerSelector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 5: _t->Popola((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4]))); break;
         case 6: _t->OttieniIpSelezionato(); break;
         case 7: _t->NoConnection(); break;
+        case 8: _t->DaTabella(); break;
+        case 9: _t->DaManuale(); break;
         default: ;
         }
     }
@@ -107,9 +112,9 @@ int ServerSelector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }

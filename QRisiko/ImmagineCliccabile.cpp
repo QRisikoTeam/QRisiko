@@ -11,7 +11,7 @@ ImmagineCliccabile::ImmagineCliccabile(int ID,QWidget *parent)
 	DelayTimer.setInterval(50);
 	connect(&DelayTimer,SIGNAL(timeout()),this,SLOT(ImpostaMaschera()));
 	setImage();
-	connect(this,SIGNAL(clicked()),this,SLOT(clickID()));
+	connect(this,SIGNAL(clicked(bool)),this,SLOT(clickID(bool)));
 }
 
 void ImmagineCliccabile::setImage(){
@@ -39,8 +39,9 @@ void ImmagineCliccabile::MostraImmagine(){
 	setStyleSheet(
 		"ImmagineCliccabile{"
 			"border-image: url("+ID_Stati::img_Stati[Identita]+");"
-			"border-style: none;}"
-			"ImmagineCliccabile:hover {"
+			"border-style: none;"
+		"}"
+		"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
 			"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
 		"}"
 	);

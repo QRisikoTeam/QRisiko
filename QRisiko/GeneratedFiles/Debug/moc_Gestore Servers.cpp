@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Gestore Servers.h'
 **
-** Created: Tue 24. Apr 17:17:56 2012
+** Created: Thu 26. Apr 19:11:08 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

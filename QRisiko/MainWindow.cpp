@@ -50,7 +50,11 @@ DurataAnimazioniMenu(1000)
 		,Topmenu->sizeHint().height()
 	);
 	connect(Topmenu,SIGNAL(Riprendi()),this,SLOT(NascondiTopMenu()));
+	connect(Topmenu,SIGNAL(Regolamento()),this,SLOT(NascondiTopMenu()));
 	connect(Topmenu,SIGNAL(Regolamento()),this,SLOT(MostraRegolamento()));
+	connect(Topmenu,SIGNAL(Opzioni()),this,SLOT(NascondiTopMenu()));
+	connect(Topmenu,SIGNAL(Abbandona()),this,SLOT(NascondiTopMenu()));
+	connect(Topmenu,SIGNAL(Abbandona()),this,SLOT(MostraMainMenu()));
 
 	//TODO: Connetti
 
@@ -164,6 +168,7 @@ void MainWindow::MostraMappa(){
 	Animazioni->addAnimation(animOut);
 	Animazioni->addAnimation(animBottomOut);
 	connect(Animazioni,SIGNAL(finished()),this,SLOT(NascondiPrev()));
+	connect(Animazioni,SIGNAL(finished()),BottomFrameCover,SLOT(hide()));
 
 	BottomFrame->setEnabled(true);
 	chat->Avvia();
@@ -219,6 +224,15 @@ void MainWindow::MostraMainMenu(){
 
 	BottomFrame->setEnabled(false);
 	chat->Ferma();
+	if(!BottomFrameCover->isVisible()){
+		BottomFrameCover->show();
+		QPropertyAnimation* animInBottom= new QPropertyAnimation(BottomFrameCover,"pos",BottomFrame);
+		animInBottom->setDuration(DurataAnimazioniMenu);
+		animInBottom->setEasingCurve(QEasingCurve::Linear);
+		animInBottom->setKeyValueAt(1.0,QPoint(0,0));
+		animInBottom->setKeyValueAt(0.0,QPoint(BottomFrame->width()+40,0));
+		Animazioni->addAnimation(animInBottom);
+	}
 
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
 	PrevWidget=CurrWidget;
@@ -246,6 +260,7 @@ void MainWindow::NascondiRegolamento(){
 
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
 	CurrWidget=PrevWidget;
+	CurrWidget->setFocus();
 	PrevWidget=regolamento;
 }
 void MainWindow::MostraRegolamento(){
@@ -308,4 +323,8 @@ void MainWindow::keyPressEvent(QKeyEvent *keyev){
 		}
 	}
 	else QMainWindow::keyPressEvent(keyev);
+}
+
+void MainWindow::NascondiPrev(){
+	PrevWidget->hide();
 }

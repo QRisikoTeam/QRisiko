@@ -31,7 +31,7 @@ class MainWindow : public QMainWindow{
 		void riposiziona();
 	private slots:
 		void MostraMappa();
-		void NascondiPrev(){PrevWidget->hide();}
+		void NascondiPrev();
 		void MostraSelettoreServer();
 		void MostraMainMenu();
 		void MostraTopMenu();

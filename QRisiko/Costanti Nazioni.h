@@ -7,6 +7,8 @@
 #include <QTextStream>
 #include <QFile>
 #include <QColor>
+#include <QVector>
+
 
 class SizPos{
 	QSize sz;
@@ -334,14 +336,14 @@ namespace ID_Stati{
 		"Conquista Nord America e Africa",
 		"Conquista Asia e Africa",
 		"Conquista Asia e Sud America",
-		"Conquista Europa, Sud America pi� un terzo continente di tua scelta",
-		"Conquista Europa Oceania pi� un terzo continente di tua scelta",
-		"Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario � eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario � eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario � eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario � eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario � eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario � eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"
+		"Conquista Europa, Sud America più un terzo continente di tua scelta",
+		"Conquista Europa Oceania più un terzo continente di tua scelta",
+		"Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
+		"Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"
 	};
 	const int Cannone=0;
 	const int Fante=1;
@@ -429,19 +431,9 @@ class Continente{
 		static bool isEuropa(const int& stato){return (stato>=22 && stato<=28);}
 		static bool isSudAmerica(const int& stato){return (stato>=29 && stato<=32);}
 		static bool isNordAmerica(const int& stato){return (stato>=33 && stato<=41);}
-		static QString Regole(){
-			QFile file(":/Generale/Regole.txt");
-			QString regole("");
-			if(file.open(QIODevice::ReadOnly)) {
-				QTextStream in(&file);
-				while(!in.atEnd()) {
-					regole.append(in.readLine());        	
-				}
-			}
-			file.close();
-			return regole;
-		}
 };
+
+
 
 namespace CSS{
 	const QString MainWindow_CentralCSS(
@@ -569,37 +561,49 @@ namespace CSS{
 			"font: bold;"
 		"}"
 
+		"ServerSelector #ManualLabel{"
+			"font: bold;"
+		"}"
+
+		"ServerSelector #ManualInput {"
+			"border-width: 1px;"
+			"border-color: rgb(0, 0, 0);"
+			"border-style: inset;"
+			"background-color: rgba(255, 255, 255, 255);"
+			"border-radius: 12px;"
+			"padding: 7px;"
+		"}"
+
 		"ServerSelector #TabellaServer{"
 			"border-width: 1px;"
 			"border-color: rgb(0, 0, 0);"
 			"border-style: inset;"
 			"border-radius: 12px;"
-			"selection-background-color: ltblue;"
 			"padding: 7px;"
 		"}"
 
 		"ServerSelector QPushButton {"
-		"color: #222;"
-		"font: bold;"
-		"border: 2px solid #555;"
-		"border-radius: 11px;"
-		"padding: 5px;"
-		"background: qradialgradient(cx: 0.3, cy: -0.4,"
-		"fx: 0.3, fy: -0.4,"
-		"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+			"color: #222;"
+			"font: bold;"
+			"border: 2px solid #555;"
+			"border-radius: 11px;"
+			"padding: 5px;"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
 		"}"
 
 		"ServerSelector QPushButton:hover {"
-		"background: qradialgradient(cx: 0.3, cy: -0.4,"
-		"fx: 0.3, fy: -0.4,"
-		"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+			"background: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
 		"}"
 
 		"ServerSelector QPushButton:pressed {"
-		"background:"
-		" qradialgradient(cx: 0.4, cy: -0.1,"
-		"fx: 0.4, fy: -0.1,"
-		"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
+			"background:"
+			" qradialgradient(cx: 0.4, cy: -0.1,"
+			"fx: 0.4, fy: -0.1,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
 		"}"
 
 		"TopMenu QPushButton {"

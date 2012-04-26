@@ -73,10 +73,14 @@ bool ChatWidget::Avvia(){
 	else return false;
 }
 void ChatWidget::Ferma(){
-	if(TCPServer)delete TCPServer;
+	if(TCPServer){
+		delete TCPServer;
+		TCPServer=NULL;
+	}
 	if(TCPsocket){
 		if(TCPsocket->isOpen()) TCPsocket->close();
 		delete TCPsocket;
+		TCPsocket=NULL;
 	}
 }
 void ChatWidget::StampaBenvenutoServer(QString msg){
