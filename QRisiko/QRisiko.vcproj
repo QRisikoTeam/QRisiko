@@ -218,6 +218,10 @@
 				Name="Gioco"
 				>
 				<File
+					RelativePath=".\Giocatore.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\ImmagineCliccabile.cpp"
 					>
 				</File>
@@ -514,6 +518,10 @@
 				Name="Gioco"
 				>
 				<File
+					RelativePath=".\Giocatore.h"
+					>
+				</File>
+				<File
 					RelativePath=".\ImmagineCliccabile.h"
 					>
 					<FileConfiguration
@@ -790,7 +798,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\afganistan.png"
+				RelativePath=".\Resources\Bordi\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -810,7 +818,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\afganistan.png"
+				RelativePath=".\Resources\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -930,7 +938,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\africa del sud.png"
+				RelativePath=".\Resources\Bordi\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -950,7 +958,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\africa del sud.png"
+				RelativePath=".\Resources\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1050,7 +1058,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\alaska.png"
+				RelativePath=".\Resources\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1070,7 +1078,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\alaska.png"
+				RelativePath=".\Resources\Bordi\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1170,7 +1178,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\america centrale.png"
+				RelativePath=".\Resources\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1190,7 +1198,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\america centrale.png"
+				RelativePath=".\Resources\Bordi\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1290,7 +1298,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\argentina.png"
+				RelativePath=".\Resources\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1310,7 +1318,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\argentina.png"
+				RelativePath=".\Resources\Bordi\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1370,7 +1378,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\australia occidentale.png"
+				RelativePath=".\Resources\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1390,7 +1398,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\australia occidentale.png"
+				RelativePath=".\Resources\Bordi\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1736,7 +1744,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\cina.png"
+				RelativePath=".\Resources\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1756,7 +1764,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\cina.png"
+				RelativePath=".\Resources\Bordi\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2056,7 +2064,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\egitto.png"
+				RelativePath=".\Resources\Bordi\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2076,7 +2084,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\egitto.png"
+				RelativePath=".\Resources\egitto.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2196,7 +2204,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\europa occidentale.png"
+				RelativePath=".\Resources\europa occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2216,7 +2224,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\europa occidentale.png"
+				RelativePath=".\Resources\Bordi\europa occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2536,7 +2544,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\gran bretagna.png"
+				RelativePath=".\Resources\Bordi\gran bretagna.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2556,7 +2564,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\gran bretagna.png"
+				RelativePath=".\Resources\gran bretagna.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2596,7 +2604,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\groenlandia.png"
+				RelativePath=".\Resources\Bordi\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2616,7 +2624,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\groenlandia.png"
+				RelativePath=".\Resources\groenlandia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2716,7 +2724,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\india.png"
+				RelativePath=".\Resources\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2736,7 +2744,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\india.png"
+				RelativePath=".\Resources\Bordi\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2776,7 +2784,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\indonesia.png"
+				RelativePath=".\Resources\Bordi\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2796,7 +2804,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\indonesia.png"
+				RelativePath=".\Resources\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2836,7 +2844,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\islanda.png"
+				RelativePath=".\Resources\Bordi\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2856,7 +2864,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\islanda.png"
+				RelativePath=".\Resources\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2896,7 +2904,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\jacuzia.png"
+				RelativePath=".\Resources\Bordi\jacuzia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2916,7 +2924,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\jacuzia.png"
+				RelativePath=".\Resources\jacuzia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2956,7 +2964,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\kamchatka.png"
+				RelativePath=".\Resources\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2976,7 +2984,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\kamchatka.png"
+				RelativePath=".\Resources\Bordi\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3056,7 +3064,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\madagascar.png"
+				RelativePath=".\Resources\Bordi\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3076,7 +3084,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\madagascar.png"
+				RelativePath=".\Resources\madagascar.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3216,7 +3224,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\mongolia.png"
+				RelativePath=".\Resources\mongolia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3236,7 +3244,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\mongolia.png"
+				RelativePath=".\Resources\Bordi\mongolia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3296,7 +3304,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\nuova guinea.png"
+				RelativePath=".\Resources\Bordi\nuova guinea.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3316,7 +3324,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\nuova guinea.png"
+				RelativePath=".\Resources\nuova guinea.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3356,7 +3364,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\ontario.png"
+				RelativePath=".\Resources\ontario.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3376,7 +3384,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\ontario.png"
+				RelativePath=".\Resources\Bordi\ontario.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3436,7 +3444,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\peru.png"
+				RelativePath=".\Resources\Bordi\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3456,7 +3464,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\peru.png"
+				RelativePath=".\Resources\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3542,7 +3550,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\quebec.png"
+				RelativePath=".\Resources\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3562,7 +3570,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\quebec.png"
+				RelativePath=".\Resources\Bordi\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3682,7 +3690,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\scandinavia.png"
+				RelativePath=".\Resources\scandinavia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3702,7 +3710,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\scandinavia.png"
+				RelativePath=".\Resources\Bordi\scandinavia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3782,7 +3790,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\siam.png"
+				RelativePath=".\Resources\siam.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3802,7 +3810,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\siam.png"
+				RelativePath=".\Resources\Bordi\siam.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4022,7 +4030,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\stati uniti orientali.png"
+				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4042,7 +4050,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\stati uniti orientali.png"
+				RelativePath=".\Resources\stati uniti orientali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4102,7 +4110,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\territori dell&apos;ovest.png"
+				RelativePath=".\Resources\Bordi\territori dell&apos;ovest.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4122,7 +4130,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\territori dell&apos;ovest.png"
+				RelativePath=".\Resources\territori dell&apos;ovest.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4242,7 +4250,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\urali.png"
+				RelativePath=".\Resources\Bordi\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4262,7 +4270,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\urali.png"
+				RelativePath=".\Resources\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4322,7 +4330,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\venezuela.png"
+				RelativePath=".\Resources\venezuela.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4342,7 +4350,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\venezuela.png"
+				RelativePath=".\Resources\Bordi\venezuela.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4901,7 +4909,7 @@
 		/>
 		<Global
 			Name="QtVersion Win32"
-			Value="4.8.0"
+			Value="Qt 4.7.4"
 		/>
 		<Global
 			Name="RccDir"

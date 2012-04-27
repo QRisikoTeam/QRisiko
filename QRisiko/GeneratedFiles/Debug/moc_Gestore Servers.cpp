@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Gestore Servers.h'
 **
-** Created: Thu 26. Apr 19:11:08 2012
-**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
+** Created: Fri 27. Apr 10:44:49 2012
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "../../Gestore Servers.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Gestore Servers.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 63
-#error "This file was generated using the moc from 4.8.0. It"
+#elif Q_MOC_OUTPUT_REVISION != 62
+#error "This file was generated using the moc from 4.7.4. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +20,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_GestoreServers[] = {
 
  // content:
-       6,       // revision
+       5,       // revision
        0,       // classname
        0,    0, // classinfo
        7,   14, // methods
@@ -52,31 +52,9 @@ static const char qt_meta_stringdata_GestoreServers[] = {
     "FormServerList(QString)\0FormIP(QString)\0"
 };
 
-void GestoreServers::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        GestoreServers *_t = static_cast<GestoreServers *>(_o);
-        switch (_id) {
-        case 0: _t->done((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: _t->ListaOttenuta((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->IPOttenuto((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 3: _t->erroreConnessione(); break;
-        case 4: _t->httpDone((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 5: _t->FormServerList((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 6: _t->FormIP((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        default: ;
-        }
-    }
-}
-
-const QMetaObjectExtraData GestoreServers::staticMetaObjectExtraData = {
-    0,  qt_static_metacall 
-};
-
 const QMetaObject GestoreServers::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_GestoreServers,
-      qt_meta_data_GestoreServers, &staticMetaObjectExtraData }
+      qt_meta_data_GestoreServers, 0 }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -102,8 +80,16 @@ int GestoreServers::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
-            qt_static_metacall(this, _c, _id, _a);
+        switch (_id) {
+        case 0: done((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: ListaOttenuta((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: IPOttenuto((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: erroreConnessione(); break;
+        case 4: httpDone((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 5: FormServerList((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 6: FormIP((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        default: ;
+        }
         _id -= 7;
     }
     return _id;

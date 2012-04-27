@@ -3,6 +3,10 @@
 
 QRisiko::QRisiko(QWidget *parent)
 : QWidget(parent)
+//Test
+,Player("Luca",Giocatore::Giallo)
+,fase(Not_My_Turn)
+,ArmiesToPlace(10)
 {
 	gestoreServer= new GestoreServers(this);
 	setObjectName(QString::fromUtf8("MappaDiGioco"));
@@ -24,24 +28,79 @@ QRisiko::QRisiko(QWidget *parent)
 	for (int i=0;i<ID_Stati::num_stati;i++){
 		Stati[i]= new ImmagineCliccabile(i,this);
 		Stati[i]->setObjectName("Stato_"+ID_Stati::Nomi_Stati[i]);
-		Stati[i]->setContextMenuPolicy(Qt::NoContextMenu);
+		Stati[i]->setContextMenuPolicy(Qt::NoContextMenu); //TODO Implement Custom
 		politica.setHeightForWidth(Stati[i]->sizePolicy().hasHeightForWidth());
 		Stati[i]->setSizePolicy(politica);
 		Stati[i]->setGeometry(ID_Stati::PosData_Stati[i].rettangolo());
 		Stati[i]->MostraImmagine();
 		Stati[i]->setCheckable(true);
+		Stati[i]->SetNoArmate(1);
+		//test
+		if(i%2==0)
+			Stati[i]->SetOwner(Giocatore::Giallo);
+		else
+			Stati[i]->SetOwner(Giocatore::Verde);
+		
 		connect(Stati[i],SIGNAL(Cliccato(bool,int)),this,SLOT(funziona(bool,int)));
 	}
 	Popola_ID_Attaccabili();
+	ProssimaFase();
 }
 
 void QRisiko::funziona(bool che, int identita){
-	QMessageBox::warning(this, tr("Funziona"),tr((
-		(che ?
-			QString("Hai Selezionato ")
-		:
-			QString("Hai Deselezionato "))
-		+ID_Stati::Nomi_Stati[identita]).toUtf8()));
+	QMessageBox::information(this, "Cliccato", QString("Hai Cliccato: %1\nCheched: %2").arg(ID_Stati::Nomi_Stati[identita]).arg(che));
+	switch(fase){
+		case Attacco:
+			if(che){
+				AttackFrom_ID=identita;
+				for (int i=0;i<ID_Stati::num_stati;i++){
+					if(i!=identita) Stati[i]->setCheckable(false);
+					if(Stati[i]->GetOwner()!=Player.GetColorID())
+						Stati[i]->setResponsive(true);
+					else
+						{if (i!=identita) Stati[i]->setResponsive(false);}
+				}
+			}
+			else{
+				if(AttackFrom_ID==identita){
+					AttackFrom_ID=-1;
+					for (int i=0;i<ID_Stati::num_stati;i++){
+						Stati[i]->setCheckable(true);
+						if(Stati[i]->GetOwner()==Player.GetColorID())
+							Stati[i]->setResponsive(true);
+						else
+							Stati[i]->setResponsive(false);
+					}
+				}
+				else{
+					bool Confina=false;
+					for (
+						QVector<short>::iterator i=ID_Attaccabili[AttackFrom_ID].begin();
+						!Confina && i<ID_Attaccabili[AttackFrom_ID].end();
+						i++
+					) if(*i==identita) Confina=true;
+					if (Confina){
+						emit Attaccato(AttackFrom_ID,identita);
+						AttackFrom_ID=-1;
+						for (int i=0;i<ID_Stati::num_stati;i++){
+							Stati[i]->setCheckable(true);
+							Stati[i]->setChecked(false);
+							if(Stati[i]->GetOwner()==Player.GetColorID())
+								Stati[i]->setResponsive(true);
+							else
+								Stati[i]->setResponsive(false);
+						}
+					}
+				}
+			}
+			break;
+		case Schieramento:
+			Aggiunte[identita]++;
+			break;
+
+		
+		default: return;
+	}
 }
 
 void QRisiko::resizeEvent (QResizeEvent * event){
@@ -338,5 +397,43 @@ void QRisiko::Popola_ID_Attaccabili(){
 void QRisiko::ProssimaFase(){
 	if(fase==Spostamento) fase=Not_My_Turn;
 	else fase++;
-	emit FaseCambiata(fase);
+	switch (fase){
+		case Not_My_Turn:
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				Stati[i]->setResponsive(false);
+			}
+			break;
+		case Schieramento:
+			Aggiunte.clear();
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				Stati[i]->setCheckable(false);
+				if(Stati[i]->GetOwner()==Player.GetColorID()){
+					Stati[i]->setResponsive(true);
+					Aggiunte[i]=0;
+				}
+				else Stati[i]->setResponsive(false);
+			}
+			break;
+		case Attacco:
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				if (Aggiunte.contains(i)) Stati[i]->AggiungiArmate(Aggiunte[i]);
+			}
+			AttackFrom_ID=-1;
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				if(Stati[i]->GetNoArmate()<=1) Stati[i]->setResponsive(false);
+				Stati[i]->setCheckable(true);
+			}
+			break;
+		case Spostamento:
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				Stati[i]->setCheckable(false);
+				if(Stati[i]->GetOwner()==Player.GetColorID())
+					Stati[i]->setResponsive(true);
+				else
+					Stati[i]->setResponsive(false);
+			}
+			break;
+		default:
+			return;			
+	}
 }
