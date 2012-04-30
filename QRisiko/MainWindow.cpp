@@ -72,6 +72,7 @@ DurataAnimazioniMenu(1000)
 	BottomFrame->setStyleSheet(CSS::MainWindow_BottomFrameCSS);
 
 	chat=new ChatWidget(BottomFrame,"Host",QColor(0,0,255,255),true,true/*false,"192.168.1.3"*/);
+	connect(chat,SIGNAL(DontSayEgitto()),mappa,SLOT(DontSayEgitto()));
 	
 	Log=new QTextEdit(BottomFrame);
 	Log->setHtml("");
@@ -306,6 +307,8 @@ void MainWindow::MostraTopMenu(){
 	Topmenu->show();
 	mappa->setEnabled(false);
 	BottomFrame->setEnabled(false);
+	if (mappa->IsContextMenuVisible())
+		mappa->NascondiMenuContestuale();
 
 	QPropertyAnimation* animIn= new QPropertyAnimation(Topmenu,"pos",TopFrame);
 	animIn->setDuration(DurataAnimazioniMenu);

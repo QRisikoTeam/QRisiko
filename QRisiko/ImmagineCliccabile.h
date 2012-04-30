@@ -21,9 +21,13 @@ public:
 	void RimuoviArmate(const short& no){No_Armate-=no; setText(ID_Stati::Nomi_Stati[Identita]+QString("\nArmate: %1").arg(No_Armate));}
 	short GetCurrVisual() const {return CurrVisual;}
 	void SetAbsoluteMaxArmy(const short& no){AbsoluteMaxArmy=no;}
+	void SetMenace(const short& no){Menace=no;}
+	void SetMaxMenace(const short& no){Max_Menace=no;}
+	short GetMenace() const {return Menace;}
 public slots:
 	void NextVisual();
 	void UpdateVisual();
+	void SimulaClick();
 private:
 	void ImpostaMask();
 	int Identita;
@@ -35,6 +39,8 @@ private:
 	bool Responsive;
 	short CurrVisual;
 	short AbsoluteMaxArmy;
+	short Menace;
+	short Max_Menace;
 signals:
 	void Cliccato(bool,int);
 protected:

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qrisiko.h'
 **
-** Created: Mon 30. Apr 14:23:52 2012
+** Created: Mon 30. Apr 20:01:30 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_QRisiko[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,14 +36,17 @@ static const uint qt_meta_data_QRisiko[] = {
       61,   53,    8,    8, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      80,    8,    8,    8, 0x08,
-     119,  106,    8,    8, 0x08,
-     138,    8,    8,    8, 0x08,
-     162,  158,    8,    8, 0x08,
-     192,    8,    8,    8, 0x08,
-     210,    8,    8,    8, 0x08,
-     225,    8,    8,    8, 0x0a,
-     240,    8,    8,    8, 0x0a,
+      93,   80,    8,    8, 0x08,
+     112,    8,    8,    8, 0x08,
+     136,  132,    8,    8, 0x08,
+     166,    8,    8,    8, 0x08,
+     184,    8,    8,    8, 0x08,
+     203,  199,    8,    8, 0x08,
+     224,    8,    8,    8, 0x08,
+     238,    8,    8,    8, 0x0a,
+     264,    8,    8,    8, 0x0a,
+     279,    8,    8,    8, 0x0a,
+     295,    8,    8,    8, 0x0a,
 
        0        // eod
 };
@@ -51,12 +54,13 @@ static const uint qt_meta_data_QRisiko[] = {
 static const char qt_meta_stringdata_QRisiko[] = {
     "QRisiko\0\0new_size\0resized(QSize)\0"
     "FaseCambiata(short)\0from,to\0"
-    "Attaccato(int,int)\0NascondiMenuContestuale()\0"
-    "che,identita\0funziona(bool,int)\0"
-    "ResetSchieramento()\0pnt\0"
-    "MostraMenuContestuale(QPoint)\0"
-    "HideContextMenu()\0UpdateVisual()\0"
-    "ProssimaFase()\0CambiaVisuale()\0"
+    "Attaccato(int,int)\0che,identita\0"
+    "funziona(bool,int)\0ResetSchieramento()\0"
+    "pnt\0MostraMenuContestuale(QPoint)\0"
+    "HideContextMenu()\0UpdateVisual()\0frm\0"
+    "DeleteExplosion(int)\0SimulaClick()\0"
+    "NascondiMenuContestuale()\0ProssimaFase()\0"
+    "CambiaVisuale()\0DontSayEgitto()\0"
 };
 
 void QRisiko::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -68,14 +72,17 @@ void QRisiko::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 0: _t->resized((*reinterpret_cast< QSize(*)>(_a[1]))); break;
         case 1: _t->FaseCambiata((*reinterpret_cast< short(*)>(_a[1]))); break;
         case 2: _t->Attaccato((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 3: _t->NascondiMenuContestuale(); break;
-        case 4: _t->funziona((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 5: _t->ResetSchieramento(); break;
-        case 6: _t->MostraMenuContestuale((*reinterpret_cast< QPoint(*)>(_a[1]))); break;
-        case 7: _t->HideContextMenu(); break;
-        case 8: _t->UpdateVisual(); break;
-        case 9: _t->ProssimaFase(); break;
-        case 10: _t->CambiaVisuale(); break;
+        case 3: _t->funziona((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 4: _t->ResetSchieramento(); break;
+        case 5: _t->MostraMenuContestuale((*reinterpret_cast< QPoint(*)>(_a[1]))); break;
+        case 6: _t->HideContextMenu(); break;
+        case 7: _t->UpdateVisual(); break;
+        case 8: _t->DeleteExplosion((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->SimulaClick(); break;
+        case 10: _t->NascondiMenuContestuale(); break;
+        case 11: _t->ProssimaFase(); break;
+        case 12: _t->CambiaVisuale(); break;
+        case 13: _t->DontSayEgitto(); break;
         default: ;
         }
     }
@@ -113,9 +120,9 @@ int QRisiko::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 14;
     }
     return _id;
 }

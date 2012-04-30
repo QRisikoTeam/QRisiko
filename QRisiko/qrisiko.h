@@ -9,6 +9,8 @@
 #include "Sfondo Risiko.h"
 #include "Giocatore.h"
 #include <QMap>
+#include <QTimer>
+#include <QMovie>
 
 class QRisiko : public QWidget
 {
@@ -24,6 +26,7 @@ class QRisiko : public QWidget
 		QPushButton* AnnullaSchieramento;
 		QPushButton* Seleziona;
 		QPushButton* CambiaVista;
+		QPushButton* AnnullaMenuContestuale;
 		int ContextMenuOnState;
 
 		QVector<short> ID_Attaccabili[ID_Stati::num_stati];
@@ -36,6 +39,11 @@ class QRisiko : public QWidget
 		QMap<int,int> Aggiunte;
 		int DurataAnimazioniMenu;
 		const double PiGreco;
+
+		//Don't Say Egitto
+		QLabel* Esplosione;
+		QTimer* TimerEsplosione;
+		QMovie* MovieEsplosione;
 	protected:
 		void resizeEvent (QResizeEvent * event);
 		bool eventFilter(QObject *target, QEvent *event);
@@ -48,17 +56,21 @@ class QRisiko : public QWidget
 		void SetPlayerName(const QString& n){Player.setUserName(n);}
 		void SetPlayerColor(const short& CID){Player.SetColorID(CID);}
 		void SetDurataAnimazioniMenu(const int& dur){DurataAnimazioniMenu=dur;}
+		bool IsContextMenuVisible() const {return InfoStato->isVisible();}
 		enum{Not_My_Turn=0, Schieramento=1, Attacco=2, Spostamento=3};
 	private slots:
-		void NascondiMenuContestuale();
 		void funziona(bool che, int identita);
 		void ResetSchieramento();
 		void MostraMenuContestuale(QPoint pnt);
 		void HideContextMenu();
 		void UpdateVisual();
+		void DeleteExplosion(int frm);
+		void SimulaClick();
 	public slots:
+		void NascondiMenuContestuale();
 		void ProssimaFase();
 		void CambiaVisuale();
+		void DontSayEgitto();
 
 };
 

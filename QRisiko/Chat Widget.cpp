@@ -271,6 +271,7 @@ void ChatWidget::connectionClosedByServer()
 	TCPsocket=NULL;
 }
 void ChatWidget::PrintMessage(QString msg, bool fromserv){
+	if (msg.contains("egitto",Qt::CaseInsensitive)) emit DontSayEgitto();
 	if (fromserv){
 		ChatText->append("<font color=\""+Colors::ServerColor.name()+"\">Server: " +msg +"</font>");
 	}

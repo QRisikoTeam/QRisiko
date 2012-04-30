@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ImmagineCliccabile.h'
 **
-** Created: Mon 30. Apr 14:23:52 2012
+** Created: Mon 30. Apr 19:44:27 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ImmagineCliccabile[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,15 +36,16 @@ static const uint qt_meta_data_ImmagineCliccabile[] = {
  // slots: signature, parameters, type, tag, flags
       41,   19,   19,   19, 0x0a,
       54,   19,   19,   19, 0x0a,
-      69,   19,   19,   19, 0x08,
-      91,   87,   19,   19, 0x08,
+      69,   19,   19,   19, 0x0a,
+      83,   19,   19,   19, 0x08,
+     105,  101,   19,   19, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_ImmagineCliccabile[] = {
     "ImmagineCliccabile\0\0,\0Cliccato(bool,int)\0"
-    "NextVisual()\0UpdateVisual()\0"
+    "NextVisual()\0UpdateVisual()\0SimulaClick()\0"
     "ImpostaMaschera()\0che\0clickID(bool)\0"
 };
 
@@ -57,8 +58,9 @@ void ImmagineCliccabile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         case 0: _t->Cliccato((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 1: _t->NextVisual(); break;
         case 2: _t->UpdateVisual(); break;
-        case 3: _t->ImpostaMaschera(); break;
-        case 4: _t->clickID((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 3: _t->SimulaClick(); break;
+        case 4: _t->ImpostaMaschera(); break;
+        case 5: _t->clickID((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -96,9 +98,9 @@ int ImmagineCliccabile::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

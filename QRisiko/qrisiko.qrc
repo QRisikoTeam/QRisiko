@@ -6,6 +6,10 @@
         <file alias="Information.png">Resources/information.png</file>
         <file alias="Undo.png">Resources/undo.png</file>
         <file alias="Occhio.png">Resources/Occhio.png</file>
+        <file alias="Statistiche.png">Resources/Statistiche.png</file>
+        <file alias="Explosion.gif">Resources/explosion.gif</file>
+        <file alias="Tank.png">Resources/Tank.png</file>
+        <file alias="Divieto.png">Resources/Divieto.png</file>
     </qresource>
     <qresource prefix="/Stati">
         <file alias="europa settentrionale.png">Resources/europa settentrionale.png</file>

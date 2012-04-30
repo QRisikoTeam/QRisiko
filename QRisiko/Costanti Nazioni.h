@@ -459,6 +459,7 @@ namespace Giocatori{
 	const int Nero=3;
 	const int Viola=4;
 	const int Verde=5;
+	const int Spectator=6;
 	const QColor Colori[Max_Giocatori]={
 		QColor(255,242,0,255), //Giallo
 		QColor(0,84,166,255), //Blu
@@ -563,7 +564,7 @@ namespace CSS{
 			"border-bottom-right-radius: 12px;"
 		"}"
 		
-		"QRisiko #InfoStato:disabled, #AnnullaSchieramento:disabled, #CambiaVista:disabled{"
+		"QRisiko #InfoStato:disabled, #AnnullaSchieramento:disabled, #CambiaVista:disabled, #StatStato:disabled, #Seleziona:disabled, #AnnullaMenuContestuale:disabled{"
 			"border: 2px solid #333;"
 			"border-radius: 25;"
 			"background-color: qradialgradient("
@@ -574,7 +575,7 @@ namespace CSS{
 			");"
 		"}"
 
-		"QRisiko #InfoStato:enabled, #AnnullaSchieramento:enabled, #CambiaVista:enabled{"
+		"QRisiko #InfoStato:enabled, #AnnullaSchieramento:enabled, #CambiaVista:enabled, #StatStato:enabled, #Seleziona:enabled, #AnnullaMenuContestuale:enabled{"
 			"border: 2px solid #333;"
 			"border-radius: 25;"
 			"background-color: qradialgradient("
@@ -584,7 +585,7 @@ namespace CSS{
 				"stop: 0.4 rgb(0,118,163)"
 			");"
 		"}"
-
+		
 		"TopMenu #Sfondo{"
 			"border: 3px solid #333;"
 			"border-radius: 12px;"
@@ -592,6 +593,22 @@ namespace CSS{
 			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
 			"stop: 0.39999 #717171, stop: 0.4 #626262,"
 			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+		"#TopMenu QPushButton {"
+			"background-color: qradialgradient("
+			"cx: 0.5, cy: 0.5, radius: 2, fx: 0.5, fy: 1,"
+			"stop: 0 rgb(109,207,246),"
+			"stop: 0.2 rgb(0,174,239),"
+			"stop: 0.4 rgb(0,118,163)"
+			");"
+		"}"
+		"#TopMenu QPushButton:hover{"
+			"background-color: qradialgradient("
+				"cx: 0.5, cy: 0.5, radius: 2, fx: 0.5, fy: 1,"
+				"stop: 0 rgb(0,118,163),"
+				"stop: 0.2 rgb(0,174,239),"
+				"stop: 0.4 rgb(109,207,246)"
+			");"
 		"}"
 
 		"MenuPrincipale #Sfondo{"

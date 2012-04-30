@@ -65,5 +65,6 @@ class ChatWidget : public QWidget, public Ui::Chat
 	signals:
 		void MessageRecieved(QString Message, bool fromserver=false);
 		void MessageFromServer(QString Message);
+		void DontSayEgitto();
 };
 #endif

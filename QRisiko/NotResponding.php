@@ -53,7 +53,7 @@ function delLineFromFile($fileName, $lineNum){
   if($fp)
     {
         // write the array to the file
-        foreach($arr as $line) { fwrite($fp,$line); }
+        foreach($arr as $line) { if(!($line=="\n" || $line=="")) fwrite($fp,$line); }
 
         // close the file
         fclose($fp);

@@ -20,7 +20,15 @@ CurrVisual(Carte)
 	connect(this,SIGNAL(clicked(bool)),this,SLOT(clickID(bool)));
 	setText(ID_Stati::Nomi_Stati[Identita]+QString("\nArmate: %1").arg(No_Armate));
 }
-
+void ImmagineCliccabile::SimulaClick(){
+	if(Responsive){
+		if(isCheckable()){
+			setChecked(!isChecked());
+			emit Cliccato(isChecked(),Identita);
+		}
+		else emit Cliccato(false,Identita);
+	}
+}
 void ImmagineCliccabile::setImage(){
 	if (immagineOriginale)
 		delete immagineOriginale;
@@ -50,6 +58,8 @@ void ImmagineCliccabile::SetOwner(const short& Ow){
 void ImmagineCliccabile::NextVisual(){
 	if(CurrVisual>=Carte) CurrVisual=Normale;
 	else CurrVisual++;
+	QColor RossoVerde, RossoVerdeSelected;
+	int IntensitaMinaccia;
 	switch (CurrVisual){
 		case Normale:
 			setStyleSheet(
@@ -59,8 +69,11 @@ void ImmagineCliccabile::NextVisual(){
 					"border-style: none;"
 					"font: bold;"
 				"}"
-					"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
 					"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
+				"}"
+				"ImmagineCliccabile:disabled{"
+					"background-color:#777;"
 				"}"
 			);
 			break;
@@ -74,6 +87,9 @@ void ImmagineCliccabile::NextVisual(){
 				"}"
 				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
 					"background-color: "+Giocatori::ColoriSelected[Owner].name()+";"
+				"}"
+				"ImmagineCliccabile:disabled{"
+				"background-color:#777;"
 				"}"
 			);
 			break;
@@ -97,7 +113,50 @@ void ImmagineCliccabile::NextVisual(){
 						.arg(Giocatori::ColoriSelected[Owner].blue())
 						.arg(100+((155*No_Armate)/AbsoluteMaxArmy))+";"
 				"}"
+				"ImmagineCliccabile:disabled{"
+				"background-color:#777;"
+				"}"
 			);
+			break;
+		case Minacce:
+			if (Menace<100) {
+				RossoVerde=Giocatori::Colori[Giocatori::Verde];
+				RossoVerdeSelected=Giocatori::ColoriSelected[Giocatori::Verde];
+				IntensitaMinaccia=Menace;
+			}
+			else if(Menace==100) {
+				RossoVerde=Giocatori::Colori[Giocatori::Giallo];
+				RossoVerdeSelected=Giocatori::ColoriSelected[Giocatori::Giallo];
+				IntensitaMinaccia=100;
+			}
+			else {
+				RossoVerde=Giocatori::Colori[Giocatori::Rosso];
+				RossoVerdeSelected=Giocatori::ColoriSelected[Giocatori::Rosso];
+				IntensitaMinaccia=(Menace*100)/Max_Menace;
+			}
+			setStyleSheet(
+				"ImmagineCliccabile{"
+				"border-image: url("+ID_Stati::img_Stati_bordo[Identita]+");"
+				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				.arg(RossoVerde.red())
+				.arg(RossoVerde.green())
+				.arg(RossoVerde.blue())
+				.arg(100+((155*IntensitaMinaccia)/100))
+				+";"
+				"border-style: none;"
+				"font: bold;"
+				"}"
+				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				.arg(RossoVerdeSelected.red())
+				.arg(RossoVerdeSelected.green())
+				.arg(RossoVerdeSelected.blue())
+				.arg(100+((155*IntensitaMinaccia)/100))+";"
+				"}"
+				"ImmagineCliccabile:disabled{"
+				"background-color:#777;"
+				"}"
+				);
 			break;
 		default:
 			return;
@@ -105,6 +164,8 @@ void ImmagineCliccabile::NextVisual(){
 }
 
 void ImmagineCliccabile::UpdateVisual(){
+	QColor RossoVerde, RossoVerdeSelected;
+	int IntensitaMinaccia;
 	switch (CurrVisual){
 		case IntensitaArmate:
 			setStyleSheet(
@@ -126,8 +187,51 @@ void ImmagineCliccabile::UpdateVisual(){
 				.arg(Giocatori::ColoriSelected[Owner].blue())
 				.arg(100+((155*No_Armate)/AbsoluteMaxArmy))+";"
 				"}"
+				"ImmagineCliccabile:disabled{"
+				"background-color:#777;"
+				"}"
 			);
-			break;
+		break;
+		case Minacce:
+			if (Menace<100) {
+				RossoVerde=Giocatori::Colori[Giocatori::Verde];
+				RossoVerdeSelected=Giocatori::ColoriSelected[Giocatori::Verde];
+				IntensitaMinaccia=Menace;
+			}
+			else if(Menace==100) {
+				RossoVerde=Giocatori::Colori[Giocatori::Giallo];
+				RossoVerdeSelected=Giocatori::ColoriSelected[Giocatori::Giallo];
+				IntensitaMinaccia=100;
+			}
+			else {
+				RossoVerde=Giocatori::Colori[Giocatori::Rosso];
+				RossoVerdeSelected=Giocatori::ColoriSelected[Giocatori::Rosso];
+				IntensitaMinaccia=(Menace*100)/Max_Menace;
+			}
+			setStyleSheet(
+				"ImmagineCliccabile{"
+				"border-image: url("+ID_Stati::img_Stati_bordo[Identita]+");"
+				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				.arg(RossoVerde.red())
+				.arg(RossoVerde.green())
+				.arg(RossoVerde.blue())
+				.arg(100+((155*IntensitaMinaccia)/100))
+				+";"
+				"border-style: none;"
+				"font: bold;"
+				"}"
+				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				.arg(RossoVerdeSelected.red())
+				.arg(RossoVerdeSelected.green())
+				.arg(RossoVerdeSelected.blue())
+				.arg(100+((155*IntensitaMinaccia)/100))+";"
+				"}"
+				"ImmagineCliccabile:disabled{"
+				"background-color:#777;"
+				"}"
+				);
+		break;
 		default: return;
 	}
 }
