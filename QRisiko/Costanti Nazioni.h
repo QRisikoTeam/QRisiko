@@ -278,6 +278,56 @@ namespace ID_Stati{
 		":/Stati/alaska select.png",
 		":/Stati/territori ovest select.png"
 	};
+	const QString img_Stati_bordo[num_stati]={
+		//Asia
+		":/Carte/giappone.png",
+		":/Carte/afganistan.png",
+		":/Carte/urali.png",
+		":/Carte/siberia.png",
+		":/Carte/jacuzia.png",
+		":/Carte/kamchatka.png",
+		":/Carte/cita.png",
+		":/Carte/mongolia.png",
+		":/Carte/cina.png",
+		":/Carte/medio oriente.png",
+		":/Carte/india.png",
+		":/Carte/siam.png",
+		//Oceania
+		":/Carte/australia orientale.png",
+		":/Carte/australia occidentale.png",
+		":/Carte/nuova guinea.png",
+		":/Carte/indonesia.png",
+		//Africa
+		":/Carte/egitto.png",
+		":/Carte/africa del nord.png",
+		":/Carte/africa del sud.png",
+		":/Carte/africa orientale.png",
+		":/Carte/congo.png",
+		":/Carte/madagascar.png",
+		//Europa
+		":/Carte/europa meridionale.png",
+		":/Carte/europa settentrionale.png",
+		":/Carte/europa occidentale.png",
+		":/Carte/gran bretagna.png",
+		":/Carte/scandinavia.png",
+		":/Carte/islanda.png",
+		":/Carte/ucraina.png",
+		//Sud America
+		":/Carte/brasile.png",
+		":/Carte/argentina.png",
+		":/Carte/venezuela.png",
+		":/Carte/peru.png",
+		//Nord America
+		":/Carte/america centrale.png",
+		":/Carte/stati uniti occidentali.png",
+		":/Carte/stati uniti orientali.png",
+		":/Carte/quebec.png",
+		":/Carte/ontario.png",
+		":/Carte/alberta.png",
+		":/Carte/groenlandia.png",
+		":/Carte/alaska.png",
+		":/Carte/territori ovest.png"
+	};
 
 	const QColor Colori_Nazioni[num_stati]={
 		//Asia
@@ -417,6 +467,14 @@ namespace Giocatori{
 		QColor(236,0,140), //Viola
 		QColor(0,166,81,255) //Verde
 	};
+	const QColor ColoriSelected[Max_Giocatori]={
+		QColor(255,247,153,255), //Giallo
+		QColor(0,109,205,255), //Blu
+		QColor(247,28,36,255), //Rosso
+		QColor(90,90,90,255), //Nero
+		QColor(247,0,180,255), //Viola
+		QColor(0,205,105,255) //Verde
+	};
 
 	const QString PathToHttpServer("http://oratoriomomo.org/Risiqo");
 	const int MinButtonWidth(170);
@@ -451,13 +509,13 @@ namespace CSS{
 			"font: bold;"
 			"font-size: 60px;"
 			"color: black;"
-			"border: 3px inset #333;"
+			"border: 3px solid #333;"
 			"border-top-left-radius: 12px;"
 			"border-top-right-radius: 12px;"
 		"}"
 
 		"#BottomFrame {"
-			"border: 3px inset #333;"
+			"border: 3px solid #333;"
 			"border-top-left-radius: 12px;"
 			"border-top-right-radius: 12px;"
 			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
@@ -504,9 +562,31 @@ namespace CSS{
 			"border-bottom-left-radius: 12px;"
 			"border-bottom-right-radius: 12px;"
 		"}"
+		
+		"QRisiko #InfoStato:disabled, #AnnullaSchieramento:disabled, #CambiaVista:disabled{"
+			"border: 2px solid #333;"
+			"border-radius: 25;"
+			"background-color: qradialgradient("
+				"cx: 0.5, cy: 0.5, radius: 2, fx: 0.5, fy: 1,"
+				"stop: 0 rgb(129,129,129),"
+				"stop: 0.2 rgb(185,185,185),"
+				"stop: 0.4 rgb(210,210,210)"
+			");"
+		"}"
+
+		"QRisiko #InfoStato:enabled, #AnnullaSchieramento:enabled, #CambiaVista:enabled{"
+			"border: 2px solid #333;"
+			"border-radius: 25;"
+			"background-color: qradialgradient("
+				"cx: 0.5, cy: 0.5, radius: 2, fx: 0.5, fy: 1,"
+				"stop: 0 rgb(109,207,246),"
+				"stop: 0.2 rgb(0,174,239),"
+				"stop: 0.4 rgb(0,118,163)"
+			");"
+		"}"
 
 		"TopMenu #Sfondo{"
-			"border: 3px inset #333;"
+			"border: 3px solid #333;"
 			"border-radius: 12px;"
 			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
 			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
@@ -515,7 +595,7 @@ namespace CSS{
 		"}"
 
 		"MenuPrincipale #Sfondo{"
-			"border: 3px inset #333;"
+			"border: 3px solid #333;"
 			"border-radius: 12px;"
 			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
 			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
@@ -550,7 +630,7 @@ namespace CSS{
 		
 
 		"ServerSelector #Sfondo {"
-			"border: 3px inset #333;"
+			"border: 3px solid #333;"
 			"border-radius: 12px;"
 			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
 			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
@@ -568,7 +648,7 @@ namespace CSS{
 		"ServerSelector #ManualInput {"
 			"border-width: 1px;"
 			"border-color: rgb(0, 0, 0);"
-			"border-style: inset;"
+			"border-style: solid;"
 			"background-color: rgba(255, 255, 255, 255);"
 			"border-radius: 12px;"
 			"padding: 7px;"
@@ -577,7 +657,7 @@ namespace CSS{
 		"ServerSelector #TabellaServer{"
 			"border-width: 1px;"
 			"border-color: rgb(0, 0, 0);"
-			"border-style: inset;"
+			"border-style: solid;"
 			"border-radius: 12px;"
 			"padding: 7px;"
 		"}"
@@ -633,7 +713,7 @@ namespace CSS{
 		"#Regolamento QTextBrowser {"
 			"border-width: 1px;"
 			"border-color: rgb(0, 0, 0);"
-			"border-style: inset;"
+			"border-style: solid;"
 			"background-color: rgba(255, 255, 255, 255);"
 			"border-radius: 12px;"
 			"selection-background-color: ltblue; "

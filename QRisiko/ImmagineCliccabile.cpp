@@ -7,7 +7,8 @@ ImmagineCliccabile::ImmagineCliccabile(int ID,QWidget *parent)
 Identita(ID),
 DelayTimer(this),
 Responsive(true),
-No_Armate(0)
+No_Armate(0),
+CurrVisual(Carte)
 {
 	immagineOriginale=NULL;
 	immagineRidimensionata=NULL;
@@ -15,6 +16,7 @@ No_Armate(0)
 	DelayTimer.setInterval(50);
 	connect(&DelayTimer,SIGNAL(timeout()),this,SLOT(ImpostaMaschera()));
 	setImage();
+	NextVisual();
 	connect(this,SIGNAL(clicked(bool)),this,SLOT(clickID(bool)));
 	setText(ID_Stati::Nomi_Stati[Identita]+QString("\nArmate: %1").arg(No_Armate));
 }
@@ -40,20 +42,92 @@ void ImmagineCliccabile::resizeEvent (QResizeEvent * event){
 	}
 }
 
-void ImmagineCliccabile::MostraImmagine(){
-	setStyleSheet(
-		"ImmagineCliccabile{"
-			"border-image: url("+ID_Stati::img_Stati[Identita]+");"
-			"border-style: none;"
-			"font: bold;"
-		"}"
-		"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
-			"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
-			"font:bold;"
-		"}"
-	);
-}
+
 void ImmagineCliccabile::SetOwner(const short& Ow){
 	if (Ow>=0 && Ow <=6) Owner=Ow;
 	else Owner=6;
+}
+void ImmagineCliccabile::NextVisual(){
+	if(CurrVisual>=Carte) CurrVisual=Normale;
+	else CurrVisual++;
+	switch (CurrVisual){
+		case Normale:
+			setStyleSheet(
+				"ImmagineCliccabile{"
+					"border-image: url("+ID_Stati::img_Stati_bordo[Identita]+");"
+					"background-color: "+ID_Stati::Colori_Nazioni[Identita].name()+";"
+					"border-style: none;"
+					"font: bold;"
+				"}"
+					"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+					"border-image: url("+ID_Stati::img_Stati_select[Identita]+");"
+				"}"
+			);
+			break;
+		case Proprietari:
+			setStyleSheet(
+				"ImmagineCliccabile{"
+					"border-image: url("+ID_Stati::img_Stati_bordo[Identita]+");"
+					"background-color: "+Giocatori::Colori[Owner].name()+";"
+					"border-style: none;"
+					"font: bold;"
+				"}"
+				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+					"background-color: "+Giocatori::ColoriSelected[Owner].name()+";"
+				"}"
+			);
+			break;
+		case IntensitaArmate:
+			setStyleSheet(
+				"ImmagineCliccabile{"
+					"border-image: url("+ID_Stati::img_Stati_bordo[Identita]+");"
+					"background-color: "+QString("rgba(%1,%2,%3,%4)")
+													.arg(Giocatori::Colori[Owner].red())
+													.arg(Giocatori::Colori[Owner].green())
+													.arg(Giocatori::Colori[Owner].blue())
+													.arg(100+((155*No_Armate)/AbsoluteMaxArmy))
+										+";"
+					"border-style: none;"
+					"font: bold;"
+				"}"
+				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+					"background-color: "+QString("rgba(%1,%2,%3,%4)")
+						.arg(Giocatori::ColoriSelected[Owner].red())
+						.arg(Giocatori::ColoriSelected[Owner].green())
+						.arg(Giocatori::ColoriSelected[Owner].blue())
+						.arg(100+((155*No_Armate)/AbsoluteMaxArmy))+";"
+				"}"
+			);
+			break;
+		default:
+			return;
+	}
+}
+
+void ImmagineCliccabile::UpdateVisual(){
+	switch (CurrVisual){
+		case IntensitaArmate:
+			setStyleSheet(
+				"ImmagineCliccabile{"
+				"border-image: url("+ID_Stati::img_Stati_bordo[Identita]+");"
+				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				.arg(Giocatori::Colori[Owner].red())
+				.arg(Giocatori::Colori[Owner].green())
+				.arg(Giocatori::Colori[Owner].blue())
+				.arg(100+((155*No_Armate)/AbsoluteMaxArmy))
+				+";"
+				"border-style: none;"
+				"font: bold;"
+				"}"
+				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
+				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				.arg(Giocatori::ColoriSelected[Owner].red())
+				.arg(Giocatori::ColoriSelected[Owner].green())
+				.arg(Giocatori::ColoriSelected[Owner].blue())
+				.arg(100+((155*No_Armate)/AbsoluteMaxArmy))+";"
+				"}"
+			);
+			break;
+		default: return;
+	}
 }

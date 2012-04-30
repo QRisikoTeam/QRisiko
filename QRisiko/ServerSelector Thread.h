@@ -4,6 +4,7 @@
 #include <QStringList>
 #include <QTcpSocket>
 #include "Costanti Nazioni.h"
+#include "Gestore Servers.h"
 
 class ServerSelectorThread : public QThread
 {
@@ -28,10 +29,9 @@ class ServerSelectorThread : public QThread
 		QStringList ListaIPs;
 		QString currentIP;
 		int TimeoutTime;
+		GestoreServers cancellatore;
 	private slots:
-		void Skip(){
-			Prossimo=true;
-		}
+		void Skip();
 		void Connesso();
 		void ErroreConnessione();
 		void OttieniInfo();

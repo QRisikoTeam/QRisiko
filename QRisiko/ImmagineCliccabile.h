@@ -8,9 +8,9 @@ class ImmagineCliccabile: public QPushButton
 {
 	Q_OBJECT
 public:
+	enum{Normale=0, Proprietari=1, IntensitaArmate=2, Minacce=3, Carte=4};
 	ImmagineCliccabile(int ID=-1,QWidget *parent=0);
 	void setImage();
-	void MostraImmagine();
 	void setResponsive(const bool& rsp){Responsive=rsp;}
 	bool IsResponsive() const {return Responsive;}
 	short GetOwner() const {return Owner;}
@@ -18,6 +18,12 @@ public:
 	short GetNoArmate() const {return No_Armate;}
 	void SetNoArmate(const short& no){No_Armate=no; setText(ID_Stati::Nomi_Stati[Identita]+QString("\nArmate: %1").arg(No_Armate));}
 	void AggiungiArmate(const short& no){No_Armate+=no; setText(ID_Stati::Nomi_Stati[Identita]+QString("\nArmate: %1").arg(No_Armate));}
+	void RimuoviArmate(const short& no){No_Armate-=no; setText(ID_Stati::Nomi_Stati[Identita]+QString("\nArmate: %1").arg(No_Armate));}
+	short GetCurrVisual() const {return CurrVisual;}
+	void SetAbsoluteMaxArmy(const short& no){AbsoluteMaxArmy=no;}
+public slots:
+	void NextVisual();
+	void UpdateVisual();
 private:
 	void ImpostaMask();
 	int Identita;
@@ -27,6 +33,8 @@ private:
 	short Owner;
 	short No_Armate;
 	bool Responsive;
+	short CurrVisual;
+	short AbsoluteMaxArmy;
 signals:
 	void Cliccato(bool,int);
 protected:

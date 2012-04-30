@@ -1,8 +1,12 @@
 #include "qrisiko.h"
 #include <QtGui>
+#include <cmath>
 
 QRisiko::QRisiko(QWidget *parent)
 : QWidget(parent)
+,ContextMenuOnState(-1)
+,DurataAnimazioniMenu(500)
+,PiGreco(3.14159)
 //Test
 ,Player("Luca",Giocatore::Giallo)
 ,fase(Not_My_Turn)
@@ -17,7 +21,39 @@ QRisiko::QRisiko(QWidget *parent)
 	setSizePolicy(politica);
 	setMinimumSize(QSize(800, 448));
 	setMouseTracking(false);
-	setContextMenuPolicy(Qt::NoContextMenu);
+	installEventFilter(this);
+
+	setContextMenuPolicy(Qt::CustomContextMenu);
+	connect(this,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(MostraMenuContestuale(QPoint)));
+	InfoStato=new QPushButton(this);
+	InfoStato->setObjectName("InfoStato");
+	InfoStato->setIcon(QIcon(":/Generale/Information.png"));
+	InfoStato->setGeometry(500,500,50,50);
+	InfoStato->setIconSize(InfoStato->size());
+	InfoStato->setToolTip(tr("Informazioni Sullo Stato"));
+	InfoStato->hide();
+	connect(InfoStato,SIGNAL(clicked()),this,SLOT(NascondiMenuContestuale()));
+	//connect
+	AnnullaSchieramento=new QPushButton(this);
+	AnnullaSchieramento->setObjectName("AnnullaSchieramento");
+	AnnullaSchieramento->setIcon(QIcon(":/Generale/Undo.png"));
+	AnnullaSchieramento->setGeometry(500,500,50,50);
+	AnnullaSchieramento->setIconSize(InfoStato->size());
+	AnnullaSchieramento->setToolTip(tr("Annulla Schieramento Truppe"));
+	AnnullaSchieramento->hide();
+	connect(AnnullaSchieramento,SIGNAL(clicked()),this,SLOT(ResetSchieramento()));
+	connect(AnnullaSchieramento,SIGNAL(clicked()),this,SLOT(NascondiMenuContestuale()));
+	connect(AnnullaSchieramento,SIGNAL(clicked()),this,SLOT(UpdateVisual()));
+	CambiaVista=new QPushButton(this);
+	CambiaVista->setObjectName("CambiaVista");
+	CambiaVista->setIcon(QIcon(":/Generale/Occhio.png"));
+	CambiaVista->setGeometry(500,500,50,50);
+	CambiaVista->setIconSize(CambiaVista->size());
+	CambiaVista->setToolTip(tr("Cambia Visuale Mappa"));
+	CambiaVista->hide();
+	connect(CambiaVista,SIGNAL(clicked()),this,SLOT(CambiaVisuale()));
+	connect(CambiaVista,SIGNAL(clicked()),this,SLOT(NascondiMenuContestuale()));
+
 	resize(1024, 574);
 	Sfondo=new QLabel(this);
 	Sfondo->setObjectName("Sfondo");
@@ -28,13 +64,13 @@ QRisiko::QRisiko(QWidget *parent)
 	for (int i=0;i<ID_Stati::num_stati;i++){
 		Stati[i]= new ImmagineCliccabile(i,this);
 		Stati[i]->setObjectName("Stato_"+ID_Stati::Nomi_Stati[i]);
-		Stati[i]->setContextMenuPolicy(Qt::NoContextMenu); //TODO Implement Custom
+		Stati[i]->setContextMenuPolicy(Qt::NoContextMenu); 
 		politica.setHeightForWidth(Stati[i]->sizePolicy().hasHeightForWidth());
 		Stati[i]->setSizePolicy(politica);
 		Stati[i]->setGeometry(ID_Stati::PosData_Stati[i].rettangolo());
-		Stati[i]->MostraImmagine();
 		Stati[i]->setCheckable(true);
 		Stati[i]->SetNoArmate(1);
+		Stati[i]->installEventFilter(this);
 		//test
 		if(i%2==0)
 			Stati[i]->SetOwner(Giocatore::Giallo);
@@ -42,13 +78,13 @@ QRisiko::QRisiko(QWidget *parent)
 			Stati[i]->SetOwner(Giocatore::Verde);
 		
 		connect(Stati[i],SIGNAL(Cliccato(bool,int)),this,SLOT(funziona(bool,int)));
+		connect(Stati[i],SIGNAL(Cliccato(bool,int)),this,SLOT(UpdateVisual()));
 	}
 	Popola_ID_Attaccabili();
 	ProssimaFase();
 }
 
 void QRisiko::funziona(bool che, int identita){
-	QMessageBox::information(this, "Cliccato", QString("Hai Cliccato: %1\nCheched: %2").arg(ID_Stati::Nomi_Stati[identita]).arg(che));
 	switch(fase){
 		case Attacco:
 			if(che){
@@ -95,14 +131,25 @@ void QRisiko::funziona(bool che, int identita){
 			}
 			break;
 		case Schieramento:
-			Aggiunte[identita]++;
+			if(ArmiesLeftToPlace>0){
+				Aggiunte[identita]++;
+				ArmiesLeftToPlace--;
+				Stati[identita]->AggiungiArmate(1);
+			}
 			break;
 
 		
 		default: return;
 	}
 }
-
+void QRisiko::ResetSchieramento(){
+	if (fase!=Schieramento) return;
+	for (int i=0;i<ID_Stati::num_stati;i++){
+		if (Aggiunte.contains(i)) Stati[i]->RimuoviArmate(Aggiunte[i]);
+	}
+	Aggiunte.clear();
+	ArmiesLeftToPlace=ArmiesToPlace;
+}
 void QRisiko::resizeEvent (QResizeEvent * event){
 	QWidget::resizeEvent(event);
 	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());
@@ -405,6 +452,7 @@ void QRisiko::ProssimaFase(){
 			break;
 		case Schieramento:
 			Aggiunte.clear();
+			ArmiesLeftToPlace=ArmiesToPlace;
 			for (int i=0;i<ID_Stati::num_stati;i++){
 				Stati[i]->setCheckable(false);
 				if(Stati[i]->GetOwner()==Player.GetColorID()){
@@ -415,9 +463,6 @@ void QRisiko::ProssimaFase(){
 			}
 			break;
 		case Attacco:
-			for (int i=0;i<ID_Stati::num_stati;i++){
-				if (Aggiunte.contains(i)) Stati[i]->AggiungiArmate(Aggiunte[i]);
-			}
 			AttackFrom_ID=-1;
 			for (int i=0;i<ID_Stati::num_stati;i++){
 				if(Stati[i]->GetNoArmate()<=1) Stati[i]->setResponsive(false);
@@ -437,3 +482,155 @@ void QRisiko::ProssimaFase(){
 			return;			
 	}
 }
+void QRisiko::MostraMenuContestuale(QPoint pnt){
+	QEasingCurve Curva(QEasingCurve::Linear);
+	int radius=70;
+	int trovato=-1;
+	for (int i=0;i<ID_Stati::num_stati && trovato<0;i++){
+		if(Stati[i]->mask().contains(pnt-Stati[i]->pos())) trovato=i;
+	}
+	ContextMenuOnState=trovato;
+	if (trovato>0){
+		InfoStato->setEnabled(true);
+	}
+	else{
+		InfoStato->setEnabled(false);
+	}
+	if (fase==Schieramento && ArmiesLeftToPlace<ArmiesToPlace) AnnullaSchieramento->setEnabled(true);
+	else  AnnullaSchieramento->setEnabled(false);
+
+	AnnullaSchieramento->show();
+	AnnullaSchieramento->raise();
+	CambiaVista->show();
+	CambiaVista->raise();
+	InfoStato->show();
+	InfoStato->raise();
+
+	QPropertyAnimation* animInfoStato= new QPropertyAnimation(InfoStato,"pos",this);
+	animInfoStato->setDuration(DurataAnimazioniMenu);
+	animInfoStato->setEasingCurve(Curva);
+	animInfoStato->setKeyValueAt(0.0,QPoint(
+			pnt.x()-(InfoStato->width()/2),
+			pnt.y()-(InfoStato->height()/2)
+	));
+	animInfoStato->setKeyValueAt(1.0,QPoint(
+			pnt.x()-(InfoStato->width()/2)+radius,
+			pnt.y()-(InfoStato->height()/2)
+	));
+	QPropertyAnimation* animAnnullaSchieramento= new QPropertyAnimation(AnnullaSchieramento,"pos",this);
+	animAnnullaSchieramento->setDuration(DurataAnimazioniMenu);
+	animAnnullaSchieramento->setEasingCurve(Curva);
+	animAnnullaSchieramento->setKeyValueAt(0.0,QPoint(
+		pnt.x()-(AnnullaSchieramento->width()/2),
+		pnt.y()-(AnnullaSchieramento->height()/2)
+	));
+	animAnnullaSchieramento->setKeyValueAt(1.0,QPoint(
+		pnt.x()-(AnnullaSchieramento->width()/2)+(radius*std::cos(PiGreco*(-60.0)/180.0)),
+		pnt.y()-(AnnullaSchieramento->height()/2)-(radius*std::sin(PiGreco*(-60.0)/180.0))
+	));
+	QPropertyAnimation* animCambiaVista= new QPropertyAnimation(CambiaVista,"pos",this);
+	animCambiaVista->setDuration(DurataAnimazioniMenu);
+	animCambiaVista->setEasingCurve(Curva);
+	animCambiaVista->setKeyValueAt(0.0,QPoint(
+		pnt.x()-(CambiaVista->width()/2),
+		pnt.y()-(CambiaVista->height()/2)
+		));
+	animCambiaVista->setKeyValueAt(1.0,QPoint(
+		pnt.x()-(CambiaVista->width()/2)+(radius*std::cos(PiGreco*60.0/180.0)),
+		pnt.y()-(CambiaVista->height()/2)-(radius*std::sin(PiGreco*60.0/180.0))
+		));
+	
+	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
+	Animazioni->addAnimation(animInfoStato);
+	Animazioni->addAnimation(animAnnullaSchieramento);
+	Animazioni->addAnimation(animCambiaVista);
+	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
+}
+
+void QRisiko::NascondiMenuContestuale(){
+	QEasingCurve Curva(QEasingCurve::Linear);
+	int radius=70;
+
+	QPropertyAnimation* animInfoStato= new QPropertyAnimation(InfoStato,"pos",this);
+	animInfoStato->setDuration(DurataAnimazioniMenu);
+	animInfoStato->setEasingCurve(Curva);
+	animInfoStato->setKeyValueAt(0.0,InfoStato->pos());
+	animInfoStato->setKeyValueAt(1.0,QPoint(
+		InfoStato->pos().x()-radius,
+		InfoStato->pos().y()
+	));
+
+	QPropertyAnimation* animAnnullaSchieramento= new QPropertyAnimation(AnnullaSchieramento,"pos",this);
+	animAnnullaSchieramento->setDuration(DurataAnimazioniMenu);
+	animAnnullaSchieramento->setEasingCurve(Curva);
+	animAnnullaSchieramento->setKeyValueAt(0.0,AnnullaSchieramento->pos());
+	animAnnullaSchieramento->setKeyValueAt(1.0,QPoint(
+		AnnullaSchieramento->pos().x()-(radius*std::cos(PiGreco*(-60.0)/180.0)),
+		AnnullaSchieramento->pos().y()+(radius*std::sin(PiGreco*(-60.0)/180.0))
+	));
+
+	QPropertyAnimation* animCambiaVista= new QPropertyAnimation(CambiaVista,"pos",this);
+	animCambiaVista->setDuration(DurataAnimazioniMenu);
+	animCambiaVista->setEasingCurve(Curva);
+	animCambiaVista->setKeyValueAt(0.0,CambiaVista->pos());
+	animCambiaVista->setKeyValueAt(1.0,QPoint(
+		CambiaVista->pos().x()-(radius*std::cos(PiGreco*60.0/180.0)),
+		CambiaVista->pos().y()+(radius*std::sin(PiGreco*60.0/180.0))
+	));
+
+	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
+	Animazioni->addAnimation(animInfoStato);
+	Animazioni->addAnimation(animAnnullaSchieramento);
+	Animazioni->addAnimation(animCambiaVista);
+	connect(Animazioni,SIGNAL(finished()),this,SLOT(HideContextMenu()));
+	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
+}
+void QRisiko::HideContextMenu(){
+	InfoStato->hide();
+	//StatStato->hide();
+	AnnullaSchieramento->hide();
+	//Seleziona->hide();
+	CambiaVista->hide();
+}
+bool QRisiko::eventFilter(QObject *target, QEvent *event){
+	if(event->type()==QEvent::MouseButtonPress){
+		if (InfoStato->isVisible())
+			NascondiMenuContestuale();
+	}
+	return QWidget::eventFilter(target,event);
+}
+void QRisiko::CambiaVisuale(){
+	short Max_Army=0;
+	switch(Stati[0]->GetCurrVisual()){
+		case ImmagineCliccabile::Proprietari:
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				if(Stati[i]->GetNoArmate()>Max_Army) Max_Army=Stati[i]->GetNoArmate();
+			}
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				Stati[i]->SetAbsoluteMaxArmy(Max_Army);
+			}
+		case ImmagineCliccabile::Normale:
+		case ImmagineCliccabile::Carte:
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				Stati[i]->NextVisual();
+			}
+		break;
+	}
+}
+
+void QRisiko::UpdateVisual(){
+	short Max_Army=0;
+	switch(Stati[0]->GetCurrVisual()){
+		case ImmagineCliccabile::IntensitaArmate:
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				if(Stati[i]->GetNoArmate()>Max_Army) Max_Army=Stati[i]->GetNoArmate();
+			}
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				Stati[i]->SetAbsoluteMaxArmy(Max_Army);
+				Stati[i]->UpdateVisual();
+			}
+		break;
+		default: return;
+	}
+}
+

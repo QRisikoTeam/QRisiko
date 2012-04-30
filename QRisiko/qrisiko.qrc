@@ -3,6 +3,9 @@
         <file alias="Simbolo.png">Resources/Simbolo.png</file>
         <file alias="Regole.txt">Regole.txt</file>
         <file alias="Sfondo.jpg">Resources/Pattern-Green.jpg</file>
+        <file alias="Information.png">Resources/information.png</file>
+        <file alias="Undo.png">Resources/undo.png</file>
+        <file alias="Occhio.png">Resources/Occhio.png</file>
     </qresource>
     <qresource prefix="/Stati">
         <file alias="europa settentrionale.png">Resources/europa settentrionale.png</file>

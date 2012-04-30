@@ -2,18 +2,23 @@
 #include "Costanti Nazioni.h"
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QtGui>
 
 GestoreServers::GestoreServers(QObject *parent)
 : QObject(parent)
+,http(NULL)
 {
-	connect(&http, SIGNAL(finished(QNetworkReply*)), this, SLOT(httpDone(QNetworkReply*)));
+	
 }
 
 void GestoreServers::getFile(const QUrl &url)
 {
 	errore=false;
 	QNetworkRequest indirizzo(url);
-	http.get(indirizzo);
+	http=new QNetworkAccessManager(this);
+	connect(http, SIGNAL(finished(QNetworkReply*)), this, SLOT(httpDone(QNetworkReply*)));
+	http->get(indirizzo);
+	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 }
 void GestoreServers::httpDone(QNetworkReply* reply)
 {
@@ -23,22 +28,34 @@ void GestoreServers::httpDone(QNetworkReply* reply)
 		errore=true;
 	}
 	else{
-		QTextStream in(reply);
-		while(!in.atEnd()) {
-			fetched.append(in.readLine());   
-			fetched.append('\n');
+		QUrl redirectUrl=reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl();
+		if (!redirectUrl.isEmpty() && redirectUrl!=OldUrl){
+			OldUrl=redirectUrl;
+			getFile(OldUrl);
+		}
+		else{
+			QTextStream in(reply);
+			while(!in.atEnd()) {
+				fetched.append(in.readLine());   
+				fetched.append('\n');
+			}
 		}
 	}
+	http->deleteLater();
+	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 	emit done(fetched);
 }
 void GestoreServers::AddIP(){
-	getFile(QUrl(Giocatori::PathToHttpServer+"/AggiungiIP.php"));
+	OldUrl=QUrl(Giocatori::PathToHttpServer+"/AggiungiIP.php");
+	getFile(OldUrl);
 }
 void GestoreServers::RemoveIP(){
-	getFile(QUrl(Giocatori::PathToHttpServer+"/RimuoviIP.php"));
+	OldUrl=QUrl(Giocatori::PathToHttpServer+"/RimuoviIP.php");
+	getFile(OldUrl);
 }
 void GestoreServers::OttieniLista(){
-	getFile(QUrl(Giocatori::PathToHttpServer+"/ElencoServers.txt"));
+	OldUrl=QUrl(Giocatori::PathToHttpServer+"/ElencoServers.txt");
+	getFile(OldUrl);
 	connect (this,SIGNAL(done(QString)),this,SLOT(FormServerList(QString)));
 }
 
@@ -47,7 +64,8 @@ void GestoreServers::FormServerList(QString fet){
 	disconnect(this,SIGNAL(done(QString)),this,SLOT(FormServerList(QString)));
 }
 void GestoreServers::OttieniIP(){
-	getFile(QUrl(Giocatori::PathToHttpServer+"/GetIP.php"));
+	OldUrl=QUrl(Giocatori::PathToHttpServer+"/GetIP.php");
+	getFile(OldUrl);
 	connect (this,SIGNAL(done(QString)),this,SLOT(FormIP(QString)));
 }
 void GestoreServers::FormIP(QString fet){
@@ -56,8 +74,8 @@ void GestoreServers::FormIP(QString fet){
 }
 
 void GestoreServers::NotResponding(QString ipnr){
-	QUrl url(Giocatori::PathToHttpServer+"/NotResponding.php");
-	url.addQueryItem("IPNotResponding",ipnr);
-	QString test1=url.toString();
-	getFile(url);
+	OldUrl=QUrl(Giocatori::PathToHttpServer+"/NotResponding.php");
+	OldUrl.addQueryItem("IPNotResponding",ipnr);
+	QString test1=OldUrl.toString();
+	getFile(OldUrl);
 }

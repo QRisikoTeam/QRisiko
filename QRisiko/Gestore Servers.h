@@ -25,9 +25,9 @@ class GestoreServers : public QObject
 		void FormIP(QString fet);
 	private:
 		bool errore;
-		bool ToDelete;
 		void getFile(const QUrl &url);
-		QNetworkAccessManager http;
+		QNetworkAccessManager* http;
 		QFile file;
+		QUrl OldUrl;
 };
 #endif

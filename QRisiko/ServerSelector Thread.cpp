@@ -1,11 +1,11 @@
 #include "ServerSelector Thread.h"
-#include "Gestore Servers.h"
 #include <QtGui>
 ServerSelectorThread::ServerSelectorThread(const QStringList& Lista, unsigned int Port, QObject *parent)
 : QThread(parent),
 ListaIPs(Lista),
 Porta(Port),
-TimeoutTime(2000)
+TimeoutTime(2000),
+cancellatore(this)
 {
 	keepRunning=true;
 }
@@ -13,6 +13,7 @@ TimeoutTime(2000)
 void ServerSelectorThread::run()
 {
 	socket=new QTcpSocket(this);
+	bool chiamato;
 	connect(socket, SIGNAL(connected()), this, SLOT(Connesso()));
 	connect(socket, SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(ErroreConnessione()));
 	connect(socket, SIGNAL(readyRead()),this, SLOT(OttieniInfo()));
@@ -23,9 +24,13 @@ void ServerSelectorThread::run()
 		Prossimo=false;
 		currentIP=ListaIPs.at(i);
 		socket->connectToHost(currentIP,Porta);
+		chiamato=false;
 		while(!Prossimo) {
 			if(!keepRunning) return;
-			if (!socket->waitForConnected(TimeoutTime)) ErroreConnessione();
+			if (!chiamato){
+				if (!socket->waitForConnected(TimeoutTime)) ErroreConnessione();
+				chiamato=true;
+			}
 		}
 	}
 	emit finito();
@@ -43,7 +48,6 @@ void ServerSelectorThread::Connesso(){
 }
 
 void ServerSelectorThread::ErroreConnessione(){
-	GestoreServers cancellatore(this);
 	cancellatore.NotResponding(currentIP);
 	Prossimo=true;
 }
@@ -76,4 +80,8 @@ void ServerSelectorThread::OttieniInfo(){
 
 void  ServerSelectorThread::stop(){
 	keepRunning=false;
+}
+void ServerSelectorThread::Skip(){
+	Prossimo=true;
+	disconnect(&cancellatore,SIGNAL(done()),this,SLOT(Skip()));
 }
