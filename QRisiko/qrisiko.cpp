@@ -9,7 +9,7 @@ QRisiko::QRisiko(QWidget *parent)
 ,PiGreco(3.14159)
 //Test
 ,Player("Luca",Giocatori::Giallo)
-,fase(Not_My_Turn)
+,fase(Schieramento)
 ,ArmiesToPlace(10)
 {
 	Popola_ID_Attaccabili();
@@ -102,14 +102,28 @@ QRisiko::QRisiko(QWidget *parent)
 		Stati[i]->setCheckable(true);
 		Stati[i]->SetNoArmate(1);
 		Stati[i]->installEventFilter(this);
+		Segnali[i]=new QLabel(this);
+		Segnali[i]->setObjectName("Segnalino_"+ID_Stati::Nomi_Stati[i]);
+		Segnali[i]->setContextMenuPolicy(Qt::NoContextMenu); 
+		politica.setHeightForWidth(Segnali[i]->sizePolicy().hasHeightForWidth());
+		Segnali[i]->setSizePolicy(politica);
+		Segnali[i]->move(ID_Stati::PosData_Stati[i].posizione());
+		Segnali[i]->resize(70,70);
+		Segnali[i]->setScaledContents(true);
+		Segnali[i]->setPixmap(QPixmap(Segnalini::Immagini[2]));
+		Segnali[i]->setMask(QPixmap(Segnalini::Maschere[2]).scaled(Segnali[i]->size()).mask());
 		//test
 		if(i%2==0)
 			Stati[i]->SetOwner(Giocatori::Giallo);
 		else
-			{Stati[i]->SetOwner(Giocatori::Verde); Stati[i]->AggiungiArmate(i/2);}
-		
+			Stati[i]->SetOwner(Giocatori::Verde);
+		Stati[i]->AggiungiArmate(i/2);		
 		connect(Stati[i],SIGNAL(Cliccato(bool,int)),this,SLOT(funziona(bool,int)));
 		connect(Stati[i],SIGNAL(Cliccato(bool,int)),this,SLOT(UpdateVisual()));
+	}
+	for (int i=0;i<ID_Stati::num_stati;i++){
+		Segnali[i]->raise();
+		Segnali[i]->setStyleSheet("background-color: "+Giocatori::Colori[Stati[i]->GetOwner()].name()+";");
 	}
 	ProssimaFase();
 }
@@ -162,6 +176,7 @@ void QRisiko::funziona(bool che, int identita){
 			break;
 		case Schieramento:
 			if(ArmiesLeftToPlace>0){
+				if(ArmiesLeftToPlace==ArmiesToPlace) emit PrimoPiazzato();
 				Aggiunte[identita]++;
 				ArmiesLeftToPlace--;
 				Stati[identita]->AggiungiArmate(1);
@@ -185,6 +200,7 @@ void QRisiko::ResetSchieramento(){
 	}
 	Aggiunte.clear();
 	ArmiesLeftToPlace=ArmiesToPlace;
+	emit TutteDaPiazzare();
 }
 void QRisiko::resizeEvent (QResizeEvent * event){
 	QWidget::resizeEvent(event);
@@ -215,6 +231,7 @@ void QRisiko::resizeEvent (QResizeEvent * event){
 		/
 		double(ID_Stati::sp_mappa.dimensione().height()));
 	Stati[i]->setGeometry(x,y,wid,hei);
+	Segnali[i]->move(x,y);
 	}
 }
 
@@ -488,6 +505,7 @@ void QRisiko::ProssimaFase(){
 			}
 			break;
 		case Schieramento:
+			emit TutteDaPiazzare();
 			Aggiunte.clear();
 			ArmiesLeftToPlace=ArmiesToPlace;
 			for (int i=0;i<ID_Stati::num_stati;i++){
@@ -502,8 +520,10 @@ void QRisiko::ProssimaFase(){
 		case Attacco:
 			AttackFrom_ID=-1;
 			for (int i=0;i<ID_Stati::num_stati;i++){
-				if(Stati[i]->GetNoArmate()<=1) Stati[i]->setResponsive(false);
-				Stati[i]->setCheckable(true);
+				if(Stati[i]->GetNoArmate()<=1 || Stati[i]->GetOwner()!=Player.GetColorID()) 
+					{Stati[i]->setResponsive(false); Stati[i]->setCheckable(false);}
+				else
+					{Stati[i]->setResponsive(true); Stati[i]->setCheckable(true);}
 			}
 			break;
 		case Spostamento:

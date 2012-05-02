@@ -563,6 +563,7 @@ namespace CSS{
 			"border-bottom-left-radius: 12px;"
 			"border-bottom-right-radius: 12px;"
 		"}"
+
 		
 		"QRisiko #InfoStato:disabled, #AnnullaSchieramento:disabled, #CambiaVista:disabled, #StatStato:disabled, #Seleziona:disabled, #AnnullaMenuContestuale:disabled{"
 			"border: 2px solid #333;"
@@ -609,6 +610,11 @@ namespace CSS{
 				"stop: 0.2 rgb(0,174,239),"
 				"stop: 0.4 rgb(109,207,246)"
 			");"
+		"}"
+		"#TopMenu QPushButton:disabled{"
+		"background-color: qradialgradient(cx: 0.3, cy: -0.4,"
+			"fx: 0.3, fy: -0.4,"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
 		"}"
 
 		"MenuPrincipale #Sfondo{"
@@ -768,6 +774,22 @@ namespace Comunicazioni{
 	const unsigned int DefaultTCPPort=7676;
 	enum{
 		RichiediInfo=0
+	};
+}
+namespace Segnalini{
+	const QString Immagini[5]={
+		":/Segnalini/Fanteria.png",
+		":/Segnalini/Jeep.png",
+		":/Segnalini/Tank.png",
+		":/Segnalini/Mammoth.png",
+		":/Segnalini/Gundam.png"
+	};
+	const QString Maschere[5]={
+		":/Segnalini/MascheraFanteria.png",
+		":/Segnalini/MascheraJeep.png",
+		":/Segnalini/MascheraTank.png",
+		":/Segnalini/MascheraMammoth.png",
+		":/Segnalini/MascheraGundam.png"
 	};
 }
 

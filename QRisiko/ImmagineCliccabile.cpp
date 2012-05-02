@@ -107,11 +107,11 @@ void ImmagineCliccabile::NextVisual(){
 					"font: bold;"
 				"}"
 				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
-					"background-color: "+QString("rgba(%1,%2,%3,%4)")
+					"background-color: "+QString("rgba(%1,%2,%3,255)")
 						.arg(Giocatori::ColoriSelected[Owner].red())
 						.arg(Giocatori::ColoriSelected[Owner].green())
 						.arg(Giocatori::ColoriSelected[Owner].blue())
-						.arg(100+((155*No_Armate)/AbsoluteMaxArmy))+";"
+						+";"
 				"}"
 				"ImmagineCliccabile:disabled{"
 				"background-color:#777;"
@@ -147,11 +147,11 @@ void ImmagineCliccabile::NextVisual(){
 				"font: bold;"
 				"}"
 				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
-				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				"background-color: "+QString("rgba(%1,%2,%3,255)")
 				.arg(RossoVerdeSelected.red())
 				.arg(RossoVerdeSelected.green())
 				.arg(RossoVerdeSelected.blue())
-				.arg(100+((155*IntensitaMinaccia)/100))+";"
+				+";"
 				"}"
 				"ImmagineCliccabile:disabled{"
 				"background-color:#777;"
@@ -181,11 +181,11 @@ void ImmagineCliccabile::UpdateVisual(){
 				"font: bold;"
 				"}"
 				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
-				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				"background-color: "+QString("rgba(%1,%2,%3255)")
 				.arg(Giocatori::ColoriSelected[Owner].red())
 				.arg(Giocatori::ColoriSelected[Owner].green())
 				.arg(Giocatori::ColoriSelected[Owner].blue())
-				.arg(100+((155*No_Armate)/AbsoluteMaxArmy))+";"
+				+";"
 				"}"
 				"ImmagineCliccabile:disabled{"
 				"background-color:#777;"
@@ -221,11 +221,11 @@ void ImmagineCliccabile::UpdateVisual(){
 				"font: bold;"
 				"}"
 				"ImmagineCliccabile:hover, ImmagineCliccabile:checked{"
-				"background-color: "+QString("rgba(%1,%2,%3,%4)")
+				"background-color: "+QString("rgba(%1,%2,%3,255)")
 				.arg(RossoVerdeSelected.red())
 				.arg(RossoVerdeSelected.green())
 				.arg(RossoVerdeSelected.blue())
-				.arg(100+((155*IntensitaMinaccia)/100))+";"
+				+";"
 				"}"
 				"ImmagineCliccabile:disabled{"
 				"background-color:#777;"

@@ -61,9 +61,7 @@ bool ChatWidget::Avvia(){
 				IPgetter->OttieniIP();
 			}
 			connect(TCPServer,SIGNAL(SendMessage(QString)),this, SLOT(StampaMessaggioUtente(QString)));
-			if (fistTime){
-				connect(this,SIGNAL(MessageFromServer(QString)),TCPServer,SIGNAL(SendMessage(QString)));
-			}
+			connect(this,SIGNAL(MessageFromServer(QString)),TCPServer,SIGNAL(SendMessage(QString)));
 		}
 		partito=true;
 		disconnectRecieved=false;
@@ -82,6 +80,9 @@ void ChatWidget::Ferma(){
 		delete TCPsocket;
 		TCPsocket=NULL;
 	}
+	partito=false;
+	ChatText->setHtml("");
+	reconnectButton->setVisible(true);
 }
 void ChatWidget::StampaBenvenutoServer(QString msg){
 	//PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(msg).arg(TCPServer->serverPort()),true); //Visualizza anche la Porta

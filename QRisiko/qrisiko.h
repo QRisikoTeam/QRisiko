@@ -17,6 +17,7 @@ class QRisiko : public QWidget
 	Q_OBJECT
 	private:
 		ImmagineCliccabile *Stati[ID_Stati::num_stati];
+		QLabel* Segnali[ID_Stati::num_stati];
 		QLabel* Sfondo;
 		GestoreServers* gestoreServer;
 
@@ -51,16 +52,18 @@ class QRisiko : public QWidget
 		void resized(QSize new_size);
 		void FaseCambiata(short);
 		void Attaccato(int from, int to);
+		void PrimoPiazzato();
+		void TutteDaPiazzare();
 	public:
 		QRisiko(QWidget *parent = 0);
 		void SetPlayerName(const QString& n){Player.setUserName(n);}
 		void SetPlayerColor(const short& CID){Player.SetColorID(CID);}
 		void SetDurataAnimazioniMenu(const int& dur){DurataAnimazioniMenu=dur;}
+		short GetFase() const {return fase;}
 		bool IsContextMenuVisible() const {return InfoStato->isVisible();}
 		enum{Not_My_Turn=0, Schieramento=1, Attacco=2, Spostamento=3};
 	private slots:
 		void funziona(bool che, int identita);
-		void ResetSchieramento();
 		void MostraMenuContestuale(QPoint pnt);
 		void HideContextMenu();
 		void UpdateVisual();
@@ -71,6 +74,7 @@ class QRisiko : public QWidget
 		void ProssimaFase();
 		void CambiaVisuale();
 		void DontSayEgitto();
+		void ResetSchieramento();
 
 };
 

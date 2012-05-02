@@ -798,7 +798,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\afganistan.png"
+				RelativePath=".\Resources\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -818,7 +818,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\afganistan.png"
+				RelativePath=".\Resources\Bordi\afganistan.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -938,7 +938,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\africa del sud.png"
+				RelativePath=".\Resources\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -958,7 +958,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\africa del sud.png"
+				RelativePath=".\Resources\Bordi\africa del sud.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1058,7 +1058,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\alaska.png"
+				RelativePath=".\Resources\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1078,7 +1078,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\alaska.png"
+				RelativePath=".\Resources\Bordi\alaska.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1118,7 +1118,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\alberta.png"
+				RelativePath=".\Resources\Bordi\alberta.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1138,7 +1138,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\alberta.png"
+				RelativePath=".\Resources\alberta.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1178,7 +1178,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\america centrale.png"
+				RelativePath=".\Resources\Bordi\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1198,7 +1198,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\america centrale.png"
+				RelativePath=".\Resources\america centrale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1298,7 +1298,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\argentina.png"
+				RelativePath=".\Resources\Bordi\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1318,7 +1318,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\argentina.png"
+				RelativePath=".\Resources\argentina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1378,7 +1378,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\australia occidentale.png"
+				RelativePath=".\Resources\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1398,7 +1398,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\australia occidentale.png"
+				RelativePath=".\Resources\Bordi\australia occidentale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1438,7 +1438,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\australia orientale.png"
+				RelativePath=".\Resources\australia orientale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1458,7 +1458,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\australia orientale.png"
+				RelativePath=".\Resources\Bordi\australia orientale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1558,7 +1558,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\brasile.png"
+				RelativePath=".\Resources\brasile.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1578,7 +1578,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\brasile.png"
+				RelativePath=".\Resources\Bordi\brasile.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1744,7 +1744,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\cina.png"
+				RelativePath=".\Resources\Bordi\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1764,7 +1764,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\cina.png"
+				RelativePath=".\Resources\cina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1904,7 +1904,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\congo.png"
+				RelativePath=".\Resources\congo.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -1924,7 +1924,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\congo.png"
+				RelativePath=".\Resources\Bordi\congo.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2164,7 +2164,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\europa meridionale.png"
+				RelativePath=".\Resources\Bordi\europa meridionale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2184,7 +2184,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\europa meridionale.png"
+				RelativePath=".\Resources\europa meridionale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2284,26 +2284,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Select\europa settentrionale.png"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath=".\Resources\europa settentrionale.png"
 				>
 				<FileConfiguration
@@ -2325,6 +2305,26 @@
 			</File>
 			<File
 				RelativePath=".\Resources\Bordi\europa settentrionale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Select\europa settentrionale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2424,6 +2424,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Segnalini\Fanteria.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\fingers-crossed.png"
 				>
 				<FileConfiguration
@@ -2504,7 +2524,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\giappone.png"
+				RelativePath=".\Resources\giappone.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2524,7 +2544,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\giappone.png"
+				RelativePath=".\Resources\Bordi\giappone.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2644,6 +2664,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\groenlandia.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Bordi\groenlandia.png"
 				>
 				<FileConfiguration
@@ -2664,7 +2704,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\groenlandia.png"
+				RelativePath=".\Resources\Segnalini\Gundam.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2764,7 +2804,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\india.png"
+				RelativePath=".\Resources\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2784,7 +2824,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\india.png"
+				RelativePath=".\Resources\Bordi\india.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2824,7 +2864,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\indonesia.png"
+				RelativePath=".\Resources\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2844,7 +2884,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\indonesia.png"
+				RelativePath=".\Resources\Bordi\indonesia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2904,7 +2944,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\islanda.png"
+				RelativePath=".\Resources\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -2924,7 +2964,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\islanda.png"
+				RelativePath=".\Resources\Bordi\islanda.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3004,6 +3044,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Segnalini\Jeep.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Select\kamchatka select.png"
 				>
 				<FileConfiguration
@@ -3024,7 +3084,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\kamchatka.png"
+				RelativePath=".\Resources\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3044,7 +3104,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\kamchatka.png"
+				RelativePath=".\Resources\Bordi\kamchatka.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3124,6 +3184,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\madagascar.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Bordi\madagascar.png"
 				>
 				<FileConfiguration
@@ -3144,7 +3224,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\madagascar.png"
+				RelativePath=".\Resources\Segnalini\Mammoth.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3185,6 +3265,106 @@
 			</File>
 			<File
 				RelativePath=".\Resources\Mappa Sfondo tratteggi.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Segnalini\MascheraFanteria.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Segnalini\MascheraGundam.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Segnalini\MascheraJeep.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Segnalini\MascheraMammoth.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\Resources\Segnalini\MascheraTank.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3444,7 +3624,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\ontario.png"
+				RelativePath=".\Resources\ontario.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3464,7 +3644,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\ontario.png"
+				RelativePath=".\Resources\Bordi\ontario.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3524,7 +3704,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\peru.png"
+				RelativePath=".\Resources\Bordi\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3544,7 +3724,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\peru.png"
+				RelativePath=".\Resources\peru.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3593,7 +3773,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Resources\Simbolo.png;.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\information.png;.\Resources\undo.png;.\Resources\Occhio.png;.\Resources\Statistiche.png;.\Resources\explosion.gif;.\Resources\Tank.png;.\Resources\Divieto.png;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png"
+						AdditionalDependencies="$(InputPath);.\Resources\Simbolo.png;.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\information.png;.\Resources\undo.png;.\Resources\Occhio.png;.\Resources\Statistiche.png;.\Resources\explosion.gif;.\Resources\Tank.png;.\Resources\Divieto.png;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png;.\Resources\Segnalini\Fanteria.png;.\Resources\Segnalini\Gundam.png;.\Resources\Segnalini\Jeep.png;.\Resources\Segnalini\Mammoth.png;.\Resources\Segnalini\MascheraFanteria.png;.\Resources\Segnalini\MascheraGundam.png;.\Resources\Segnalini\MascheraJeep.png;.\Resources\Segnalini\MascheraMammoth.png;.\Resources\Segnalini\MascheraTank.png;.\Resources\Segnalini\Tank.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -3604,7 +3784,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\Resources\Simbolo.png;.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\information.png;.\Resources\undo.png;.\Resources\Occhio.png;.\Resources\Statistiche.png;.\Resources\explosion.gif;.\Resources\Tank.png;.\Resources\Divieto.png;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png"
+						AdditionalDependencies="$(InputPath);.\Resources\Simbolo.png;.\Regole.txt;.\Resources\Pattern-Green.jpg;.\Resources\information.png;.\Resources\undo.png;.\Resources\Occhio.png;.\Resources\Statistiche.png;.\Resources\explosion.gif;.\Resources\Tank.png;.\Resources\Divieto.png;.\Resources\europa settentrionale.png;.\Resources\afganistan.png;.\Resources\africa del nord.png;.\Resources\africa del sud.png;.\Resources\africa orientale.png;.\Resources\alaska.png;.\Resources\alberta.png;.\Resources\america centrale.png;.\Resources\argentina.png;.\Resources\australia occidentale.png;.\Resources\australia orientale.png;.\Resources\brasile.png;.\Resources\cina.png;.\Resources\cita.png;.\Resources\congo.png;.\Resources\egitto.png;.\Resources\europa meridionale.png;.\Resources\europa occidentale.png;.\Resources\giappone.png;.\Resources\gran bretagna.png;.\Resources\groenlandia.png;.\Resources\india.png;.\Resources\indonesia.png;.\Resources\islanda.png;.\Resources\jacuzia.png;.\Resources\kamchatka.png;.\Resources\madagascar.png;.\Resources\mongolia.png;.\Resources\medio oriente.png;.\Resources\nuova guinea.png;.\Resources\ontario.png;.\Resources\peru.png;.\Resources\quebec.png;.\Resources\scandinavia.png;.\Resources\siam.png;.\Resources\siberia.png;.\Resources\stati uniti occidentali.png;.\Resources\stati uniti orientali.png;.\Resources\territori dell&apos;ovest.png;.\Resources\ucraina.png;.\Resources\urali.png;.\Resources\venezuela.png;.\Resources\Mappa Sfondo tratteggi.png;.\Resources\Select\afganistan select.png;.\Resources\Select\africa del nord select.png;.\Resources\Select\africa del sud select.png;.\Resources\Select\africa orientale select.png;.\Resources\Select\alaska select.png;.\Resources\Select\alberta select.png;.\Resources\Select\america centrale select.png;.\Resources\Select\argentina select.png;.\Resources\Select\australia occidentale select.png;.\Resources\Select\australia orientale select.png;.\Resources\Select\brasile select.png;.\Resources\Select\cina select.png;.\Resources\Select\cita select.png;.\Resources\Select\congo select.png;.\Resources\Select\egitto select.png;.\Resources\Select\europa meridionale select.png;.\Resources\Select\europa occidentale select.png;.\Resources\Select\giappone select.png;.\Resources\Select\gran bretagna select.png;.\Resources\Select\groenlandia select.png;.\Resources\Select\india select.png;.\Resources\Select\indonesia select.png;.\Resources\Select\islanda select.png;.\Resources\Select\jacuzia select.png;.\Resources\Select\kamchatka select.png;.\Resources\Select\madagascar select.png;.\Resources\Select\medio oriente select.png;.\Resources\Select\mongolia select.png;.\Resources\Select\nuova guinea select.png;.\Resources\Select\ontario select.png;.\Resources\Select\peru select.png;.\Resources\Select\quebec select.png;.\Resources\Select\scandinavia select.png;.\Resources\Select\siam select.png;.\Resources\Select\siberia select.png;.\Resources\Select\stati uniti occidentali select.png;.\Resources\Select\stati uniti orientali select.png;.\Resources\Select\territori dell&apos;ovest select.png;.\Resources\Select\ucraina select.png;.\Resources\Select\urali select.png;.\Resources\Select\venezuela select.png;.\Resources\Select\europa settentrionale select.png;.\Resources\Carte\Cannone.png;.\Resources\Carte\Cavaliere.png;.\Resources\Carte\Fante.png;.\Resources\Bordi\afganistan.png;.\Resources\Bordi\africa del nord.png;.\Resources\Bordi\africa del sud.png;.\Resources\Bordi\africa orientale.png;.\Resources\Bordi\alaska.png;.\Resources\Bordi\alberta.png;.\Resources\Bordi\america centrale.png;.\Resources\Bordi\argentina.png;.\Resources\Bordi\australia occidentale.png;.\Resources\Bordi\australia orientale.png;.\Resources\Bordi\brasile.png;.\Resources\Bordi\cina.png;.\Resources\Bordi\cita.png;.\Resources\Bordi\congo.png;.\Resources\Bordi\egitto.png;.\Resources\Bordi\europa meridionale.png;.\Resources\Bordi\europa occidentale.png;.\Resources\Bordi\giappone.png;.\Resources\Bordi\gran bretagna.png;.\Resources\Bordi\groenlandia.png;.\Resources\Bordi\india.png;.\Resources\Bordi\indonesia.png;.\Resources\Bordi\islanda.png;.\Resources\Bordi\jacuzia.png;.\Resources\Bordi\kamchatka.png;.\Resources\Bordi\madagascar.png;.\Resources\Bordi\medio oriente.png;.\Resources\Bordi\mongolia.png;.\Resources\Bordi\nuova guinea.png;.\Resources\Bordi\ontario.png;.\Resources\Bordi\peru.png;.\Resources\Bordi\quebec.png;.\Resources\Bordi\scandinavia.png;.\Resources\Bordi\siam.png;.\Resources\Bordi\siberia.png;.\Resources\Bordi\stati uniti occidentali.png;.\Resources\Bordi\stati uniti orientali.png;.\Resources\Bordi\territori dell&apos;ovest.png;.\Resources\Bordi\ucraina.png;.\Resources\Bordi\urali.png;.\Resources\Bordi\venezuela.png;.\Resources\Bordi\europa settentrionale.png;.\Resources\Segnalini\Fanteria.png;.\Resources\Segnalini\Gundam.png;.\Resources\Segnalini\Jeep.png;.\Resources\Segnalini\Mammoth.png;.\Resources\Segnalini\MascheraFanteria.png;.\Resources\Segnalini\MascheraGundam.png;.\Resources\Segnalini\MascheraJeep.png;.\Resources\Segnalini\MascheraMammoth.png;.\Resources\Segnalini\MascheraTank.png;.\Resources\Segnalini\Tank.png"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -3630,7 +3810,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\quebec.png"
+				RelativePath=".\Resources\Bordi\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3650,7 +3830,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\quebec.png"
+				RelativePath=".\Resources\quebec.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3930,7 +4110,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\siberia.png"
+				RelativePath=".\Resources\siberia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -3950,7 +4130,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\siberia.png"
+				RelativePath=".\Resources\Bordi\siberia.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4190,6 +4370,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Segnalini\Tank.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\Smiles\teeth.png"
 				>
 				<FileConfiguration
@@ -4310,7 +4510,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\ucraina.png"
+				RelativePath=".\Resources\ucraina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4330,7 +4530,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\ucraina.png"
+				RelativePath=".\Resources\Bordi\ucraina.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4390,7 +4590,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\urali.png"
+				RelativePath=".\Resources\Bordi\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -4410,7 +4610,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\Resources\Bordi\urali.png"
+				RelativePath=".\Resources\urali.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"

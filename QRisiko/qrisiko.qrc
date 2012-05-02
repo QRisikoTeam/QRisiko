@@ -145,4 +145,16 @@
         <file alias="venezuela.png">Resources/Bordi/venezuela.png</file>
         <file alias="europa settentrionale.png">Resources/Bordi/europa settentrionale.png</file>
     </qresource>
+    <qresource prefix="/Segnalini">
+        <file alias="Fanteria.png">Resources/Segnalini/Fanteria.png</file>
+        <file alias="Gundam.png">Resources/Segnalini/Gundam.png</file>
+        <file alias="Jeep.png">Resources/Segnalini/Jeep.png</file>
+        <file alias="Mammoth.png">Resources/Segnalini/Mammoth.png</file>
+        <file alias="MascheraFanteria.png">Resources/Segnalini/MascheraFanteria.png</file>
+        <file alias="MascheraGundam.png">Resources/Segnalini/MascheraGundam.png</file>
+        <file alias="MascheraJeep.png">Resources/Segnalini/MascheraJeep.png</file>
+        <file alias="MascheraMammoth.png">Resources/Segnalini/MascheraMammoth.png</file>
+        <file alias="MascheraTank.png">Resources/Segnalini/MascheraTank.png</file>
+        <file alias="Tank.png">Resources/Segnalini/Tank.png</file>
+    </qresource>
 </RCC>
