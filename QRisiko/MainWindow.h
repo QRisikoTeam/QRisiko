@@ -8,6 +8,7 @@
 #include "TopMenu.h"
 #include "Regolamento.h"
 #include "Costanti Nazioni.h"
+#include "Pre Partita.h"
 
 class MainWindow : public QMainWindow{
 	Q_OBJECT
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow{
 		MainWindow(QWidget* parent=0);
 	private:
 		Regolamento* regolamento;
+		PrePartita* prePartita;
 		TopMenu* Topmenu;
 		MenuPrincipale* MainMenu;
 		ServerSelector* SelettoreServer;
@@ -38,6 +40,7 @@ class MainWindow : public QMainWindow{
 		void NascondiTopMenu();
 		void MostraRegolamento();
 		void NascondiRegolamento();
+		void MostraPrePartita();
 	protected:
 		void closeEvent(QCloseEvent *event);
 		void resizeEvent(QResizeEvent *event);

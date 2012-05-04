@@ -18,6 +18,7 @@ class QRisiko : public QWidget
 	private:
 		ImmagineCliccabile *Stati[ID_Stati::num_stati];
 		QLabel* Segnali[ID_Stati::num_stati];
+		QLabel* ContArmate[ID_Stati::num_stati];
 		QLabel* Sfondo;
 		GestoreServers* gestoreServer;
 
@@ -69,6 +70,7 @@ class QRisiko : public QWidget
 		void UpdateVisual();
 		void DeleteExplosion(int frm);
 		void SimulaClick();
+		void AggiornaEtichetta(int ident);
 	public slots:
 		void NascondiMenuContestuale();
 		void ProssimaFase();

@@ -102,6 +102,7 @@ QRisiko::QRisiko(QWidget *parent)
 		Stati[i]->setCheckable(true);
 		Stati[i]->SetNoArmate(1);
 		Stati[i]->installEventFilter(this);
+		connect(Stati[i],SIGNAL(ArmateChanged(int)),this,SLOT(AggiornaEtichetta(int)));
 		Segnali[i]=new QLabel(this);
 		Segnali[i]->setObjectName("Segnalino_"+ID_Stati::Nomi_Stati[i]);
 		Segnali[i]->setContextMenuPolicy(Qt::NoContextMenu); 
@@ -110,8 +111,15 @@ QRisiko::QRisiko(QWidget *parent)
 		Segnali[i]->move(ID_Stati::PosData_Stati[i].posizione());
 		Segnali[i]->resize(70,70);
 		Segnali[i]->setScaledContents(true);
-		Segnali[i]->setPixmap(QPixmap(Segnalini::Immagini[2]));
-		Segnali[i]->setMask(QPixmap(Segnalini::Maschere[2]).scaled(Segnali[i]->size()).mask());
+		Segnali[i]->setPixmap(QPixmap(Segnalini::Immagini[0]));
+		Segnali[i]->setMask(QPixmap(Segnalini::Maschere[0]).scaled(Segnali[i]->size()).mask());
+		ContArmate[i]=new QLabel(Segnali[i]);
+		ContArmate[i]->setObjectName("ContArmate_"+ID_Stati::Nomi_Stati[i]);
+		ContArmate[i]->setContextMenuPolicy(Qt::NoContextMenu);
+		ContArmate[i]->setScaledContents(true);
+		ContArmate[i]->resize(19,13);
+		ContArmate[i]->move(ID_Stati::PosizioneEtichette[0]);
+		ContArmate[i]->setText("<font size=\"4\" color=\"blue\"><b>1</b></font>");
 		//test
 		if(i%2==0)
 			Stati[i]->SetOwner(Giocatori::Giallo);
@@ -123,11 +131,19 @@ QRisiko::QRisiko(QWidget *parent)
 	}
 	for (int i=0;i<ID_Stati::num_stati;i++){
 		Segnali[i]->raise();
-		Segnali[i]->setStyleSheet("background-color: "+Giocatori::Colori[Stati[i]->GetOwner()].name()+";");
+		Segnali[i]->setStyleSheet("QRisiko > QLabel:enabled{background-color: "+Giocatori::Colori[Stati[i]->GetOwner()].name()+";}");
 	}
 	ProssimaFase();
 }
-
+void QRisiko::AggiornaEtichetta(int ident){
+	int temp;
+	if (ident<ID_Stati::giappone || ident>ID_Stati::territori_del_nord_ovest) return;
+	temp=Stati[ident]->GetNoArmate();
+	if (temp>99) temp=99;
+	ContArmate[ident]->setText("<font size=\"4\" color=\"white\"><b>"+QString("%1").arg(temp)+"</b></font>");
+	if(temp>=10) ContArmate[ident]->move(ID_Stati::PosizioneEtichette[1]);
+	else ContArmate[ident]->move(ID_Stati::PosizioneEtichette[0]);
+}
 void QRisiko::funziona(bool che, int identita){
 	switch(fase){
 		case Attacco:
@@ -135,21 +151,23 @@ void QRisiko::funziona(bool che, int identita){
 				AttackFrom_ID=identita;
 				for (int i=0;i<ID_Stati::num_stati;i++){
 					if(i!=identita) Stati[i]->setCheckable(false);
-					if(Stati[i]->GetOwner()!=Player.GetColorID())
+					if((Stati[i]->GetOwner()!=Player.GetColorID() && ID_Attaccabili[identita].contains(i))|| i==identita)
 						Stati[i]->setResponsive(true);
 					else
-						{if (i!=identita) Stati[i]->setResponsive(false);}
+						Stati[i]->setResponsive(false);
 				}
 			}
 			else{
 				if(AttackFrom_ID==identita){
 					AttackFrom_ID=-1;
 					for (int i=0;i<ID_Stati::num_stati;i++){
-						Stati[i]->setCheckable(true);
-						if(Stati[i]->GetOwner()==Player.GetColorID())
+						if(Stati[i]->GetOwner()==Player.GetColorID()){
 							Stati[i]->setResponsive(true);
-						else
+							Stati[i]->setCheckable(true);
+						}else{
 							Stati[i]->setResponsive(false);
+							Stati[i]->setCheckable(false);
+						}
 					}
 				}
 				else{
@@ -161,14 +179,18 @@ void QRisiko::funziona(bool che, int identita){
 					) if(*i==identita) Confina=true;
 					if (Confina){
 						emit Attaccato(AttackFrom_ID,identita);
+						QMessageBox::information(this,"Attaccato","Da "+ID_Stati::Nomi_Stati[AttackFrom_ID]+" a "+ID_Stati::Nomi_Stati[identita]);
 						AttackFrom_ID=-1;
 						for (int i=0;i<ID_Stati::num_stati;i++){
-							Stati[i]->setCheckable(true);
 							Stati[i]->setChecked(false);
-							if(Stati[i]->GetOwner()==Player.GetColorID())
+							if(Stati[i]->GetOwner()==Player.GetColorID()){
+								Stati[i]->setCheckable(true);
 								Stati[i]->setResponsive(true);
-							else
+							}
+							else{
 								Stati[i]->setResponsive(false);
+								Stati[i]->setCheckable(false);
+							}
 						}
 					}
 				}

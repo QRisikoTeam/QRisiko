@@ -68,6 +68,9 @@ void ServerSelectorThread::OttieniInfo(){
 		}
 		if (socket->bytesAvailable() < nextBlockSize)
 			break;
+		int Tipo;
+		in >> Tipo;
+		if (Tipo!=Comunicazioni::OttieniInfo) return;
 		QString Name;
 		int GiocatoriOnline;
 		int MaxGiocatori;

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qrisiko.h'
 **
-** Created: Tue 1. May 20:57:11 2012
+** Created: Fri 4. May 14:03:12 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_QRisiko[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -44,11 +44,12 @@ static const uint qt_meta_data_QRisiko[] = {
      198,    8,    8,    8, 0x08,
      217,  213,    8,    8, 0x08,
      238,    8,    8,    8, 0x08,
-     252,    8,    8,    8, 0x0a,
-     278,    8,    8,    8, 0x0a,
-     293,    8,    8,    8, 0x0a,
-     309,    8,    8,    8, 0x0a,
-     325,    8,    8,    8, 0x0a,
+     258,  252,    8,    8, 0x08,
+     281,    8,    8,    8, 0x0a,
+     307,    8,    8,    8, 0x0a,
+     322,    8,    8,    8, 0x0a,
+     338,    8,    8,    8, 0x0a,
+     354,    8,    8,    8, 0x0a,
 
        0        // eod
 };
@@ -62,6 +63,7 @@ static const char qt_meta_stringdata_QRisiko[] = {
     "MostraMenuContestuale(QPoint)\0"
     "HideContextMenu()\0UpdateVisual()\0frm\0"
     "DeleteExplosion(int)\0SimulaClick()\0"
+    "ident\0AggiornaEtichetta(int)\0"
     "NascondiMenuContestuale()\0ProssimaFase()\0"
     "CambiaVisuale()\0DontSayEgitto()\0"
     "ResetSchieramento()\0"
@@ -84,11 +86,12 @@ void QRisiko::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 8: _t->UpdateVisual(); break;
         case 9: _t->DeleteExplosion((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->SimulaClick(); break;
-        case 11: _t->NascondiMenuContestuale(); break;
-        case 12: _t->ProssimaFase(); break;
-        case 13: _t->CambiaVisuale(); break;
-        case 14: _t->DontSayEgitto(); break;
-        case 15: _t->ResetSchieramento(); break;
+        case 11: _t->AggiornaEtichetta((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->NascondiMenuContestuale(); break;
+        case 13: _t->ProssimaFase(); break;
+        case 14: _t->CambiaVisuale(); break;
+        case 15: _t->DontSayEgitto(); break;
+        case 16: _t->ResetSchieramento(); break;
         default: ;
         }
     }
@@ -126,9 +129,9 @@ int QRisiko::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 17;
     }
     return _id;
 }

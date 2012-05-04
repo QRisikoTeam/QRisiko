@@ -27,7 +27,7 @@ DurataAnimazioniMenu(1000)
 
 	MainMenu=new MenuPrincipale(TopFrame);
 	MainMenu->setObjectName("MenuPrincipale");
-	connect(MainMenu,SIGNAL(HostLoad()),this,SLOT(MostraMappa()));
+	connect(MainMenu,SIGNAL(HostLoad()),this,SLOT(MostraPrePartita()));
 	connect(MainMenu,SIGNAL(Join()),this,SLOT(MostraSelettoreServer()));
 	connect(MainMenu,SIGNAL(HostNew()),this,SLOT(MostraMappa()));
 	connect(MainMenu,SIGNAL(Exit()),this,SLOT(close()));
@@ -69,6 +69,12 @@ DurataAnimazioniMenu(1000)
 	connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
 	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraMappa())); //DA MODIFICARE
 
+	prePartita=new PrePartita(TopFrame);
+	prePartita->setObjectName("PrePartita");
+	prePartita->hide();
+	connect(prePartita,SIGNAL(AllReady()),this,SLOT(MostraMappa()));
+	if(! connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu())) )QMessageBox::critical(this,"Errore","Connessione Fallita");
+
 	
 	BottomFrame=new QFrame(this);
 	BottomFrame->setObjectName("BottomFrame");
@@ -85,7 +91,7 @@ DurataAnimazioniMenu(1000)
 
 	QPushButton* CloseButton=new QPushButton(BottomFrame);
 	CloseButton->setText("Close");
-	CloseButton->setMinimumWidth(Giocatori::MinButtonWidth);
+	CloseButton->setMinimumWidth(Giocatori::MinButtonSize.width());
 	CloseButton->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Expanding);
 	connect(CloseButton,SIGNAL(clicked()),this,SLOT(close()));
 
@@ -139,6 +145,12 @@ void MainWindow::resizeEvent(QResizeEvent *event){
 		(TopFrame->size().height()*2)/3
 	);
 	SelettoreServer->setGeometry(
+		(TopFrame->size().width()-SelettoreServer->width())/2.0,
+		(TopFrame->size().height()-SelettoreServer->height())/2.0,
+		TopFrame->size().width()/2,
+		TopFrame->size().height()/2
+	);
+	prePartita->setGeometry(
 		(TopFrame->size().width()-SelettoreServer->width())/2.0,
 		(TopFrame->size().height()-SelettoreServer->height())/2.0,
 		TopFrame->size().width()/2,
@@ -206,6 +218,30 @@ void MainWindow::MostraSelettoreServer(){
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
 	PrevWidget=CurrWidget;
 	CurrWidget=SelettoreServer;
+}
+void MainWindow::MostraPrePartita(){
+
+	QPropertyAnimation* animOut= new QPropertyAnimation(CurrWidget,"pos",TopFrame);
+	animOut->setDuration((DurataAnimazioniMenu*(CurrWidget->pos().x()+CurrWidget->width()))/(TopFrame->width()+SelettoreServer->width()));
+	animOut->setEasingCurve(QEasingCurve::Linear);
+	animOut->setKeyValueAt(1.0,QPoint(-CurrWidget->width()-40,CurrWidget->pos().y()));
+	animOut->setKeyValueAt(0.0,CurrWidget->pos());
+
+	QPropertyAnimation* animIn= new QPropertyAnimation(prePartita,"pos",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::Linear);
+	animIn->setKeyValueAt(1.0,QPoint((TopFrame->size().width()-prePartita->width())/2.0,(TopFrame->size().height()-prePartita->height())/2.0));
+	animIn->setKeyValueAt(0.0,QPoint(TopFrame->width()+40,(TopFrame->size().height()-prePartita->height())/2.0));
+
+	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
+	Animazioni->addAnimation(animIn);
+	Animazioni->addAnimation(animOut);
+	connect(Animazioni,SIGNAL(finished()),this,SLOT(NascondiPrev()));
+
+	prePartita->show();
+	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
+	PrevWidget=CurrWidget;
+	CurrWidget=prePartita;
 }
 
 void MainWindow::MostraMainMenu(){

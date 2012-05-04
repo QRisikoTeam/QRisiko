@@ -177,6 +177,10 @@ namespace ID_Stati{
 		SizPos(117,60,5,45),		//Alaska
 		SizPos(143,55,82,35)		//Territori dell'Ovest
 	};
+	const QPoint PosizioneEtichette[2]={
+		QPoint(47,35), //Una Sola Cifra
+		QPoint(44,35) //Due Cifre
+	};
 
 	const QString img_Stati[num_stati]={
 		//Asia
@@ -379,9 +383,60 @@ namespace ID_Stati{
 		QColor(249,184,57,255),
 		QColor(253,198,137,255),
 	};
-	const int Numero_Obbiettivi=13;
+	const QColor Colori_Nazioni_Select[num_stati]={
+		//Asia
+		QColor(0,204,104),
+		QColor(202,237,196),
+		QColor(209,199,0),
+		QColor(67,217,94),
+		QColor(210,237,151),
+		QColor(169,160,0),
+		QColor(0,117,106),
+		QColor(72,220,157),
+		QColor(0,115,38),
+		QColor(79,134,24),
+		QColor(0,205,105),
+		QColor(117,172,39),
+		//Oceania
+		QColor(248,20,119),
+		QColor(247,0,180),
+		QColor(249,144,208),
+		QColor(244,91,160),
+		//Africa
+		QColor(180,129,67),
+		QColor(229,196,143),
+		QColor(126,67,19),
+		QColor(205,161,106),
+		QColor(153,97,36),
+		QColor(229,196,143),
+		//Europa
+		QColor(64,125,251),
+		QColor(163,206,239),
+		QColor(0,94,166),
+		QColor(142,235,251),
+		QColor(0,119,165),
+		QColor(49,54,186),
+		QColor(0,109,205),
+		//Sud America
+		QColor(202,237,196),
+		QColor(117,172,39),
+		QColor(161,228,155),
+		QColor(0,150,63),
+		//Nord America
+		QColor(252,230,67),
+		QColor(252,188,29),
+		QColor(253,212,122),
+		QColor(252,237,169),
+		QColor(252,188,96),
+		QColor(252,230,67),
+		QColor(252,188,29),
+		QColor(252,220,67),
+		QColor(254,229,176)
+	};
+	const int Numero_Obbiettivi=14;
 	const QString TestoObbiettivi[Numero_Obbiettivi]={
 		"Devi conquistare 18 territori ed occupare ciascuno di essi con almeno due armate",
+		"Devi conquistare 24 territori"
 		"Conquista Nord America e Oceania",
 		"Conquista Nord America e Africa",
 		"Conquista Asia e Africa",
@@ -476,9 +531,16 @@ namespace Giocatori{
 		QColor(247,0,180,255), //Viola
 		QColor(0,205,105,255) //Verde
 	};
-
+	const QString NomiColori[Max_Giocatori]={
+		"Giallo",
+		"Blu",
+		"Rosso",
+		"Nero",
+		"Viola",
+		"Verde",
+	};
 	const QString PathToHttpServer("http://oratoriomomo.org/Risiqo");
-	const int MinButtonWidth(170);
+	const QSize MinButtonSize(170,50);
 }
 
 class Continente{
@@ -585,6 +647,49 @@ namespace CSS{
 				"stop: 0.2 rgb(0,174,239),"
 				"stop: 0.4 rgb(0,118,163)"
 			");"
+		"}"
+
+		"#PrePartita #Sfondo{"
+			"border: 3px solid #333;"
+			"border-radius: 12px;"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+
+		"#PrePartita #Interno{"
+			"border: 3px solid #333;"
+			"border-radius: 12px;"
+			"background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
+			"stop: 0 #a6a6a6, stop: 0.08 #7f7f7f,"
+			"stop: 0.39999 #717171, stop: 0.4 #626262,"
+			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
+		"}"
+
+		"#PrePartita QPushButton {"
+		"color: #222;"
+		"border: 2px solid #555;"
+		"border-radius: 11px;"
+		"padding: 5px;"
+		"background: qradialgradient(cx: 0.3, cy: -0.4,"
+		"fx: 0.3, fy: -0.4,"
+		"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
+		"}"
+
+		"#PrePartita #Pronto{font: bold;}"
+
+		"#PrePartita QPushButton:hover {"
+		"background: qradialgradient(cx: 0.3, cy: -0.4,"
+		"fx: 0.3, fy: -0.4,"
+		"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+		"}"
+
+		"#PrePartita QPushButton:pressed {"
+		"background:"
+		" qradialgradient(cx: 0.4, cy: -0.1,"
+		"fx: 0.4, fy: -0.1,"
+		"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
 		"}"
 		
 		"TopMenu #Sfondo{"
@@ -773,7 +878,10 @@ namespace CSS{
 namespace Comunicazioni{
 	const unsigned int DefaultTCPPort=7676;
 	enum{
-		RichiediInfo=0
+		RichiediInfo=0 //Chiede Informazioni su Nome del Server, Numero giocatori Online e Massimo
+		,OttieniInfo=1 //Invia Informazioni su Nome del Server, Numero giocatori Online e Massimo
+		,PartecipaServer=2 //Il Client chiede di unirsi alla Partita
+		,AggiunteArmate=3 //Il client ha aggiunto armate ad uno stato
 	};
 }
 namespace Segnalini{
