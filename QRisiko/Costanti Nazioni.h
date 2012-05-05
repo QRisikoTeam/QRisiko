@@ -77,53 +77,53 @@ namespace ID_Stati{
 
 	const QString Nomi_Stati[num_stati]={
 		//Asia
-		"Giappone",
-		"Afganistan",
-		"Urali",
-		"Siberia",
-		"Jacuzia",
-		"Kamchatka",
-		"Cita",
-		"Mongolia",
-		"Cina",
-		"Medio Oriente",
-		"India",
-		"Siam",
+		QObject::tr("Giappone"),
+		QObject::tr("Afganistan"),
+		QObject::tr("Urali"),
+		QObject::tr("Siberia"),
+		QObject::tr("Jacuzia"),
+		QObject::tr("Kamchatka"),
+		QObject::tr("Cita"),
+		QObject::tr("Mongolia"),
+		QObject::tr("Cina"),
+		QObject::tr("Medio Oriente"),
+		QObject::tr("India"),
+		QObject::tr("Siam"),
 		//Oceania
-		"Australia orientale",
-		"Australia occidentale",
-		"Nuova guinea",
-		"Indonesia",
+		QObject::tr("Australia orientale"),
+		QObject::tr("Australia occidentale"),
+		QObject::tr("Nuova guinea"),
+		QObject::tr("Indonesia"),
 		//Africa
-		"Egitto",
-		"Africa del Nord",
-		"Africa del Sud",
-		"Africa Orientale",
-		"Congo",
-		"Madagascar",
+		QObject::tr("Egitto"),
+		QObject::tr("Africa del Nord"),
+		QObject::tr("Africa del Sud"),
+		QObject::tr("Africa Orientale"),
+		QObject::tr("Congo"),
+		QObject::tr("Madagascar"),
 		//Europa
-		"Europa Meridionale",
-		"Europa Settentrionale",
-		"Europa Occidentale",
-		"Gran Bretagna",
-		"Scandinavia",
-		"Islanda",
-		"Ucraina",
+		QObject::tr("Europa Meridionale"),
+		QObject::tr("Europa Settentrionale"),
+		QObject::tr("Europa Occidentale"),
+		QObject::tr("Gran Bretagna"),
+		QObject::tr("Scandinavia"),
+		QObject::tr("Islanda"),
+		QObject::tr("Ucraina"),
 		//Sud America
-		"Brasile",
-		"Argentina",
-		"Venezuela",
-		"Peru",
+		QObject::tr("Brasile"),
+		QObject::tr("Argentina"),
+		QObject::tr("Venezuela"),
+		QObject::tr("Peru"),
 		//Nord America
-		"America Centrale",
-		"Stati Uniti Occidentali",
-		"Stati Uniti Orientali",
-		"Quebec",
-		"Ontario",
-		"Alberta",
-		"Groenlandia",
-		"Alaska",
-		"Territori dell'Ovest"
+		QObject::tr("America Centrale"),
+		QObject::tr("Stati Uniti Occidentali"),
+		QObject::tr("Stati Uniti Orientali"),
+		QObject::tr("Quebec"),
+		QObject::tr("Ontario"),
+		QObject::tr("Alberta"),
+		QObject::tr("Groenlandia"),
+		QObject::tr("Alaska"),
+		QObject::tr("Territori dell'Ovest")
 	};
 
 	const SizPos sp_mappa(1024,574,0,0);
@@ -177,9 +177,59 @@ namespace ID_Stati{
 		SizPos(117,60,5,45),		//Alaska
 		SizPos(143,55,82,35)		//Territori dell'Ovest
 	};
+	const QPoint PosizioneSegnalini[num_stati]={
+		//Asia
+		QPoint(900,140),
+		QPoint(620,80),
+		QPoint(640,30),
+		QPoint(700,10),
+		QPoint(790,0),
+		QPoint(927,57),
+		QPoint(770,50),
+		QPoint(820,90),
+		QPoint(810,150),
+		QPoint(610,190),
+		QPoint(710,200),
+		QPoint(800,220),
+		//Oceania
+		QPoint(950,390),
+		QPoint(820,390),
+		QPoint(950,270),
+		QPoint(840,270),
+		//Africa
+		QPoint(510,160),
+		QPoint(420,170),
+		QPoint(510,400),
+		QPoint(590,270),
+		QPoint(500,280),
+		QPoint(610,360),
+		//Europa
+		QPoint(490,110),
+		QPoint(470,60),
+		QPoint(400,110),
+		QPoint(410,70),
+		QPoint(490,0),
+		QPoint(410,10),
+		QPoint(560,40),
+		//Sud America
+		QPoint(270,320),
+		QPoint(220,460),
+		QPoint(220,230),
+		QPoint(160,320),
+		//Nord America
+		QPoint(95,210),
+		QPoint(40,120),
+		QPoint(170,140),
+		QPoint(270,80),
+		QPoint(170,60),
+		QPoint(90,60),
+		QPoint(280,0),
+		QPoint(10,0),
+		QPoint(130,0)
+	};
 	const QPoint PosizioneEtichette[2]={
-		QPoint(47,35), //Una Sola Cifra
-		QPoint(44,35) //Due Cifre
+		QPoint(47,33), //Una Sola Cifra
+		QPoint(42,33) //Due Cifre
 	};
 
 	const QString img_Stati[num_stati]={
@@ -435,20 +485,20 @@ namespace ID_Stati{
 	};
 	const int Numero_Obbiettivi=14;
 	const QString TestoObbiettivi[Numero_Obbiettivi]={
-		"Devi conquistare 18 territori ed occupare ciascuno di essi con almeno due armate",
-		"Devi conquistare 24 territori"
-		"Conquista Nord America e Oceania",
-		"Conquista Nord America e Africa",
-		"Conquista Asia e Africa",
-		"Conquista Asia e Sud America",
-		"Conquista Europa, Sud America più un terzo continente di tua scelta",
-		"Conquista Europa Oceania più un terzo continente di tua scelta",
-		"Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori",
-		"Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"
+		QObject::tr("Devi conquistare 18 territori ed occupare ciascuno di essi con almeno due armate"),
+		QObject::tr("Devi conquistare 24 territori"),
+		QObject::tr("Conquista Nord America e Oceania"),
+		QObject::tr("Conquista Nord America e Africa"),
+		QObject::tr("Conquista Asia e Africa"),
+		QObject::tr("Conquista Asia e Sud America"),
+		QObject::tr("Conquista Europa, Sud America più un terzo continente di tua scelta"),
+		QObject::tr("Conquista Europa Oceania più un terzo continente di tua scelta"),
+		QObject::tr("Devi distruggere le armate Gialle. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"),
+		QObject::tr("Devi distruggere le armate Blu. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"),
+		QObject::tr("Devi distruggere le armate Rosse. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"),
+		QObject::tr("Devi distruggere le armate Nere. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"),
+		QObject::tr("Devi distruggere le armate Viola. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori"),
+		QObject::tr("Devi distruggere le armate Verde. Se sei tu stesso o il giocatore proprietario è eliminato da un altro giocatore il tuo obiettivo diventa: conquista 24 territori")
 	};
 	const int Cannone=0;
 	const int Fante=1;

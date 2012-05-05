@@ -2,6 +2,8 @@ QRisiko è un progetto nato con lo scopo di creare una versione digitale del cele
 Il codice contenuto in questo progetto in forma sorgete o binaria è sottoposto a licenza GNU General Public License versione 3.0
 
 Descrizione Contenuti:
+ATTENZIONE!!!
+Descrizione Obsoleta!!!
 
 Finestra Principale:
 	Descrizione Sorgenti:

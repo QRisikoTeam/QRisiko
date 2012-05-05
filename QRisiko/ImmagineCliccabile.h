@@ -54,6 +54,6 @@ protected:
 private slots:
 	void ImpostaMaschera();
 	void clickID(bool che){if(Responsive) emit Cliccato(che,Identita);}
-	void ResettaStile(){style()->unpolish(this); style()->polish(this);/*setStyleSheet(styleSheet());*/}
+	void ResettaStile(){style()->unpolish(this); style()->polish(this);}
 };
 #endif

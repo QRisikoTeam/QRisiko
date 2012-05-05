@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TopMenu.h'
 **
-** Created: Tue 1. May 19:26:25 2012
-**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
+** Created: Sat 5. May 14:20:17 2012
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "../../TopMenu.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'TopMenu.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 63
-#error "This file was generated using the moc from 4.8.0. It"
+#elif Q_MOC_OUTPUT_REVISION != 62
+#error "This file was generated using the moc from 4.7.4. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +20,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_TopMenu[] = {
 
  // content:
-       6,       // revision
+       5,       // revision
        0,       // classname
        0,    0, // classinfo
        8,   14, // methods
@@ -53,33 +53,9 @@ static const char qt_meta_stringdata_TopMenu[] = {
     "DisableAnnullaSchieramentoButton()\0"
 };
 
-void TopMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        TopMenu *_t = static_cast<TopMenu *>(_o);
-        switch (_id) {
-        case 0: _t->Abbandona(); break;
-        case 1: _t->Opzioni(); break;
-        case 2: _t->Regolamento(); break;
-        case 3: _t->Statistiche(); break;
-        case 4: _t->Riprendi(); break;
-        case 5: _t->AnnullaSchieramento(); break;
-        case 6: _t->EnableAnnullaSchieramentoButton(); break;
-        case 7: _t->DisableAnnullaSchieramentoButton(); break;
-        default: ;
-        }
-    }
-    Q_UNUSED(_a);
-}
-
-const QMetaObjectExtraData TopMenu::staticMetaObjectExtraData = {
-    0,  qt_static_metacall 
-};
-
 const QMetaObject TopMenu::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_TopMenu,
-      qt_meta_data_TopMenu, &staticMetaObjectExtraData }
+      qt_meta_data_TopMenu, 0 }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -105,8 +81,17 @@ int TopMenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
-            qt_static_metacall(this, _c, _id, _a);
+        switch (_id) {
+        case 0: Abbandona(); break;
+        case 1: Opzioni(); break;
+        case 2: Regolamento(); break;
+        case 3: Statistiche(); break;
+        case 4: Riprendi(); break;
+        case 5: AnnullaSchieramento(); break;
+        case 6: EnableAnnullaSchieramentoButton(); break;
+        case 7: DisableAnnullaSchieramentoButton(); break;
+        default: ;
+        }
         _id -= 8;
     }
     return _id;

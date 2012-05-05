@@ -108,7 +108,7 @@ QRisiko::QRisiko(QWidget *parent)
 		Segnali[i]->setContextMenuPolicy(Qt::NoContextMenu); 
 		politica.setHeightForWidth(Segnali[i]->sizePolicy().hasHeightForWidth());
 		Segnali[i]->setSizePolicy(politica);
-		Segnali[i]->move(ID_Stati::PosData_Stati[i].posizione());
+		Segnali[i]->move(ID_Stati::PosizioneSegnalini[i]/*ID_Stati::PosData_Stati[i].posizione()*/);
 		Segnali[i]->resize(70,70);
 		Segnali[i]->setScaledContents(true);
 		Segnali[i]->setPixmap(QPixmap(Segnalini::Immagini[0]));
@@ -117,7 +117,7 @@ QRisiko::QRisiko(QWidget *parent)
 		ContArmate[i]->setObjectName("ContArmate_"+ID_Stati::Nomi_Stati[i]);
 		ContArmate[i]->setContextMenuPolicy(Qt::NoContextMenu);
 		ContArmate[i]->setScaledContents(true);
-		ContArmate[i]->resize(19,13);
+		ContArmate[i]->resize(19,19);
 		ContArmate[i]->move(ID_Stati::PosizioneEtichette[0]);
 		ContArmate[i]->setText("<font size=\"4\" color=\"blue\"><b>1</b></font>");
 		//test
@@ -143,6 +143,26 @@ void QRisiko::AggiornaEtichetta(int ident){
 	ContArmate[ident]->setText("<font size=\"4\" color=\"white\"><b>"+QString("%1").arg(temp)+"</b></font>");
 	if(temp>=10) ContArmate[ident]->move(ID_Stati::PosizioneEtichette[1]);
 	else ContArmate[ident]->move(ID_Stati::PosizioneEtichette[0]);
+	if (temp<=1){
+		Segnali[ident]->setPixmap(QPixmap(Segnalini::Immagini[0]));
+		Segnali[ident]->setMask(QPixmap(Segnalini::Maschere[0]).scaled(Segnali[ident]->size()).mask());
+	}
+	else if(temp>1 && temp <= 5) {
+		Segnali[ident]->setPixmap(QPixmap(Segnalini::Immagini[1]));
+		Segnali[ident]->setMask(QPixmap(Segnalini::Maschere[1]).scaled(Segnali[ident]->size()).mask());
+	}
+	else if(temp>5 && temp <= 10) {
+		Segnali[ident]->setPixmap(QPixmap(Segnalini::Immagini[2]));
+		Segnali[ident]->setMask(QPixmap(Segnalini::Maschere[2]).scaled(Segnali[ident]->size()).mask());
+	}
+	else if(temp>10 && temp <= 20) {
+		Segnali[ident]->setPixmap(QPixmap(Segnalini::Immagini[3]));
+		Segnali[ident]->setMask(QPixmap(Segnalini::Maschere[3]).scaled(Segnali[ident]->size()).mask());
+	}
+	else{
+		Segnali[ident]->setPixmap(QPixmap(Segnalini::Immagini[4]));
+		Segnali[ident]->setMask(QPixmap(Segnalini::Maschere[4]).scaled(Segnali[ident]->size()).mask());
+	}
 }
 void QRisiko::funziona(bool che, int identita){
 	switch(fase){
@@ -253,7 +273,19 @@ void QRisiko::resizeEvent (QResizeEvent * event){
 		/
 		double(ID_Stati::sp_mappa.dimensione().height()));
 	Stati[i]->setGeometry(x,y,wid,hei);
-	Segnali[i]->move(x,y);
+	x=int(
+		double(event->size().width())
+		*
+		double(ID_Stati::PosizioneSegnalini[i].x())
+		/
+		double(ID_Stati::sp_mappa.dimensione().width()));
+	y=int(
+		double(event->size().height())
+		*
+		double(ID_Stati::PosizioneSegnalini[i].y())
+		/
+		double(ID_Stati::sp_mappa.dimensione().height()));
+	Segnali[i]->move(x+25,y+70-41);
 	}
 }
 
