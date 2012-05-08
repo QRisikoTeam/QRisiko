@@ -8,6 +8,7 @@
 #include "Gestore Servers.h"
 #include "Sfondo Risiko.h"
 #include "Giocatore.h"
+#include "Freccia Attacco.h"
 #include <QMap>
 #include <QTimer>
 #include <QMovie>
@@ -20,6 +21,7 @@ class QRisiko : public QWidget
 		QLabel* Segnali[ID_Stati::num_stati];
 		QLabel* ContArmate[ID_Stati::num_stati];
 		QLabel* Sfondo;
+		Freccia* FrecciaAttacco;
 		GestoreServers* gestoreServer;
 
 		//Pulsanti Menu Contestuale
@@ -71,6 +73,7 @@ class QRisiko : public QWidget
 		void DeleteExplosion(int frm);
 		void SimulaClick();
 		void AggiornaEtichetta(int ident);
+		void MostraFrecciaAttacco(int from, int to);
 	public slots:
 		void NascondiMenuContestuale();
 		void ProssimaFase();

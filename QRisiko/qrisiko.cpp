@@ -27,6 +27,11 @@ QRisiko::QRisiko(QWidget *parent)
 	setMouseTracking(false);
 	installEventFilter(this);
 
+	FrecciaAttacco=new Freccia(this);
+	FrecciaAttacco->setObjectName("FrecciaAttacco");
+	FrecciaAttacco->hide();
+	connect(this,SIGNAL(Attaccato(int,int)),this,SLOT(MostraFrecciaAttacco(int,int)));
+
 	setContextMenuPolicy(Qt::CustomContextMenu);
 	connect(this,SIGNAL(customContextMenuRequested(QPoint)),this,SLOT(MostraMenuContestuale(QPoint)));
 	InfoStato=new QPushButton(this);
@@ -876,4 +881,13 @@ void QRisiko::DeleteExplosion(int frm){
 void QRisiko::SimulaClick(){
 	if(ContextMenuOnState<0 || ContextMenuOnState>ID_Stati::num_stati) return;
 	Stati[ContextMenuOnState]->SimulaClick();
+}
+void QRisiko::MostraFrecciaAttacco(int from, int to){
+	if (from<0 || from > ID_Stati::num_stati || to<0 || to > ID_Stati::num_stati) return;
+	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]);
+	FrecciaAttacco->SetFrom(Segnali[from]->pos());
+	FrecciaAttacco->SetTo(Segnali[to]->pos());
+	FrecciaAttacco->resize(FrecciaAttacco->Dimensione());
+	FrecciaAttacco->show();
+	FrecciaAttacco->raise();
 }

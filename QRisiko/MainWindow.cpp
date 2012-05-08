@@ -73,7 +73,7 @@ DurataAnimazioniMenu(1000)
 	prePartita->setObjectName("PrePartita");
 	prePartita->hide();
 	connect(prePartita,SIGNAL(AllReady()),this,SLOT(MostraMappa()));
-	if(! connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu())) )QMessageBox::critical(this,"Errore","Connessione Fallita");
+	connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
 
 	
 	BottomFrame=new QFrame(this);
@@ -282,16 +282,16 @@ void MainWindow::MostraMainMenu(){
 void MainWindow::NascondiRegolamento(){
 	
 	QPropertyAnimation* animOut= new QPropertyAnimation(regolamento,"pos",TopFrame);
-	animOut->setDuration((DurataAnimazioniMenu*(regolamento->pos().x()+regolamento->width()))/(TopFrame->width()+PrevWidgetSizPos.dimensione().width()));
+	animOut->setDuration((DurataAnimazioniMenu*(TopFrame->size().width()+40-regolamento->pos().x()))/(40+(TopFrame->size().width()-PrevWidgetSizPos.dimensione().width())/2.0+PrevWidgetSizPos.dimensione().width()));
 	animOut->setEasingCurve(QEasingCurve::Linear);
-	animOut->setKeyValueAt(1.0,QPoint(-regolamento->width()-40,regolamento->pos().y()));
+	animOut->setKeyValueAt(1.0,QPoint(TopFrame->size().width()+40,regolamento->pos().y()));
 	animOut->setKeyValueAt(0.0,regolamento->pos());
 
 	QPropertyAnimation* animIn= new QPropertyAnimation(PrevWidget,"pos",TopFrame);
 	animIn->setDuration(DurataAnimazioniMenu);
 	animIn->setEasingCurve(QEasingCurve::Linear);
 	animIn->setKeyValueAt(1.0,QPoint((TopFrame->size().width()-PrevWidgetSizPos.dimensione().width())/2.0,(TopFrame->size().height()-PrevWidgetSizPos.dimensione().height())/2.0));
-	animIn->setKeyValueAt(0.0,QPoint(TopFrame->width()+40,(TopFrame->size().height()-PrevWidgetSizPos.dimensione().height())/2.0));
+	animIn->setKeyValueAt(0.0,QPoint(-PrevWidget->width()-40,(TopFrame->size().height()-PrevWidgetSizPos.dimensione().height())/2.0));
 
 	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
 	Animazioni->addAnimation(animIn);
@@ -307,7 +307,7 @@ void MainWindow::NascondiRegolamento(){
 void MainWindow::MostraRegolamento(){
 	
 	QPropertyAnimation* animOut= new QPropertyAnimation(CurrWidget,"pos",TopFrame);
-	animOut->setDuration((DurataAnimazioniMenu*(CurrWidget->pos().x()+CurrWidget->width()))/(TopFrame->width()+regolamento->width()));
+	animOut->setDuration((DurataAnimazioniMenu*(40+CurrWidget->pos().x()+CurrWidget->width()))/(40+TopFrame->width()-((TopFrame->size().width()-regolamento->width())/2.0)));
 	animOut->setEasingCurve(QEasingCurve::Linear);
 	animOut->setKeyValueAt(1.0,QPoint(-CurrWidget->width()-40,CurrWidget->pos().y()));
 	animOut->setKeyValueAt(0.0,CurrWidget->pos());
