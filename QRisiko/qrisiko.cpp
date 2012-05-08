@@ -822,7 +822,7 @@ void QRisiko::CambiaVisuale(){
 		break;
 		case ImmagineCliccabile::Carte-1:
 		case ImmagineCliccabile::Proprietari-1:
-		case ImmagineCliccabile::Carte: //La Prossima Visuale è quella Normale
+		case ImmagineCliccabile::Carte: //La Prossima Visuale ï¿½ quella Normale
 			for (int i=0;i<ID_Stati::num_stati;i++){
 				Stati[i]->NextVisual();
 			}

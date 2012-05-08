@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qrisiko.h'
 **
-** Created: Sat 5. May 14:20:22 2012
+** Created: Tue 8. May 15:57:24 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_QRisiko[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-      17,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -45,11 +45,12 @@ static const uint qt_meta_data_QRisiko[] = {
      217,  213,    8,    8, 0x08,
      238,    8,    8,    8, 0x08,
      258,  252,    8,    8, 0x08,
-     281,    8,    8,    8, 0x0a,
-     307,    8,    8,    8, 0x0a,
-     322,    8,    8,    8, 0x0a,
-     338,    8,    8,    8, 0x0a,
-     354,    8,    8,    8, 0x0a,
+     281,   53,    8,    8, 0x08,
+     311,    8,    8,    8, 0x0a,
+     337,    8,    8,    8, 0x0a,
+     352,    8,    8,    8, 0x0a,
+     368,    8,    8,    8, 0x0a,
+     384,    8,    8,    8, 0x0a,
 
        0        // eod
 };
@@ -64,6 +65,7 @@ static const char qt_meta_stringdata_QRisiko[] = {
     "HideContextMenu()\0UpdateVisual()\0frm\0"
     "DeleteExplosion(int)\0SimulaClick()\0"
     "ident\0AggiornaEtichetta(int)\0"
+    "MostraFrecciaAttacco(int,int)\0"
     "NascondiMenuContestuale()\0ProssimaFase()\0"
     "CambiaVisuale()\0DontSayEgitto()\0"
     "ResetSchieramento()\0"
@@ -110,14 +112,15 @@ int QRisiko::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 9: DeleteExplosion((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: SimulaClick(); break;
         case 11: AggiornaEtichetta((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 12: NascondiMenuContestuale(); break;
-        case 13: ProssimaFase(); break;
-        case 14: CambiaVisuale(); break;
-        case 15: DontSayEgitto(); break;
-        case 16: ResetSchieramento(); break;
+        case 12: MostraFrecciaAttacco((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 13: NascondiMenuContestuale(); break;
+        case 14: ProssimaFase(); break;
+        case 15: CambiaVisuale(); break;
+        case 16: DontSayEgitto(); break;
+        case 17: ResetSchieramento(); break;
         default: ;
         }
-        _id -= 17;
+        _id -= 18;
     }
     return _id;
 }
