@@ -884,10 +884,10 @@ void QRisiko::SimulaClick(){
 }
 void QRisiko::MostraFrecciaAttacco(int from, int to){
 	if (from<0 || from > ID_Stati::num_stati || to<0 || to > ID_Stati::num_stati) return;
-	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]);
 	FrecciaAttacco->SetFrom(Segnali[from]->pos());
 	FrecciaAttacco->SetTo(Segnali[to]->pos());
 	FrecciaAttacco->resize(FrecciaAttacco->Dimensione());
+	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]+FrecciaAttacco->GetShift());
 	FrecciaAttacco->show();
 	FrecciaAttacco->raise();
 }
