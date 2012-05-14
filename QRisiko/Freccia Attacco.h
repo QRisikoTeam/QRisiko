@@ -9,11 +9,13 @@ class Freccia: public QWidget{
 public:
 	Freccia(QWidget* parent=0);
 	void SetFrom(const QPoint& fr){from=fr; emit ShapeChanged();}
+	void SetFrom(const int& frx,const int& fry){from=QPoint(frx,fry); emit ShapeChanged();}
 	void SetTo(const QPoint& a){to=a;  emit ShapeChanged();}
+	void SetTo(const int& ax,const int& ay){to=QPoint(ax,ay); emit ShapeChanged();}
 	QPoint GetFrom() const {return from;}
 	QPoint GetTo() const {return to;}
 	QPoint GetShift();
-	QSize Dimensione();
+	QSize GetDimensione();
 private:
 	QVector<QPoint> Punti;
 	QVector<QPoint> PuntiShift;
@@ -21,10 +23,7 @@ private:
 	double Angolo; //in radianti
 	QPoint from;
 	QPoint to;
-	int MinX;
-	int MaxX;
-	int MinY;
-	int MaxY;
+	QSize Dimensione;
 	QPoint Shift;
 	double RADtoDEG(const double& rad){return 180.0*rad/3.14159;}
 private slots:

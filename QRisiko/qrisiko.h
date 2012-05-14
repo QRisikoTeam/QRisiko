@@ -43,6 +43,7 @@ class QRisiko : public QWidget
 		QMap<int,int> Aggiunte;
 		int DurataAnimazioniMenu;
 		const double PiGreco;
+		int DurataAnimazioni;
 
 		//Don't Say Egitto
 		QLabel* Esplosione;
@@ -74,6 +75,7 @@ class QRisiko : public QWidget
 		void SimulaClick();
 		void AggiornaEtichetta(int ident);
 		void MostraFrecciaAttacco(int from, int to);
+		void NascondiFreccia(){FrecciaAttacco->hide();}
 	public slots:
 		void NascondiMenuContestuale();
 		void ProssimaFase();

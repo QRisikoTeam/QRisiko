@@ -11,6 +11,7 @@ QRisiko::QRisiko(QWidget *parent)
 ,Player("Luca",Giocatori::Giallo)
 ,fase(Schieramento)
 ,ArmiesToPlace(10)
+,DurataAnimazioni(2000)
 {
 	Popola_ID_Attaccabili();
 	MovieEsplosione=new QMovie(":/Generale/Explosion.gif",QByteArray(),this);
@@ -822,7 +823,7 @@ void QRisiko::CambiaVisuale(){
 		break;
 		case ImmagineCliccabile::Carte-1:
 		case ImmagineCliccabile::Proprietari-1:
-		case ImmagineCliccabile::Carte: //La Prossima Visuale � quella Normale
+		case ImmagineCliccabile::Carte: //La Prossima Visuale e'quella Normale
 			for (int i=0;i<ID_Stati::num_stati;i++){
 				Stati[i]->NextVisual();
 			}
@@ -883,11 +884,18 @@ void QRisiko::SimulaClick(){
 	Stati[ContextMenuOnState]->SimulaClick();
 }
 void QRisiko::MostraFrecciaAttacco(int from, int to){
-	if (from<0 || from > ID_Stati::num_stati || to<0 || to > ID_Stati::num_stati) return;
-	FrecciaAttacco->SetFrom(Segnali[from]->pos());
-	FrecciaAttacco->SetTo(Segnali[to]->pos());
-	FrecciaAttacco->resize(FrecciaAttacco->Dimensione());
-	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]+FrecciaAttacco->GetShift());
+	if (from<0 || from > ID_Stati::num_stati || to<0 || to > ID_Stati::num_stati || FrecciaAttacco->isVisible()) return;
+	FrecciaAttacco->SetFrom(Segnali[from]->pos().x(),height()-Segnali[from]->pos().y());
+	FrecciaAttacco->SetTo(Segnali[to]->pos().x(),height()-Segnali[to]->pos().y());
+	FrecciaAttacco->resize(FrecciaAttacco->GetDimensione());
+	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]);
 	FrecciaAttacco->show();
 	FrecciaAttacco->raise();
+	QPropertyAnimation* AnimazioneFreccia=new QPropertyAnimation(FrecciaAttacco,"to",this);
+	AnimazioneFreccia->setDuration(DurataAnimazioni);
+	AnimazioneFreccia->setEasingCurve(QEasingCurve::Linear);
+	AnimazioneFreccia->setKeyValueAt(1.0,QPoint(Segnali[to]->pos().x(),height()-Segnali[to]->pos().y()));
+	AnimazioneFreccia->setKeyValueAt(0.0,QPoint(Segnali[from]->pos().x(),height()-Segnali[from]->pos().y()));
+	connect(AnimazioneFreccia,SIGNAL(finished()),this,SLOT(NascondiFreccia()));
+	AnimazioneFreccia->start(QAbstractAnimation::DeleteWhenStopped);
 }
