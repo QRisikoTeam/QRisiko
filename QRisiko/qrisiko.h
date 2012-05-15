@@ -62,6 +62,7 @@ class QRisiko : public QWidget
 		QRisiko(QWidget *parent = 0);
 		void SetPlayerName(const QString& n){Player.setUserName(n);}
 		void SetPlayerColor(const short& CID){Player.SetColorID(CID);}
+		Giocatore GetPlayer() const {return Player;}
 		void SetDurataAnimazioniMenu(const int& dur){DurataAnimazioniMenu=dur;}
 		short GetFase() const {return fase;}
 		bool IsContextMenuVisible() const {return InfoStato->isVisible();}

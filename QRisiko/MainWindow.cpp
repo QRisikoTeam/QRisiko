@@ -69,7 +69,7 @@ DurataAnimazioniMenu(1000)
 	connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
 	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraMappa())); //DA MODIFICARE
 
-	prePartita=new PrePartita(TopFrame);
+	prePartita=new PrePartita(/*test*/ -1,mappa->GetPlayer().GetUsername(),TopFrame);
 	prePartita->setObjectName("PrePartita");
 	prePartita->hide();
 	connect(prePartita,SIGNAL(AllReady()),this,SLOT(MostraMappa()));

@@ -9,6 +9,7 @@ Freccia::Freccia(QWidget* parent)
 {
 	Recalculate();
 	connect(this,SIGNAL(ShapeChanged()),this,SLOT(Recalculate()));
+	PrevPos=pos();
 }
 void Freccia::paintEvent(QPaintEvent *event){
 	QPainter disegno(this);
@@ -17,9 +18,16 @@ void Freccia::paintEvent(QPaintEvent *event){
 	disegno.setBrush(QBrush(Qt::red,Qt::SolidPattern));
 	disegno.drawPolygon(QPolygon(PuntiShift));
 }
+void Freccia::move(const QPoint &pt){
+	PrevPos=pt;
+	QWidget::move(pt);
+}
+void Freccia::move ( int x, int y ){
+	PrevPos=QPoint(x,y);
+	QWidget::move(x,y);
+}
 QSize Freccia::GetDimensione(){
 	Recalculate();
-	//return QSize(Larghezza,Larghezza);
 	return Dimensione;
 }
 
@@ -31,7 +39,6 @@ QPoint Freccia::GetShift(){
 void Freccia::Recalculate(){
 	double Modulo;
 	double Fase;
-	move(pos()-Shift);
 	Larghezza= std::sqrt(((static_cast<double>(to.x()-from.x())*static_cast<double>(to.x()-from.x()))+(static_cast<double>(to.y()-from.y())*static_cast<double>(to.y()-from.y()))));
 	if(to.x()==from.x()) Angolo=0.0;
 	else Angolo=-std::atan(static_cast<double>(to.y()-from.y())/static_cast<double>(to.x()-from.x()));
@@ -58,8 +65,6 @@ void Freccia::Recalculate(){
 		Fase=std::atan((25.0-15.0)/(0.7*Larghezza));
 		Punti.append(QPoint(Modulo*std::cos(Angolo+Fase),Modulo*std::sin(Angolo+Fase)));
 
-		//Punti.append(QPoint(25.0*std::sin(Angolo),25.0*std::cos(Angolo)));
-
 		int MaxY=Punti.begin()->y();
 		int MinY=Punti.begin()->y();
 		int MaxX=Punti.begin()->x();
@@ -71,7 +76,6 @@ void Freccia::Recalculate(){
 			if(i->x()<MinX) MinX=i->x();
 		}
 		Shift=QPoint(MinX,MinY);
-		move(pos()+Shift);
 		PuntiShift.clear();
 		for(QVector<QPoint>::iterator i=Punti.begin();i<Punti.end();i++){
 			PuntiShift.append(*i-Shift);

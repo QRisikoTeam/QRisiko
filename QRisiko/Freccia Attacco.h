@@ -16,6 +16,8 @@ public:
 	QPoint GetTo() const {return to;}
 	QPoint GetShift();
 	QSize GetDimensione();
+	void move(const QPoint &pt);
+	void move( int x, int y );
 private:
 	QVector<QPoint> Punti;
 	QVector<QPoint> PuntiShift;
@@ -23,6 +25,7 @@ private:
 	double Angolo; //in radianti
 	QPoint from;
 	QPoint to;
+	QPoint PrevPos;
 	QSize Dimensione;
 	QPoint Shift;
 	double RADtoDEG(const double& rad){return 180.0*rad/3.14159;}

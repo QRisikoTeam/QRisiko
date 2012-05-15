@@ -9,20 +9,27 @@ class QPushButton;
 class QLabel;
 class QLineEdit;
 class QComboBox;
+class QScrollArea;
+class QGridLayout;
+class QSpacerItem;
 class PrePartita: public QWidget{
 	Q_OBJECT
 	private:
 		QFrame* Sfondo;
-		QFrame* Interno;
+		QScrollArea* Interno;
 		QPushButton* Pronto;
 		QPushButton* Annulla;
 		QLabel* ImpostazioniLabel;
 		int ContGiocatori;
-		QLineEdit* NomiGiocatori[Giocatori::Max_Giocatori];
-		QComboBox* ColoriGiocatori[Giocatori::Max_Giocatori];
+		QList<QLineEdit*> NomiGiocatori;
+		QList<QComboBox*> ColoriGiocatori;
 		QList<int> IDList;
+		int MyID;
+		QGridLayout* ItemsLayout;
+		QString PlayerName;
+		QSpacerItem* separatore;
 	public:
-		PrePartita(QWidget* parent=0);
+		PrePartita(int ID, const QString& PlNam="", QWidget* parent=0);
 	protected:
 		void resizeEvent(QResizeEvent *event);
 	signals:
@@ -30,6 +37,8 @@ class PrePartita: public QWidget{
 		void AllReady();
 		void Annullato();
 	public slots:
+		void TogliColore(int ID, int ColorID);
+		void AggiungiColore(int ColorID);
 		void AggiuntoGiocatore(int ID, QString Nome="");
 		void RimossoGiocatore(int ID);
 };

@@ -205,7 +205,7 @@ void QRisiko::funziona(bool che, int identita){
 					) if(*i==identita) Confina=true;
 					if (Confina){
 						emit Attaccato(AttackFrom_ID,identita);
-						QMessageBox::information(this,"Attaccato","Da "+ID_Stati::Nomi_Stati[AttackFrom_ID]+" a "+ID_Stati::Nomi_Stati[identita]);
+						//QMessageBox::information(this,"Attaccato","Da "+ID_Stati::Nomi_Stati[AttackFrom_ID]+" a "+ID_Stati::Nomi_Stati[identita]);
 						AttackFrom_ID=-1;
 						for (int i=0;i<ID_Stati::num_stati;i++){
 							Stati[i]->setChecked(false);
@@ -884,18 +884,12 @@ void QRisiko::SimulaClick(){
 	Stati[ContextMenuOnState]->SimulaClick();
 }
 void QRisiko::MostraFrecciaAttacco(int from, int to){
-	if (from<0 || from > ID_Stati::num_stati || to<0 || to > ID_Stati::num_stati || FrecciaAttacco->isVisible()) return;
+	if (from<0 || from > ID_Stati::num_stati || to<0 || to > ID_Stati::num_stati) return;
 	FrecciaAttacco->SetFrom(Segnali[from]->pos().x(),height()-Segnali[from]->pos().y());
 	FrecciaAttacco->SetTo(Segnali[to]->pos().x(),height()-Segnali[to]->pos().y());
 	FrecciaAttacco->resize(FrecciaAttacco->GetDimensione());
-	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]);
+	FrecciaAttacco->move(Segnali[from]->pos()+ID_Stati::PosizioneEtichette[0]+FrecciaAttacco->GetShift());
 	FrecciaAttacco->show();
 	FrecciaAttacco->raise();
-	QPropertyAnimation* AnimazioneFreccia=new QPropertyAnimation(FrecciaAttacco,"to",this);
-	AnimazioneFreccia->setDuration(DurataAnimazioni);
-	AnimazioneFreccia->setEasingCurve(QEasingCurve::Linear);
-	AnimazioneFreccia->setKeyValueAt(1.0,QPoint(Segnali[to]->pos().x(),height()-Segnali[to]->pos().y()));
-	AnimazioneFreccia->setKeyValueAt(0.0,QPoint(Segnali[from]->pos().x(),height()-Segnali[from]->pos().y()));
-	connect(AnimazioneFreccia,SIGNAL(finished()),this,SLOT(NascondiFreccia()));
-	AnimazioneFreccia->start(QAbstractAnimation::DeleteWhenStopped);
+	Segnali[from]->raise();
 }
