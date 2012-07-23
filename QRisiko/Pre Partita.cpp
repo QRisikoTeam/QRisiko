@@ -9,11 +9,15 @@
 #include <QLabel>
 #include <QScrollArea>
 #include <QSpacerItem>
+
+#include <QtGui>
+
 PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
 :QWidget(parent)
 ,MyID(ID)
 ,ContGiocatori(0)
 ,PlayerName(PlNam)
+,rowNumber(0)
 {
 	Pronto=new QPushButton(this);
 	Pronto->setObjectName("ProntoButton");
@@ -23,6 +27,7 @@ PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
 	Pronto->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
 	Pronto->setMinimumSize(Giocatori::MinButtonSize);
 	connect(Pronto,SIGNAL(clicked(bool)),this,SIGNAL(ready(bool)));
+	connect(Pronto,SIGNAL(clicked(bool)),this,SLOT(disabilitaPronto(bool)));
 	Annulla=new QPushButton(this);
 	Annulla->setObjectName("AnnullaButton");
 	Annulla->setText("Annulla");
@@ -31,6 +36,7 @@ PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
 	connect(Annulla,SIGNAL(clicked()),this,SIGNAL(Annullato()));
 	Interno=new QScrollArea(this);
 	Interno->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	Interno->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 	Interno->setObjectName("Interno");
 	Interno->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 	ImpostazioniLabel=new QLabel(this);
@@ -57,25 +63,38 @@ PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
 	Sfondo->setGeometry(0,0,width(),height());
 	Interno->lower();
 	Sfondo->lower();
+
+	//Test
+	AggiuntoGiocatore(32,"Pippo");
+	AggiuntoGiocatore(21,"Pluto");
+	AggiuntoGiocatore(12,"Topolino");
+	RimossoGiocatore(21);
+	AggiuntoGiocatore(5,"Paperino");
+	AggiuntoGiocatore(17,"Minnie");
+	AggiuntoGiocatore(101,"Zio Paperone");
+	AggiuntoGiocatore(6,"Batman");
+	AggiuntoGiocatore(21,"Pluto");
+
 }
 void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
+	if (IDList->size()>=8){emit PartitaPiena(); return;}
 	IDList.append(ID);
 	QString Temp=Nome;
 	QPixmap temp(QSize(20,20));
 	if (Temp=="") Temp=QString("Giocatore %1").arg(ContGiocatori+1);
 	NomiGiocatori.append(new QLineEdit(Interno));
 	NomiGiocatori.last()->setText(Temp);
-	//NomiGiocatori.last()->setMaximumHeight(50);
 	if (ID==MyID) NomiGiocatori.last()->setEnabled(true);
 	else NomiGiocatori.last()->setEnabled(false);
 	NomiGiocatori.last()->setObjectName(QString("Nome%1").arg(NomiGiocatori.size()));
 	NomiGiocatori.last()->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);
+	NomiGiocatori.last()->setMinimumSize(NomiGiocatori.last()->sizeHint());
 	ColoriGiocatori.append(new QComboBox(Interno));
-	//ColoriGiocatori.last()->setMaximumHeight(80);
 	if (ID==MyID) ColoriGiocatori.last()->setEnabled(true);
 	else ColoriGiocatori.last()->setEnabled(false);
 	ColoriGiocatori.last()->setObjectName(QString("Colore%1").arg(ColoriGiocatori.size()));
 	ColoriGiocatori.last()->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);
+	ColoriGiocatori.last()->setMinimumSize(ColoriGiocatori.last()->sizeHint());
 	temp.fill(QColor(0,0,0,0));
 	ColoriGiocatori.last()->addItem(temp,tr("Spettatore"),Giocatori::Spectator);
 	for (int j=0;j<Giocatori::Max_Giocatori;j++){
@@ -83,22 +102,33 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 		ColoriGiocatori.last()->addItem(QIcon(temp),Giocatori::NomiColori[j],j);
 	}
 	ItemsLayout->removeItem(separatore);
-	ItemsLayout->addWidget(NomiGiocatori.last(),NomiGiocatori.size()-1,0);
-	ItemsLayout->addWidget(ColoriGiocatori.last(),ColoriGiocatori.size()-1,1);
-	ItemsLayout->addItem(separatore,ColoriGiocatori.size(),0);
+	ItemsLayout->addWidget(NomiGiocatori.last(),rowNumber,0);
+	ItemsLayout->addWidget(ColoriGiocatori.last(),rowNumber,1);
+	ItemsLayout->addItem(separatore,++rowNumber,0);
 
 
 
 }
 void PrePartita::RimossoGiocatore(int ID){
+	if(!IDList.contains(ID)) return;
 	int Index=IDList.indexOf(ID);
-	if (Index<0) return;
+	IDList.removeAt(Index);
+	if (Index<0 || Index>=ColoriGiocatori.size()) return;
 	ItemsLayout->removeWidget(NomiGiocatori.at(Index));
 	ItemsLayout->removeWidget(ColoriGiocatori.at(Index));
-	NomiGiocatori.erase(NomiGiocatori.begin()+Index);
-	ColoriGiocatori.erase(ColoriGiocatori.begin()+Index);
+	//TODO Rows increase allways, removing a widget doesn't remove the row from the widget
+	/*ItemsLayout->removeItem(separatore);
+	for (int i=Index+1;i<ColoriGiocatori.size();i++){
+		ItemsLayout->addWidget(NomiGiocatori.at(i),i-1,0);
+		ItemsLayout->addWidget(ColoriGiocatori.at(i),i-1,1);
+		ItemsLayout->removeWidget(NomiGiocatori.at(i));
+		ItemsLayout->removeWidget(ColoriGiocatori.at(i));
+	}
+	ItemsLayout->addItem(separatore,ColoriGiocatori.size(),0);*/
 	NomiGiocatori.at(Index)->deleteLater();
 	ColoriGiocatori.at(Index)->deleteLater();
+	NomiGiocatori.erase(NomiGiocatori.begin()+Index);
+	ColoriGiocatori.erase(ColoriGiocatori.begin()+Index);
 }
 void PrePartita::TogliColore(int ID, int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
@@ -128,3 +158,10 @@ void PrePartita::resizeEvent(QResizeEvent *event){
 	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());
 	QWidget::resizeEvent(event);
 }
+
+void PrePartita::disabilitaPronto(bool pront){
+	int Index=IDList.indexOf(MyID);
+	ColoriGiocatori.at(Index)->setEnabled(!pront);
+	NomiGiocatori.at(Index)->setEnabled(!pront);
+}
+void PrePartita::ColoreSelezionato(int ID, int ColorID){}

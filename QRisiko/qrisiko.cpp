@@ -1,6 +1,7 @@
 #include "qrisiko.h"
 #include <QtGui>
 #include <cmath>
+#include <ctime>
 
 QRisiko::QRisiko(QWidget *parent)
 : QWidget(parent)
@@ -15,7 +16,7 @@ QRisiko::QRisiko(QWidget *parent)
 {
 	Popola_ID_Attaccabili();
 	MovieEsplosione=new QMovie(":/Generale/Explosion.gif",QByteArray(),this);
-	qsrand((int)MovieEsplosione);
+	qsrand(time(NULL));
 	connect(MovieEsplosione,SIGNAL(frameChanged(int)),this,SLOT(DeleteExplosion(int)));
 	gestoreServer= new GestoreServers(this);
 	setObjectName(QString::fromUtf8("MappaDiGioco"));
@@ -307,7 +308,6 @@ void QRisiko::Popola_ID_Attaccabili(){
 		Att_afganistan.append(ucraina);
 		Att_afganistan.append(medio_oriente);
 		Att_afganistan.append(urali);
-		Att_afganistan.append(india);
 		Att_afganistan.append(cina);
 		ID_Attaccabili[afganistan]=Att_afganistan;
 		QVector<short> Att_urali;
@@ -368,7 +368,6 @@ void QRisiko::Popola_ID_Attaccabili(){
 		Att_india.append(medio_oriente);
 		Att_india.append(siam);
 		Att_india.append(cina);
-		Att_india.append(afganistan);
 		ID_Attaccabili[india]=Att_india;
 		QVector<short> Att_siam;
 		Att_siam.append(india);

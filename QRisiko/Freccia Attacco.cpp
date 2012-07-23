@@ -6,6 +6,7 @@ Freccia::Freccia(QWidget* parent)
 ,from(QPoint(0,0))
 ,to(QPoint(0,0))
 ,Shift(QPoint(0,0))
+,attacco(true)
 {
 	Recalculate();
 	connect(this,SIGNAL(ShapeChanged()),this,SLOT(Recalculate()));
@@ -15,7 +16,13 @@ void Freccia::paintEvent(QPaintEvent *event){
 	QPainter disegno(this);
 	disegno.setRenderHint(QPainter::Antialiasing,true);
 	disegno.setPen(QPen(Qt::black,2,Qt::SolidLine,Qt::FlatCap));
-	disegno.setBrush(QBrush(Qt::red,Qt::SolidPattern));
+	if (isEnabled()) {
+		if (attacco)
+			disegno.setBrush(QBrush(Qt::red,Qt::SolidPattern));
+		else
+			disegno.setBrush(QBrush(Qt::green,Qt::SolidPattern));
+	}
+	else disegno.setBrush(QBrush(QColor("#333"),Qt::SolidPattern));
 	disegno.drawPolygon(QPolygon(PuntiShift));
 }
 void Freccia::move(const QPoint &pt){

@@ -28,6 +28,7 @@ class PrePartita: public QWidget{
 		QGridLayout* ItemsLayout;
 		QString PlayerName;
 		QSpacerItem* separatore;
+		int rowNumber;
 	public:
 		PrePartita(int ID, const QString& PlNam="", QWidget* parent=0);
 	protected:
@@ -36,10 +37,15 @@ class PrePartita: public QWidget{
 		void ready(bool);
 		void AllReady();
 		void Annullato();
+		void ColoreScelto(int ID, int ColorID);
+		void PartitaPiena();
 	public slots:
+		void ColoreSelezionato(int ID, int ColorID);
 		void TogliColore(int ID, int ColorID);
 		void AggiungiColore(int ColorID);
 		void AggiuntoGiocatore(int ID, QString Nome="");
 		void RimossoGiocatore(int ID);
+	private slots:
+		void disabilitaPronto(bool pront);
 };
 #endif

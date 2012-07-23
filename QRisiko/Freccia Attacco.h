@@ -6,6 +6,7 @@ class Freccia: public QWidget{
 	Q_OBJECT
 	Q_PROPERTY(QPoint from READ GetFrom WRITE SetFrom)
 	Q_PROPERTY(QPoint to READ GetTo WRITE SetTo)
+	Q_PROPERTY(bool attacco READ GetAttacco WRITE SetAttacco)
 public:
 	Freccia(QWidget* parent=0);
 	void SetFrom(const QPoint& fr){from=fr; emit ShapeChanged();}
@@ -18,7 +19,10 @@ public:
 	QSize GetDimensione();
 	void move(const QPoint &pt);
 	void move( int x, int y );
+	bool GetAttacco() const {return attacco;}
+	void SetAttacco(const bool& att){attacco=att;}
 private:
+	bool attacco;
 	QVector<QPoint> Punti;
 	QVector<QPoint> PuntiShift;
 	double Larghezza;
