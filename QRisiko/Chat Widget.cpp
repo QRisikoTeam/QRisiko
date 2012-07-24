@@ -104,14 +104,16 @@ void ChatWidget::Connesso(){
 }
 void ChatWidget::Disconnesso(){
 	if(!IsServer){
-		if(TCPsocket->isOpen()){
-			QByteArray block;
-			QDataStream out(&block, QIODevice::WriteOnly);
-			out.setVersion(QDataStream::Qt_4_7);
-			out << qint16(0) << tr("<b>%1 ha abbandonato la conversazione</b>").arg(UserName);
-			out.device()->seek(0);
-			out << quint16(block.size() - sizeof(quint16));
-			TCPsocket->write(block);
+		if(TCPsocket){
+			if(TCPsocket->isOpen()){
+				QByteArray block;
+				QDataStream out(&block, QIODevice::WriteOnly);
+				out.setVersion(QDataStream::Qt_4_7);
+				out << qint16(0) << tr("<b>%1 ha abbandonato la conversazione</b>").arg(UserName);
+				out.device()->seek(0);
+				out << quint16(block.size() - sizeof(quint16));
+				TCPsocket->write(block);
+			}
 		}
 	}
 	else {

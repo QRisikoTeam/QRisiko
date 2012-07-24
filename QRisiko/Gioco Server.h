@@ -25,6 +25,8 @@ private:
 	int NumGiocatori;
 signals:
 	void InviaInformazioni(QString Nome, int Giocatori, int MaxGiocatori);
+	void NuovaConnessione(int Ident);
+	void UpdateInfo(int ident,const QString& nuovonome,int nuovocolore);
 private slots:
 	void FormaInfo(int SoDe);
 

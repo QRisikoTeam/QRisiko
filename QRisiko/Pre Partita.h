@@ -29,8 +29,10 @@ class PrePartita: public QWidget{
 		QString PlayerName;
 		QSpacerItem* separatore;
 		int rowNumber;
+		bool IsServer;
 	public:
-		PrePartita(int ID, const QString& PlNam="", QWidget* parent=0);
+		enum {ServerID=-1};
+		PrePartita(int ID,const QString& PlNam="",QWidget* parent=0);
 	protected:
 		void resizeEvent(QResizeEvent *event);
 	signals:
@@ -45,7 +47,10 @@ class PrePartita: public QWidget{
 		void AggiungiColore(int ColorID);
 		void AggiuntoGiocatore(int ID, QString Nome="");
 		void RimossoGiocatore(int ID);
+		void SetMyID(const int& a){MyID=a;}
+		void SetPlayerName(const QString& a){PlayerName=a;}
 	private slots:
 		void disabilitaPronto(bool pront);
+		void NomeCambiato(const QString& nuovo);
 };
 #endif

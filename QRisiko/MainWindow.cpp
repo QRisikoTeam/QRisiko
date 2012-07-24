@@ -27,9 +27,12 @@ DurataAnimazioniMenu(1000)
 
 	MainMenu=new MenuPrincipale(TopFrame);
 	MainMenu->setObjectName("MenuPrincipale");
+	connect(MainMenu,SIGNAL(HostNew()),this,SLOT(MostraPrePartita()));
+	connect(MainMenu,SIGNAL(HostNew()),this,SLOT(StartServer()));
 	connect(MainMenu,SIGNAL(HostLoad()),this,SLOT(MostraPrePartita()));
+	connect(MainMenu,SIGNAL(HostLoad()),this,SLOT(StartServer()));
 	connect(MainMenu,SIGNAL(Join()),this,SLOT(MostraSelettoreServer()));
-	connect(MainMenu,SIGNAL(HostNew()),this,SLOT(MostraMappa()));
+	connect(MainMenu,SIGNAL(Join()),this,SLOT(StartClient()));
 	connect(MainMenu,SIGNAL(Exit()),this,SLOT(close()));
 	connect(MainMenu,SIGNAL(Rules()),this,SLOT(MostraRegolamento()));
 	CurrWidget=MainMenu;
@@ -67,21 +70,22 @@ DurataAnimazioniMenu(1000)
 	SelettoreServer->hide();
 	connect(MainMenu,SIGNAL(Join()),SelettoreServer,SLOT(Avvia()));
 	connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
-	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraMappa())); //DA MODIFICARE
+	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(StartJoinedMatch()));
 
 	prePartita=new PrePartita(/*test*/ -1,mappa->GetPlayer().GetUsername(),TopFrame);
 	prePartita->setObjectName("PrePartita");
 	prePartita->hide();
-	connect(prePartita,SIGNAL(AllReady()),this,SLOT(MostraMappa()));
+	connect(prePartita,SIGNAL(AllReady()),this,SLOT(StartServer()));
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
 
+	GestoreOnline=new GestoreServers(this);
 	
 	BottomFrame=new QFrame(this);
 	BottomFrame->setObjectName("BottomFrame");
 	BottomFrame->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Fixed);
 	BottomFrame->setStyleSheet(CSS::MainWindow_BottomFrameCSS);
 
-	chat=new ChatWidget(BottomFrame,"Host",QColor(0,0,255,255),true,true/*false,"192.168.1.3"*/);
+	chat=new ChatWidget(BottomFrame);
 	connect(chat,SIGNAL(DontSayEgitto()),mappa,SLOT(DontSayEgitto()));
 	
 	Log=new QTextEdit(BottomFrame);
@@ -374,4 +378,34 @@ void MainWindow::keyPressEvent(QKeyEvent *keyev){
 
 void MainWindow::NascondiPrev(){
 	PrevWidget->hide();
+}
+
+void MainWindow::StartClient(){
+	//Temporaneo
+	StartJoinedMatch();
+}
+void MainWindow::StartServer(){
+	ServerGioco=new GiocoServer(mappa->GetPlayer().GetUsername(),6 /*TODO da impostare in Opzioni*/, this);
+}
+void MainWindow::StartHostedMatch(){
+	chat->SetUserName(mappa->GetPlayer().GetUsername());
+	if(mappa->GetPlayer().GetColorID()==Giocatori::Spectator)
+		chat->SetUserColor(Giocatori::ColoreSpettatore);
+	else
+		chat->SetUserColor(Giocatori::Colori[mappa->GetPlayer().GetColorID()]);
+	chat->SetShowTimeStamp(true /*TODO da impostare in Opzioni*/);
+	chat->SetIsServer(true);
+	
+	MostraMappa();
+}
+void MainWindow::StartJoinedMatch(){
+	chat->SetUserName(mappa->GetPlayer().GetUsername());
+	if(mappa->GetPlayer().GetColorID()==Giocatori::Spectator)
+		chat->SetUserColor(Giocatori::ColoreSpettatore);
+	else
+		chat->SetUserColor(Giocatori::Colori[mappa->GetPlayer().GetColorID()]);
+	chat->SetShowTimeStamp(true /*TODO da impostare in Opzioni*/);
+	chat->SetIsServer(false);
+	chat->SetHostIP("192.168.1.3" /*TODO prendi IP*/);
+	MostraMappa();
 }

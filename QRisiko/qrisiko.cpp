@@ -120,6 +120,7 @@ QRisiko::QRisiko(QWidget *parent)
 		Segnali[i]->setScaledContents(true);
 		Segnali[i]->setPixmap(QPixmap(Segnalini::Immagini[0]));
 		Segnali[i]->setMask(QPixmap(Segnalini::Maschere[0]).scaled(Segnali[i]->size()).mask());
+		Segnali[i]->installEventFilter(this);
 		ContArmate[i]=new QLabel(Segnali[i]);
 		ContArmate[i]->setObjectName("ContArmate_"+ID_Stati::Nomi_Stati[i]);
 		ContArmate[i]->setContextMenuPolicy(Qt::NoContextMenu);
@@ -790,6 +791,14 @@ bool QRisiko::eventFilter(QObject *target, QEvent *event){
 	if(event->type()==QEvent::MouseButtonPress){
 		if (InfoStato->isVisible())
 			NascondiMenuContestuale();
+		else{
+			for (int i=0;i<ID_Stati::num_stati;i++){
+				if (target==Segnali[i]){
+					Stati[i]->SimulaClick();
+					break;
+				}
+			}
+		}
 	}
 	return QWidget::eventFilter(target,event);
 }

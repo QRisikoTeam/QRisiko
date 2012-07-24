@@ -1,3 +1,4 @@
+//Menu PrePartita Online
 #include "Pre Partita.h"
 #include <QGridLayout>
 #include <QSpacerItem>
@@ -12,7 +13,7 @@
 
 #include <QtGui>
 
-PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
+PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
 :QWidget(parent)
 ,MyID(ID)
 ,ContGiocatori(0)
@@ -65,7 +66,7 @@ PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
 	Sfondo->lower();
 
 	//Test
-	AggiuntoGiocatore(32,"Pippo");
+	/*AggiuntoGiocatore(32,"Pippo");
 	AggiuntoGiocatore(21,"Pluto");
 	AggiuntoGiocatore(12,"Topolino");
 	RimossoGiocatore(21);
@@ -73,18 +74,21 @@ PrePartita::PrePartita(int ID, const QString& PlNam, QWidget* parent)
 	AggiuntoGiocatore(17,"Minnie");
 	AggiuntoGiocatore(101,"Zio Paperone");
 	AggiuntoGiocatore(6,"Batman");
-	AggiuntoGiocatore(21,"Pluto");
+	AggiuntoGiocatore(21,"Pluto");*/
 
 }
 void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
-	if (IDList->size()>=8){emit PartitaPiena(); return;}
+	if (IDList.size()>=8){emit PartitaPiena(); return;}
 	IDList.append(ID);
 	QString Temp=Nome;
 	QPixmap temp(QSize(20,20));
 	if (Temp=="") Temp=QString("Giocatore %1").arg(ContGiocatori+1);
 	NomiGiocatori.append(new QLineEdit(Interno));
 	NomiGiocatori.last()->setText(Temp);
-	if (ID==MyID) NomiGiocatori.last()->setEnabled(true);
+	if (ID==MyID){
+		NomiGiocatori.last()->setEnabled(true);
+		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(NomeCambiato(QString)));
+	}
 	else NomiGiocatori.last()->setEnabled(false);
 	NomiGiocatori.last()->setObjectName(QString("Nome%1").arg(NomiGiocatori.size()));
 	NomiGiocatori.last()->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);
@@ -132,16 +136,22 @@ void PrePartita::RimossoGiocatore(int ID){
 }
 void PrePartita::TogliColore(int ID, int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
-	bool tolto=false;
+	bool tolto;
 	for (int i=0;i<ColoriGiocatori.size();i++){
-		if (ID!=IDList.at(i)){
-			for (int j=0;j<ColoriGiocatori.at(i)->count() && !tolto;j++){
-				if (ColoriGiocatori.at(i)->itemData(j)==ColorID){
+		tolto=false;
+		for (int j=0;j<ColoriGiocatori.at(i)->count() && !tolto;j++){
+			if (ColoriGiocatori.at(i)->itemData(j)==ColorID){
+				if (ID!=IDList.at(i)){
 					ColoriGiocatori.at(i)->removeItem(j);
+					tolto=true;
+				}
+				else{
+					ColoriGiocatori.at(i)->setCurrentIndex(j);
 					tolto=true;
 				}
 			}
 		}
+		
 	}
 }
 void PrePartita::AggiungiColore(int ColorID){
@@ -165,3 +175,4 @@ void PrePartita::disabilitaPronto(bool pront){
 	NomiGiocatori.at(Index)->setEnabled(!pront);
 }
 void PrePartita::ColoreSelezionato(int ID, int ColorID){}
+void PrePartita::NomeCambiato(const QString& nuovo){}

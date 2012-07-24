@@ -16,6 +16,10 @@ public:
 signals:
 	void GotRichiediInfo(int iden);
 	void InviaInformazioni(QString Nome, int Giocatori, int MaxGiocatori);
+	void MandaMioID(int);
+	void NuovoUtente(int);
+	void CambiateInfo(int ident, const QString& NuovoNome, int NuovoColore);
+	void UpdateInfo(int ident, const QString& NuovoNome, int NuovoColore);
 private:
 	bool keepRunning;
 	int socketDescriptor;

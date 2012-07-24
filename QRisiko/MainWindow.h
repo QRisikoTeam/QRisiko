@@ -9,6 +9,8 @@
 #include "Regolamento.h"
 #include "Costanti Nazioni.h"
 #include "Pre Partita.h"
+#include "Gestore Servers.h"
+#include "Gioco Server.h"
 
 class MainWindow : public QMainWindow{
 	Q_OBJECT
@@ -29,6 +31,8 @@ class MainWindow : public QMainWindow{
 		QWidget* PrevWidget;
 		SizPos PrevWidgetSizPos;
 		QLabel* BottomFrameCover;
+		GestoreServers* GestoreOnline;
+		GiocoServer* ServerGioco;
 		int DurataAnimazioniMenu;
 		void riposiziona();
 	private slots:
@@ -41,6 +45,10 @@ class MainWindow : public QMainWindow{
 		void MostraRegolamento();
 		void NascondiRegolamento();
 		void MostraPrePartita();
+		void StartServer();
+		void StartClient();
+		void StartHostedMatch();
+		void StartJoinedMatch();
 	protected:
 		void closeEvent(QCloseEvent *event);
 		void resizeEvent(QResizeEvent *event);

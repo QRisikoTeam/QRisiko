@@ -13,7 +13,8 @@ void GiocoSocket::readClient()
 	QDataStream incom(this);
 	incom.setVersion(QDataStream::Qt_4_7);
 	int TipoRichiesta;
-	int Stato, Numero;
+	int dato1, dato2;
+	QString stringa1;
 	forever {
 		if (nextBlockSize == 0) {
 			if (bytesAvailable() < sizeof(quint16))
@@ -29,11 +30,16 @@ void GiocoSocket::readClient()
 
 		incom >> TipoRichiesta;
 		switch (TipoRichiesta){
-			case Comunicazioni::RichiediInfo: emit GotRichiediInfo(); break;
-			case Comunicazioni::AggiunteArmate:
-				incom >> Stato >> Numero;
-				emit GotAggiuntoArmate(Stato,Numero);
+			case Comunicazioni::RichiediInfo:
+				emit GotRichiediInfo();
 				break;
+			case Comunicazioni::CambiateInfo:
+				incom >> dato1 >> stringa1 >> dato2; // ID, Nuovo Nome, Nuovo Colore
+				emit CambiateInfo(dato1,stringa1,dato2);
+			/*case Comunicazioni::AggiunteArmate:
+				incom >> dato1 >> dato2;
+				emit GotAggiuntoArmate(Stato,Numero);
+				break;*/
 
 		}
 		nextBlockSize = 0;
@@ -49,4 +55,38 @@ void GiocoSocket::InviaInformazioni(QString Nome, int Giocatori, int MaxGiocator
 	out << quint16(block.size() - 2*sizeof(quint16));
 	write(block);
 	disconnectFromHost();
+}
+
+void GiocoSocket::MandaMioID(int ident){
+	if(ident==socketDescriptor){
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_7);
+		out << quint16(0) << quint16(Comunicazioni::WhatsMyID) << socketDescriptor << quint16(0xFFFF);
+		out.device()->seek(0);
+		out << quint16(block.size() - 2*sizeof(quint16));
+		write(block);
+	}
+}
+void GiocoSocket::NuovoUtente(int ident){
+	if(ident!=socketDescriptor){
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_7);
+		out << quint16(0) << quint16(Comunicazioni::NewPlayer) << ident << quint16(0xFFFF);
+		out.device()->seek(0);
+		out << quint16(block.size() - 2*sizeof(quint16));
+		write(block);
+	}
+}
+void GiocoSocket::UpdateInfo(int ident,const QString& NuovoNome,int NuovoColore){
+	if(ident!=socketDescriptor){
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_7);
+		out << quint16(0) << quint16(Comunicazioni::AggiornaInfo) << ident << NuovoNome << NuovoColore << quint16(0xFFFF);
+		out.device()->seek(0);
+		out << quint16(block.size() - 2*sizeof(quint16));
+		write(block);
+	}
 }

@@ -39,6 +39,8 @@ class ChatWidget : public QWidget, public Ui::Chat
 		void SetIsServer(const bool& a){IsServer=a;}
 		void SetHostIP(const QString& a){Host=a;}
 		void SetPort(const unsigned int& a){port=a;}
+		void SetUserName(const QString& a){UserName=a;}
+		void SetUserColor(const QColor& a){UserColor=a;}
 		QString GetUserName() const {return UserName;}
 		QColor GetUserColor() const {return UserColor;}
 		bool GetShowTimeStamp() const {return ShowTimeStamp;}

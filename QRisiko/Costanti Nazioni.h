@@ -565,6 +565,7 @@ namespace Giocatori{
 	const int Viola=4;
 	const int Verde=5;
 	const int Spectator=6;
+	const QColor ColoreSpettatore("#E67451");
 	const QColor Colori[Max_Giocatori]={
 		QColor(255,242,0,255), //Giallo
 		QColor(0,84,166,255), //Blu
@@ -928,10 +929,18 @@ namespace CSS{
 namespace Comunicazioni{
 	const unsigned int DefaultTCPPort=7676;
 	enum{
-		RichiediInfo=0 //Chiede Informazioni su Nome del Server, Numero giocatori Online e Massimo
-		,OttieniInfo=1 //Invia Informazioni su Nome del Server, Numero giocatori Online e Massimo
-		,PartecipaServer=2 //Il Client chiede di unirsi alla Partita
-		,AggiunteArmate=3 //Il client ha aggiunto armate ad uno stato
+		RichiediInfo //Client Chiede Informazioni su Nome del Server, Numero giocatori Online e Massimo
+		,OttieniInfo //Client Invia Informazioni su Nome del Server, Numero giocatori Online e Massimo
+		,PartecipaServer //Il Client chiede di unirsi alla Partita
+		,WhatsMyID //Il Client chiede il proprio ID dal server
+		,NewPlayer //Un Nuovo Giocatore Si Unisce alla Partita
+		,CambiateInfo //Il Client ha cambiato Nome Utente o Colore
+		,AggiornaInfo //Il Client deve aggiornare le informazioni relative agli altri giocatori
+		//Azioni di Gioco
+		,AggiunteArmate //Il client ha aggiunto armate ad uno stato
+		,Attacca //Il Client Attacca uno stato
+		,Sposta //Il Client Sposta le Armate
+		,GiocaBonus //Il Client Gioca un Bonus
 	};
 }
 namespace Segnalini{

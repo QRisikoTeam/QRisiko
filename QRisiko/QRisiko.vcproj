@@ -222,6 +222,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Gioco Client.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Gioco Server.cpp"
 					>
 				</File>
@@ -562,6 +566,32 @@
 				<File
 					RelativePath=".\Giocatore.h"
 					>
+				</File>
+				<File
+					RelativePath=".\Gioco Client.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing Gioco Client.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description="Moc&apos;ing Gioco Client.h..."
+							CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_DLL &quot;-I.\GeneratedFiles&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtMultimedia&quot; &quot;-I$(QTDIR)\include\QtNetwork&quot; &quot;-I.&quot;&#x0D;&#x0A;"
+							AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+							Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath=".\Gioco Server.h"
@@ -2430,6 +2460,26 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Resources\Select\europa settentrionale.png"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath=".\Resources\europa settentrionale.png"
 				>
 				<FileConfiguration
@@ -2451,26 +2501,6 @@
 			</File>
 			<File
 				RelativePath=".\Resources\Bordi\europa settentrionale.png"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\Resources\Select\europa settentrionale.png"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -5040,6 +5070,18 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\GeneratedFiles\Release\moc_Gioco Client.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\GeneratedFiles\Release\moc_Gioco Server.cpp"
 					>
 					<FileConfiguration
@@ -5298,6 +5340,18 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\GeneratedFiles\Debug\moc_Gioco Client.cpp"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						ExcludedFromBuild="true"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath=".\GeneratedFiles\Debug\moc_Gioco Server.cpp"
 					>
 					<FileConfiguration
@@ -5515,7 +5569,7 @@
 		/>
 		<Global
 			Name="QtVersion Win32"
-			Value="Qt 4.7.4"
+			Value="4.8.0"
 		/>
 		<Global
 			Name="RccDir"
