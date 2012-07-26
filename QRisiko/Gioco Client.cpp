@@ -1,6 +1,6 @@
 #include "Gioco Client.h"
 
-ClientGioco::ClientGioco(QString& HIP,int por,QObject* parent)
+ClientGioco::ClientGioco(const QString& HIP,int por,QObject* parent)
 :QObject(parent)
 ,HostIP(HIP)
 ,Porta(por)
@@ -47,6 +47,13 @@ void ClientGioco::IncomingTransmission(){
 				incom >> data1 >> stringa1 >> data2; //ID da aggiornare, Nuovo Nome, Nuovo Colore
 				emit AggiornaInfo(data1,stringa1,data2);
 				break;
+			case Comunicazioni::StartGame:
+				emit StartGame();
+				break;
+			case Comunicazioni::Disconnesso:
+				incom >> data1; //ID da rimuovere
+				emit GiocatoreDisconnesso(data1);
+				break;
 
 		}
 		nextBlockSize = 0;
@@ -59,6 +66,29 @@ void ClientGioco::CambiateMieInfo(const QString& NuovoNome, int NuovoColore){
 		QDataStream out(&block, QIODevice::WriteOnly);
 		out.setVersion(QDataStream::Qt_4_7);
 		out << quint16(0) << quint16(Comunicazioni::CambiateInfo) << MyID << NuovoNome << NuovoColore << quint16(0xFFFF);
+		out.device()->seek(0);
+		out << quint16(block.size() - 2*sizeof(quint16));
+		Cliente.write(block);
+	}
+}
+
+void ClientGioco::SonoPronto(){
+	if(Cliente.isOpen()){
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_7);
+		out << quint16(0) << quint16(Comunicazioni::SonoPronto) << MyID << quint16(0xFFFF);
+		out.device()->seek(0);
+		out << quint16(block.size() - 2*sizeof(quint16));
+		Cliente.write(block);
+	}
+}
+void ClientGioco::NonSonoPronto(){
+	if(Cliente.isOpen()){
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_7);
+		out << quint16(0) << quint16(Comunicazioni::NonSonoPronto) << MyID << quint16(0xFFFF);
 		out.device()->seek(0);
 		out << quint16(block.size() - 2*sizeof(quint16));
 		Cliente.write(block);

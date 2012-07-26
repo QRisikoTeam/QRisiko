@@ -7,7 +7,9 @@ MainWindow::MainWindow(QWidget* parent/* =0 */)
 PrevWidget(NULL),
 SelettoreServer(NULL),
 Topmenu(NULL),
-DurataAnimazioniMenu(1000)
+DurataAnimazioniMenu(1000),
+ServerGioco(NULL),
+ClientDiGioco(NULL)
 {
 	setObjectName("FinestraPrincipale");
 
@@ -32,7 +34,6 @@ DurataAnimazioniMenu(1000)
 	connect(MainMenu,SIGNAL(HostLoad()),this,SLOT(MostraPrePartita()));
 	connect(MainMenu,SIGNAL(HostLoad()),this,SLOT(StartServer()));
 	connect(MainMenu,SIGNAL(Join()),this,SLOT(MostraSelettoreServer()));
-	connect(MainMenu,SIGNAL(Join()),this,SLOT(StartClient()));
 	connect(MainMenu,SIGNAL(Exit()),this,SLOT(close()));
 	connect(MainMenu,SIGNAL(Rules()),this,SLOT(MostraRegolamento()));
 	CurrWidget=MainMenu;
@@ -380,12 +381,36 @@ void MainWindow::NascondiPrev(){
 	PrevWidget->hide();
 }
 
-void MainWindow::StartClient(){
-	//Temporaneo
-	StartJoinedMatch();
+void MainWindow::StartClient(const QString& HostIP){
+	ClientDiGioco=new ClientGioco(HostIP,Comunicazioni::DefaultTCPPort,this);
+	ClientDiGioco->Connetti();
+	connect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SIGNAL(SonoPronto()));
+	connect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SIGNAL(NonSonoPronto()));
+	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),ClientDiGioco,SLOT(CambiateMieInfo(QString,int)));
+	connect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
+	connect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
+	connect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	connect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
+}
+void MainWindow::StopClient(){
+	if (!ClientDiGioco) return;
+	disconnect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SIGNAL(SonoPronto()));
+	disconnect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SIGNAL(NonSonoPronto()));
+	disconnect(prePartita,SIGNAL(InfoCambiate(QString,int)),ClientDiGioco,SLOT(CambiateMieInfo(QString,int)));
+	disconnect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
+	disconnect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
+	disconnect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	disconnect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
+	ClientDiGioco->Disconnetti();
+	ClientDiGioco->deleteLater();
+	ClientDiGioco=NULL;
 }
 void MainWindow::StartServer(){
 	ServerGioco=new GiocoServer(mappa->GetPlayer().GetUsername(),6 /*TODO da impostare in Opzioni*/, this);
+}
+void MainWindow::StopServer(){
+	ServerGioco->deleteLater();
+	ServerGioco=NULL;
 }
 void MainWindow::StartHostedMatch(){
 	chat->SetUserName(mappa->GetPlayer().GetUsername());
@@ -398,14 +423,12 @@ void MainWindow::StartHostedMatch(){
 	
 	MostraMappa();
 }
-void MainWindow::StartJoinedMatch(){
-	chat->SetUserName(mappa->GetPlayer().GetUsername());
-	if(mappa->GetPlayer().GetColorID()==Giocatori::Spectator)
-		chat->SetUserColor(Giocatori::ColoreSpettatore);
-	else
-		chat->SetUserColor(Giocatori::Colori[mappa->GetPlayer().GetColorID()]);
+void MainWindow::StartJoinedMatch(const QString& Host){
+	chat->SetUserName(prePartita->GetPlayerName());
+	chat->SetUserColor(Giocatori::Colori[mappa->GetPlayer().GetColorID()]);
 	chat->SetShowTimeStamp(true /*TODO da impostare in Opzioni*/);
 	chat->SetIsServer(false);
-	chat->SetHostIP("192.168.1.3" /*TODO prendi IP*/);
-	MostraMappa();
+	chat->SetHostIP(Host);
+	StartClient(Host);
+	MostraPrePartita();
 }

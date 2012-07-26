@@ -23,12 +23,23 @@ private:
 	QString NomeServer;
 	int MaxGiocatori;
 	int NumGiocatori;
+	QList<int> IDs;
+	QList<bool> Pronti;
+	bool FasePrePartita;
 signals:
 	void InviaInformazioni(QString Nome, int Giocatori, int MaxGiocatori);
 	void NuovaConnessione(int Ident);
 	void UpdateInfo(int ident,const QString& nuovonome,int nuovocolore);
+	void IsReady(int ident);
+	void IsNotReady(int ident);
+	void StartGame();
+	void Disconnesso(int ident);
 private slots:
 	void FormaInfo(int SoDe);
+	void AggiungiPronto(int ident);
+	void RimuoviPronto(int ident);
+	void GiocatoreDisconnesso(int ident);
+	void ImpostaPartitaIniziata(){FasePrePartita=false;}
 
 };
 

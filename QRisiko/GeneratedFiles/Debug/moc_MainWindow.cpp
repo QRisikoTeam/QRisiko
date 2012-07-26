@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MainWindow.h'
 **
-** Created: Tue 24. Jul 19:28:02 2012
+** Created: Thu 26. Jul 15:51:02 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -41,9 +41,11 @@ static const uint qt_meta_data_MainWindow[] = {
      136,   11,   11,   11, 0x08,
      158,   11,   11,   11, 0x08,
      177,   11,   11,   11, 0x08,
-     191,   11,   11,   11, 0x08,
-     205,   11,   11,   11, 0x08,
-     224,   11,   11,   11, 0x08,
+     198,  191,   11,   11, 0x08,
+     219,   11,   11,   11, 0x08,
+     232,   11,   11,   11, 0x08,
+     245,   11,   11,   11, 0x08,
+     269,  264,   11,   11, 0x08,
 
        0        // eod
 };
@@ -54,8 +56,9 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "MostraTopMenu()\0NascondiTopMenu()\0"
     "MostraRegolamento()\0NascondiRegolamento()\0"
     "MostraPrePartita()\0StartServer()\0"
-    "StartClient()\0StartHostedMatch()\0"
-    "StartJoinedMatch()\0"
+    "HostIP\0StartClient(QString)\0StopServer()\0"
+    "StopClient()\0StartHostedMatch()\0Host\0"
+    "StartJoinedMatch(QString)\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -74,13 +77,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->NascondiRegolamento(); break;
         case 8: _t->MostraPrePartita(); break;
         case 9: _t->StartServer(); break;
-        case 10: _t->StartClient(); break;
-        case 11: _t->StartHostedMatch(); break;
-        case 12: _t->StartJoinedMatch(); break;
+        case 10: _t->StartClient((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 11: _t->StopServer(); break;
+        case 12: _t->StopClient(); break;
+        case 13: _t->StartHostedMatch(); break;
+        case 14: _t->StartJoinedMatch((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {
@@ -115,9 +119,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }

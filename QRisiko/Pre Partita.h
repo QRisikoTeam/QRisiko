@@ -30,27 +30,29 @@ class PrePartita: public QWidget{
 		QSpacerItem* separatore;
 		int rowNumber;
 		bool IsServer;
+		void TogliColore(int ID, int ColorID);
+		void AggiungiColore(int ColorID);
 	public:
-		enum {ServerID=-1};
 		PrePartita(int ID,const QString& PlNam="",QWidget* parent=0);
+		QString GetPlayerName() const {return PlayerName;}
 	protected:
 		void resizeEvent(QResizeEvent *event);
 	signals:
-		void ready(bool);
-		void AllReady();
 		void Annullato();
 		void ColoreScelto(int ID, int ColorID);
 		void PartitaPiena();
+		void SonoPronto();
+		void NonSonoPronto();
+		void InfoCambiate(const QString& Nome, int ColorID);
 	public slots:
-		void ColoreSelezionato(int ID, int ColorID);
-		void TogliColore(int ID, int ColorID);
-		void AggiungiColore(int ColorID);
 		void AggiuntoGiocatore(int ID, QString Nome="");
 		void RimossoGiocatore(int ID);
 		void SetMyID(const int& a){MyID=a;}
 		void SetPlayerName(const QString& a){PlayerName=a;}
+		void AggiornaInformazioni(int ident, const QString& NuovoNome, int NuovoColore);
 	private slots:
+		void ready(bool pront);
 		void disabilitaPronto(bool pront);
-		void NomeCambiato(const QString& nuovo);
+		void CreaInformazioni();
 };
 #endif

@@ -27,7 +27,7 @@ PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
 	Pronto->setCheckable(true);
 	Pronto->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
 	Pronto->setMinimumSize(Giocatori::MinButtonSize);
-	connect(Pronto,SIGNAL(clicked(bool)),this,SIGNAL(ready(bool)));
+	connect(Pronto,SIGNAL(clicked(bool)),this,SLOT(ready(bool)));
 	connect(Pronto,SIGNAL(clicked(bool)),this,SLOT(disabilitaPronto(bool)));
 	Annulla=new QPushButton(this);
 	Annulla->setObjectName("AnnullaButton");
@@ -85,17 +85,11 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 	if (Temp=="") Temp=QString("Giocatore %1").arg(ContGiocatori+1);
 	NomiGiocatori.append(new QLineEdit(Interno));
 	NomiGiocatori.last()->setText(Temp);
-	if (ID==MyID){
-		NomiGiocatori.last()->setEnabled(true);
-		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(NomeCambiato(QString)));
-	}
-	else NomiGiocatori.last()->setEnabled(false);
+	
 	NomiGiocatori.last()->setObjectName(QString("Nome%1").arg(NomiGiocatori.size()));
 	NomiGiocatori.last()->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);
 	NomiGiocatori.last()->setMinimumSize(NomiGiocatori.last()->sizeHint());
 	ColoriGiocatori.append(new QComboBox(Interno));
-	if (ID==MyID) ColoriGiocatori.last()->setEnabled(true);
-	else ColoriGiocatori.last()->setEnabled(false);
 	ColoriGiocatori.last()->setObjectName(QString("Colore%1").arg(ColoriGiocatori.size()));
 	ColoriGiocatori.last()->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Preferred);
 	ColoriGiocatori.last()->setMinimumSize(ColoriGiocatori.last()->sizeHint());
@@ -104,6 +98,16 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 	for (int j=0;j<Giocatori::Max_Giocatori;j++){
 		temp.fill(Giocatori::Colori[j]);
 		ColoriGiocatori.last()->addItem(QIcon(temp),Giocatori::NomiColori[j],j);
+	}
+	if (ID==MyID){
+		NomiGiocatori.last()->setEnabled(true);
+		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(CreaInformazioni()));
+		ColoriGiocatori.last()->setEnabled(true);
+		connect(NomiGiocatori.last(),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
+	}
+	else{
+		NomiGiocatori.last()->setEnabled(false);
+		ColoriGiocatori.last()->setEnabled(false);
 	}
 	ItemsLayout->removeItem(separatore);
 	ItemsLayout->addWidget(NomiGiocatori.last(),rowNumber,0);
@@ -174,5 +178,21 @@ void PrePartita::disabilitaPronto(bool pront){
 	ColoriGiocatori.at(Index)->setEnabled(!pront);
 	NomiGiocatori.at(Index)->setEnabled(!pront);
 }
-void PrePartita::ColoreSelezionato(int ID, int ColorID){}
-void PrePartita::NomeCambiato(const QString& nuovo){}
+void PrePartita::ready(bool pront){
+	if (pront) emit SonoPronto();
+	else emit NonSonoPronto();
+}
+void PrePartita::CreaInformazioni(){
+	int i;
+	for (i=0;i<NomiGiocatori.size();i++){
+		if (NomiGiocatori.at(i)->isEnabled()) break;
+	}
+	if (i==NomiGiocatori.size()) return;
+	emit InfoCambiate(NomiGiocatori.at(i)->text(),ColoriGiocatori.at(i)->itemData(ColoriGiocatori.at(i)->currentIndex()).toInt());
+}
+void PrePartita::AggiornaInformazioni(int ident, const QString& NuovoNome, int NuovoColore){
+	int Index=IDList.indexOf(ident);
+	NomiGiocatori.at(Index)->setText(NuovoNome);
+	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
+	TogliColore(ident,NuovoColore);
+}

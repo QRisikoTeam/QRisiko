@@ -36,6 +36,12 @@ void GiocoSocket::readClient()
 			case Comunicazioni::CambiateInfo:
 				incom >> dato1 >> stringa1 >> dato2; // ID, Nuovo Nome, Nuovo Colore
 				emit CambiateInfo(dato1,stringa1,dato2);
+			case Comunicazioni::SonoPronto:
+				incom >> dato1; //ID di chi è pronto
+				emit IsReady(dato1);
+			case Comunicazioni::NonSonoPronto:
+				incom >> dato1; //ID di chi è pronto
+				emit IsNotReady(dato1);
 			/*case Comunicazioni::AggiunteArmate:
 				incom >> dato1 >> dato2;
 				emit GotAggiuntoArmate(Stato,Numero);
@@ -89,4 +95,22 @@ void GiocoSocket::UpdateInfo(int ident,const QString& NuovoNome,int NuovoColore)
 		out << quint16(block.size() - 2*sizeof(quint16));
 		write(block);
 	}
+}
+void GiocoSocket::StartGame(){
+	QByteArray block;
+	QDataStream out(&block, QIODevice::WriteOnly);
+	out.setVersion(QDataStream::Qt_4_7);
+	out << quint16(0) << quint16(Comunicazioni::StartGame) << quint16(0xFFFF);
+	out.device()->seek(0);
+	out << quint16(block.size() - 2*sizeof(quint16));
+	write(block);
+}
+void GiocoSocket::GiocatoreDisconnesso(int ident){
+	QByteArray block;
+	QDataStream out(&block, QIODevice::WriteOnly);
+	out.setVersion(QDataStream::Qt_4_7);
+	out << quint16(0) << quint16(Comunicazioni::Disconnesso) << ident << quint16(0xFFFF);
+	out.device()->seek(0);
+	out << quint16(block.size() - 2*sizeof(quint16));
+	write(block);
 }

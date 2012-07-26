@@ -20,6 +20,11 @@ signals:
 	void NuovoUtente(int);
 	void CambiateInfo(int ident, const QString& NuovoNome, int NuovoColore);
 	void UpdateInfo(int ident, const QString& NuovoNome, int NuovoColore);
+	void IsReady(int ident);
+	void IsNotReady(int ident);
+	void StartGame();
+	void Disonnesso(int ident);
+	void GiocatoreDisconnesso(int ident);
 private:
 	bool keepRunning;
 	int socketDescriptor;

@@ -11,6 +11,7 @@
 #include "Pre Partita.h"
 #include "Gestore Servers.h"
 #include "Gioco Server.h"
+#include "Gioco Client.h"
 
 class MainWindow : public QMainWindow{
 	Q_OBJECT
@@ -33,6 +34,7 @@ class MainWindow : public QMainWindow{
 		QLabel* BottomFrameCover;
 		GestoreServers* GestoreOnline;
 		GiocoServer* ServerGioco;
+		ClientGioco* ClientDiGioco;
 		int DurataAnimazioniMenu;
 		void riposiziona();
 	private slots:
@@ -46,9 +48,11 @@ class MainWindow : public QMainWindow{
 		void NascondiRegolamento();
 		void MostraPrePartita();
 		void StartServer();
-		void StartClient();
+		void StartClient(const QString& HostIP);
+		void StopServer();
+		void StopClient();
 		void StartHostedMatch();
-		void StartJoinedMatch();
+		void StartJoinedMatch(const QString& Host);
 	protected:
 		void closeEvent(QCloseEvent *event);
 		void resizeEvent(QResizeEvent *event);

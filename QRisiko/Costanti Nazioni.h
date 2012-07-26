@@ -928,6 +928,7 @@ namespace CSS{
 
 namespace Comunicazioni{
 	const unsigned int DefaultTCPPort=7676;
+	const int ServerID=-1;
 	enum{
 		RichiediInfo //Client Chiede Informazioni su Nome del Server, Numero giocatori Online e Massimo
 		,OttieniInfo //Client Invia Informazioni su Nome del Server, Numero giocatori Online e Massimo
@@ -936,6 +937,10 @@ namespace Comunicazioni{
 		,NewPlayer //Un Nuovo Giocatore Si Unisce alla Partita
 		,CambiateInfo //Il Client ha cambiato Nome Utente o Colore
 		,AggiornaInfo //Il Client deve aggiornare le informazioni relative agli altri giocatori
+		,SonoPronto //Il client e' pronto ad iniziare la partita
+		,NonSonoPronto //Il client non e' pronto ad iniziare la partita
+		,StartGame //Tutti i Client sono Pronti e il Gioco Inizia
+		,Disconnesso //Un client si è disconnesso
 		//Azioni di Gioco
 		,AggiunteArmate //Il client ha aggiunto armate ad uno stato
 		,Attacca //Il Client Attacca uno stato

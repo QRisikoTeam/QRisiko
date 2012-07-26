@@ -12,6 +12,11 @@ GiocoThread::GiocoThread(int soketDescriptor, QObject *parent)
 	connect(this,SIGNAL(MandaMioID(int)),socket,SLOT(MandaMioID(int)));
 	connect(this,SIGNAL(NuovoUtente(int)),socket,SLOT(NuovoUtente(int)));
 	connect(this,SIGNAL(UpdateInfo(int,QString,int)),socket,SLOT(UpdateInfo(int,QString,int)));
+	connect(socket,SIGNAL(IsReady(int)),this,SIGNAL(IsReady(int)));
+	connect(socket,SIGNAL(IsNotReady(int)),this,SIGNAL(IsNotReady(int)));
+	connect(this,SIGNAL(StartGame()),socket,SLOT(StartGame()));
+	connect(socket,SIGNAL(Disonnesso(int)),this,SIGNAL(Disonnesso(int)));
+	connect(this,SIGNAL(GiocatoreDisconnesso(int)),socket,SLOT(GiocatoreDisconnesso(int)));
 		
 }
 

@@ -13,7 +13,7 @@ class ClientGioco : public QObject{
 		int MyID;
 		quint16 nextBlockSize;
 	public:
-		ClientGioco(QString& HIP=QString("127.0.0.1"),int por=Comunicazioni::DefaultTCPPort,QObject* parent=0);
+		ClientGioco(const QString& HIP=QString("127.0.0.1"),int por=Comunicazioni::DefaultTCPPort,QObject* parent=0);
 		QString GetHostIP() const{return HostIP;}
 		void SetHostIP(const QString& a){HostIP=a;}
 		int GetPort() const{return Porta;}
@@ -22,11 +22,15 @@ class ClientGioco : public QObject{
 		void Connetti();
 		void Disconnetti();
 		void CambiateMieInfo(const QString& NuovoNome, int NuovoColore);
+		void SonoPronto();
+		void NonSonoPronto();
 	signals:
 		void Connesso();
 		void Disconnesso();
 		void NuovoGiocatore(int);
 		void AggiornaInfo(int ident, const QString& NuovoNome, int NuovoColore);
+		void StartGame();
+		void GiocatoreDisconnesso(int ident);
 	private slots:
 		void IncomingTransmission();
 	
