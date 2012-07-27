@@ -1,6 +1,5 @@
 #include "Chat Widget.h"
 #include "Chat Const.h"
-#include "Gestore Servers.h"
 #include <QtGui>
 #include <QtNetwork>
 
@@ -44,21 +43,15 @@ bool ChatWidget::Avvia(){
 			if (fistTime){
 				connect(this, SIGNAL(MessageRecieved(QString,bool)), this, SLOT(PrintMessage(QString,bool)));
 			}
-			PrintMessage(tr("Connessione in corso..."),true);
 			TCPsocket->connectToHost(Host,port);
 			nextBlockSize=0;
 			finito=false;
 		}
 		else{
 			TCPServer=new ChatServer(this);
-			GestoreServers* IPgetter=new GestoreServers(this);
-			connect (IPgetter,SIGNAL(IPOttenuto(QString)),this,SLOT(StampaBenvenutoServer(QString)));
 			if (!TCPServer->listen(QHostAddress::Any, port)) {
 				PrintMessage(tr("Failed to bind to port"),true);
 				return false;
-			}
-			else {
-				IPgetter->OttieniIP();
 			}
 			connect(TCPServer,SIGNAL(SendMessage(QString)),this, SLOT(StampaMessaggioUtente(QString)));
 			connect(this,SIGNAL(MessageFromServer(QString)),TCPServer,SIGNAL(SendMessage(QString)));
@@ -72,21 +65,19 @@ bool ChatWidget::Avvia(){
 }
 void ChatWidget::Ferma(){
 	if(TCPServer){
-		delete TCPServer;
+		TCPServer->deleteLater();
 		TCPServer=NULL;
 	}
 	if(TCPsocket){
 		if(TCPsocket->isOpen()) TCPsocket->close();
-		delete TCPsocket;
+		Disconnesso();
+		qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+		TCPsocket->deleteLater();
 		TCPsocket=NULL;
 	}
 	partito=false;
 	ChatText->setHtml("");
 	reconnectButton->setVisible(true);
-}
-void ChatWidget::StampaBenvenutoServer(QString msg){
-	//PrintMessage(tr("Server Avviato<br/>IP: %1<br/>Port: %2").arg(msg).arg(TCPServer->serverPort()),true); //Visualizza anche la Porta
-	PrintMessage(tr("Server Avviato<br/>IP: %1").arg(msg),true);
 }
 void ChatWidget::StampaMessaggioUtente(QString msg){
 		PrintMessage(msg,false);

@@ -10,15 +10,15 @@
 #include <QLabel>
 #include <QScrollArea>
 #include <QSpacerItem>
+#include <QHBoxLayout>
 
 #include <QtGui>
 
-PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
+PrePartita::PrePartita(QWidget* parent)
 :QWidget(parent)
-,MyID(ID)
 ,ContGiocatori(0)
-,PlayerName(PlNam)
 ,rowNumber(0)
+,Duplicato(false)
 {
 	Pronto=new QPushButton(this);
 	Pronto->setObjectName("ProntoButton");
@@ -34,7 +34,7 @@ PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
 	Annulla->setText("Annulla");
 	Annulla->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
 	Annulla->setMinimumSize(Giocatori::MinButtonSize);
-	connect(Annulla,SIGNAL(clicked()),this,SIGNAL(Annullato()));
+	connect(Annulla,SIGNAL(clicked()),this,SLOT(MostraRUSure()));
 	Interno=new QScrollArea(this);
 	Interno->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	Interno->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -57,7 +57,6 @@ PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
 	ItemsLayout=new QGridLayout(Interno);
 	separatore=new QSpacerItem(20,20,QSizePolicy::Minimum,QSizePolicy::Expanding);
 	ItemsLayout->addItem(separatore,0,0);
-	AggiuntoGiocatore(MyID,PlayerName);
 	
 	Sfondo=new QFrame(this);
 	Sfondo->setObjectName("Sfondo");
@@ -65,8 +64,58 @@ PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
 	Interno->lower();
 	Sfondo->lower();
 
+	RUSure=new QFrame(this);
+	RUSure->setObjectName("SeiSicuro");
+	QGridLayout* SeiSicuroLayout = new QGridLayout(RUSure);
+	SeiSicuroLayout->setObjectName("SeiSicuroLayout");
+	SeiSicuroLayout->setContentsMargins(12, 12, 12, 12);
+	QHBoxLayout* SeiSicuroLayoutTop = new QHBoxLayout();
+	SeiSicuroLayoutTop->setSpacing(12);
+	SeiSicuroLayoutTop->setContentsMargins(12, 12, 12, 12);
+	SeiSicuroLayoutTop->setObjectName("SeiSicuroLayoutTop");
+	PuntoDiDomanda = new QLabel(RUSure);
+	PuntoDiDomanda->setObjectName("PuntoDiDomanda");
+	PuntoDiDomanda->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+	PuntoDiDomanda->setMaximumSize(QSize(40, 40));
+	PuntoDiDomanda->setMinimumSize(QSize(40, 40));
+	PuntoDiDomanda->setPixmap(QPixmap(":/Generale/QuestionMark.png"));
+	PuntoDiDomanda->setScaledContents(true);
+	SeiSicuroLayoutTop->addWidget(PuntoDiDomanda);
+	SeiSicuroLabel = new QLabel(RUSure);
+	SeiSicuroLabel->setObjectName("SeiSicuroLabel");
+	SeiSicuroLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	SeiSicuroLabel->setText(tr("Sei Sicuro di Voler<br>Abbandonare la Partita?"));
+	SeiSicuroLayoutTop->addWidget(SeiSicuroLabel);
+	SeiSicuroLayout->addLayout(SeiSicuroLayoutTop, 0, 0, 1, 3);
+	QSpacerItem* horizontalSpacer = new QSpacerItem(49, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	QSpacerItem* horizontalSpacer_2 = new QSpacerItem(49, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	SeiSicuroLayout->addItem(horizontalSpacer, 1, 0, 1, 1);
+	QHBoxLayout* SeiSicuroLayoutBottom = new QHBoxLayout();
+	SeiSicuroLayoutBottom->setSpacing(12);
+	SeiSicuroLayoutBottom->setContentsMargins(12, 12, 12, 12);
+	SeiSicuroLayoutBottom->setObjectName("SeiSicuroLayoutBottom");
+	SonoSicuro = new QPushButton(RUSure);
+	SonoSicuro->setObjectName("SonoSicuro");
+	SonoSicuro->setText(tr("Si"));
+	SonoSicuro->setMinimumSize(100,Giocatori::MinButtonSize.height());
+	connect(SonoSicuro,SIGNAL(clicked()),this,SIGNAL(Annullato()));
+	connect(SonoSicuro,SIGNAL(clicked()),this,SLOT(NascondiRUSure()));
+	SeiSicuroLayoutBottom->addWidget(SonoSicuro);
+	NonSonoSicuro = new QPushButton(RUSure);
+	NonSonoSicuro->setObjectName("NonSonoSicuro");
+	NonSonoSicuro->setText(tr("No"));
+	NonSonoSicuro->setMinimumSize(100,Giocatori::MinButtonSize.height());
+	connect(NonSonoSicuro,SIGNAL(clicked()),this,SLOT(NascondiRUSure()));
+	SeiSicuroLayoutBottom->addWidget(NonSonoSicuro);
+	SeiSicuroLayout->addLayout(SeiSicuroLayoutBottom, 1, 1, 1, 1);
+	SeiSicuroLayout->addItem(horizontalSpacer_2, 1, 2, 1, 1);
+	RUSure->setGeometry((width()-RUSure->sizeHint().width())/2,(height()-RUSure->sizeHint().height())/2,RUSure->sizeHint().width(),RUSure->sizeHint().height());
+	RUSure->hide();
+
+
 	//Test
-	/*AggiuntoGiocatore(32,"Pippo");
+	/*
+	AggiuntoGiocatore(32,"Pippo");
 	AggiuntoGiocatore(21,"Pluto");
 	AggiuntoGiocatore(12,"Topolino");
 	RimossoGiocatore(21);
@@ -76,6 +125,23 @@ PrePartita::PrePartita(int ID,const QString& PlNam, QWidget* parent)
 	AggiuntoGiocatore(6,"Batman");
 	AggiuntoGiocatore(21,"Pluto");*/
 
+}
+void PrePartita::MostraRUSure(){
+	RUSure->show();
+	RUSure->raise();
+	Pronto->setEnabled(false);
+	Annulla->setEnabled(false);
+	Interno->setEnabled(false);
+	Sfondo->setEnabled(false);
+	ImpostazioniLabel->setEnabled(false);
+}
+void PrePartita::NascondiRUSure(){
+	RUSure->hide();
+	Pronto->setEnabled(true);
+	Annulla->setEnabled(true);
+	Interno->setEnabled(true);
+	Sfondo->setEnabled(true);
+	ImpostazioniLabel->setEnabled(true);
 }
 void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 	if (IDList.size()>=8){emit PartitaPiena(); return;}
@@ -102,8 +168,12 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 	if (ID==MyID){
 		NomiGiocatori.last()->setEnabled(true);
 		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(CreaInformazioni()));
+		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(ControllaDuplicati()));
+		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(SetPlayerName(QString)));
 		ColoriGiocatori.last()->setEnabled(true);
-		connect(NomiGiocatori.last(),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
+		connect(ColoriGiocatori.last(),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
+		connect(ColoriGiocatori.last(),SIGNAL(currentIndexChanged(int)),this,SLOT(ControllaDuplicati()));
+		CreaInformazioni();
 	}
 	else{
 		NomiGiocatori.last()->setEnabled(false);
@@ -113,7 +183,7 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 	ItemsLayout->addWidget(NomiGiocatori.last(),rowNumber,0);
 	ItemsLayout->addWidget(ColoriGiocatori.last(),rowNumber,1);
 	ItemsLayout->addItem(separatore,++rowNumber,0);
-
+	ControllaDuplicati();
 
 
 }
@@ -170,6 +240,7 @@ void PrePartita::AggiungiColore(int ColorID){
 }
 void PrePartita::resizeEvent(QResizeEvent *event){
 	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());
+	RUSure->setGeometry((event->size().width()-RUSure->sizeHint().width())/2,(event->size().height()-RUSure->sizeHint().height())/2,RUSure->sizeHint().width(),RUSure->sizeHint().height());
 	QWidget::resizeEvent(event);
 }
 
@@ -177,6 +248,25 @@ void PrePartita::disabilitaPronto(bool pront){
 	int Index=IDList.indexOf(MyID);
 	ColoriGiocatori.at(Index)->setEnabled(!pront);
 	NomiGiocatori.at(Index)->setEnabled(!pront);
+}
+void PrePartita::ControllaDuplicati(){
+	int Index=IDList.indexOf(MyID);
+	bool Trovato=false;
+	for (int i=0;i<NomiGiocatori.size() && !Trovato;i++){
+		if (
+			(i!=Index && NomiGiocatori.at(i)->text()==NomiGiocatori.at(Index)->text())
+			||(
+				ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt()!=Giocatori::Spectator
+				&&
+				(i!=Index && ColoriGiocatori.at(i)->itemData(ColoriGiocatori.at(i)->currentIndex()).toInt()==ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt())
+				)
+			|| ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt()==Giocatori::Spectator
+			){
+				Trovato=true;
+		}
+	}
+	Duplicato=!Trovato;
+	Pronto->setEnabled(!Trovato);
 }
 void PrePartita::ready(bool pront){
 	if (pront) emit SonoPronto();

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Chat Widget.h'
 **
-** Created: Tue 24. Jul 19:28:03 2012
+** Created: Fri 27. Jul 16:49:34 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ChatWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -48,7 +48,6 @@ static const uint qt_meta_data_ChatWidget[] = {
      268,  255,   11,   11, 0x08,
      299,  295,   11,   11, 0x28,
      321,  295,   11,   11, 0x08,
-     352,  295,   11,   11, 0x08,
 
        0        // eod
 };
@@ -65,7 +64,6 @@ static const char qt_meta_stringdata_ChatWidget[] = {
     "PrintMessage(QString,bool)\0msg\0"
     "PrintMessage(QString)\0"
     "StampaMessaggioUtente(QString)\0"
-    "StampaBenvenutoServer(QString)\0"
 };
 
 void ChatWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -90,7 +88,6 @@ void ChatWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 12: _t->PrintMessage((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         case 13: _t->PrintMessage((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 14: _t->StampaMessaggioUtente((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 15: _t->StampaBenvenutoServer((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -130,9 +127,9 @@ int ChatWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 15;
     }
     return _id;
 }

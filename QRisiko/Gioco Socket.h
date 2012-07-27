@@ -27,6 +27,7 @@ class GiocoSocket : public QTcpSocket
 		void IsReady(int ident);
 		void IsNotReady(int ident);
 		void Disconnesso(int ident);
+		void IWantToJoin(int ident);
 };
 
 

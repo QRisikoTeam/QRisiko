@@ -11,7 +11,6 @@ public:
 	GiocoThread(int soketDescriptor, QObject *parent);
 	void run();
 	int GetSocketDescriptor() const {return socketDescriptor;}
-	void stop();
 	void SendInfo(QString Nome, int Giocatori, int MaxGiocatori){emit InviaInformazioni(Nome,Giocatori,MaxGiocatori);}
 signals:
 	void GotRichiediInfo(int iden);
@@ -25,6 +24,7 @@ signals:
 	void StartGame();
 	void Disonnesso(int ident);
 	void GiocatoreDisconnesso(int ident);
+	void IWantToJoin(int ident);
 private:
 	bool keepRunning;
 	int socketDescriptor;
@@ -32,6 +32,8 @@ private:
 	GiocoSocket* socket;
 private slots:
 	void IdentificaInfoReq(){emit GotRichiediInfo(socketDescriptor);}
+public slots:
+	void stop();
 };
 
 

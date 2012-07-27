@@ -24,6 +24,7 @@ class ClientGioco : public QObject{
 		void CambiateMieInfo(const QString& NuovoNome, int NuovoColore);
 		void SonoPronto();
 		void NonSonoPronto();
+		void IWantToJoin();
 	signals:
 		void Connesso();
 		void Disconnesso();
@@ -31,6 +32,7 @@ class ClientGioco : public QObject{
 		void AggiornaInfo(int ident, const QString& NuovoNome, int NuovoColore);
 		void StartGame();
 		void GiocatoreDisconnesso(int ident);
+		void MyIDIs(int idnet);
 	private slots:
 		void IncomingTransmission();
 	

@@ -14,12 +14,18 @@ class QGridLayout;
 class QSpacerItem;
 class PrePartita: public QWidget{
 	Q_OBJECT
+	Q_PROPERTY(bool Duplicato READ GetDuplicato);
 	private:
 		QFrame* Sfondo;
+		QFrame* RUSure;
 		QScrollArea* Interno;
 		QPushButton* Pronto;
 		QPushButton* Annulla;
+		QPushButton* SonoSicuro;
+		QPushButton* NonSonoSicuro;
 		QLabel* ImpostazioniLabel;
+		QLabel* PuntoDiDomanda;
+		QLabel* SeiSicuroLabel;
 		int ContGiocatori;
 		QList<QLineEdit*> NomiGiocatori;
 		QList<QComboBox*> ColoriGiocatori;
@@ -32,9 +38,11 @@ class PrePartita: public QWidget{
 		bool IsServer;
 		void TogliColore(int ID, int ColorID);
 		void AggiungiColore(int ColorID);
+		bool Duplicato;
 	public:
-		PrePartita(int ID,const QString& PlNam="",QWidget* parent=0);
+		PrePartita(QWidget* parent=0);
 		QString GetPlayerName() const {return PlayerName;}
+		bool GetDuplicato() const {return Duplicato;}
 	protected:
 		void resizeEvent(QResizeEvent *event);
 	signals:
@@ -45,6 +53,7 @@ class PrePartita: public QWidget{
 		void NonSonoPronto();
 		void InfoCambiate(const QString& Nome, int ColorID);
 	public slots:
+		void AggiuntoGiocatoreID(int ID){AggiuntoGiocatore(ID,"");}
 		void AggiuntoGiocatore(int ID, QString Nome="");
 		void RimossoGiocatore(int ID);
 		void SetMyID(const int& a){MyID=a;}
@@ -54,5 +63,8 @@ class PrePartita: public QWidget{
 		void ready(bool pront);
 		void disabilitaPronto(bool pront);
 		void CreaInformazioni();
+		void MostraRUSure();
+		void NascondiRUSure();
+		void ControllaDuplicati();
 };
 #endif

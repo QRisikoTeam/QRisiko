@@ -32,6 +32,7 @@ primaVolta(true)
 	ManualInput->setValidator(new QRegExpValidator(validatore, this));
 
 	//Test
+	/*
 	TabellaServer->setSortingEnabled(false);
 	int Riga=TabellaServer->rowCount();
 	TabellaServer->setRowCount(Riga+1);
@@ -57,7 +58,7 @@ primaVolta(true)
 	}
 	CodiceIP->setData(Qt::DisplayRole,"192.168.1.3");
 
-	TabellaServer->setSortingEnabled(true);
+	TabellaServer->setSortingEnabled(true);*/
 
 }
 void ServerSelector::Avvia(){

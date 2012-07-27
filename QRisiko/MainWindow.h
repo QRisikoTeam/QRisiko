@@ -51,8 +51,8 @@ class MainWindow : public QMainWindow{
 		void StartClient(const QString& HostIP);
 		void StopServer();
 		void StopClient();
-		void StartHostedMatch();
-		void StartJoinedMatch(const QString& Host);
+		void StartMatch();
+		void AggiornaChat(QString NuovoNome, int NuovoColore);
 	protected:
 		void closeEvent(QCloseEvent *event);
 		void resizeEvent(QResizeEvent *event);

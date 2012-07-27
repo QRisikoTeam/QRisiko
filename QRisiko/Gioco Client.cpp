@@ -6,6 +6,7 @@ ClientGioco::ClientGioco(const QString& HIP,int por,QObject* parent)
 ,Porta(por)
 {
 	connect(&Cliente,SIGNAL(connected()),this,SIGNAL(Connesso()));
+	connect(&Cliente,SIGNAL(connected()),this,SLOT(IWantToJoin()));
 	connect(&Cliente,SIGNAL(disconnected()),this,SIGNAL(Disconnesso()));
 	connect(&Cliente,SIGNAL(readyRead()),this,SLOT(IncomingTransmission()));
 }
@@ -38,6 +39,7 @@ void ClientGioco::IncomingTransmission(){
 		switch (TipoRichiesta){
 			case Comunicazioni::WhatsMyID:
 				incom >> MyID;
+				emit MyIDIs(MyID);
 				break;
 			case Comunicazioni::NewPlayer:
 				incom >> data1; //Registra l'ID del nuovo utente
@@ -89,6 +91,18 @@ void ClientGioco::NonSonoPronto(){
 		QDataStream out(&block, QIODevice::WriteOnly);
 		out.setVersion(QDataStream::Qt_4_7);
 		out << quint16(0) << quint16(Comunicazioni::NonSonoPronto) << MyID << quint16(0xFFFF);
+		out.device()->seek(0);
+		out << quint16(block.size() - 2*sizeof(quint16));
+		Cliente.write(block);
+	}
+}
+
+void ClientGioco::IWantToJoin(){
+	if(Cliente.isOpen()){
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_7);
+		out << quint16(0) << quint16(Comunicazioni::PartecipaServer) << quint16(0xFFFF);
 		out.device()->seek(0);
 		out << quint16(block.size() - 2*sizeof(quint16));
 		Cliente.write(block);

@@ -71,13 +71,14 @@ ClientDiGioco(NULL)
 	SelettoreServer->hide();
 	connect(MainMenu,SIGNAL(Join()),SelettoreServer,SLOT(Avvia()));
 	connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
-	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(StartJoinedMatch()));
+	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(StartClient(QString)));
+	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraPrePartita()));
 
-	prePartita=new PrePartita(/*test*/ -1,mappa->GetPlayer().GetUsername(),TopFrame);
+	prePartita=new PrePartita(TopFrame);
 	prePartita->setObjectName("PrePartita");
 	prePartita->hide();
-	connect(prePartita,SIGNAL(AllReady()),this,SLOT(StartServer()));
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
+	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),this,SLOT(AggiornaChat(QString,int)));
 
 	GestoreOnline=new GestoreServers(this);
 	
@@ -178,21 +179,11 @@ void MainWindow::MostraMappa(){
 	animIn->setKeyValueAt(1.0,QPoint(0,0));
 	animIn->setKeyValueAt(0.0,QPoint(TopFrame->width()+40,0));
 
-	QPropertyAnimation* animBottomOut= new QPropertyAnimation(BottomFrameCover,"pos",BottomFrame);
-	animBottomOut->setDuration(DurataAnimazioniMenu);
-	animBottomOut->setEasingCurve(QEasingCurve::Linear);
-	animBottomOut->setKeyValueAt(1.0,QPoint(-BottomFrameCover->width()-40,BottomFrameCover->pos().y()));
-	animBottomOut->setKeyValueAt(0.0,BottomFrameCover->pos());
-
 	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
 	Animazioni->addAnimation(animIn);
 	Animazioni->addAnimation(animOut);
-	Animazioni->addAnimation(animBottomOut);
 	connect(Animazioni,SIGNAL(finished()),this,SLOT(NascondiPrev()));
-	connect(Animazioni,SIGNAL(finished()),BottomFrameCover,SLOT(hide()));
 
-	BottomFrame->setEnabled(true);
-	chat->Avvia();
 	mappa->show();
 
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
@@ -238,12 +229,21 @@ void MainWindow::MostraPrePartita(){
 	animIn->setKeyValueAt(1.0,QPoint((TopFrame->size().width()-prePartita->width())/2.0,(TopFrame->size().height()-prePartita->height())/2.0));
 	animIn->setKeyValueAt(0.0,QPoint(TopFrame->width()+40,(TopFrame->size().height()-prePartita->height())/2.0));
 
+	QPropertyAnimation* animBottomOut= new QPropertyAnimation(BottomFrameCover,"pos",BottomFrame);
+	animBottomOut->setDuration(DurataAnimazioniMenu);
+	animBottomOut->setEasingCurve(QEasingCurve::Linear);
+	animBottomOut->setKeyValueAt(1.0,QPoint(-BottomFrameCover->width()-40,BottomFrameCover->pos().y()));
+	animBottomOut->setKeyValueAt(0.0,BottomFrameCover->pos());
+
 	QParallelAnimationGroup *Animazioni=new QParallelAnimationGroup;
 	Animazioni->addAnimation(animIn);
 	Animazioni->addAnimation(animOut);
+	Animazioni->addAnimation(animBottomOut);
 	connect(Animazioni,SIGNAL(finished()),this,SLOT(NascondiPrev()));
+	connect(Animazioni,SIGNAL(finished()),BottomFrameCover,SLOT(hide()));
 
 	prePartita->show();
+	BottomFrame->setEnabled(true);
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
 	PrevWidget=CurrWidget;
 	CurrWidget=prePartita;
@@ -382,53 +382,74 @@ void MainWindow::NascondiPrev(){
 }
 
 void MainWindow::StartClient(const QString& HostIP){
+	chat->SetUserName(prePartita->GetPlayerName());
+	chat->SetUserColor(Giocatori::ColoreSpettatore);
+	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
+	chat->SetIsServer(false);
+	chat->SetHostIP(HostIP);
+	chat->Avvia();
+	if (ClientDiGioco) return;
 	ClientDiGioco=new ClientGioco(HostIP,Comunicazioni::DefaultTCPPort,this);
-	ClientDiGioco->Connetti();
+	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(StopClient()));
+	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(MostraMainMenu())); //TODO Segnala che il server l'ha cacciato
 	connect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SIGNAL(SonoPronto()));
 	connect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SIGNAL(NonSonoPronto()));
 	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),ClientDiGioco,SLOT(CambiateMieInfo(QString,int)));
-	connect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
+	connect(prePartita,SIGNAL(Annullato()),this,SLOT(StopClient()));
+	connect(ClientDiGioco,SIGNAL(MyIDIs(int)),prePartita,SLOT(SetMyID(int)));
+	connect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatoreID(int)));
 	connect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
 	connect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
 	connect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
+	ClientDiGioco->Connetti();
 }
 void MainWindow::StopClient(){
+	chat->Ferma();
 	if (!ClientDiGioco) return;
-	disconnect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SIGNAL(SonoPronto()));
-	disconnect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SIGNAL(NonSonoPronto()));
-	disconnect(prePartita,SIGNAL(InfoCambiate(QString,int)),ClientDiGioco,SLOT(CambiateMieInfo(QString,int)));
-	disconnect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
-	disconnect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
-	disconnect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
-	disconnect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	ClientDiGioco->Disconnetti();
+	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+	ClientDiGioco->disconnect(); //Disconnette tutti i signal e slot
 	ClientDiGioco->deleteLater();
 	ClientDiGioco=NULL;
 }
 void MainWindow::StartServer(){
+	chat->SetUserName(prePartita->GetPlayerName());
+	chat->SetUserColor(Giocatori::ColoreSpettatore);
+	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
+	chat->SetIsServer(true);
+	chat->Avvia();
+	if (ServerGioco) return;
+	prePartita->SetMyID(Comunicazioni::ServerID);
 	ServerGioco=new GiocoServer(mappa->GetPlayer().GetUsername(),6 /*TODO da impostare in Opzioni*/, this);
+	connect(ServerGioco,SIGNAL(NuovaConnessione(int)),prePartita,SLOT(AggiuntoGiocatoreID(int)));
+	connect(prePartita,SIGNAL(SonoPronto()),ServerGioco,SLOT(ServerPronto()));
+	connect(prePartita,SIGNAL(NonSonoPronto()),ServerGioco,SLOT(ServerNonPronto()));
+	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),ServerGioco,SLOT(CambiateInfoServer(QString,int)));
+	connect(prePartita,SIGNAL(Annullato()),this,SLOT(StopServer()));
+	connect(ServerGioco,SIGNAL(NuovaConnessione(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
+	connect(ServerGioco,SIGNAL(Disconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
+	connect(ServerGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	connect(ServerGioco,SIGNAL(UpdateInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
+	if( !ServerGioco->listen(QHostAddress::Any,Comunicazioni::DefaultTCPPort) ) QMessageBox::critical(TopFrame,tr("Errore nell'avvio del Server"),tr("Impossibile Associarsi alla porta specificata"));
+	ServerGioco->SegnalaGiocatoreServer();
 }
 void MainWindow::StopServer(){
+	chat->Ferma();
+	if (!ServerGioco) return;
+	ServerGioco->Termina();
+	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+	ServerGioco->disconnect(); //Disconnette tutti i signal e slot
 	ServerGioco->deleteLater();
 	ServerGioco=NULL;
 }
-void MainWindow::StartHostedMatch(){
-	chat->SetUserName(mappa->GetPlayer().GetUsername());
-	if(mappa->GetPlayer().GetColorID()==Giocatori::Spectator)
-		chat->SetUserColor(Giocatori::ColoreSpettatore);
-	else
-		chat->SetUserColor(Giocatori::Colori[mappa->GetPlayer().GetColorID()]);
-	chat->SetShowTimeStamp(true /*TODO da impostare in Opzioni*/);
-	chat->SetIsServer(true);
+void MainWindow::StartMatch(){
 	
+	//TODO Add Code
 	MostraMappa();
 }
-void MainWindow::StartJoinedMatch(const QString& Host){
-	chat->SetUserName(prePartita->GetPlayerName());
-	chat->SetUserColor(Giocatori::Colori[mappa->GetPlayer().GetColorID()]);
-	chat->SetShowTimeStamp(true /*TODO da impostare in Opzioni*/);
-	chat->SetIsServer(false);
-	chat->SetHostIP(Host);
-	StartClient(Host);
-	MostraPrePartita();
+void MainWindow::AggiornaChat(QString NuovoNome, int NuovoColore){
+	if (NuovoNome=="" || NuovoColore<0 || NuovoColore>Giocatori::Max_Giocatori) return;
+	chat->SetUserName(NuovoNome);
+	if (NuovoColore==Giocatori::Spectator) chat->SetUserColor(Giocatori::ColoreSpettatore);
+	else chat->SetUserColor(Giocatori::Colori[NuovoColore]);
 }

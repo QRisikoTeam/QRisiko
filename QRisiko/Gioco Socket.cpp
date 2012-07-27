@@ -33,20 +33,26 @@ void GiocoSocket::readClient()
 			case Comunicazioni::RichiediInfo:
 				emit GotRichiediInfo();
 				break;
+			case Comunicazioni::PartecipaServer:
+				emit IWantToJoin(socketDescriptor);
+				break;
 			case Comunicazioni::CambiateInfo:
 				incom >> dato1 >> stringa1 >> dato2; // ID, Nuovo Nome, Nuovo Colore
 				emit CambiateInfo(dato1,stringa1,dato2);
+				break;
 			case Comunicazioni::SonoPronto:
 				incom >> dato1; //ID di chi è pronto
 				emit IsReady(dato1);
+				break;
 			case Comunicazioni::NonSonoPronto:
 				incom >> dato1; //ID di chi è pronto
 				emit IsNotReady(dato1);
+				break;
 			/*case Comunicazioni::AggiunteArmate:
 				incom >> dato1 >> dato2;
 				emit GotAggiuntoArmate(Stato,Numero);
 				break;*/
-
+			default: break;
 		}
 		nextBlockSize = 0;
 	}
