@@ -18,6 +18,9 @@ GiocoThread::GiocoThread(int soketDescriptor, QObject *parent)
 	connect(this,SIGNAL(StartGame()),socket,SLOT(StartGame()));
 	connect(socket,SIGNAL(Disonnesso(int)),this,SIGNAL(Disonnesso(int)));
 	connect(this,SIGNAL(GiocatoreDisconnesso(int)),socket,SLOT(GiocatoreDisconnesso(int)));
+	connect(this,SIGNAL(MandaInfoA(int,int,QString,int)),socket,SLOT(MandaInfoA(int,int,QString,int)));
+	connect(socket,SIGNAL(RicevutoID(int)),this,SIGNAL(RicevutoID(int)));
+	connect(socket,SIGNAL(SonoPronto(int)),this,SIGNAL(SonoPronto(int)));
 		
 }
 
@@ -29,5 +32,4 @@ void GiocoThread::run()
 
 void  GiocoThread::stop(){
 	keepRunning=false;
-	deleteLater();
 }

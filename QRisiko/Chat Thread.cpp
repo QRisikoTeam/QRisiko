@@ -12,7 +12,6 @@ ChatThread::ChatThread(int soketDescriptor, QObject *parent)
 void ChatThread::run()
 {
 	while(keepRunning){}
-	socket->disconnectFromHost();
 }
 
 void  ChatThread::stop(){

@@ -9,7 +9,7 @@ class GiocoSocket : public QTcpSocket
 		GiocoSocket(int soketDescriptor, QObject *parent = 0);
 	private slots:
 		void readClient();
-		void Disconnessione() {emit Disconnesso(socketDescriptor);}
+		void Disconnessione();
 	public slots:
 		void InviaInformazioni(QString Nome, int Giocatori, int MaxGiocatori);
 		void MandaMioID(int ident);
@@ -17,6 +17,7 @@ class GiocoSocket : public QTcpSocket
 		void UpdateInfo(int ident,const QString& NuovoNome,int NuovoColore);
 		void StartGame();
 		void GiocatoreDisconnesso(int ident);
+		void MandaInfoA(int destinazione, int ident, const QString& nome, int colore);
 	private:
 		quint16 nextBlockSize;
 		int socketDescriptor;
@@ -28,6 +29,8 @@ class GiocoSocket : public QTcpSocket
 		void IsNotReady(int ident);
 		void Disconnesso(int ident);
 		void IWantToJoin(int ident);
+		void RicevutoID(int ident);
+		void SonoPronto(int ident);
 };
 
 

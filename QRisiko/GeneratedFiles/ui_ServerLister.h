@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ServerLister.ui'
 **
-** Created: Fri 27. Jul 18:50:10 2012
+** Created: Sat 28. Jul 19:11:54 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

@@ -48,7 +48,6 @@ class PrePartita: public QWidget{
 	signals:
 		void Annullato();
 		void ColoreScelto(int ID, int ColorID);
-		void PartitaPiena();
 		void SonoPronto();
 		void NonSonoPronto();
 		void InfoCambiate(const QString& Nome, int ColorID);
@@ -59,6 +58,7 @@ class PrePartita: public QWidget{
 		void SetMyID(const int& a){MyID=a;}
 		void SetPlayerName(const QString& a){PlayerName=a;}
 		void AggiornaInformazioni(int ident, const QString& NuovoNome, int NuovoColore);
+		void Azzera();
 	private slots:
 		void ready(bool pront);
 		void disabilitaPronto(bool pront);

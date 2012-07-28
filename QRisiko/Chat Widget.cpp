@@ -12,7 +12,8 @@ IsServer(server),
 Host(hostIP),
 port(por),
 TCPServer(NULL),
-TCPsocket(NULL)
+TCPsocket(NULL),
+nextBlockSize(0)
 {
 	fistTime=true;
 	setupUi(this);

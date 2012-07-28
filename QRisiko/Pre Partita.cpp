@@ -144,7 +144,6 @@ void PrePartita::NascondiRUSure(){
 	ImpostazioniLabel->setEnabled(true);
 }
 void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
-	if (IDList.size()>=8){emit PartitaPiena(); return;}
 	IDList.append(ID);
 	QString Temp=Nome;
 	QPixmap temp(QSize(20,20));
@@ -183,6 +182,7 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 	ItemsLayout->addWidget(NomiGiocatori.last(),rowNumber,0);
 	ItemsLayout->addWidget(ColoriGiocatori.last(),rowNumber,1);
 	ItemsLayout->addItem(separatore,++rowNumber,0);
+	ContGiocatori++;
 	ControllaDuplicati();
 
 
@@ -192,6 +192,7 @@ void PrePartita::RimossoGiocatore(int ID){
 	int Index=IDList.indexOf(ID);
 	IDList.removeAt(Index);
 	if (Index<0 || Index>=ColoriGiocatori.size()) return;
+	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
 	ItemsLayout->removeWidget(NomiGiocatori.at(Index));
 	ItemsLayout->removeWidget(ColoriGiocatori.at(Index));
 	//TODO Rows increase allways, removing a widget doesn't remove the row from the widget
@@ -207,6 +208,7 @@ void PrePartita::RimossoGiocatore(int ID){
 	ColoriGiocatori.at(Index)->deleteLater();
 	NomiGiocatori.erase(NomiGiocatori.begin()+Index);
 	ColoriGiocatori.erase(ColoriGiocatori.begin()+Index);
+	ContGiocatori--;
 }
 void PrePartita::TogliColore(int ID, int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
@@ -251,6 +253,7 @@ void PrePartita::disabilitaPronto(bool pront){
 }
 void PrePartita::ControllaDuplicati(){
 	int Index=IDList.indexOf(MyID);
+	if (Index==-1) return;
 	bool Trovato=false;
 	for (int i=0;i<NomiGiocatori.size() && !Trovato;i++){
 		if (
@@ -285,4 +288,12 @@ void PrePartita::AggiornaInformazioni(int ident, const QString& NuovoNome, int N
 	NomiGiocatori.at(Index)->setText(NuovoNome);
 	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
 	TogliColore(ident,NuovoColore);
+}
+void PrePartita::Azzera(){
+	for (QList<int>::iterator i=IDList.begin();i!=IDList.end();i++){
+		RimossoGiocatore(*i);
+	}
+	IDList.clear();
+	NomiGiocatori.clear();
+	ColoriGiocatori.clear();
 }

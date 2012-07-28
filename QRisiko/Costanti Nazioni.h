@@ -951,6 +951,8 @@ namespace Comunicazioni{
 		,OttieniInfo //Client Invia Informazioni su Nome del Server, Numero giocatori Online e Massimo
 		,PartecipaServer //Il Client chiede di unirsi alla Partita
 		,WhatsMyID //Il Client chiede il proprio ID dal server
+		,IDRicevuto //Il Client Ha Ricevuto il proprio ID
+		,ProntoARicevere //Il Client è pronto a ricevere nuove informazioni
 		,NewPlayer //Un Nuovo Giocatore Si Unisce alla Partita
 		,CambiateInfo //Il Client ha cambiato Nome Utente o Colore
 		,AggiornaInfo //Il Client deve aggiornare le informazioni relative agli altri giocatori

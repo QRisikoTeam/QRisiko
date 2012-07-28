@@ -25,6 +25,9 @@ signals:
 	void Disonnesso(int ident);
 	void GiocatoreDisconnesso(int ident);
 	void IWantToJoin(int ident);
+	void MandaInfoA(int destinazione, int ident, QString nome, int colore);
+	void RicevutoID(int ident);
+	void SonoPronto(int ident);
 private:
 	bool keepRunning;
 	int socketDescriptor;

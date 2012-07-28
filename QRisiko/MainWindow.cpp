@@ -78,6 +78,7 @@ ClientDiGioco(NULL)
 	prePartita->setObjectName("PrePartita");
 	prePartita->hide();
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
+	connect(prePartita,SIGNAL(Annullato()),prePartita,SLOT(Azzera()));
 	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),this,SLOT(AggiornaChat(QString,int)));
 
 	GestoreOnline=new GestoreServers(this);
@@ -400,6 +401,7 @@ void MainWindow::StartClient(const QString& HostIP){
 	connect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatoreID(int)));
 	connect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
 	connect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	connect(ClientDiGioco,SIGNAL(StartGame()),prePartita,SLOT(Azzera()));
 	connect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	ClientDiGioco->Connetti();
 }
@@ -429,6 +431,7 @@ void MainWindow::StartServer(){
 	connect(ServerGioco,SIGNAL(NuovaConnessione(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
 	connect(ServerGioco,SIGNAL(Disconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
 	connect(ServerGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	connect(ServerGioco,SIGNAL(StartGame()),prePartita,SLOT(Azzera()));
 	connect(ServerGioco,SIGNAL(UpdateInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	if( !ServerGioco->listen(QHostAddress::Any,Comunicazioni::DefaultTCPPort) ) QMessageBox::critical(TopFrame,tr("Errore nell'avvio del Server"),tr("Impossibile Associarsi alla porta specificata"));
 	ServerGioco->SegnalaGiocatoreServer();
@@ -436,9 +439,9 @@ void MainWindow::StartServer(){
 void MainWindow::StopServer(){
 	chat->Ferma();
 	if (!ServerGioco) return;
-	ServerGioco->Termina();
 	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 	ServerGioco->disconnect(); //Disconnette tutti i signal e slot
+	ServerGioco->Termina();
 	ServerGioco->deleteLater();
 	ServerGioco=NULL;
 }
