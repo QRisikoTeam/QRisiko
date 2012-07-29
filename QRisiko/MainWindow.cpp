@@ -383,12 +383,6 @@ void MainWindow::NascondiPrev(){
 }
 
 void MainWindow::StartClient(const QString& HostIP){
-	chat->SetUserName(prePartita->GetPlayerName());
-	chat->SetUserColor(Giocatori::ColoreSpettatore);
-	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
-	chat->SetIsServer(false);
-	chat->SetHostIP(HostIP);
-	chat->Avvia();
 	if (ClientDiGioco) return;
 	ClientDiGioco=new ClientGioco(HostIP,Comunicazioni::DefaultTCPPort,this);
 	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(StopClient()));
@@ -404,6 +398,12 @@ void MainWindow::StartClient(const QString& HostIP){
 	connect(ClientDiGioco,SIGNAL(StartGame()),prePartita,SLOT(Azzera()));
 	connect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	ClientDiGioco->Connetti();
+	chat->SetUserName(tr("Un Nuovo Giocatore"));
+	chat->SetUserColor(Giocatori::ColoreSpettatore);
+	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
+	chat->SetIsServer(false);
+	chat->SetHostIP(HostIP);
+	chat->Avvia();
 }
 void MainWindow::StopClient(){
 	chat->Ferma();
@@ -415,14 +415,9 @@ void MainWindow::StopClient(){
 	ClientDiGioco=NULL;
 }
 void MainWindow::StartServer(){
-	chat->SetUserName(prePartita->GetPlayerName());
-	chat->SetUserColor(Giocatori::ColoreSpettatore);
-	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
-	chat->SetIsServer(true);
-	chat->Avvia();
 	if (ServerGioco) return;
 	prePartita->SetMyID(Comunicazioni::ServerID);
-	ServerGioco=new GiocoServer(mappa->GetPlayer().GetUsername(),6 /*TODO da impostare in Opzioni*/, this);
+	ServerGioco=new GiocoServer("Server1" /*TODO da impostare in Opzioni*/,6 /*TODO da impostare in Opzioni*/, this);
 	connect(ServerGioco,SIGNAL(NuovaConnessione(int)),prePartita,SLOT(AggiuntoGiocatoreID(int)));
 	connect(prePartita,SIGNAL(SonoPronto()),ServerGioco,SLOT(ServerPronto()));
 	connect(prePartita,SIGNAL(NonSonoPronto()),ServerGioco,SLOT(ServerNonPronto()));
@@ -435,6 +430,11 @@ void MainWindow::StartServer(){
 	connect(ServerGioco,SIGNAL(UpdateInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	if( !ServerGioco->listen(QHostAddress::Any,Comunicazioni::DefaultTCPPort) ) QMessageBox::critical(TopFrame,tr("Errore nell'avvio del Server"),tr("Impossibile Associarsi alla porta specificata"));
 	ServerGioco->SegnalaGiocatoreServer();
+	chat->SetUserName(tr("Un Nuovo Giocatore"));
+	chat->SetUserColor(Giocatori::ColoreSpettatore);
+	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
+	chat->SetIsServer(true);
+	chat->Avvia();
 }
 void MainWindow::StopServer(){
 	chat->Ferma();

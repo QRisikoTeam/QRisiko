@@ -46,7 +46,6 @@ bool ChatWidget::Avvia(){
 			}
 			TCPsocket->connectToHost(Host,port);
 			nextBlockSize=0;
-			finito=false;
 		}
 		else{
 			TCPServer=new ChatServer(this);
@@ -127,7 +126,6 @@ void ChatWidget::ErroreConnessione(){
 }
 
 void ChatWidget::Inbox(){
-	finito=false;
 	QDataStream in(TCPsocket);
 	in.setVersion(QDataStream::Qt_4_7);
 	forever {
@@ -138,8 +136,7 @@ void ChatWidget::Inbox(){
 		}
 		if (nextBlockSize == 0xFFFF) {
 			nextBlockSize = 0;
-			finito=true;
-			break;
+			continue;
 		}
 		if (TCPsocket->bytesAvailable() < nextBlockSize)
 			break;
@@ -255,7 +252,7 @@ void ChatWidget::closeEvent(QCloseEvent *event)
 
 void ChatWidget::connectionClosedByServer()
 {
-	if(!finito){
+	if(partito && TCPsocket){
 		if(TCPsocket->isOpen())
 			TCPsocket->close();
 		emit MessageRecieved(tr("<font color=\"red\">ERRORE!!!</font><br/><font color=\"red\">Connessione Chiusa dal Server</font>"),true);

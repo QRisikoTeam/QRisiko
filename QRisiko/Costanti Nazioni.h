@@ -583,12 +583,12 @@ namespace Giocatori{
 		QColor(0,205,105,255) //Verde
 	};
 	const QString NomiColori[Max_Giocatori]={
-		"Giallo",
-		"Blu",
-		"Rosso",
-		"Nero",
-		"Viola",
-		"Verde",
+		QObject::tr("Giallo"),
+		QObject::tr("Blu"),
+		QObject::tr("Rosso"),
+		QObject::tr("Nero"),
+		QObject::tr("Viola"),
+		QObject::tr("Verde"),
 	};
 	const QString PathToHttpServer("http://oratoriomomo.org/Risiqo");
 	const QSize MinButtonSize(170,50);
@@ -758,6 +758,22 @@ namespace CSS{
 			"fx: 0.4, fy: -0.1,"
 			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
 		"}"
+
+		"#PrePartita QPushButton:hover{"
+			"background-color: qradialgradient("
+				"cx: 0.5, cy: 0.5, radius: 2, fx: 0.5, fy: 1,"
+				"stop: 0 rgb(0,118,163),"
+				"stop: 0.2 rgb(0,174,239),"
+				"stop: 0.4 rgb(109,207,246)"
+			");"
+		"}"
+
+		"#PrePartita QPushButton:disabled{"
+			"background-color: qradialgradient(cx: 0.3, cy: -0.4,"
+				"fx: 0.3, fy: -0.4,"
+				"radius: 1.35, stop: 0 #fff, stop: 1 #888"
+			");"
+		"}"
 		
 		"TopMenu #Sfondo{"
 			"border: 3px solid #333;"
@@ -882,7 +898,7 @@ namespace CSS{
 			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
 		"}"
 
-		"TopMenu QPushButton {"
+		/*"TopMenu QPushButton {"
 			"color: #222;"
 			"font: bold;"
 			"border: 2px solid #555;"
@@ -904,7 +920,7 @@ namespace CSS{
 			" qradialgradient(cx: 0.4, cy: -0.1,"
 			"fx: 0.4, fy: -0.1,"
 			"radius: 1.35, stop: 0 #fff, stop: 1 #ddd);"
-		"}"
+		"}"*/
 
 		"#Regolamento QTextBrowser {"
 			"border-width: 1px;"
@@ -952,7 +968,6 @@ namespace Comunicazioni{
 		,PartecipaServer //Il Client chiede di unirsi alla Partita
 		,WhatsMyID //Il Client chiede il proprio ID dal server
 		,IDRicevuto //Il Client Ha Ricevuto il proprio ID
-		,ProntoARicevere //Il Client è pronto a ricevere nuove informazioni
 		,NewPlayer //Un Nuovo Giocatore Si Unisce alla Partita
 		,CambiateInfo //Il Client ha cambiato Nome Utente o Colore
 		,AggiornaInfo //Il Client deve aggiornare le informazioni relative agli altri giocatori

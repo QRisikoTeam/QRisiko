@@ -27,9 +27,7 @@ signals:
 	void IWantToJoin(int ident);
 	void MandaInfoA(int destinazione, int ident, QString nome, int colore);
 	void RicevutoID(int ident);
-	void SonoPronto(int ident);
 private:
-	bool keepRunning;
 	int socketDescriptor;
 	QString text;
 	GiocoSocket* socket;
@@ -37,6 +35,7 @@ private slots:
 	void IdentificaInfoReq(){emit GotRichiediInfo(socketDescriptor);}
 public slots:
 	void stop();
+	void ForzaDisconnessione();
 };
 
 

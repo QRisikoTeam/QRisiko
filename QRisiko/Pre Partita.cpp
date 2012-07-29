@@ -190,9 +190,9 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 void PrePartita::RimossoGiocatore(int ID){
 	if(!IDList.contains(ID)) return;
 	int Index=IDList.indexOf(ID);
+	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
 	IDList.removeAt(Index);
 	if (Index<0 || Index>=ColoriGiocatori.size()) return;
-	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
 	ItemsLayout->removeWidget(NomiGiocatori.at(Index));
 	ItemsLayout->removeWidget(ColoriGiocatori.at(Index));
 	//TODO Rows increase allways, removing a widget doesn't remove the row from the widget
@@ -212,11 +212,14 @@ void PrePartita::RimossoGiocatore(int ID){
 }
 void PrePartita::TogliColore(int ID, int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
+	int Indice=IDList.indexOf(MyID);
+	disconnect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 	bool tolto;
 	for (int i=0;i<ColoriGiocatori.size();i++){
 		tolto=false;
+		//TODO Usa FindData
 		for (int j=0;j<ColoriGiocatori.at(i)->count() && !tolto;j++){
-			if (ColoriGiocatori.at(i)->itemData(j)==ColorID){
+			if (ColoriGiocatori.at(i)->itemData(j).toInt()==ColorID){
 				if (ID!=IDList.at(i)){
 					ColoriGiocatori.at(i)->removeItem(j);
 					tolto=true;
@@ -229,16 +232,20 @@ void PrePartita::TogliColore(int ID, int ColorID){
 		}
 		
 	}
+	connect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 }
 void PrePartita::AggiungiColore(int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
+	int Indice=IDList.indexOf(MyID);
+	disconnect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 	QPixmap temp(QSize(20,20));
 	for (int i=0;i<ColoriGiocatori.size();i++){
 		if (ColoriGiocatori.at(i)->findData(ColorID)==-1){
 			temp.fill(Giocatori::Colori[ColorID]);
-			ColoriGiocatori.at(i)->addItem(QIcon(temp),Giocatori::NomiColori[ColorID],ColorID);
+			ColoriGiocatori.at(i)->insertItem(ColorID,QIcon(temp),Giocatori::NomiColori[ColorID],ColorID);
 		}
 	}
+	connect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 }
 void PrePartita::resizeEvent(QResizeEvent *event){
 	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());

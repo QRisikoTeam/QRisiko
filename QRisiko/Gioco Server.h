@@ -35,7 +35,6 @@ private:
 	QList<bool> ToCheck;
 	bool FasePrePartita;
 	GestoreServers* Pubblicatore;
-	QMap<int,int> contatore;
 signals:
 	void InviaInformazioni(QString Nome, int Giocatori, int MaxGiocatori);
 	void NuovaConnessione(int Ident);
@@ -45,7 +44,6 @@ signals:
 	void StartGame();
 	void Disconnesso(int ident);
 	void MandaInfoA(int destinazione, int ident, QString nome, int colore);
-	void IsPronto(int ident);
 private slots:
 	void FormaInfo(int SoDe);
 	void AggiungiPronto(int ident);
@@ -53,7 +51,6 @@ private slots:
 	void GiocatoreDisconnesso(int ident);
 	void ImpostaPartitaIniziata(){FasePrePartita=false;}
 	void ImpostaChecks(int ident,const QString& nuovonome,int nuovocolore);
-	void ContinuaInvio(int destinazione);
 public slots:
 	void WantsToJoin(int ident);
 	void GotHisID(int ident);

@@ -21,7 +21,6 @@ class ChatWidget : public QWidget, public Ui::Chat
 		QTcpSocket* TCPsocket;
 		ChatServer* TCPServer;
 		void Disconnesso();
-		bool finito;
 		bool partito;
 		bool disconnectRecieved;
 		bool fistTime;

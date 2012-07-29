@@ -19,11 +19,10 @@ GiocoServer::GiocoServer(const QString& Nome, const int& MaxPl, QObject *parent)
 	connect(this,SIGNAL(Disonnesso(int)),this,SLOT(GiocatoreDisconnesso(int)));
 	connect(this,SIGNAL(StartGame()),this,SLOT(ImpostaPartitaIniziata()));
 	connect(this,SIGNAL(UpdateInfo(int,QString,int)),this,SLOT(ImpostaChecks(int,QString,int)));
-	connect(this,SIGNAL(IsPronto(int)),this,SLOT(ContinuaInvio(int)));
 }
 void GiocoServer::Termina(){
 	for (QList<GiocoThread*>::iterator i=clients.begin();i!=clients.end();i++){
-		(*i)->stop();
+		(*i)->ForzaDisconnessione();
 	}
 	Pubblicatore->RemoveIP();
 }
@@ -70,8 +69,8 @@ void GiocoServer::GotHisID(int ident){
 	connect(clients.at(Indice),SIGNAL(IsReady(int)),this,SIGNAL(IsReady(int)));
 	connect(clients.at(Indice),SIGNAL(IsNotReady(int)),this,SIGNAL(IsNotReady(int)));
 	connect(this,SIGNAL(StartGame()),clients.at(Indice),SIGNAL(StartGame()));
-	connect(clients.at(Indice),SIGNAL(Disonnesso(int)),this,SIGNAL(Disonnesso(int)));
-	connect(this,SIGNAL(Disonnesso(int)),clients.at(Indice),SIGNAL(GiocatoreDisconnesso(int)));
+	connect(clients.at(Indice),SIGNAL(Disonnesso(int)),this,SIGNAL(Disconnesso(int)));
+	connect(this,SIGNAL(Disconnesso(int)),clients.at(Indice),SIGNAL(GiocatoreDisconnesso(int)));
 	connect(this,SIGNAL(MandaInfoA(int,int,QString,int)),clients.last(),SIGNAL(MandaInfoA(int,int,QString,int)));
 	connect(clients.last(),SIGNAL(SonoPronto(int)),this,SIGNAL(IsPronto(int)));
 	IDs.append(ident);
@@ -80,8 +79,7 @@ void GiocoServer::GotHisID(int ident){
 	Nomi.append("");
 	Colori.append(Giocatori::Spectator);
 	NumGiocatori++;
-	contatore[ident]=0;
-	MandaInfoA(ident,IDs.at(0),Nomi.at(0),Colori.at(0));
+	for (int i=0;i<IDs.size();i++) MandaInfoA(ident,IDs.at(i),Nomi.at(i),Colori.at(i));
 }
 void GiocoServer::ControllaAvvio(){
 	bool TuttiPronti=true;
@@ -112,16 +110,5 @@ void GiocoServer::ImpostaChecks(int ident,const QString& nuovonome,int nuovocolo
 	*(ToCheck.begin()+IDs.indexOf(ident))= (nuovocolore!=Giocatori::Spectator);
 	*(Nomi.begin()+IDs.indexOf(ident))=nuovonome;
 	*(Colori.begin()+IDs.indexOf(ident))=nuovocolore;
-}
-void GiocoServer::ContinuaInvio(int destinazione){
-	QMap<int,int>::iterator temp;
-	if (!contatore.contains(destinazione)) return;
-	MandaInfoA(destinazione,IDs.at(++contatore[destinazione]),Nomi.at(contatore[destinazione]),Colori.at(contatore[destinazione]));
-	if(contatore[destinazione]==IDs.size()-1){
-		contatore.remove(destinazione);
-		temp=contatore.find(destinazione);
-		if (temp!=contatore.end()){
-			contatore.erase(temp);
-		}
-	}
+
 }

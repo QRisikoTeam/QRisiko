@@ -13,7 +13,6 @@ class ClientGioco : public QObject{
 		int MyID;
 		quint16 nextBlockSize;
 		void RicevutoID();
-		void SonoProntoARicevere();
 	public:
 		ClientGioco(const QString& HIP=QString("127.0.0.1"),int por=Comunicazioni::DefaultTCPPort,QObject* parent=0);
 		QString GetHostIP() const{return HostIP;}

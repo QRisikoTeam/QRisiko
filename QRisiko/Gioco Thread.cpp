@@ -2,7 +2,6 @@
 GiocoThread::GiocoThread(int soketDescriptor, QObject *parent)
 : QThread(parent), socketDescriptor(soketDescriptor)
 {
-	keepRunning=true;
 	socket= new GiocoSocket(socketDescriptor,this);
 	connect(socket,SIGNAL(disconnected()), this, SLOT(stop()));
 
@@ -16,20 +15,24 @@ GiocoThread::GiocoThread(int soketDescriptor, QObject *parent)
 	connect(socket,SIGNAL(IsReady(int)),this,SIGNAL(IsReady(int)));
 	connect(socket,SIGNAL(IsNotReady(int)),this,SIGNAL(IsNotReady(int)));
 	connect(this,SIGNAL(StartGame()),socket,SLOT(StartGame()));
-	connect(socket,SIGNAL(Disonnesso(int)),this,SIGNAL(Disonnesso(int)));
 	connect(this,SIGNAL(GiocatoreDisconnesso(int)),socket,SLOT(GiocatoreDisconnesso(int)));
 	connect(this,SIGNAL(MandaInfoA(int,int,QString,int)),socket,SLOT(MandaInfoA(int,int,QString,int)));
 	connect(socket,SIGNAL(RicevutoID(int)),this,SIGNAL(RicevutoID(int)));
-	connect(socket,SIGNAL(SonoPronto(int)),this,SIGNAL(SonoPronto(int)));
 		
 }
 
 void GiocoThread::run()
 {
-	while(keepRunning){}
-	socket->close();
+	exec();
 }
 
 void  GiocoThread::stop(){
-	keepRunning=false;
+	emit Disonnesso(socketDescriptor);
+	socket->deleteLater();
+	exit(0);
+}
+void GiocoThread::ForzaDisconnessione(){
+	socket->disconnectFromHost();
+	socket->deleteLater();
+	exit(0);
 }

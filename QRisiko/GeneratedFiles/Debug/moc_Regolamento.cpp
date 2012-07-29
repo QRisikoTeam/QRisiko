@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Regolamento.h'
 **
-** Created: Sat 28. Jul 17:28:57 2012
+** Created: Sun 29. Jul 16:11:07 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

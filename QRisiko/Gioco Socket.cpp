@@ -25,42 +25,32 @@ void GiocoSocket::readClient()
 		}
 		if (nextBlockSize == 0xFFFF) {
 			nextBlockSize = 0;
-			break;
+			continue;
 		}
 		if (bytesAvailable() < nextBlockSize)
 			break;
 
 		incom >> TipoRichiesta;
-		switch (TipoRichiesta){
-			case Comunicazioni::RichiediInfo:
+		if(TipoRichiesta==Comunicazioni::RichiediInfo){
 				emit GotRichiediInfo();
-				break;
-			case Comunicazioni::PartecipaServer:
-				emit IWantToJoin(socketDescriptor);
-				break;
-			case Comunicazioni::CambiateInfo:
-				incom >> dato1 >> stringa1 >> dato2; // ID, Nuovo Nome, Nuovo Colore
-				emit CambiateInfo(dato1,stringa1,dato2);
-				break;
-			case Comunicazioni::SonoPronto:
-				incom >> dato1; //ID di chi è pronto
-				emit IsReady(dato1);
-				break;
-			case Comunicazioni::NonSonoPronto:
-				incom >> dato1; //ID di chi è pronto
-				emit IsNotReady(dato1);
-				break;
-			case Comunicazioni::IDRicevuto:
-				emit RicevutoID(socketDescriptor);
-				break;
-			case Comunicazioni::ProntoARicevere:
-				emit SonoPronto(socketDescriptor);
-				break;
-			/*case Comunicazioni::AggiunteArmate:
-				incom >> dato1 >> dato2;
-				emit GotAggiuntoArmate(Stato,Numero);
-				break;*/
-			default: break;
+		}
+		else if(TipoRichiesta==Comunicazioni::PartecipaServer){
+			emit IWantToJoin(socketDescriptor);
+		}
+		else if(TipoRichiesta==Comunicazioni::CambiateInfo){
+			incom >> dato1 >> stringa1 >> dato2; // ID, Nuovo Nome, Nuovo Colore
+			emit CambiateInfo(dato1,stringa1,dato2);
+		}
+		else if(TipoRichiesta==Comunicazioni::SonoPronto){
+			incom >> dato1; //ID di chi è pronto
+			emit IsReady(dato1);
+		}
+		else if(TipoRichiesta==Comunicazioni::NonSonoPronto){
+			incom >> dato1; //ID di chi è pronto
+			emit IsNotReady(dato1);
+		}
+		else if(TipoRichiesta==Comunicazioni::IDRicevuto){
+			emit RicevutoID(socketDescriptor);
 		}
 		nextBlockSize = 0;
 	}
@@ -132,8 +122,4 @@ void GiocoSocket::MandaInfoA(int destinazione, int ident, const QString& nome, i
 		UpdateInfo(ident,nome,colore);
 		qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 	}
-}
-void GiocoSocket::Disconnessione(){
-	emit Disconnesso(socketDescriptor);
-	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 }

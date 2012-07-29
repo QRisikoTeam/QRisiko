@@ -9,7 +9,6 @@ class GiocoSocket : public QTcpSocket
 		GiocoSocket(int soketDescriptor, QObject *parent = 0);
 	private slots:
 		void readClient();
-		void Disconnessione();
 	public slots:
 		void InviaInformazioni(QString Nome, int Giocatori, int MaxGiocatori);
 		void MandaMioID(int ident);
@@ -30,7 +29,6 @@ class GiocoSocket : public QTcpSocket
 		void Disconnesso(int ident);
 		void IWantToJoin(int ident);
 		void RicevutoID(int ident);
-		void SonoPronto(int ident);
 };
 
 

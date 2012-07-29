@@ -56,6 +56,10 @@ void ServerSelectorThread::OttieniInfo(){
 	int nextBlockSize = 0;
 	QDataStream in(socket);
 	in.setVersion(QDataStream::Qt_4_7);
+	qint16 Tipo;
+	QString Name;
+	qint16 GiocatoriOnline;
+	qint16 MaxGiocatori;
 	forever {
 		if (nextBlockSize == 0) {
 			if (socket->bytesAvailable() < sizeof(quint16))
@@ -68,12 +72,8 @@ void ServerSelectorThread::OttieniInfo(){
 		}
 		if (socket->bytesAvailable() < nextBlockSize)
 			break;
-		int Tipo;
 		in >> Tipo;
 		if (Tipo!=Comunicazioni::OttieniInfo) return;
-		QString Name;
-		int GiocatoriOnline;
-		int MaxGiocatori;
 		in >> Name >> GiocatoriOnline >> MaxGiocatori;
 		emit InfoRicevute(Name,GiocatoriOnline,MaxGiocatori,currentIP);
 		nextBlockSize = 0;
