@@ -385,16 +385,16 @@ void MainWindow::NascondiPrev(){
 void MainWindow::StartClient(const QString& HostIP){
 	if (ClientDiGioco) return;
 	ClientDiGioco=new ClientGioco(HostIP,Comunicazioni::DefaultTCPPort,this);
-	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(StopClient()));
+	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(StopClient()),Qt::QueuedConnection);
 	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(MostraMainMenu())); //TODO Segnala che il server l'ha cacciato
-	connect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SIGNAL(SonoPronto()));
-	connect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SIGNAL(NonSonoPronto()));
+	connect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SLOT(SonoPronto()));
+	connect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SLOT(NonSonoPronto()));
 	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),ClientDiGioco,SLOT(CambiateMieInfo(QString,int)));
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(StopClient()));
 	connect(ClientDiGioco,SIGNAL(MyIDIs(int)),prePartita,SLOT(SetMyID(int)));
 	connect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatoreID(int)));
 	connect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
-	connect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	connect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(StartMatch()));
 	connect(ClientDiGioco,SIGNAL(StartGame()),prePartita,SLOT(Azzera()));
 	connect(ClientDiGioco,SIGNAL(AggiornaInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	ClientDiGioco->Connetti();
@@ -410,7 +410,7 @@ void MainWindow::StopClient(){
 	if (!ClientDiGioco) return;
 	ClientDiGioco->Disconnetti();
 	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-	ClientDiGioco->disconnect(); //Disconnette tutti i signal e slot
+	//ClientDiGioco->disconnect(); //Disconnette tutti i signal e slot
 	ClientDiGioco->deleteLater();
 	ClientDiGioco=NULL;
 }
@@ -425,24 +425,23 @@ void MainWindow::StartServer(){
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(StopServer()));
 	connect(ServerGioco,SIGNAL(NuovaConnessione(int)),prePartita,SLOT(AggiuntoGiocatore(int,QString)));
 	connect(ServerGioco,SIGNAL(Disconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
-	connect(ServerGioco,SIGNAL(StartGame()),this,SLOT(MostraMappa()));
+	connect(ServerGioco,SIGNAL(StartGame()),this,SLOT(StartMatch()));
 	connect(ServerGioco,SIGNAL(StartGame()),prePartita,SLOT(Azzera()));
 	connect(ServerGioco,SIGNAL(UpdateInfo(int,QString,int)),prePartita,SLOT(AggiornaInformazioni(int,QString,int)));
 	if( !ServerGioco->listen(QHostAddress::Any,Comunicazioni::DefaultTCPPort) ) QMessageBox::critical(TopFrame,tr("Errore nell'avvio del Server"),tr("Impossibile Associarsi alla porta specificata"));
-	ServerGioco->SegnalaGiocatoreServer();
 	chat->SetUserName(tr("Un Nuovo Giocatore"));
 	chat->SetUserColor(Giocatori::ColoreSpettatore);
 	chat->SetShowTimeStamp(false /*TODO da impostare in Opzioni*/);
 	chat->SetIsServer(true);
 	chat->Avvia();
+	ServerGioco->SegnalaGiocatoreServer();
 }
 void MainWindow::StopServer(){
 	chat->Ferma();
-	if (!ServerGioco) return;
-	qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-	ServerGioco->disconnect(); //Disconnette tutti i signal e slot
+//	if (!ServerGioco) return;
+	//ServerGioco->disconnect(); //Disconnette tutti i signal e slot
+	connect(ServerGioco,SIGNAL(RimossoIPDaLista()),ServerGioco,SLOT(deleteLater()));
 	ServerGioco->Termina();
-	ServerGioco->deleteLater();
 	ServerGioco=NULL;
 }
 void MainWindow::StartMatch(){

@@ -1,6 +1,6 @@
 #include "Gioco Thread.h"
 GiocoThread::GiocoThread(int soketDescriptor, QObject *parent)
-: QThread(parent), socketDescriptor(soketDescriptor)
+: QThread(parent), socketDescriptor(soketDescriptor),socket(NULL)
 {
 	socket= new GiocoSocket(socketDescriptor,this);
 	connect(socket,SIGNAL(disconnected()), this, SLOT(stop()));
@@ -28,11 +28,10 @@ void GiocoThread::run()
 
 void  GiocoThread::stop(){
 	emit Disonnesso(socketDescriptor);
-	socket->deleteLater();
 	exit(0);
 }
 void GiocoThread::ForzaDisconnessione(){
-	socket->disconnectFromHost();
-	socket->deleteLater();
+	if(socket) 
+		socket->disconnectFromHost();
 	exit(0);
 }

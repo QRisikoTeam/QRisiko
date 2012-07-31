@@ -36,7 +36,7 @@ bool ChatWidget::Avvia(){
 		reconnectButton->setVisible(false);
 		if(!IsServer){
 			TCPsocket=new QTcpSocket(this);
-			
+
 			connect(TCPsocket, SIGNAL(connected()), this, SLOT(Connesso()));
 			connect(TCPsocket, SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(ErroreConnessione()));
 			connect(TCPsocket, SIGNAL(disconnected()),this, SLOT(connectionClosedByServer()));
@@ -80,7 +80,7 @@ void ChatWidget::Ferma(){
 	reconnectButton->setVisible(true);
 }
 void ChatWidget::StampaMessaggioUtente(QString msg){
-		PrintMessage(msg,false);
+	PrintMessage(msg,false);
 }
 void ChatWidget::Connesso(){
 	if(TCPsocket->isOpen()){
@@ -151,7 +151,7 @@ void ChatWidget::addSmile(int id){
 	if (id<0 || id>Smiles::Num_Smiles) return;
 	MessageText->textCursor().insertText(
 		Smiles::smiles[id][0]
-		);
+	);
 	MessageText->setFocus();
 }
 
@@ -268,5 +268,5 @@ void ChatWidget::PrintMessage(QString msg, bool fromserv){
 		ChatText->append("<font color=\""+Colors::ServerColor.name()+"\">Server: " +msg +"</font>");
 	}
 	else ChatText->append(msg);
-	
+
 }

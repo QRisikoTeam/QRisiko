@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Animator.h'
 **
-** Created: Sun 29. Jul 16:11:09 2012
+** Created: Tue 31. Jul 15:40:44 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

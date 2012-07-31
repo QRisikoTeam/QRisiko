@@ -30,6 +30,7 @@ class PrePartita: public QWidget{
 		QList<QLineEdit*> NomiGiocatori;
 		QList<QComboBox*> ColoriGiocatori;
 		QList<int> IDList;
+		QList<int> ColoreCorrente;
 		int MyID;
 		QGridLayout* ItemsLayout;
 		QString PlayerName;

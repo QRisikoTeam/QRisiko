@@ -726,6 +726,7 @@ namespace CSS{
 			"stop: 0.39999 #717171, stop: 0.4 #626262,"
 			"stop: 0.9 #4c4c4c, stop: 1 #333333);"
 		"}"
+		
 		"#PrePartita QPushButton {"
 			"border: 2px solid #555;"
 			"border-radius: 11px;"
@@ -744,12 +745,11 @@ namespace CSS{
 			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
 		"}"
 
-		"#PrePartita #Pronto{font: bold;}"
-
-		"#PrePartita QPushButton:hover {"
+		"#PrePartita QPushButton:checked {"
+			"color: #222;"
 			"background: qradialgradient(cx: 0.3, cy: -0.4,"
 			"fx: 0.3, fy: -0.4,"
-			"radius: 1.35, stop: 0 #fff, stop: 1 #bbb);"
+			"radius: 1.35, stop: 0 #fff, stop: 1 #888);"
 		"}"
 
 		"#PrePartita QPushButton:pressed {"
@@ -768,12 +768,7 @@ namespace CSS{
 			");"
 		"}"
 
-		"#PrePartita QPushButton:disabled{"
-			"background-color: qradialgradient(cx: 0.3, cy: -0.4,"
-				"fx: 0.3, fy: -0.4,"
-				"radius: 1.35, stop: 0 #fff, stop: 1 #888"
-			");"
-		"}"
+		"#PrePartita #Pronto{font: bold;}"
 		
 		"TopMenu #Sfondo{"
 			"border: 3px solid #333;"

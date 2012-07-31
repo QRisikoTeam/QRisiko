@@ -44,6 +44,7 @@ signals:
 	void StartGame();
 	void Disconnesso(int ident);
 	void MandaInfoA(int destinazione, int ident, QString nome, int colore);
+	void RimossoIPDaLista();
 private slots:
 	void FormaInfo(int SoDe);
 	void AggiungiPronto(int ident);

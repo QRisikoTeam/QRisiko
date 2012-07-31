@@ -1,7 +1,7 @@
 #include "Gioco Client.h"
 
 //temporaneo
-#include <QtGui>
+//#include <QtGui>
 
 ClientGioco::ClientGioco(const QString& HIP,int por,QObject* parent)
 :QObject(parent)

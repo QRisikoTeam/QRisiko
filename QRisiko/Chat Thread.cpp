@@ -11,9 +11,10 @@ ChatThread::ChatThread(int soketDescriptor, QObject *parent)
 
 void ChatThread::run()
 {
-	while(keepRunning){}
+	exec();
 }
 
-void  ChatThread::stop(){
-	keepRunning=false;
+void ChatThread::stop(){
+	if(socket) socket->deleteLater();
+	exit(0);
 }

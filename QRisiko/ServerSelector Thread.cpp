@@ -4,7 +4,7 @@ ServerSelectorThread::ServerSelectorThread(const QStringList& Lista, unsigned in
 : QThread(parent),
 ListaIPs(Lista),
 Porta(Port),
-TimeoutTime(2000),
+TimeoutTime(3000),
 cancellatore(this)
 {
 	keepRunning=true;

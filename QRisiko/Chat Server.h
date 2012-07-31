@@ -8,13 +8,13 @@
 class ChatServer : public QTcpServer
 {
 	Q_OBJECT
-	public:
-		ChatServer(QObject *parent = 0);
-	private:
-		void incomingConnection(int socketId);
-		QList<ChatThread*> clients;
-	signals:
-		void SendMessage(QString msg);
+public:
+	ChatServer(QObject *parent = 0);
+private:
+	void incomingConnection(int socketId);
+	QList<ChatThread*> clients;
+signals:
+	void SendMessage(QString msg);
 
 };
 

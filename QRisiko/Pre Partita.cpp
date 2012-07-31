@@ -22,7 +22,7 @@ PrePartita::PrePartita(QWidget* parent)
 {
 	Pronto=new QPushButton(this);
 	Pronto->setObjectName("ProntoButton");
-	Pronto->setText("Pronto");
+	Pronto->setText(tr("Pronto"));
 	Pronto->setDefault(true);
 	Pronto->setCheckable(true);
 	Pronto->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
@@ -31,7 +31,7 @@ PrePartita::PrePartita(QWidget* parent)
 	connect(Pronto,SIGNAL(clicked(bool)),this,SLOT(disabilitaPronto(bool)));
 	Annulla=new QPushButton(this);
 	Annulla->setObjectName("AnnullaButton");
-	Annulla->setText("Annulla");
+	Annulla->setText(tr("Annulla"));
 	Annulla->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
 	Annulla->setMinimumSize(Giocatori::MinButtonSize);
 	connect(Annulla,SIGNAL(clicked()),this,SLOT(MostraRUSure()));
@@ -42,7 +42,7 @@ PrePartita::PrePartita(QWidget* parent)
 	Interno->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 	ImpostazioniLabel=new QLabel(this);
 	ImpostazioniLabel->setObjectName("ImpostazioniLabel");
-	ImpostazioniLabel->setText("Impostazioni Partita");
+	ImpostazioniLabel->setText(tr("Impostazioni Partita"));
 	ImpostazioniLabel->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
 	ImpostazioniLabel->setBuddy(Interno);
 	QSpacerItem* Spacer=new QSpacerItem(20,Annulla->sizeHint().height(),QSizePolicy::Expanding,QSizePolicy::Preferred);
@@ -111,20 +111,6 @@ PrePartita::PrePartita(QWidget* parent)
 	SeiSicuroLayout->addItem(horizontalSpacer_2, 1, 2, 1, 1);
 	RUSure->setGeometry((width()-RUSure->sizeHint().width())/2,(height()-RUSure->sizeHint().height())/2,RUSure->sizeHint().width(),RUSure->sizeHint().height());
 	RUSure->hide();
-
-
-	//Test
-	/*
-	AggiuntoGiocatore(32,"Pippo");
-	AggiuntoGiocatore(21,"Pluto");
-	AggiuntoGiocatore(12,"Topolino");
-	RimossoGiocatore(21);
-	AggiuntoGiocatore(5,"Paperino");
-	AggiuntoGiocatore(17,"Minnie");
-	AggiuntoGiocatore(101,"Zio Paperone");
-	AggiuntoGiocatore(6,"Batman");
-	AggiuntoGiocatore(21,"Pluto");*/
-
 }
 void PrePartita::MostraRUSure(){
 	RUSure->show();
@@ -164,6 +150,7 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 		temp.fill(Giocatori::Colori[j]);
 		ColoriGiocatori.last()->addItem(QIcon(temp),Giocatori::NomiColori[j],j);
 	}
+	ColoreCorrente.append(Giocatori::Spectator);
 	if (ID==MyID){
 		NomiGiocatori.last()->setEnabled(true);
 		connect(NomiGiocatori.last(),SIGNAL(textEdited(QString)),this,SLOT(CreaInformazioni()));
@@ -188,8 +175,8 @@ void PrePartita::AggiuntoGiocatore(int ID, QString Nome){
 
 }
 void PrePartita::RimossoGiocatore(int ID){
-	if(!IDList.contains(ID)) return;
 	int Index=IDList.indexOf(ID);
+	if (Index==-1) return;
 	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
 	IDList.removeAt(Index);
 	if (Index<0 || Index>=ColoriGiocatori.size()) return;
@@ -208,44 +195,39 @@ void PrePartita::RimossoGiocatore(int ID){
 	ColoriGiocatori.at(Index)->deleteLater();
 	NomiGiocatori.erase(NomiGiocatori.begin()+Index);
 	ColoriGiocatori.erase(ColoriGiocatori.begin()+Index);
+	ColoreCorrente.erase(ColoreCorrente.begin()+Index);
 	ContGiocatori--;
 }
 void PrePartita::TogliColore(int ID, int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
 	int Indice=IDList.indexOf(MyID);
-	disconnect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
-	bool tolto;
+	int IndiceTrovato;
+	if(Indice!=-1) disconnect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 	for (int i=0;i<ColoriGiocatori.size();i++){
-		tolto=false;
-		//TODO Usa FindData
-		for (int j=0;j<ColoriGiocatori.at(i)->count() && !tolto;j++){
-			if (ColoriGiocatori.at(i)->itemData(j).toInt()==ColorID){
-				if (ID!=IDList.at(i)){
-					ColoriGiocatori.at(i)->removeItem(j);
-					tolto=true;
-				}
-				else{
-					ColoriGiocatori.at(i)->setCurrentIndex(j);
-					tolto=true;
-				}
-			}
+		IndiceTrovato = ColoriGiocatori.at(i)->findData(ColorID);
+		if (IndiceTrovato==-1) continue;
+		if (ID!=IDList.at(i)){
+			ColoriGiocatori.at(i)->removeItem(IndiceTrovato);
 		}
-		
+		else{
+			ColoriGiocatori.at(i)->setCurrentIndex(IndiceTrovato);
+			ColoreCorrente[i]=ColorID;
+		}		
 	}
-	connect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
+	if(Indice!=-1) connect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 }
 void PrePartita::AggiungiColore(int ColorID){
 	if (ColorID==Giocatori::Spectator) return;
 	int Indice=IDList.indexOf(MyID);
-	disconnect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
+	if(Indice!=-1) disconnect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 	QPixmap temp(QSize(20,20));
 	for (int i=0;i<ColoriGiocatori.size();i++){
 		if (ColoriGiocatori.at(i)->findData(ColorID)==-1){
 			temp.fill(Giocatori::Colori[ColorID]);
-			ColoriGiocatori.at(i)->insertItem(ColorID,QIcon(temp),Giocatori::NomiColori[ColorID],ColorID);
+			ColoriGiocatori.at(i)->insertItem(ColorID+1,QIcon(temp),Giocatori::NomiColori[ColorID],ColorID);
 		}
 	}
-	connect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
+	if(Indice!=-1) connect(ColoriGiocatori.at(Indice),SIGNAL(currentIndexChanged(int)),this,SLOT(CreaInformazioni()));
 }
 void PrePartita::resizeEvent(QResizeEvent *event){
 	Sfondo->setGeometry(0,0,event->size().width(),event->size().height());
@@ -255,8 +237,11 @@ void PrePartita::resizeEvent(QResizeEvent *event){
 
 void PrePartita::disabilitaPronto(bool pront){
 	int Index=IDList.indexOf(MyID);
+	if(Index==-1) return;
 	ColoriGiocatori.at(Index)->setEnabled(!pront);
 	NomiGiocatori.at(Index)->setEnabled(!pront);
+	if(pront) Pronto->setText(tr("Non sono Pronto"));
+	else Pronto->setText(tr("Pronto"));
 }
 void PrePartita::ControllaDuplicati(){
 	int Index=IDList.indexOf(MyID);
@@ -292,15 +277,25 @@ void PrePartita::CreaInformazioni(){
 }
 void PrePartita::AggiornaInformazioni(int ident, const QString& NuovoNome, int NuovoColore){
 	int Index=IDList.indexOf(ident);
+	if(Index==-1) return;
 	NomiGiocatori.at(Index)->setText(NuovoNome);
-	AggiungiColore(ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt());
+	AggiungiColore(ColoreCorrente.at(Index));
+	ColoreCorrente[Index]=ColoriGiocatori.at(Index)->itemData(ColoriGiocatori.at(Index)->currentIndex()).toInt();
 	TogliColore(ident,NuovoColore);
 }
 void PrePartita::Azzera(){
-	for (QList<int>::iterator i=IDList.begin();i!=IDList.end();i++){
-		RimossoGiocatore(*i);
+	for (int i=0;i<NomiGiocatori.size();i++){
+		ItemsLayout->removeWidget(NomiGiocatori.at(i));
+		ItemsLayout->removeWidget(ColoriGiocatori.at(i));
+	}
+	int temp=NomiGiocatori.size();
+	for (int i=0;i<NomiGiocatori.size();i++){
+		NomiGiocatori.at(i)->deleteLater();
+		ColoriGiocatori.at(i)->deleteLater();
 	}
 	IDList.clear();
 	NomiGiocatori.clear();
 	ColoriGiocatori.clear();
+	ContGiocatori=0;
+	this->disconnect();
 }

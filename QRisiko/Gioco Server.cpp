@@ -8,6 +8,7 @@ GiocoServer::GiocoServer(const QString& Nome, const int& MaxPl, QObject *parent)
 ,FasePrePartita(true)
 {
 	Pubblicatore=new GestoreServers(this);
+	connect(Pubblicatore,SIGNAL(done(QString)),this,SIGNAL(RimossoIPDaLista()));
 	Pubblicatore->AddIP();
 	IDs.append(Comunicazioni::ServerID);
 	Pronti.append(false);
@@ -24,6 +25,16 @@ void GiocoServer::Termina(){
 	for (QList<GiocoThread*>::iterator i=clients.begin();i!=clients.end();i++){
 		(*i)->ForzaDisconnessione();
 	}
+	IDs.clear();
+	Pronti.clear();
+	ToCheck.clear();
+	Nomi.clear();
+	Colori.clear();
+	/*IDs.append(Comunicazioni::ServerID);
+	Pronti.append(false);
+	ToCheck.append(false);
+	Nomi.append("");
+	Colori.append(Giocatori::Spectator);*/
 	Pubblicatore->RemoveIP();
 }
 void GiocoServer::incomingConnection(int socketId)
@@ -100,11 +111,15 @@ void GiocoServer::RimuoviPronto(int ident){
 	if (FasePrePartita) *(Pronti.begin()+IDs.indexOf(ident))=false;
 }
 void GiocoServer::GiocatoreDisconnesso(int ident){
-	Pronti.erase(Pronti.begin()+IDs.indexOf(ident));
-	ToCheck.erase(ToCheck.begin()+IDs.indexOf(ident));
+	int Indice=IDs.indexOf(ident);
+	if (Indice==-1) return;
+	Pronti.erase(Pronti.begin()+Indice);
+	ToCheck.erase(ToCheck.begin()+Indice);
+	Nomi.erase(Nomi.begin()+Indice);
+	Colori.erase(Colori.begin()+Indice);
 	IDs.erase(IDs.begin()+IDs.indexOf(ident));
-	ControllaAvvio();
 	NumGiocatori--;
+	ControllaAvvio();
 }
 void GiocoServer::ImpostaChecks(int ident,const QString& nuovonome,int nuovocolore){
 	*(ToCheck.begin()+IDs.indexOf(ident))= (nuovocolore!=Giocatori::Spectator);
