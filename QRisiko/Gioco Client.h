@@ -34,8 +34,10 @@ class ClientGioco : public QObject{
 		void StartGame();
 		void GiocatoreDisconnesso(int ident);
 		void MyIDIs(int idnet);
+		void Errore(QString sigla);
 	private slots:
 		void IncomingTransmission();
+		void SendError(QAbstractSocket::SocketError errore);
 	
 };
 #endif

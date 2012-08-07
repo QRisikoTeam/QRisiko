@@ -72,7 +72,8 @@ ClientDiGioco(NULL)
 	connect(MainMenu,SIGNAL(Join()),SelettoreServer,SLOT(Avvia()));
 	connect(SelettoreServer,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
 	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(StartClient(QString)));
-	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraPrePartita()));
+	connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraCaricamento(QString)));
+	//connect(SelettoreServer,SIGNAL(Selezionato(QString)),this,SLOT(MostraPrePartita()));
 
 	prePartita=new PrePartita(TopFrame);
 	prePartita->setObjectName("PrePartita");
@@ -80,6 +81,43 @@ ClientDiGioco(NULL)
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(MostraMainMenu()));
 	connect(prePartita,SIGNAL(Annullato()),prePartita,SLOT(Azzera()));
 	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),this,SLOT(AggiornaChat(QString,int)));
+
+	Avviso=new QFrame(TopFrame);
+	Avviso->setObjectName("Avviso");
+	QGridLayout* LayoutAvviso=new QGridLayout(Avviso);
+	LayoutAvviso->setObjectName("LayoutAvviso");
+	LayoutAvviso->setContentsMargins(12, 12, 12, 12);
+	QHBoxLayout* LayoutAvvisoTop = new QHBoxLayout();
+	LayoutAvvisoTop->setSpacing(12);
+	LayoutAvvisoTop->setContentsMargins(12, 12, 12, 12);
+	LayoutAvvisoTop->setObjectName("LayoutAvvisoTop");
+	IconaAvviso = new QLabel(Avviso);
+	IconaAvviso->setObjectName("IconaAvviso");
+	IconaAvviso->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+	IconaAvviso->setMaximumSize(QSize(40, 40));
+	IconaAvviso->setMinimumSize(QSize(40, 40));
+	IconaAvviso->setPixmap(QPixmap(":/Generale/BottoneErrore.png"));
+	IconaAvviso->setScaledContents(true);
+	AnimazioneAvviso=new QMovie(":/Generale/Loading.gif",QByteArray(),Avviso);
+	LayoutAvvisoTop->addWidget(IconaAvviso);
+	TestoAvviso = new QLabel(Avviso);
+	TestoAvviso->setObjectName("TestoAvviso");
+	TestoAvviso->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	TestoAvviso->setText(tr("Errore!"));
+	LayoutAvvisoTop->addWidget(TestoAvviso);
+	LayoutAvviso->addLayout(LayoutAvvisoTop, 0, 0, 1, 3);
+	QSpacerItem* horizontalSpacer = new QSpacerItem(49, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	QSpacerItem* horizontalSpacer_2 = new QSpacerItem(49, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+	LayoutAvviso->addItem(horizontalSpacer, 1, 0, 1, 1);
+	ChiudiAvviso = new QPushButton(Avviso);
+	ChiudiAvviso->setObjectName("ChiudiAvviso");
+	ChiudiAvviso->setText(tr("Ok"));
+	ChiudiAvviso->setSizePolicy(QSizePolicy::Preferred,QSizePolicy::Preferred);
+	connect(ChiudiAvviso,SIGNAL(clicked()),this,SLOT(NascondiAvviso()));
+	LayoutAvviso->addWidget(ChiudiAvviso, 1, 1, 1, 1);
+	LayoutAvviso->addItem(horizontalSpacer_2, 1, 2, 1, 1);
+	Avviso->setGeometry((TopFrame->width()-Avviso->sizeHint().width())/2,(TopFrame->height()-Avviso->sizeHint().height())/2,Avviso->sizeHint().width(),Avviso->sizeHint().height());
+	Avviso->hide();
 
 	GestoreOnline=new GestoreServers(this);
 	
@@ -215,6 +253,69 @@ void MainWindow::MostraSelettoreServer(){
 	Animazioni->start(QAbstractAnimation::DeleteWhenStopped);
 	PrevWidget=CurrWidget;
 	CurrWidget=SelettoreServer;
+}
+void MainWindow::MostraAvviso(const QString& Testo){
+	ChiudiAvviso->show();
+	IconaAvviso->setPixmap(QPixmap(":/Generale/BottoneErrore.png"));
+	TestoAvviso->setText(Testo);
+	mappa->setEnabled(false);
+	MainMenu->setEnabled(false);
+	Topmenu->setEnabled(false);
+	regolamento->setEnabled(false);
+	SelettoreServer->setEnabled(false);
+	prePartita->setEnabled(false);
+	BottomFrame->setEnabled(false);
+	Avviso->setEnabled(true);
+	QPropertyAnimation* animIn= new QPropertyAnimation(Avviso,"geometry",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::OutQuad);
+	animIn->setKeyValueAt(0.0,QRect(TopFrame->width()/2,TopFrame->height()/2,0,0));
+	animIn->setKeyValueAt(1.0,QRect((TopFrame->width()-Avviso->sizeHint().width())/2,(TopFrame->height()-Avviso->sizeHint().height())/2,Avviso->sizeHint().width(),Avviso->sizeHint().height()));
+	Avviso->show();
+	Avviso->raise();
+	animIn->start(QAbstractAnimation::DeleteWhenStopped);
+}
+void MainWindow::MostraCaricamento(const QString& Testo){
+	QRegExp validatore("^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$");
+	if(validatore.exactMatch(Testo)) TestoAvviso->setText("Connessione in Corso...");
+	else TestoAvviso->setText(Testo);
+	ChiudiAvviso->hide();
+	IconaAvviso->setMovie(AnimazioneAvviso);
+	mappa->setEnabled(false);
+	MainMenu->setEnabled(false);
+	Topmenu->setEnabled(false);
+	regolamento->setEnabled(false);
+	SelettoreServer->setEnabled(false);
+	prePartita->setEnabled(false);
+	BottomFrame->setEnabled(false);
+	BottomFrame->setEnabled(false);
+	Avviso->setEnabled(true);
+	AnimazioneAvviso->start();
+	QPropertyAnimation* animIn= new QPropertyAnimation(Avviso,"geometry",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::OutQuad);
+	animIn->setKeyValueAt(0.0,QRect(TopFrame->width()/2,TopFrame->height()/2,0,0));
+	animIn->setKeyValueAt(1.0,QRect((TopFrame->width()-Avviso->sizeHint().width())/2,(TopFrame->height()-Avviso->sizeHint().height())/2,Avviso->sizeHint().width(),Avviso->sizeHint().height()));
+	Avviso->show();
+	Avviso->raise();
+	animIn->start(QAbstractAnimation::DeleteWhenStopped);
+}
+void MainWindow::NascondiAvviso(){
+	mappa->setEnabled(true);
+	MainMenu->setEnabled(true);
+	Topmenu->setEnabled(true);
+	regolamento->setEnabled(true);
+	SelettoreServer->setEnabled(true);
+	prePartita->setEnabled(true);
+	BottomFrame->setEnabled(true);
+	if(AnimazioneAvviso->state()==QMovie::Running) AnimazioneAvviso->stop();
+	QPropertyAnimation* animIn= new QPropertyAnimation(Avviso,"geometry",TopFrame);
+	animIn->setDuration(DurataAnimazioniMenu);
+	animIn->setEasingCurve(QEasingCurve::InQuad);
+	animIn->setKeyValueAt(1.0,QRect(TopFrame->width()/2,TopFrame->height()/2,0,0));
+	animIn->setKeyValueAt(0.0,QRect((TopFrame->width()-Avviso->sizeHint().width())/2,(TopFrame->height()-Avviso->sizeHint().height())/2,Avviso->sizeHint().width(),Avviso->sizeHint().height()));
+	connect(animIn,SIGNAL(finished()),Avviso,SLOT(hide()));
+	animIn->start(QAbstractAnimation::DeleteWhenStopped);
 }
 void MainWindow::MostraPrePartita(){
 
@@ -386,12 +487,16 @@ void MainWindow::StartClient(const QString& HostIP){
 	if (ClientDiGioco) return;
 	ClientDiGioco=new ClientGioco(HostIP,Comunicazioni::DefaultTCPPort,this);
 	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(StopClient()),Qt::QueuedConnection);
-	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(MostraMainMenu())); //TODO Segnala che il server l'ha cacciato
+	connect(ClientDiGioco,SIGNAL(Disconnesso()),this,SLOT(MostraMainMenu()));
 	connect(prePartita,SIGNAL(SonoPronto()),ClientDiGioco,SLOT(SonoPronto()));
 	connect(prePartita,SIGNAL(NonSonoPronto()),ClientDiGioco,SLOT(NonSonoPronto()));
 	connect(prePartita,SIGNAL(InfoCambiate(QString,int)),ClientDiGioco,SLOT(CambiateMieInfo(QString,int)));
 	connect(prePartita,SIGNAL(Annullato()),this,SLOT(StopClient()));
 	connect(ClientDiGioco,SIGNAL(MyIDIs(int)),prePartita,SLOT(SetMyID(int)));
+	connect(ClientDiGioco,SIGNAL(MyIDIs(int)),this,SLOT(MostraPrePartita()));
+	connect(ClientDiGioco,SIGNAL(MyIDIs(int)),this,SLOT(NascondiAvviso()));
+	connect(ClientDiGioco,SIGNAL(Errore(QString)),this,SLOT(MostraAvviso(QString)));
+	connect(ClientDiGioco,SIGNAL(Errore(QString)),this,SLOT(StopClient()));
 	connect(ClientDiGioco,SIGNAL(NuovoGiocatore(int)),prePartita,SLOT(AggiuntoGiocatoreID(int)));
 	connect(ClientDiGioco,SIGNAL(GiocatoreDisconnesso(int)),prePartita,SLOT(RimossoGiocatore(int)));
 	connect(ClientDiGioco,SIGNAL(StartGame()),this,SLOT(StartMatch()));
@@ -449,7 +554,7 @@ void MainWindow::StartMatch(){
 	//TODO Add Code
 	MostraMappa();
 }
-void MainWindow::AggiornaChat(QString NuovoNome, int NuovoColore){
+void MainWindow::AggiornaChat(const QString& NuovoNome, int NuovoColore){
 	if (NuovoNome=="" || NuovoColore<0 || NuovoColore>Giocatori::Max_Giocatori) return;
 	chat->SetUserName(NuovoNome);
 	if (NuovoColore==Giocatori::Spectator) chat->SetUserColor(Giocatori::ColoreSpettatore);

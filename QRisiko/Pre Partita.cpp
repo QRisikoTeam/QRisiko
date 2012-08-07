@@ -297,5 +297,4 @@ void PrePartita::Azzera(){
 	NomiGiocatori.clear();
 	ColoriGiocatori.clear();
 	ContGiocatori=0;
-	this->disconnect();
 }

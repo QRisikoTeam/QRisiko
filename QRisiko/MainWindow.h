@@ -12,6 +12,7 @@
 #include "Gestore Servers.h"
 #include "Gioco Server.h"
 #include "Gioco Client.h"
+class QPushButton;
 
 class MainWindow : public QMainWindow{
 	Q_OBJECT
@@ -28,6 +29,11 @@ class MainWindow : public QMainWindow{
 		QTextEdit* Log;
 		QFrame* BottomFrame;
 		QFrame* TopFrame;
+		QFrame* Avviso;
+		QPushButton* ChiudiAvviso;
+		QLabel* IconaAvviso;
+		QMovie* AnimazioneAvviso;
+		QLabel* TestoAvviso;
 		QWidget* CurrWidget;
 		QWidget* PrevWidget;
 		SizPos PrevWidgetSizPos;
@@ -52,7 +58,10 @@ class MainWindow : public QMainWindow{
 		void StopServer();
 		void StopClient();
 		void StartMatch();
-		void AggiornaChat(QString NuovoNome, int NuovoColore);
+		void AggiornaChat(const QString& NuovoNome, int NuovoColore);
+		void MostraAvviso(const QString& Testo);
+		void MostraCaricamento(const QString& Testo);
+		void NascondiAvviso();
 	protected:
 		void closeEvent(QCloseEvent *event);
 		void resizeEvent(QResizeEvent *event);

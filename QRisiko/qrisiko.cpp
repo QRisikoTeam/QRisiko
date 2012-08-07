@@ -1,7 +1,6 @@
 #include "qrisiko.h"
 #include <QtGui>
 #include <cmath>
-#include <ctime>
 
 QRisiko::QRisiko(QWidget *parent)
 : QWidget(parent)
@@ -16,7 +15,7 @@ QRisiko::QRisiko(QWidget *parent)
 {
 	Popola_ID_Attaccabili();
 	MovieEsplosione=new QMovie(":/Generale/Explosion.gif",QByteArray(),this);
-	qsrand(time(NULL));
+	qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 	connect(MovieEsplosione,SIGNAL(frameChanged(int)),this,SLOT(DeleteExplosion(int)));
 	gestoreServer= new GestoreServers(this);
 	setObjectName(QString::fromUtf8("MappaDiGioco"));

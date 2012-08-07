@@ -12,6 +12,8 @@
         <file alias="Tank.png">Resources/Tank.png</file>
         <file alias="Divieto.png">Resources/Divieto.png</file>
         <file alias="QuestionMark.png">Resources/QuestionMark.png</file>
+        <file alias="BottoneErrore.png">Resources/BottoneErrore.png</file>
+        <file alias="Loading.gif">Resources/loading.gif</file>
     </qresource>
     <qresource prefix="/Stati">
         <file alias="europa settentrionale.png">Resources/europa settentrionale.png</file>

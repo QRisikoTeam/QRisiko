@@ -31,7 +31,9 @@ void  GiocoThread::stop(){
 	exit(0);
 }
 void GiocoThread::ForzaDisconnessione(){
-	if(socket) 
+	if(socket){ 
 		socket->disconnectFromHost();
+		socket->waitForDisconnected();
+	}
 	exit(0);
 }

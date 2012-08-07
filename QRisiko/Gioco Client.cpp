@@ -13,12 +13,29 @@ ClientGioco::ClientGioco(const QString& HIP,int por,QObject* parent)
 	connect(&Cliente,SIGNAL(connected()),this,SLOT(IWantToJoin()));
 	connect(&Cliente,SIGNAL(disconnected()),this,SIGNAL(Disconnesso()));
 	connect(&Cliente,SIGNAL(readyRead()),this,SLOT(IncomingTransmission()));
+	connect(&Cliente, SIGNAL(error(QAbstractSocket::SocketError)),this, SLOT(SendError(QAbstractSocket::SocketError)));
 }
 void ClientGioco::Connetti(){
 	Cliente.connectToHost(HostIP,Porta);
+	if(!Cliente.waitForConnected(3000)) SendError(QAbstractSocket::HostNotFoundError);
 }
 void ClientGioco::Disconnetti(){
 	Cliente.disconnectFromHost();
+}
+void ClientGioco::SendError(QAbstractSocket::SocketError errore){
+		switch (errore) {
+	 case QAbstractSocket::RemoteHostClosedError:
+		 emit Errore(tr("Il server ha chiuso la connessione"));
+		 break;
+	 case QAbstractSocket::HostNotFoundError:
+		 emit Errore(tr("Impossibile trovare il server specificato.<br>Controlla che l'IP fornito sia valido."));
+		 break;
+	 case QAbstractSocket::ConnectionRefusedError:
+		  emit Errore(tr("Connessione Rifiutata dal Server.<br>La partita potrebbe essere già piena"));
+		 break;
+	 default:
+		 emit Errore(Cliente.errorString());
+	}
 }
 void ClientGioco::IncomingTransmission(){
 	QDataStream incom(&Cliente);

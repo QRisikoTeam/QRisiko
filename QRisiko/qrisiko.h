@@ -47,7 +47,7 @@ class QRisiko : public QWidget
 
 		//Don't Say Egitto
 		QLabel* Esplosione;
-		QTimer* TimerEsplosione;
+		//QTimer* TimerEsplosione;
 		QMovie* MovieEsplosione;
 	protected:
 		void resizeEvent (QResizeEvent * event);
